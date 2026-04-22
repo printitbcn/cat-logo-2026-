@@ -46,6 +46,14 @@
             object-position: center center;
             background: #0a0a0a;
         }
+
+        /* Solo Led Dynamic: justificar textos de la ficha técnica */
+        #page-product .product-spec-sheet .sheet-value,
+        #page-product .product-spec-sheet p,
+        #page-product .product-spec-sheet li {
+            text-align: justify;
+            text-justify: inter-word;
+        }
     </style>
 </head>
 
@@ -235,14 +243,14 @@
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lluminaries"
                         data-img="assets/img/products/luminaria-p100.png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
-                        <span class="catalogue-item-name"><a href="#" onclick="event.stopPropagation(); showPage('product', event);">On - Off</a></span>
+                        <span class="catalogue-item-name"><a href="product-on-off.html">On - Off</a></span>
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lluminaries"
                         data-img="assets/img/products/luminaria-showroom-1.jpeg" data-label="Luminarias" onclick="selectCatalogueItem(this)">
                         <span class="catalogue-item-name"><a href="product-tunable-white.html">Tunable white</a></span>
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lluminaries"
-                        data-img="assets/img/products/luminaria-showroom-2.jpeg" data-label="Luminarias" onclick="selectCatalogueItem(this)">
+                        data-img="DALI : CASSAMBI /dali cassambi control .mp4" data-label="Luminarias" onclick="selectCatalogueItem(this)">
                         <span class="catalogue-item-name"><a href="product-dali-casambi.html">Dali / Casambi</a></span>
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lluminaries"
@@ -256,7 +264,7 @@
                     <div class="catalogue-item catalogue-item-detailed" data-category="lluminaries"
                         data-img="assets/img/products/luminaria-p100.png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
                         <details class="tech-details">
-                            <summary class="catalogue-item-name"><a href="#" onclick="event.stopPropagation(); showPage('product', event);">On - Off</a></summary>
+                            <summary class="catalogue-item-name"><a href="product-on-off.html">On - Off</a></summary>
                             <div class="tech-spec-line">
                                 <span class="tech-spec-label">
                                     <svg class="tech-icon tech-icon-light" viewBox="0 0 24 24" aria-hidden="true">
@@ -284,7 +292,7 @@
                         </details>
                     </div>
                     <div class="catalogue-item catalogue-item-detailed" data-category="lluminaries"
-                        data-img="assets/img/products/luminaria-showroom-2.jpeg" data-label="Luminarias" onclick="selectCatalogueItem(this)">
+                        data-img="DALI : CASSAMBI /dali cassambi control .mp4" data-label="Luminarias" onclick="selectCatalogueItem(this)">
                         <details class="tech-details">
                             <summary class="catalogue-item-name"><a href="product-dali-casambi.html">Dali / Casambi</a></summary>
                             <div class="tech-spec-line">
@@ -691,7 +699,7 @@
                 </nav>
 
                 <div class="product-top-actions animate-in">
-                    <a class="product-home-btn" href="#catalogue" onclick="goToCatalogueAll(event)">← VER TODOS LOS PRODUCTOS</a>
+                    <a class="product-home-btn" href="#catalogue" onclick="goToCatalogueAll(event)">← VOLVER A APLICACIONES</a>
                 </div>
 
                 <!-- Producto: Backlight Dinàmic P100 — placa modular (ficha PDF) -->
@@ -720,9 +728,9 @@
                         </div>
                         <div class="gallery-item">
                             <video class="gallery-video" autoplay muted loop playsinline controls preload="metadata"
-                                poster="assets/img/products/luminaria-p100.png"
+                                src="DYNAMIC WHITE /LIGHTBOX DYMNAMIC EXTRUSION.mov"
                                 aria-label="Led Dynamic — Lightbox extrusión">
-                                <source src="DYNAMIC WHITE /LIGHTBOX DYMNAMIC EXTRUSION.mov?v=20260422live" type="video/quicktime">
+                                <source src="DYNAMIC WHITE /LIGHTBOX DYMNAMIC EXTRUSION.mov" type="video/quicktime">
                                 Tu navegador no soporta vídeo HTML5.
                             </video>
                         </div>
@@ -813,9 +821,9 @@
                         </div>
                         <div class="gallery-item">
                             <video class="gallery-video" autoplay muted loop playsinline controls preload="metadata"
-                                poster="assets/img/products/luminaria-p100.png"
+                                src="DYNAMIC WHITE /LIGHTBOX DYMNAMIC EXTRUSION.mov"
                                 aria-label="Led Dynamic — Lightbox extrusión">
-                                <source src="DYNAMIC WHITE /LIGHTBOX DYMNAMIC EXTRUSION.mov?v=20260422live" type="video/quicktime">
+                                <source src="DYNAMIC WHITE /LIGHTBOX DYMNAMIC EXTRUSION.mov" type="video/quicktime">
                                 Tu navegador no soporta vídeo HTML5.
                             </video>
                         </div>
@@ -831,7 +839,7 @@
                     <div class="sheet-table">
                         <div class="sheet-row">
                             <div class="sheet-label">Estructura</div>
-                            <div class="sheet-value">Backlight <strong>Dinàmic P100</strong> — <strong>placa modular</strong>. Caja de <strong>madera</strong>, <strong>P100</strong> y <strong>P35</strong> en esquema. Personalizable en forma/medidas. Suspendido: embragues + cable de acero.</div>
+                            <div class="sheet-value">Backlight <strong>Dinàmic P100</strong> — <strong>placa modular</strong>. Caja de <strong>madera</strong>, <strong>P100</strong> y <strong>P35</strong> en esquema. Personalizable en forma/medidas.</div>
                         </div>
                         <div class="sheet-row">
                             <div class="sheet-label">Acabados</div>
@@ -919,7 +927,7 @@
                             alt="Vista técnica de sección — perfil seleccionado (Led Dynamic P100)">
                     </div>
 
-                    <h4 class="product-doc-h2"><span class="section-title-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 0 18h1a3 3 0 0 0 0-6h-1a2 2 0 0 1 0-4h1a4 4 0 0 0 0-8h-1z"></path><circle cx="7.5" cy="10" r="1"></circle><circle cx="10.5" cy="7.5" r="1"></circle><circle cx="14" cy="7.5" r="1"></circle></svg></span>Opciones de acabados</h4>
+                    <h4 class="product-doc-h2"><span class="section-title-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 0 18h1a3 3 0 0 0 0-6h-1a2 2 0 0 1 0-4h1a4 4 0 0 0 0-8h-1z"></path><circle cx="7.5" cy="10" r="1"></circle><circle cx="10.5" cy="7.5" r="1"></circle><circle cx="14" cy="7.5" r="1"></circle></svg></span>OPCIONES DE ACABADOS</h4>
                     <p class="product-doc-intro">Resumen visual alineado con la ficha: interior blanco obligatorio y laca exterior a color / RAL (ver <strong>General → Acabados</strong>).</p>
                     <div class="finish-swatches product-finish-swatches">
                         <div class="swatch">
@@ -939,9 +947,10 @@
                     <div class="product-video-wrap">
                         <div class="product-video-aspect">
                             <video class="product-feature-video" autoplay loop muted playsinline controls
+                                src="DYNAMIC WHITE /LIGHTBOX DYMNAMIC EXTRUSION.mov"
                                 preload="auto" poster="assets/img/products/luminaria-showroom-1.jpeg"
                                 aria-label="Led Dynamic — Lightbox extrusión">
-                                <source src="DYNAMIC WHITE /LIGHTBOX DYMNAMIC EXTRUSION.mov?v=20260422live" type="video/quicktime">
+                                <source src="DYNAMIC WHITE /LIGHTBOX DYMNAMIC EXTRUSION.mov" type="video/quicktime">
                                 Tu navegador no soporta vídeo HTML5.
                             </video>
                         </div>

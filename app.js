@@ -5,6 +5,7 @@ const HOME_CAROUSEL_IMAGE = 'Material Inicial/PORTADA-PRINT-IT.png';
 let carouselImages = [HOME_CAROUSEL_IMAGE];
 const CATALOGUE_SHOWCASE_IMAGE = 'assets/img/products/luminaria-showroom-1.jpeg';
 const PRODUCT_SHOWCASE_IMAGE = 'assets/img/products/luminaria-p100.png';
+const DALI_SHOWCASE_VIDEO = 'DALI : CASSAMBI /dali cassambi control .mp4';
 const CONTACT_SHOWCASE_IMAGE = 'assets/img/products/luminaria-showroom-2.jpeg';
 let currentImageIndex = 0;
 const FIXED_SHOWCASE_LABEL = 'MAKE AN IMPRESSION';
@@ -20,7 +21,7 @@ const PRINTIT_CATALOGUE_GALLERY_FIRST_PREVIEW = {
   'product-con-luz.html': 'assets/img/products/luminaria-showroom-1.jpeg',
   'product-cubos.html': 'assets/img/categories/cubos%20aereos%20.png',
   'product-custom.html': 'assets/img/products/luminaria-showroom-1.jpeg',
-  'product-dali-casambi.html': 'DALI : CASSAMBI /Dali Panel .jpg.webp',
+  'product-dali-casambi.html': 'DALI : CASSAMBI /dali cassambi control .mp4',
   'product-dynamic-white.html': 'assets/img/products/luminaria-showroom-1.jpeg',
   'product-forrado-columnas.html': 'assets/img/products/luminaria-showroom-1.jpeg',
   'product-forrado-paredes.html': 'assets/img/products/luminaria-showroom-1.jpeg',
@@ -40,6 +41,10 @@ const PRINTIT_CATALOGUE_GALLERY_FIRST_PREVIEW = {
 let showcaseLastCleanSrc = '';
 
 const ONOFF_CORRECTED_MOV_POSTER = 'ON-OFF/cover on off.png';
+const PROFILE_IMAGE_OVERRIDES = {
+  P30: 'PERFILERIA /P30.png',
+  P35: 'PERFILERIA /P35.png'
+};
 
 function updateShowcaseImage(src, label) {
   const labelEl = document.getElementById('selected-label');
@@ -231,7 +236,7 @@ function showPage(pageName, event) {
       renderCarouselDots(productSources.length);
       updateDots();
     } else {
-      updateShowcaseImage(PRODUCT_SHOWCASE_IMAGE, 'Luminaria ON / OFF');
+      updateShowcaseImage(getProductFallbackShowcase(), 'Luminaria ON / OFF');
       renderCarouselDots(1);
     }
     applyProductContextFromPage();
@@ -254,6 +259,12 @@ function showPage(pageName, event) {
       el.style.animation = '';
     });
   }, 10);
+}
+
+function getProductFallbackShowcase() {
+  const page = (window.location.pathname || '').split('/').pop() || '';
+  if (page === 'product-dali-casambi.html') return DALI_SHOWCASE_VIDEO;
+  return PRODUCT_SHOWCASE_IMAGE;
 }
 
 function getProductGallerySources() {
@@ -520,7 +531,9 @@ function selectVariant(profile, _el) {
 
   const schematicImg = document.getElementById('schematic-main-image');
   if (schematicImg) {
-    schematicImg.src = `Material Inicial/OPCIONES-DE-PERFILERIA/${profile}.png`;
+    schematicImg.src =
+      PROFILE_IMAGE_OVERRIDES[profile] ||
+      `Material Inicial/OPCIONES-DE-PERFILERIA/${profile}.png`;
     schematicImg.alt = `Vista técnica — ${profile}`;
   }
 }

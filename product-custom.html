@@ -215,14 +215,14 @@
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lluminaries"
                         data-img="assets/img/products/luminaria-p100.png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
-                        <span class="catalogue-item-name"><a href="#" onclick="event.stopPropagation(); showPage('product', event);">On - Off</a></span>
+                        <span class="catalogue-item-name"><a href="product-on-off.html">On - Off</a></span>
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lluminaries"
                         data-img="assets/img/products/luminaria-showroom-1.jpeg" data-label="Luminarias" onclick="selectCatalogueItem(this)">
                         <span class="catalogue-item-name"><a href="product-tunable-white.html">Tunable white</a></span>
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lluminaries"
-                        data-img="assets/img/products/luminaria-showroom-2.jpeg" data-label="Luminarias" onclick="selectCatalogueItem(this)">
+                        data-img="DALI : CASSAMBI /dali cassambi control .mp4" data-label="Luminarias" onclick="selectCatalogueItem(this)">
                         <span class="catalogue-item-name"><a href="product-dali-casambi.html">Dali / Casambi</a></span>
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lluminaries"
@@ -236,7 +236,7 @@
                     <div class="catalogue-item catalogue-item-detailed" data-category="lluminaries"
                         data-img="assets/img/products/luminaria-p100.png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
                         <details class="tech-details">
-                            <summary class="catalogue-item-name"><a href="#" onclick="event.stopPropagation(); showPage('product', event);">On - Off</a></summary>
+                            <summary class="catalogue-item-name"><a href="product-on-off.html">On - Off</a></summary>
                             <div class="tech-spec-line">
                                 <span class="tech-spec-label">
                                     <svg class="tech-icon tech-icon-light" viewBox="0 0 24 24" aria-hidden="true">
@@ -264,7 +264,7 @@
                         </details>
                     </div>
                     <div class="catalogue-item catalogue-item-detailed" data-category="lluminaries"
-                        data-img="assets/img/products/luminaria-showroom-2.jpeg" data-label="Luminarias" onclick="selectCatalogueItem(this)">
+                        data-img="DALI : CASSAMBI /dali cassambi control .mp4" data-label="Luminarias" onclick="selectCatalogueItem(this)">
                         <details class="tech-details">
                             <summary class="catalogue-item-name"><a href="product-dali-casambi.html">Dali / Casambi</a></summary>
                             <div class="tech-spec-line">
@@ -670,6 +670,10 @@
                     </div>
                 </nav>
 
+                <div class="product-top-actions animate-in">
+                    <a class="product-home-btn product-home-btn--custom" href="#catalogue" onclick="goToCatalogueAll(event)">← VOLVER A APLICACIONES</a>
+                </div>
+
                 <header class="custom-made-hero animate-in" aria-labelledby="custom-made-title">
                     <p class="custom-made-eyebrow">Luminarias · Custom</p>
                     <h1 class="custom-made-title" id="custom-made-title">CUSTOM</h1>
@@ -726,10 +730,11 @@
 
                 <section class="custom-made-showreel animate-in" aria-label="Vídeo y destacados">
                     <div class="custom-made-video-box">
-                        <video class="custom-made-feature-video" controls muted playsinline loop preload="metadata"
+                        <video class="custom-made-feature-video" autoplay controls muted playsinline loop preload="auto"
+                            src="LUMINARIAS CUSTOM /special custom.mov"
                             poster="assets/img/products/luminaria-showroom-1.jpeg"
                             aria-label="Showreel — Luminarias Custom, special custom">
-                            <source src="LUMINARIAS CUSTOM/special custom.mov" type="video/quicktime">
+                            <source src="LUMINARIAS CUSTOM /special custom.mov" type="video/quicktime">
                             Tu navegador no soporta vídeo HTML5.
                         </video>
                     </div>
@@ -752,10 +757,6 @@
                         </article>
                     </div>
                 </section>
-
-                <div class="product-top-actions animate-in">
-                    <a class="product-home-btn" href="#catalogue" onclick="goToCatalogueAll(event)">← VER TODOS LOS PRODUCTOS</a>
-                </div>
 
                 <div class="product-cta-row animate-in">
                     <a class="product-cta-btn product-cta-btn--primary"

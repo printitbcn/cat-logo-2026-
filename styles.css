@@ -1023,13 +1023,13 @@ a.filter-pill {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 16px;
+    padding: 8px 13px;
     border-radius: 999px;
     border: 1px solid rgba(0, 180, 216, 0.45);
     background: linear-gradient(135deg, rgba(0, 180, 216, 0.2) 0%, rgba(0, 180, 216, 0.08) 100%);
     color: #ffffff;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 600;
     letter-spacing: 0.04em;
     box-shadow: 0 6px 20px rgba(0, 180, 216, 0.2);
@@ -1043,6 +1043,9 @@ a.filter-pill {
     transform: translateY(-1px);
     box-shadow: 0 10px 24px rgba(0, 180, 216, 0.28);
 }
+
+/* Custom page class kept for markup compatibility */
+.product-home-btn--custom {}
 
 /* ===== CATALOGUE SECTION HEADERS ===== */
 .catalogue-section-header {
@@ -2033,16 +2036,16 @@ body.page-layout-custom-solo .app:has(#page-product.active) #page-product .foote
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 22px;
+    padding: 10px 19px;
     border-radius: 100px;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
     transition: var(--transition);
     border: 1px solid transparent;
     text-decoration: none;
     color: inherit;
-    flex: 1 1 200px;
-    min-width: min(100%, 200px);
+    flex: 1 1 170px;
+    min-width: min(100%, 170px);
 }
 
 .product-cta-btn--primary {
