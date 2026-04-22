@@ -33,12 +33,6 @@
         <!-- ===== LEFT PANEL — Main Image Showcase ===== -->
         <div class="panel-left">
             <div class="image-showcase" id="image-showcase">
-                <video id="showcase-img" class="gallery-video" autoplay muted loop playsinline preload="auto"
-                    poster="assets/img/products/luminaria-showroom-1.jpeg"
-                    aria-label="Rígidos hotel — referencia vídeo Print It">
-                    <source src="RI%CC%81GIDOS%20/Ri%CC%81gidos%20hotel.mp4" type="video/mp4">
-                    Tu navegador no soporta vídeo HTML5.
-                </video>
 
                 <!-- Carousel Controls -->
                 <div class="carousel-controls">
@@ -58,8 +52,8 @@
 
                 <!-- Dots -->
                 <div class="carousel-dots" id="carousel-dots">
-                    <button class="carousel-dot active" onclick="goToImage(0)"></button>
-                    <button class="carousel-dot" onclick="goToImage(1)"></button>
+                    <button type="button" class="carousel-dot active" onclick="goToImage(0)" aria-label="Vista 1"></button>
+                    <button type="button" class="carousel-dot" onclick="goToImage(1)" aria-label="Vista 2"></button>
                 </div>
 
                 <!-- View Project -->
@@ -148,8 +142,8 @@
                             <span class="mini-card-label">Lightbox</span>
                         </div>
                         <div class="mini-card"
-                            onclick="openCatalogueCategory('totems', 'assets/img/categories/totems.png', 'Tótems / Muros / Photocalls', event)">
-                            <img src="assets/img/categories/totems.png" alt="Tótems / Muros / Photocalls">
+                            onclick="openCatalogueCategory('totems', 'Material Inicial/TÓTEM -CORTINA LED.png', 'Tótems / Muros / Photocalls', event)">
+                            <img src="Material Inicial/TÓTEM -CORTINA LED.png" alt="Tótems / Muros / Photocalls">
                             <span class="mini-card-label">Tótems / Muros / Photocalls</span>
                         </div>
                         <div class="mini-card"
@@ -163,8 +157,8 @@
                             <span class="mini-card-label">Viste tu espacio</span>
                         </div>
                         <div class="mini-card"
-                            onclick="openCatalogueCategory('rigids', 'assets/img/products/luminaria-p100.png', 'Rígidos', event)">
-                            <img src="assets/img/products/luminaria-p100.png" alt="Rígidos">
+                            onclick="openCatalogueCategory('rigids', 'RI%CC%81GIDOS%20/ri%CC%81gidos%202.png', 'Rígidos', event)">
+                            <img src="RI%CC%81GIDOS%20/ri%CC%81gidos%202.png" alt="Rígidos">
                             <span class="mini-card-label">Rígidos</span>
                         </div>
                     </div>
@@ -634,11 +628,11 @@
                             <p class="catalogue-item-cluster-lead">Ficha única del catálogo: UVI, barnices gloss/semi mate y relieves CMYK o Braille sobre rígido. Producción y oficina técnica Print It — <a href="https://printitbcn.com" target="_blank" rel="noopener noreferrer">printitbcn.com</a>.</p>
                             <p class="catalogue-item-cluster-sub">Aplicaciones incluidas en esta familia</p>
                             <ul class="catalogue-item-cluster-list catalogue-item-cluster-list--plain">
-                                <li>Impresión UVI HQ</li>
-                                <li>Barniz Drop Gloss</li>
-                                <li>Barniz semi mate</li>
-                                <li>Relieve CMYK</li>
-                                <li>Relieve Braille</li>
+                                <li><a href="product-impresion-uvi.html">Impresión UVI HQ</a></li>
+                                <li><a href="product-barniz-drop-gloss.html">Barniz Drop Gloss</a></li>
+                                <li><a href="product-barniz-semi-mate.html">Barniz semi mate</a></li>
+                                <li><a href="product-relieve-cmyk.html">Relieve CMYK</a></li>
+                                <li><a href="product-relieve-braille.html">Relieve Braille</a></li>
                             </ul>
                         </details>
                     </div>
@@ -683,15 +677,22 @@
                         <p class="product-struct-lead">Impresión UVI, barnices y relieves sobre soporte rígido</p>
 
                         <div class="product-gallery">
-                            <div class="gallery-item">
-                                <img src="assets/img/products/luminaria-showroom-1.jpeg" alt="Gran formato e interiorismo — aplicación rígida">
-                            </div>
-                            <div class="gallery-item">
-                                <img src="assets/img/categories/lightbox.png" alt="Acabados y volumen en punto de venta">
-                            </div>
-                            <div class="gallery-item">
-                                <img src="assets/img/products/luminaria-p100.png" alt="Detalle técnico — soporte y gráfica rígida">
-                            </div>
+<div class="gallery-item">
+                            <video class="gallery-video" autoplay muted loop playsinline controls
+                                poster="assets/img/products/luminaria-showroom-1.jpeg"
+                                aria-label="Rígidos hotel — aplicación visual rígida">
+                                <source src="RI%CC%81GIDOS%20/Ri%CC%81gidos%20hotel.mp4" type="video/mp4">
+                                Tu navegador no soporta vídeo HTML5.
+                            </video>
+                        </div>
+                        <div class="gallery-item">
+                            <video class="gallery-video" autoplay muted loop playsinline controls
+                                poster="assets/img/categories/lightbox.png"
+                                aria-label="Rígidos — vídeo general">
+                                <source src="RI%CC%81GIDOS%20/ri%CC%81gidos%20.mp4" type="video/mp4">
+                                Tu navegador no soporta vídeo HTML5.
+                            </video>
+                        </div>
                         </div>
 
                         <div class="product-desc-block">
@@ -790,7 +791,7 @@
                             <span class="rigidos-tech-tile-icon" aria-hidden="true">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
                             </span>
-                            <span class="rigidos-tech-tile-title">UVI HQ</span>
+                            <span class="rigidos-tech-tile-title"><a href="product-impresion-uvi.html">UVI HQ</a></span>
                             <span class="rigidos-tech-tile-desc">Definición y color estable sobre rígido.</span>
                         </div>
                         <div class="rigidos-tech-tile" role="listitem">
@@ -798,14 +799,14 @@
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 3v3M5.6 5.6l2.1 2.1M3 12h3M5.6 18.4l2.1-2.1M12 21v-3M18.4 18.4l-2.1-2.1M21 12h-3M18.4 5.6l-2.1 2.1"/><circle cx="12" cy="12" r="4"/></svg>
                             </span>
                             <span class="rigidos-tech-tile-title">Barniz</span>
-                            <span class="rigidos-tech-tile-desc">Drop Gloss focal o semi mate para tacto y lectura.</span>
+                            <span class="rigidos-tech-tile-desc"><a href="product-barniz-drop-gloss.html">Drop Gloss</a> focal o <a href="product-barniz-semi-mate.html">semi mate</a> para tacto y lectura.</span>
                         </div>
                         <div class="rigidos-tech-tile" role="listitem">
                             <span class="rigidos-tech-tile-icon" aria-hidden="true">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 20h16M6 16l3-8 4 6 3-10 2 12"/></svg>
                             </span>
                             <span class="rigidos-tech-tile-title">Relieve</span>
-                            <span class="rigidos-tech-tile-desc">CMYK volumétrico y Braille en la misma pieza.</span>
+                            <span class="rigidos-tech-tile-desc"><a href="product-relieve-cmyk.html">CMYK volumétrico</a> y <a href="product-relieve-braille.html">Braille</a> en la misma pieza.</span>
                         </div>
                     </div>
 
@@ -864,7 +865,7 @@
                                 <span class="rigidos-cap-card-icon" aria-hidden="true">
                                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01"/></svg>
                                 </span>
-                                <h5 class="rigidos-cap-card-title">Impresión UVI HQ</h5>
+                                <h5 class="rigidos-cap-card-title"><a href="product-impresion-uvi.html">Impresión UVI HQ</a></h5>
                             </div>
                             <p class="rigidos-cap-card-desc">Máxima definición; fotorrealismo y color corporativo estable.</p>
                         </article>
@@ -875,7 +876,7 @@
                                 </span>
                                 <h5 class="rigidos-cap-card-title">Barniz selectivo</h5>
                             </div>
-                            <p class="rigidos-cap-card-desc"><strong>Drop Gloss</strong> en focos de brillo; <strong>semi mate</strong> para lectura bajo luz dura.</p>
+                            <p class="rigidos-cap-card-desc"><strong><a href="product-barniz-drop-gloss.html">Drop Gloss</a></strong> en focos de brillo; <strong><a href="product-barniz-semi-mate.html">semi mate</a></strong> para lectura bajo luz dura.</p>
                         </article>
                         <article class="rigidos-cap-card" role="listitem">
                             <div class="rigidos-cap-card-head">
@@ -884,7 +885,7 @@
                                 </span>
                                 <h5 class="rigidos-cap-card-title">Relieve y accesibilidad</h5>
                             </div>
-                            <p class="rigidos-cap-card-desc"><strong>Relieve CMYK</strong> para volumen; <strong>Braille</strong> integrado en la misma pieza.</p>
+                            <p class="rigidos-cap-card-desc"><strong><a href="product-relieve-cmyk.html">Relieve CMYK</a></strong> para volumen; <strong><a href="product-relieve-braille.html">Braille</a></strong> integrado en la misma pieza.</p>
                         </article>
                     </div>
 

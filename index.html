@@ -28,9 +28,25 @@
         <!-- ===== LEFT PANEL — Main Image Showcase ===== -->
         <div class="panel-left">
             <div class="image-showcase" id="image-showcase">
-                <img src="Material Inicial/PORTADA-PRINT-IT.png"
-                    alt="Luminaria showroom — vista previa" id="showcase-img" loading="eager"
-                    fetchpriority="high" decoding="async">
+
+                <!-- Carousel (catálogo: una vista por producto) -->
+                <div class="carousel-controls">
+                    <button type="button" class="carousel-btn" id="prev-btn" onclick="prevImage()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
+                    </button>
+                    <button type="button" class="carousel-btn" id="next-btn" onclick="nextImage()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="carousel-dots" id="carousel-dots">
+                    <button type="button" class="carousel-dot active" onclick="goToImage(0)" aria-label="Vista 1"></button>
+                </div>
 
                 <!-- View Project -->
                 <a href="#catalogue" class="view-project-btn" id="view-project-btn" onclick="goToCatalogueAll(event)">
@@ -129,8 +145,8 @@
                             <span class="mini-card-label">Viste tu espacio</span>
                         </div>
                         <div class="mini-card"
-                            onclick="openCatalogueCategory('rigids', 'assets/img/products/luminaria-p100.png', 'Rígidos', event)">
-                            <img src="assets/img/products/luminaria-p100.png" alt="Rígidos">
+                            onclick="openCatalogueCategory('rigids', 'RI%CC%81GIDOS%20/ri%CC%81gidos%202.png', 'Rígidos', event)">
+                            <img src="RI%CC%81GIDOS%20/ri%CC%81gidos%202.png" alt="Rígidos">
                             <span class="mini-card-label">Rígidos</span>
                         </div>
                     </div>
@@ -600,11 +616,11 @@
                             <p class="catalogue-item-cluster-lead">Ficha única del catálogo: UVI, barnices gloss/semi mate y relieves CMYK o Braille sobre rígido. Producción y oficina técnica Print It — <a href="https://printitbcn.com" target="_blank" rel="noopener noreferrer">printitbcn.com</a>.</p>
                             <p class="catalogue-item-cluster-sub">Aplicaciones incluidas en esta familia</p>
                             <ul class="catalogue-item-cluster-list catalogue-item-cluster-list--plain">
-                                <li>Impresión UVI HQ</li>
-                                <li>Barniz Drop Gloss</li>
-                                <li>Barniz semi mate</li>
-                                <li>Relieve CMYK</li>
-                                <li>Relieve Braille</li>
+                                <li><a href="product-impresion-uvi.html">Impresión UVI HQ</a></li>
+                                <li><a href="product-barniz-drop-gloss.html">Barniz Drop Gloss</a></li>
+                                <li><a href="product-barniz-semi-mate.html">Barniz semi mate</a></li>
+                                <li><a href="product-relieve-cmyk.html">Relieve CMYK</a></li>
+                                <li><a href="product-relieve-braille.html">Relieve Braille</a></li>
                             </ul>
                         </details>
                     </div>
@@ -651,15 +667,23 @@
 
                         <div class="product-gallery">
                             <div class="gallery-item">
-                                <img src="assets/img/products/luminaria-showroom-1.jpeg" alt="Luminaria — instalación 1">
-                            </div>
-                            <div class="gallery-item">
-                                <img src="assets/img/products/luminaria-showroom-2.jpeg" alt="Luminaria — instalación 2">
-                            </div>
-                            <div class="gallery-item">
                                 <video class="gallery-video" autoplay muted loop playsinline controls
-                                    poster="assets/img/products/luminaria-p100.png">
-                                    <source src="Material Inicial/vid1.mp4" type="video/mp4">
+                                    poster="assets/img/products/luminaria-showroom-1.jpeg">
+                                    <source src="Material Inicial/ON OFF ACTION .mp4" type="video/mp4">
+                                    Tu navegador no soporta vídeo HTML5.
+                                </video>
+                            </div>
+                            <div class="gallery-item gallery-item--video-fit">
+                                <video class="gallery-video soft-loop-video onoff-gallery-video--fit-center onoff-gallery-video--4k-poster" data-soft-loops="2" autoplay muted playsinline controls preload="metadata"
+                                    poster="ON-OFF/cover on off.png">
+                                    <source src="ON-OFF/ON OFF CORRECTED.mov" type="video/quicktime">
+                                    Tu navegador no soporta vídeo HTML5.
+                                </video>
+                            </div>
+                            <div class="gallery-item">
+                                <video class="gallery-video onoff-gallery-video--center" autoplay muted loop playsinline controls
+                                    poster="assets/img/products/luminaria-showroom-2.jpeg">
+                                    <source src="Material Inicial/desmiembre.mp4" type="video/mp4">
                                     Tu navegador no soporta vídeo HTML5.
                                 </video>
                             </div>
@@ -721,8 +745,7 @@
                     <div class="sheet-media-gallery-header">
                         <span class="sheet-media-gallery-label">Galería</span>
                         <a class="sheet-download-cta"
-                            href="TUNABLE WHITE /FICHA TÉCNICA TWS18 - CIRCULAR PRINT IT.pdf"
-                            download="FICHA TÉCNICA TWS18 - CIRCULAR PRINT IT.pdf"
+                            href="Material Inicial/PRINTIT Backlite ON-OFF P100+Fronts_ESP.pdf" download
                             target="_blank" rel="noopener noreferrer">
                             Descargar ficha técnica
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -733,15 +756,23 @@
                     </div>
                     <div class="product-gallery">
                         <div class="gallery-item">
-                            <img src="assets/img/products/luminaria-showroom-1.jpeg" alt="Instalación luminaria — vista 1">
-                        </div>
-                        <div class="gallery-item">
-                            <img src="assets/img/products/luminaria-p100.png" alt="Detalle perfil P100">
-                        </div>
-                        <div class="gallery-item">
                             <video class="gallery-video" autoplay muted loop playsinline controls
+                                poster="assets/img/products/luminaria-showroom-1.jpeg">
+                                <source src="Material Inicial/ON OFF ACTION .mp4" type="video/mp4">
+                                Tu navegador no soporta vídeo HTML5.
+                            </video>
+                        </div>
+                        <div class="gallery-item gallery-item--video-fit">
+                            <video class="gallery-video soft-loop-video onoff-gallery-video--fit-center onoff-gallery-video--4k-poster" data-soft-loops="2" autoplay muted playsinline controls preload="metadata"
+                                poster="ON-OFF/cover on off.png">
+                                <source src="ON-OFF/ON OFF CORRECTED.mov" type="video/quicktime">
+                                Tu navegador no soporta vídeo HTML5.
+                            </video>
+                        </div>
+                        <div class="gallery-item">
+                            <video class="gallery-video onoff-gallery-video--center" autoplay muted loop playsinline controls
                                 poster="assets/img/products/luminaria-showroom-2.jpeg">
-                                <source src="Material Inicial/vid1.mp4" type="video/mp4">
+                                <source src="Material Inicial/desmiembre.mp4" type="video/mp4">
                                 Tu navegador no soporta vídeo HTML5.
                             </video>
                         </div>
@@ -1098,7 +1129,7 @@
         <div id="printit-log-drawer" class="printit-log-drawer" hidden>
             <div class="printit-log-head">
                 <h3 class="printit-log-title">Registro de conexión y errores</h3>
-                <p class="printit-log-hint">Si ves «connection failed», comprueba que abres el sitio con <code>http://localhost:…</code> (servidor local activo), no como archivo <code>file://</code>. El navegador integrado a veces no alcanza <code>localhost</code>.</p>
+                <p class="printit-log-hint">Si ves «connection failed», comprueba que abres el sitio con <code>http://localhost:…</code> (servidor local activo), no como archivo <code>file://</code>. El navegador integrado a veces no alcanza <code>localhost</code>. Usa <strong>Exportar .log</strong> para descargar ERROR/WARN y guardar o fusionar en <code>LOGS/errors.log</code>.</p>
             </div>
             <pre id="printit-log-output" class="printit-log-output" role="log" aria-live="polite"></pre>
             <div class="printit-log-actions">

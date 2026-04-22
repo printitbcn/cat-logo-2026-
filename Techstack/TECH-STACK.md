@@ -13,7 +13,7 @@ Para una guía orientada a **contenido, catálogo y flujo de usuario**, conviene l
 | **Paradigma** | Sitio **estático**: HTML + CSS + **JavaScript sin framework** |
 | **Build** | **No** hay `package.json`, bundler (Vite/Webpack) ni transpilación |
 | **Runtime** | Navegador moderno (ES5+ razonable; APIs DOM estándar) |
-| **Servidor** | Cualquier servidor de **archivos estáticos** (p. ej. `python3 -m http.server`) |
+| **Servidor** | Cualquier servidor de **archivos estáticos** (p. ej. `python3 -m http.server`). Para **LAN**: `.env.example` ? `.env`, `./scripts/serve-lan.sh` o tarea **Serve catalog on LAN** en VS Code/Cursor |
 | **Dependencias npm** | **Ninguna** en tiempo de ejecución del catálogo |
 
 La “aplicación” es un **patrón tipo SPA ligero**: varias vistas en un mismo HTML (`index.html`) o en páginas `product-*.html` que repiten el mismo layout y cargan el mismo `app.js`.

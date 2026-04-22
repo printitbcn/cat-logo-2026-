@@ -36,10 +36,6 @@
         <!-- ===== LEFT PANEL — Main Image Showcase ===== -->
         <div class="panel-left">
             <div class="image-showcase" id="image-showcase">
-                <video id="showcase-img" class="soft-loop-video" data-soft-loops="2" autoplay muted playsinline preload="auto" aria-label="Luminaria ON OFF placements" poster="on off- cursor .png">
-                    <source src="Material Inicial/ON OFF PLACEMENTS .mov" type="video/quicktime">
-                    Tu navegador no soporta vídeo HTML5.
-                </video>
 
                 <!-- Carousel Controls -->
                 <div class="carousel-controls">
@@ -59,9 +55,9 @@
 
                 <!-- Dots -->
                 <div class="carousel-dots" id="carousel-dots">
-                    <button class="carousel-dot active" onclick="goToImage(0)"></button>
-                    <button class="carousel-dot" onclick="goToImage(1)"></button>
-                    <button class="carousel-dot" onclick="goToImage(2)"></button>
+                    <button type="button" class="carousel-dot active" onclick="goToImage(0)" aria-label="Vista 1"></button>
+                    <button type="button" class="carousel-dot" onclick="goToImage(1)" aria-label="Vista 2"></button>
+                    <button type="button" class="carousel-dot" onclick="goToImage(2)" aria-label="Vista 3"></button>
                 </div>
 
                 <!-- View Project -->
@@ -150,8 +146,8 @@
                             <span class="mini-card-label">Lightbox</span>
                         </div>
                         <div class="mini-card"
-                            onclick="openCatalogueCategory('totems', 'assets/img/categories/totems.png', 'Tótems / Muros / Photocalls', event)">
-                            <img src="assets/img/categories/totems.png" alt="Tótems / Muros / Photocalls">
+                            onclick="openCatalogueCategory('totems', 'Material Inicial/TÓTEM -CORTINA LED.png', 'Tótems / Muros / Photocalls', event)">
+                            <img src="Material Inicial/TÓTEM -CORTINA LED.png" alt="Tótems / Muros / Photocalls">
                             <span class="mini-card-label">Tótems / Muros / Photocalls</span>
                         </div>
                         <div class="mini-card"
@@ -165,8 +161,8 @@
                             <span class="mini-card-label">Viste tu espacio</span>
                         </div>
                         <div class="mini-card"
-                            onclick="openCatalogueCategory('rigids', 'assets/img/products/luminaria-p100.png', 'Rígidos', event)">
-                            <img src="assets/img/products/luminaria-p100.png" alt="Rígidos">
+                            onclick="openCatalogueCategory('rigids', 'RI%CC%81GIDOS%20/ri%CC%81gidos%202.png', 'Rígidos', event)">
+                            <img src="RI%CC%81GIDOS%20/ri%CC%81gidos%202.png" alt="Rígidos">
                             <span class="mini-card-label">Rígidos</span>
                         </div>
                     </div>
@@ -636,11 +632,11 @@
                             <p class="catalogue-item-cluster-lead">Ficha única del catálogo: UVI, barnices gloss/semi mate y relieves CMYK o Braille sobre rígido. Producción y oficina técnica Print It — <a href="https://printitbcn.com" target="_blank" rel="noopener noreferrer">printitbcn.com</a>.</p>
                             <p class="catalogue-item-cluster-sub">Aplicaciones incluidas en esta familia</p>
                             <ul class="catalogue-item-cluster-list catalogue-item-cluster-list--plain">
-                                <li>Impresión UVI HQ</li>
-                                <li>Barniz Drop Gloss</li>
-                                <li>Barniz semi mate</li>
-                                <li>Relieve CMYK</li>
-                                <li>Relieve Braille</li>
+                                <li><a href="product-impresion-uvi.html">Impresión UVI HQ</a></li>
+                                <li><a href="product-barniz-drop-gloss.html">Barniz Drop Gloss</a></li>
+                                <li><a href="product-barniz-semi-mate.html">Barniz semi mate</a></li>
+                                <li><a href="product-relieve-cmyk.html">Relieve CMYK</a></li>
+                                <li><a href="product-relieve-braille.html">Relieve Braille</a></li>
                             </ul>
                         </details>
                     </div>
@@ -686,19 +682,27 @@
                         <p class="product-struct-lead">ON / OFF</p>
 
                         <div class="product-gallery">
-                            <div class="gallery-item">
-                                <img src="assets/img/products/luminaria-showroom-1.jpeg" alt="Luminaria — instalación 1">
-                            </div>
-                            <div class="gallery-item">
-                                <img src="assets/img/products/luminaria-showroom-2.jpeg" alt="Luminaria — instalación 2">
-                            </div>
-                            <div class="gallery-item">
-                                <video class="gallery-video" autoplay muted loop playsinline controls
-                                    poster="assets/img/products/luminaria-p100.png">
-                                    <source src="Material Inicial/desmiembre.mp4" type="video/mp4">
-                                    Tu navegador no soporta vídeo HTML5.
-                                </video>
-                            </div>
+<div class="gallery-item">
+                            <video class="gallery-video" autoplay muted loop playsinline controls
+                                poster="assets/img/products/luminaria-showroom-1.jpeg">
+                                <source src="Material Inicial/ON OFF ACTION .mp4" type="video/mp4">
+                                Tu navegador no soporta vídeo HTML5.
+                            </video>
+                        </div>
+                        <div class="gallery-item gallery-item--video-fit">
+                            <video class="gallery-video soft-loop-video onoff-gallery-video--fit-center onoff-gallery-video--4k-poster" data-soft-loops="2" autoplay muted playsinline controls preload="metadata"
+                                poster="ON-OFF/cover on off.png">
+                                <source src="ON-OFF/ON OFF CORRECTED.mov" type="video/quicktime">
+                                Tu navegador no soporta vídeo HTML5.
+                            </video>
+                        </div>
+                        <div class="gallery-item">
+                            <video class="gallery-video onoff-gallery-video--center" autoplay muted loop playsinline controls
+                                poster="assets/img/products/luminaria-showroom-2.jpeg">
+                                <source src="Material Inicial/desmiembre.mp4" type="video/mp4">
+                                Tu navegador no soporta vídeo HTML5.
+                            </video>
+                        </div>
                         </div>
 
                         <div class="product-desc-block">

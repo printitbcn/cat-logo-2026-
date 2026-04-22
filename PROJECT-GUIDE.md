@@ -147,6 +147,31 @@ python3 -m http.server 5500 --bind 127.0.0.1
 
 Abrir: **http://127.0.0.1:5500/** o **http://localhost:5500/**
 
+### 9.1b Red local (LAN) con variables de entorno
+
+Para servir el sitio estático en una IP accesible desde otros equipos del mismo Wi‑Fi:
+
+1. Copia el ejemplo de entorno y edítalo si quieres otro puerto:
+   ```bash
+   cp .env.example .env
+   ```
+2. Variables (en `.env`): `PRINTIT_SERVE_HOST` (por defecto `0.0.0.0` = todas las interfaces) y `PRINTIT_SERVE_PORT` (por defecto `8080`).
+3. Arranca el servidor:
+   ```bash
+   ./scripts/serve-lan.sh
+   ```
+   El script imprime la URL **LAN** sugerida (p. ej. `http://192.168.x.x:8080/`) y deja corriendo `python3 -m http.server`.
+
+En **Cursor / VS Code**: paleta de comandos → **Tasks: Run Task** → **Serve catalog on LAN**.
+
+Si **otro dispositivo no carga** la URL:
+
+- Debe estar en el **mismo Wi‑Fi** que el Mac (no datos móviles). La red **Invitados** a veces tiene **aislamiento de clientes** (AP isolation): impide que dos equipos se hablen; usa la red principal.
+- URL con **`http://`**, no `https://`.
+- **VPN** desactivada en el Mac o en el otro equipo.
+- Comprueba que en `.env` no tengas `PRINTIT_SERVE_HOST=127.0.0.1` si quieres acceso LAN (debe ser `0.0.0.0` o ausente).
+- El script imprime **varias IPs** si hay varias interfaces; prueba cada `http://IP:puerto/` mostrada.
+
 ### 9.2 ERR_EMPTY_RESPONSE / “Empty reply from server”
 
 Suele indicar un proceso **escuchando en el puerto pero que no responde HTTP** (proceso colgado o incorrecto). Solución: cerrar ese proceso y volver a lanzar `http.server` como arriba.

@@ -1,6 +1,7 @@
 .DS_Store
 Thumbs.db
 *.log
+!/LOGS/errors.log
 .env
 .env.*
 !.env.example
