@@ -1,0 +1,12 @@
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.*
+!.env.example
+
+# Editor / IDE (opcional: quita la linea si quieres versionar .vscode)
+.idea/
+
+# Herramientas locales de Cursor
+.cursor-tools/
