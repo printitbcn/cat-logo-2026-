@@ -1,7 +1,12 @@
-# Publishes the static site to branch `gh-pages` (no prior "GitHub Actions" Pages setup required).
-# After the first green run: Repo ? Settings ? Pages ? Build: Deploy from branch ? gh-pages ? / (root).
+# Publishes the static site to branch `gh-pages` (no configure-pages / no GitHub Actions Pages API).
+#
+# If the "Publish to gh-pages branch" step fails with permission denied:
+#   Repo ? Settings ? Actions ? General ? Workflow permissions ?
+#   enable "Read and write permissions" (required for GITHUB_TOKEN to push gh-pages).
+#
+# After a green run: Settings ? Pages ? Deploy from branch ? gh-pages ? / (root).
 
-name: Deploy to GitHub Pages
+name: Publish catalog (gh-pages)
 
 on:
   push:
@@ -16,7 +21,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  publish:
+    name: Push site to gh-pages
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
