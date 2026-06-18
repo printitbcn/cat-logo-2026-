@@ -136,18 +136,23 @@
                     </div>
                     <div class="mini-cards">
                         <div class="mini-card"
-                            onclick="openCatalogueCategory('lluminaries', 'assets/img/products/luminaria-showroom-1.jpeg', 'Luminarias', event)">
-                            <img src="on off- cursor .png" alt="Luminarias">
+                            onclick="openCatalogueCategory('lluminaries', 'ON-OFF/ON OFF ARREGLADO .png', 'Luminarias', event)">
+                            <img src="ON-OFF/LUMINARIA INDICE.png" alt="Luminarias">
                             <span class="mini-card-label">Luminarias</span>
                         </div>
                         <div class="mini-card"
                             onclick="openCatalogueCategory('lightbox', 'assets/img/categories/lightbox.png', 'Lightbox', event)">
-                            <img src="assets/img/categories/lightbox.png" alt="Lightbox">
+                            <img src="LIGHTBOX /lightbox a pared .png" alt="Lightbox">
                             <span class="mini-card-label">Lightbox</span>
                         </div>
                         <div class="mini-card"
-                            onclick="openCatalogueCategory('totems', 'Material Inicial/TÓTEM -CORTINA LED.png', 'Tótems / Muros / Photocalls', event)">
-                            <img src="Material Inicial/TÓTEM -CORTINA LED.png" alt="Tótems / Muros / Photocalls">
+                            onclick="openCatalogueCategory('totems', 'totems :photocalls : backdrops /totems backdrops photocallls con luz.mov', 'Tótems / Muros / Photocalls', event)">
+                            <video autoplay muted loop playsinline preload="metadata"
+                                poster="totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png"
+                                src="totems :photocalls : backdrops /totems backdrops photocallls con luz.mov"
+                                aria-label="Tótems / Muros / Photocalls">
+                                <source src="totems :photocalls : backdrops /totems backdrops photocallls con luz.mov" type="video/quicktime">
+                            </video>
                             <span class="mini-card-label">Tótems / Muros / Photocalls</span>
                         </div>
                         <div class="mini-card"
@@ -191,19 +196,19 @@
                 <!-- Filter Bar -->
                 <div class="filter-bar animate-in">
                     <button class="filter-pill active" data-filter="all"
-                        onclick="filterCatalogue('all', this)">Todos</button>
+                        onclick="filterCatalogue('all', this)"><span class="filter-pill-icon"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect x="4" y="4" width="14" height="14" rx="4" fill="rgba(255,255,255,.95)"/><rect x="22" y="4" width="14" height="14" rx="4" fill="rgba(255,255,255,.72)"/><rect x="4" y="22" width="14" height="14" rx="4" fill="rgba(255,255,255,.78)"/><rect x="22" y="22" width="14" height="14" rx="4" fill="rgba(255,255,255,.9)"/></svg></span><span class="filter-pill-label">Todos</span></button>
                     <button class="filter-pill" data-filter="lluminaries"
-                        onclick="filterCatalogue('lluminaries', this)">Luminarias</button>
+                        onclick="filterCatalogue('lluminaries', this)"><span class="filter-pill-icon"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><ellipse cx="20" cy="27" rx="11" ry="4.5" fill="rgba(255,255,255,.22)"/><path d="M20 5v7" stroke="rgba(255,255,255,.95)" stroke-width="2" stroke-linecap="round"/><path d="M11 22V14a9 9 0 0 1 18 0v8H11Z" fill="rgba(255,255,255,.94)" stroke="rgba(0,0,0,.1)" stroke-width="0.8"/></svg></span><span class="filter-pill-label">Luminarias</span></button>
                     <button class="filter-pill" data-filter="lightbox"
-                        onclick="filterCatalogue('lightbox', this)">Lightbox</button>
+                        onclick="filterCatalogue('lightbox', this)"><span class="filter-pill-icon"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="7" width="30" height="24" rx="3.5" fill="rgba(255,255,255,.22)" stroke="rgba(255,255,255,.48)" stroke-width="1.2"/><rect x="8.5" y="10.5" width="23" height="17" rx="2" fill="rgba(255,255,255,.96)"/><rect x="11" y="19" width="18" height="2.5" rx="1.2" fill="rgba(0,150,199,.28)"/></svg></span><span class="filter-pill-label">Lightbox</span></button>
                     <button class="filter-pill" data-filter="totems"
-                        onclick="filterCatalogue('totems', this)">Tótems</button>
+                        onclick="filterCatalogue('totems', this)"><span class="filter-pill-icon"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="12" y="5" width="16" height="28" rx="2.5" fill="rgba(255,255,255,.18)" stroke="rgba(255,255,255,.72)" stroke-width="1.3"/><rect x="14.5" y="7.5" width="11" height="16" rx="1.5" fill="rgba(255,255,255,.92)"/><rect x="8" y="34" width="24" height="3.5" rx="1" fill="rgba(255,255,255,.92)"/></svg></span><span class="filter-pill-label">Tótems</span></button>
                     <button class="filter-pill" data-filter="aeris"
-                        onclick="filterCatalogue('aeris', this)">Aéreos</button>
+                        onclick="filterCatalogue('aeris', this)"><span class="filter-pill-icon"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 3v5" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="1.8" stroke-linecap="round"/><path d="M14 12h12l-6 3.2-6-3.2z" fill="rgba(255,255,255,.38)"/><path d="M14 12v14.5l6 3.8V15.2" fill="rgba(255,255,255,.2)" stroke="rgba(255,255,255,.65)" stroke-width="1.15"/><path d="M26 12v14.5l-6 3.8V15.2" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.55)" stroke-width="1.15"/><path d="M14 26.5l6 3.8 6-3.8" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.1"/></svg></span><span class="filter-pill-label">Aéreos</span></button>
                     <button class="filter-pill" data-filter="vesteix"
-                        onclick="filterCatalogue('vesteix', this)">Revestimientos</button>
+                        onclick="filterCatalogue('vesteix', this)"><span class="filter-pill-icon"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="8" width="9" height="24" rx="1.5" fill="rgba(255,255,255,.32)" stroke="rgba(255,255,255,.42)" stroke-width="1"/><rect x="15.5" y="6" width="9" height="28" rx="1.5" fill="rgba(255,255,255,.52)" stroke="rgba(255,255,255,.52)" stroke-width="1"/><rect x="26" y="9" width="9" height="23" rx="1.5" fill="rgba(255,255,255,.36)" stroke="rgba(255,255,255,.42)" stroke-width="1"/></svg></span><span class="filter-pill-label">Revestimientos</span></button>
                     <button class="filter-pill" data-filter="rigids"
-                        onclick="filterCatalogue('rigids', this)">Rígidos</button>
+                        onclick="filterCatalogue('rigids', this)"><span class="filter-pill-icon"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="7" y="23" width="26" height="9" rx="1.5" fill="rgba(255,255,255,.26)"/><rect x="9" y="15" width="22" height="9" rx="1.5" fill="rgba(255,255,255,.48)" stroke="rgba(255,255,255,.5)" stroke-width="1"/><rect x="11" y="7" width="18" height="9" rx="1.5" fill="rgba(255,255,255,.95)" stroke="rgba(255,255,255,.55)" stroke-width="1"/></svg></span><span class="filter-pill-label">Rígidos</span></button>
                 </div>
 
                 <div class="catalogue-list animate-in" id="catalogue-list">
@@ -218,7 +223,7 @@
                         <span class="catalogue-item-name"><a href="product-on-off.html">On - Off</a></span>
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lluminaries"
-                        data-img="assets/img/products/luminaria-showroom-1.jpeg" data-label="Luminarias" onclick="selectCatalogueItem(this)">
+                        data-img="ON-OFF/ON OFF ARREGLADO .png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
                         <span class="catalogue-item-name"><a href="product-tunable-white.html">Tunable white</a></span>
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lluminaries"
@@ -227,7 +232,11 @@
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lluminaries"
                         data-img="assets/img/products/luminaria-p100.png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
-                        <span class="catalogue-item-name"><a href="product-dynamic-white.html">Led Dynamic</a></span>
+                        <span class="catalogue-item-name"><a href="product-dynamic-white.html">DYNAMIC WHITE</a></span>
+                    </div>
+                    <div class="catalogue-item catalogue-item-simple" data-category="lluminaries"
+                        data-img="assets/img/products/luminaria-p100.png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
+                        <span class="catalogue-item-name"><a href="product-pixel-led.html">Pixel Led</a></span>
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lluminaries"
                         data-img="assets/img/products/luminaria-p100.png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
@@ -249,7 +258,7 @@
                         </details>
                     </div>
                     <div class="catalogue-item catalogue-item-detailed" data-category="lluminaries"
-                        data-img="assets/img/products/luminaria-showroom-1.jpeg" data-label="Luminarias" onclick="selectCatalogueItem(this)">
+                        data-img="ON-OFF/ON OFF ARREGLADO .png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
                         <details class="tech-details">
                             <summary class="catalogue-item-name"><a href="product-tunable-white.html">Tunable White</a></summary>
                             <div class="tech-spec-line">
@@ -281,7 +290,7 @@
                     <div class="catalogue-item catalogue-item-detailed" data-category="lluminaries"
                         data-img="assets/img/products/luminaria-p100.png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
                         <details class="tech-details">
-                            <summary class="catalogue-item-name"><a href="product-dynamic-white.html">Led Dynamic</a></summary>
+                            <summary class="catalogue-item-name"><a href="product-dynamic-white.html">DYNAMIC WHITE</a></summary>
                             <div class="tech-spec-line">
                                 <span class="tech-spec-label">
                                     <svg class="tech-icon tech-icon-light" viewBox="0 0 24 24" aria-hidden="true">
@@ -290,6 +299,39 @@
                                     Sistema de iluminacion
                                 </span>
                                 <span class="catalogue-item-ref">Tira Pixel Led</span>
+                            </div>
+                        </details>
+                    </div>
+                    <div class="catalogue-item catalogue-item-detailed" data-category="lluminaries"
+                        data-img="assets/img/products/luminaria-p100.png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
+                        <details class="tech-details">
+                            <summary class="catalogue-item-name"><a href="product-pixel-led.html">Pixel Led</a></summary>
+                            <div class="tech-spec-line">
+                                <span class="tech-spec-label">
+                                    <svg class="tech-icon tech-icon-light" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M12 3v4m0 10v4m9-9h-4M7 12H3m15.364 6.364-2.829-2.828M8.465 8.464 5.636 5.636m12.728 0-2.829 2.828M8.465 15.536l-2.829 2.828M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"/>
+                                    </svg>
+                                    CCT
+                                </span>
+                                4.000 / 5.000 / 6.000 K
+                            </div>
+                            <div class="tech-spec-line">
+                                <span class="tech-spec-label">
+                                    <svg class="tech-icon tech-icon-power" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M12 2v10m6.364-6.364a9 9 0 1 1-12.728 0"/>
+                                    </svg>
+                                    W/m
+                                </span>
+                                10 / 15
+                            </div>
+                            <div class="tech-spec-line">
+                                <span class="tech-spec-label">
+                                    <svg class="tech-icon tech-icon-size" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M3 7V3h4M21 7V3h-4M3 17v4h4M21 17v4h-4M8 12h8"/>
+                                    </svg>
+                                    PERFIL
+                                </span>
+                                P100
                             </div>
                         </details>
                     </div>
@@ -674,30 +716,36 @@
                     <a class="product-home-btn" href="#catalogue" onclick="goToCatalogueAll(event)">← VOLVER A APLICACIONES</a>
                 </div>
 
-                <!-- Producto único: Luminaria ON/OFF -->
+                <!-- Producto único: Luminaria Tunable White -->
                 <div class="product-detail-card animate-in">
                     <div class="product-detail-header">
                         <p class="product-struct-kicker">Producto</p>
                         <h2 class="product-struct-title">Luminaria</h2>
-                        <p class="product-struct-lead">ON / OFF</p>
+                        <p class="product-struct-lead">Tunable White</p>
 
                         <div class="product-gallery">
 <div class="gallery-item">
-                            <img src="TUNABLE WHITE /TUNABLE WHITE IN PERSPECTIVE .png" alt="Tunable White — vista exterior">
-                        </div>
-                        <div class="gallery-item">
                             <video class="gallery-video" autoplay muted loop playsinline controls preload="metadata"
-                                poster="Material Inicial/tunablewhite-galeria-1.png"
-                                aria-label="Tunable White TWS18 — vídeo galería">
-                                <source src="TUNABLE WHITE /TUNABLE WHITE .mp4" type="video/mp4">
+                                poster="TUNABLE WHITE /TUNABLE EXTERIOR.png"
+                                aria-label="Tunable White — vídeo action">
+                                <source src="TUNABLE WHITE /tunable white action .mp4" type="video/mp4">
                                 Tu navegador no soporta vídeo HTML5.
                             </video>
                         </div>
                         <div class="gallery-item">
                             <video class="gallery-video" autoplay muted loop playsinline controls preload="metadata"
                                 poster="TUNABLE WHITE /tunable white EXTERIOR .png"
+                                src="TUNABLE WHITE /technical tunable white circular .mov"
                                 aria-label="Tunable White — vídeo técnico">
-                                <source src="TUNABLE WHITE /video tunable white técnical .mp4" type="video/mp4">
+                                <source src="TUNABLE WHITE /technical tunable white circular .mov" type="video/quicktime">
+                                Tu navegador no soporta vídeo HTML5.
+                            </video>
+                        </div>
+                        <div class="gallery-item">
+                            <video class="gallery-video" autoplay muted loop playsinline controls preload="metadata"
+                                poster="Material Inicial/tunablewhite-galeria-1.png"
+                                aria-label="Tunable White TWS18 — vídeo galería">
+                                <source src="TUNABLE WHITE /tunable placements .mp4" type="video/mp4">
                                 Tu navegador no soporta vídeo HTML5.
                             </video>
                         </div>
@@ -705,16 +753,14 @@
 
                         <div class="product-desc-block">
                             <p class="product-desc-label">Descripción</p>
-                            <p><strong>Estructura:</strong> P100 — perfilería de aluminio P100 (100&nbsp;mm de ancho).</p>
-                            <p>El tejido y la iluminación se componen por:</p>
+                            <p>Producto personalizable en cuanto a medidas; el tejido y la iluminación irán en consecuencia.</p>
+                            <p><strong>Estructura:</strong> perfilería de aluminio P100 (100&nbsp;mm de grosor). Producto personalizable en medidas.</p>
+                            <p>Composición según ficha técnica:</p>
                             <ul class="product-desc-list">
-                                <li><strong>Opciones de acabado:</strong> blanco, negro, anodizado.</li>
-                                <li><strong>Dorso:</strong> plancha de Dibond blanco de 3&nbsp;mm de espesor.</li>
-                                <li><strong>Iluminación:</strong> Frontline S12 FLAT (175°).</li>
-                                <li><strong>Tejido frontal:</strong> textil blanco 100&nbsp;% poliéster, con posibilidad de
-                                    impresión UVI / sublimación.</li>
+                                <li><strong>Dorso:</strong> LYXBOND Lite de aluminio blanco, 3&nbsp;mm de espesor; panel composite tricapa (aluminio + núcleo de polietileno + aluminio); ligero, rígido y estable.</li>
+                                <li><strong>Iluminación:</strong> Frontline S-TW18 (175º).</li>
+                                <li><strong>Tejido frontal:</strong> textil blanco 100&nbsp;% poliéster (PES), certificado B1 + ignífugo, bobina hasta 320&nbsp;cm; confección de guía de silicona; posibilidad de impresión UV / sublimación.</li>
                             </ul>
-                            <p><strong>Otras opciones de perfilería:</strong> P50&nbsp;mm · P70&nbsp;mm · P120&nbsp;mm.</p>
                         </div>
 
                         <button class="read-more-btn" onclick="goToCatalogueAll(event)">
@@ -728,7 +774,7 @@
                         </div>
                         <div class="meta-cell">
                             <div class="meta-cell-label">Sistema</div>
-                            <div class="meta-cell-value">ON / OFF</div>
+                            <div class="meta-cell-value">Tunable White</div>
                         </div>
                         <div class="meta-cell">
                             <div class="meta-cell-label">Estructura</div>
@@ -736,7 +782,7 @@
                         </div>
                         <div class="meta-cell">
                             <div class="meta-cell-label">LED</div>
-                            <div class="meta-cell-value">Frontline S12 FLAT</div>
+                            <div class="meta-cell-value">Frontline S-TW18</div>
                         </div>
                     </div>
                 </div>
@@ -748,7 +794,7 @@
                                 <a href="#catalogue" class="product-breadcrumb-link" onclick="goToCatalogueAll(event)">Aplicaciones</a>
                             </li>
                             <li class="product-breadcrumb-item" aria-current="page">
-                                Luminaria ON / OFF — P100
+                                Luminaria Tunable White — P100
                             </li>
                         </ol>
                     </nav>
@@ -759,8 +805,8 @@
                     <div class="sheet-media-gallery-header">
                         <span class="sheet-media-gallery-label">Galería</span>
                         <a class="sheet-download-cta"
-                            href="TUNABLE WHITE /FICHA TÉCNICA TWS18 - CIRCULAR PRINT IT.pdf"
-                            download="FICHA TÉCNICA TWS18 - CIRCULAR PRINT IT.pdf"
+                            href="TUNABLE WHITE /FICHA TÉCNICA TWS18_Luminaria circular PRINT IT ok.pdf"
+                            download="FICHA TÉCNICA TWS18_Luminaria circular PRINT IT ok.pdf"
                             target="_blank" rel="noopener noreferrer">
                             Descargar ficha técnica
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -771,26 +817,34 @@
                     </div>
                     <div class="product-gallery">
                         <div class="gallery-item">
-                            <img src="TUNABLE WHITE /TUNABLE WHITE IN PERSPECTIVE .png" alt="Tunable White — vista exterior">
-                        </div>
-                        <div class="gallery-item">
                             <video class="gallery-video" autoplay muted loop playsinline controls preload="metadata"
-                                poster="Material Inicial/tunablewhite-galeria-1.png"
-                                aria-label="Tunable White TWS18 — vídeo galería">
-                                <source src="TUNABLE WHITE /TUNABLE WHITE .mp4" type="video/mp4">
+                                poster="TUNABLE WHITE /TUNABLE EXTERIOR.png"
+                                aria-label="Tunable White — vídeo action">
+                                <source src="TUNABLE WHITE /tunable white action .mp4" type="video/mp4">
                                 Tu navegador no soporta vídeo HTML5.
                             </video>
                         </div>
                         <div class="gallery-item">
                             <video class="gallery-video" autoplay muted loop playsinline controls preload="metadata"
                                 poster="TUNABLE WHITE /tunable white EXTERIOR .png"
+                                src="TUNABLE WHITE /technical tunable white circular .mov"
                                 aria-label="Tunable White — vídeo técnico">
-                                <source src="TUNABLE WHITE /video tunable white técnical .mp4" type="video/mp4">
+                                <source src="TUNABLE WHITE /technical tunable white circular .mov" type="video/quicktime">
+                                Tu navegador no soporta vídeo HTML5.
+                            </video>
+                        </div>
+                        <div class="gallery-item">
+                            <video class="gallery-video" autoplay muted loop playsinline controls preload="metadata"
+                                poster="Material Inicial/tunablewhite-galeria-1.png"
+                                aria-label="Tunable White TWS18 — vídeo galería">
+                                <source src="TUNABLE WHITE /tunable placements .mp4" type="video/mp4">
                                 Tu navegador no soporta vídeo HTML5.
                             </video>
                         </div>
                     </div>
                 </div>
+
+                <p class="product-gallery-tagline product-gallery-tagline--below-gallery animate-in">Una luminaria, infinitas atmósferas. Tecnología Tunable White con ajuste dinámico de 2700K a 6500K para adaptar la luz a cada momento, elevando el confort, el bienestar y la experiencia del espacio.</p>
 
                 <!-- Detalles técnicos (estructura única producto) -->
                 <div class="technical-sheet animate-in product-spec-sheet">
@@ -800,24 +854,51 @@
                     <h4 class="product-doc-h2"><span class="section-title-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="2"></rect><path d="M9 8h6M9 12h6M9 16h4"></path></svg></span>General</h4>
                     <div class="sheet-table">
                         <div class="sheet-row">
-                            <div class="sheet-label">Estructura</div>
-                            <div class="sheet-value">P100 — perfilería de aluminio P100 (100&nbsp;mm de ancho), producto personalizable en medidas.</div>
+                            <div class="sheet-label">Aplicación</div>
+                            <div class="sheet-value">Luminaria Tunable White — backlight suspendido.</div>
                         </div>
                         <div class="sheet-row">
-                            <div class="sheet-label">Acabados</div>
-                            <div class="sheet-value">Blanco, negro, anodizado y posibilidad de color RAL.</div>
+                            <div class="sheet-label">Estructura</div>
+                            <div class="sheet-value">Perfilería de aluminio P100 (100&nbsp;mm de grosor). Producto personalizable en medidas.</div>
                         </div>
                         <div class="sheet-row">
                             <div class="sheet-label">Dorso</div>
-                            <div class="sheet-value">Plancha de Dibond blanco de 3&nbsp;mm (panel composite de aluminio blanco tipo sándwich: aluminio + núcleo de polietileno), ligero, rígido y estable.</div>
+                            <div class="sheet-value">LYXBOND Lite de aluminio blanco, 3&nbsp;mm de espesor. Panel composite tricapa (aluminio + núcleo de polietileno + aluminio). Ligero, rígido y estable.</div>
                         </div>
                         <div class="sheet-row">
                             <div class="sheet-label">Iluminación</div>
-                            <div class="sheet-value">Frontline S-TW18 (175°), temperatura regulable entre 2700&nbsp;K y 6000&nbsp;K.</div>
+                            <div class="sheet-value">Frontline S-TW18 (175º).</div>
                         </div>
                         <div class="sheet-row">
                             <div class="sheet-label">Tejido frontal</div>
-                            <div class="sheet-value">Textil blanco 100&nbsp;% poliéster, certificado B1, ignífugo, bobina 320&nbsp;cm, confección con guía de silicona y posibilidad de impresión UVI.</div>
+                            <div class="sheet-value sheet-value--textile-premium">
+                                <ul class="textile-premium-list" aria-label="Tejido frontal e impresión">
+                                    <li class="textile-premium-item">
+                                        <span class="textile-premium-icon" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14M5 12h14M5 16h14"></path><path d="M7 5v14M17 5v14"></path></svg>
+                                        </span>
+                                        <span>Textil blanco 100&nbsp;% poliéster (PES).</span>
+                                    </li>
+                                    <li class="textile-premium-item">
+                                        <span class="textile-premium-icon" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                                        </span>
+                                        <span>Certificado B1 + ignífugo. Ancho de bobina hasta 320&nbsp;cm.</span>
+                                    </li>
+                                    <li class="textile-premium-item">
+                                        <span class="textile-premium-icon" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="10" rx="2"></rect><path d="M8 12h8M8 16h5"></path></svg>
+                                        </span>
+                                        <span>Confección de guía de silicona perimetral (13&nbsp;mm).</span>
+                                    </li>
+                                    <li class="textile-premium-item">
+                                        <span class="textile-premium-icon" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="6" width="16" height="12" rx="2"></rect><path d="M8 10h8M8 14h5"></path></svg>
+                                        </span>
+                                        <span>Posibilidad de impresión UV / sublimación.</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
@@ -825,11 +906,11 @@
                     <div class="sheet-table">
                         <div class="sheet-row">
                             <div class="sheet-label">Consumo</div>
-                            <div class="sheet-value">8&nbsp;W / 13&nbsp;W.</div>
+                            <div class="sheet-value">13&nbsp;W.</div>
                         </div>
                         <div class="sheet-row">
                             <div class="sheet-label">Temperatura</div>
-                            <div class="sheet-value">2.700&nbsp;K / 6.500&nbsp;K.</div>
+                            <div class="sheet-value">2.700&nbsp;Kº / 3.000&nbsp;Kº / 4.000&nbsp;Kº / 5.000&nbsp;Kº / 6.500&nbsp;Kº.</div>
                         </div>
                         <div class="sheet-row">
                             <div class="sheet-label">Lumen</div>
@@ -863,37 +944,12 @@
                             <div class="sheet-label">Amplificador</div>
                             <div class="sheet-value">Amplificador de potencia de señal de 1 canal (solo cuando es necesario).</div>
                         </div>
-                        <div class="sheet-row">
-                            <div class="sheet-label">Dimmable</div>
-                            <div class="sheet-value">Sí.</div>
-                        </div>
                     </div>
 
                     <h4 class="product-doc-h2"><span class="section-title-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l9-9 9 9"></path><path d="M7 17h10"></path><path d="M8.5 14.5l1.3-1.3M11.5 11.5l1.3-1.3M14.5 14.5l1.3-1.3"></path></svg></span>Secciones de perfil</h4>
-                    <p class="product-doc-intro">Referencia actual: <strong>P100</strong>. Otras medidas de sección:
-                    </p>
+                    <p class="product-doc-intro">Referencia: <strong>P100</strong>.</p>
                     <div class="sheet-profile-section product-profile-inline">
                         <div class="sheet-profile-cards">
-                            <button type="button" class="sheet-profile-card" data-profile="P50"
-                                onclick="selectVariant('P50', this)">
-                                <div class="sheet-profile-thumb">
-                                    <img src="Material Inicial/OPCIONES-DE-PERFILERIA/P50.png" alt="Sección P50">
-                                </div>
-                                <div class="sheet-profile-meta">
-                                    <span class="sheet-profile-name">P50</span>
-                                    <span class="sheet-profile-desc">50&nbsp;mm</span>
-                                </div>
-                            </button>
-                            <button type="button" class="sheet-profile-card" data-profile="P70"
-                                onclick="selectVariant('P70', this)">
-                                <div class="sheet-profile-thumb">
-                                    <img src="Material Inicial/OPCIONES-DE-PERFILERIA/P70.png" alt="Sección P70">
-                                </div>
-                                <div class="sheet-profile-meta">
-                                    <span class="sheet-profile-name">P70</span>
-                                    <span class="sheet-profile-desc">70&nbsp;mm</span>
-                                </div>
-                            </button>
                             <button type="button" class="sheet-profile-card active" data-profile="P100"
                                 onclick="selectVariant('P100', this)">
                                 <div class="sheet-profile-thumb">
@@ -931,8 +987,12 @@
                             <span class="swatch-name">Anodizado</span>
                         </div>
                         <div class="swatch">
+                            <div class="swatch-color swatch-color--wood"></div>
+                            <span class="swatch-name">Madera</span>
+                        </div>
+                        <div class="swatch">
                             <div class="swatch-color swatch-color--ral"></div>
-                            <span class="swatch-name">RAL</span>
+                            <span class="swatch-name">RAL (bajo demanda)</span>
                         </div>
                     </div>
                 </div>
@@ -943,9 +1003,10 @@
                     <div class="product-video-wrap">
                         <div class="product-video-aspect">
                             <video class="product-feature-video" autoplay loop muted playsinline controls
-                                preload="auto" poster="assets/img/products/luminaria-showroom-1.jpeg"
-                                aria-label="Vídeo render 3D Rhino">
-                                <source src="TUNABLE WHITE /video tunable white técnical .mp4" type="video/mp4">
+                                preload="auto" poster="TUNABLE WHITE /TUNABLE EXTERIOR.png"
+                                src="TUNABLE WHITE /technical tunable white circular .mov"
+                                aria-label="Tunable White — vídeo técnico">
+                                <source src="TUNABLE WHITE /technical tunable white circular .mov" type="video/quicktime">
                                 Tu navegador no soporta vídeo HTML5.
                             </video>
                         </div>
@@ -961,9 +1022,9 @@
                     </div>
                     <div class="ba-compare" role="group" aria-label="Comparador de vistas exterior e interior"
                         data-ba-initial="50">
-                        <img class="ba-layer ba-after" src="TUNABLE WHITE /TUNABLE WHITE INTERIOR.png"
+                        <img class="ba-layer ba-after" src="TUNABLE WHITE /TUNABLE INTERIOR .png"
                             alt="Vista interior — Tunable White" decoding="async">
-                        <img class="ba-layer ba-before" src="TUNABLE WHITE /tunable white EXTERIOR .png"
+                        <img class="ba-layer ba-before" src="TUNABLE WHITE /TUNABLE EXTERIOR.png"
                             alt="Vista exterior — Tunable White" decoding="async">
                         <div class="ba-divider" aria-hidden="true">
                             <span class="ba-knob">
@@ -1106,6 +1167,39 @@
                     </div>
                 </div>
 
+                <div class="profile-card animate-in">
+                    <div class="profile-header">
+                        <img src="Material Inicial/logo-oficial.png" alt="Print It — Miquel Ferrer"
+                            class="profile-avatar profile-avatar--logo">
+                        <div>
+                            <div class="profile-name">Miquel Ferrer</div>
+                            <div class="profile-role">Strategic Solutions Lead | Technical Partnerships</div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="mailto:m.ferrer@printitbcn.com" class="social-link">
+                            <span>E-mail: m.ferrer@printitbcn.com</span>
+                            <span class="link-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                            </span>
+                        </a>
+                        <a href="tel:+34622137553" class="social-link">
+                            <span>Móvil: +34 622 137 553</span>
+                            <span class="link-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.81.36 1.6.69 2.34a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.74.33 1.53.56 2.34.69A2 2 0 0122 16.92z" />
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
                 <div class="footer-bar">
                     <div class="footer-bar-left">
                         <img src="Material Inicial/logo-oficial.png" alt="" class="footer-logo">
@@ -1136,7 +1230,7 @@
         </div>
     </aside>
 
-    <script src="app.js?v=20260422routes"></script>
+    <script src="app.js?v=20260506b"></script>
 </body>
 
 </html>

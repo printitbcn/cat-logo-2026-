@@ -3,7 +3,9 @@
 // ===== IMAGE CAROUSEL =====
 const HOME_CAROUSEL_IMAGE = 'Material Inicial/PORTADA-PRINT-IT.png';
 let carouselImages = [HOME_CAROUSEL_IMAGE];
-const CATALOGUE_SHOWCASE_IMAGE = 'assets/img/products/luminaria-showroom-1.jpeg';
+const CATALOGUE_SHOWCASE_IMAGE =
+  'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png';
+const AERIS_SHOWCASE_IMAGE = 'assets/img/categories/cubos aereos .png';
 const PRODUCT_SHOWCASE_IMAGE = 'assets/img/products/luminaria-p100.png';
 const DALI_SHOWCASE_VIDEO = 'DALI : CASSAMBI /dali cassambi control .mp4';
 const CONTACT_SHOWCASE_IMAGE = 'assets/img/products/luminaria-showroom-2.jpeg';
@@ -15,35 +17,49 @@ const FIXED_SHOWCASE_LABEL = 'MAKE AN IMPRESSION';
  * para el carrusel del panel izquierdo en la página «Aplicaciones».
  */
 const PRINTIT_CATALOGUE_GALLERY_FIRST_PREVIEW = {
-  'product-banners-y-circulares.html': 'assets/img/categories/aeris.png',
-  'product-barniz-drop-gloss.html': 'assets/img/products/luminaria-showroom-1.jpeg',
-  'product-barniz-semi-mate.html': 'assets/img/products/luminaria-showroom-1.jpeg',
-  'product-con-luz.html': 'assets/img/products/luminaria-showroom-1.jpeg',
+  'product-banners-y-circulares.html': 'assets/img/categories/cubos aereos .png',
+  'product-barniz-drop-gloss.html':
+    'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
+  'product-barniz-semi-mate.html':
+    'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
+  'product-con-luz.html':
+    'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
   'product-cubos.html': 'assets/img/categories/cubos%20aereos%20.png',
-  'product-custom.html': 'assets/img/products/luminaria-showroom-1.jpeg',
+  'product-custom.html':
+    'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
   'product-dali-casambi.html': 'DALI : CASSAMBI /dali cassambi control .mp4',
-  'product-dynamic-white.html': 'assets/img/products/luminaria-showroom-1.jpeg',
-  'product-forrado-columnas.html': 'assets/img/products/luminaria-showroom-1.jpeg',
-  'product-forrado-paredes.html': 'assets/img/products/luminaria-showroom-1.jpeg',
-  'product-frisos.html': 'assets/img/products/luminaria-showroom-1.jpeg',
-  'product-impresion-uvi.html': 'assets/img/products/luminaria-showroom-1.jpeg',
-  'product-lightbox-doble-cara.html': 'assets/img/products/luminaria-showroom-1.jpeg',
-  'product-lightbox-pared.html': 'assets/img/products/luminaria-showroom-1.jpeg',
+  'product-dynamic-white.html': 'LED DYNAMICO/led dinamico solis .mp4',
+  'product-pixel-led.html': 'LUMINARIAS CUSTOM /special project led dynamic .mp4',
+  'product-forrado-columnas.html':
+    'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
+  'product-forrado-paredes.html':
+    'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
+  'product-frisos.html':
+    'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
+  'product-impresion-uvi.html':
+    'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
+  'product-lightbox-doble-cara.html':
+    'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
+  'product-lightbox-pared.html': 'LIGHTBOX /lightbox a pared mercedes.mov',
   'product-luxpanel.html': 'assets/img/products/luxpanel-2.png',
-  'product-on-off.html': 'assets/img/products/luminaria-showroom-1.jpeg',
-  'product-relieve-braille.html': 'assets/img/products/luminaria-showroom-1.jpeg',
-  'product-relieve-cmyk.html': 'assets/img/products/luminaria-showroom-1.jpeg',
+  'product-on-off.html': 'ON-OFF/on off 4k action .mp4',
+  'product-relieve-braille.html':
+    'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
+  'product-relieve-cmyk.html':
+    'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
   'product-rigidos.html': 'RI%CC%81GIDOS%20/ri%CC%81gidos%202.png',
-  'product-sin-luz.html': 'assets/img/categories/totems.png',
-  'product-tunable-white.html': 'TUNABLE WHITE /TUNABLE WHITE IN PERSPECTIVE .png'
+  'product-sin-luz.html': 'totems :photocalls : backdrops /totem sin luz madera.png',
+  'product-tunable-white.html': 'TUNABLE WHITE /TUNABLE EXTERIOR.png'
 };
 
 let showcaseLastCleanSrc = '';
 
 const ONOFF_CORRECTED_MOV_POSTER = 'ON-OFF/cover on off.png';
 const PROFILE_IMAGE_OVERRIDES = {
+  P120: 'PERFILERIA /P120.png',
   P30: 'PERFILERIA /P30.png',
-  P35: 'PERFILERIA /P35.png'
+  P35: 'PERFILERIA /P35.png',
+  P36: 'PERFILERIA /P36.png'
 };
 
 function updateShowcaseImage(src, label) {
@@ -53,8 +69,10 @@ function updateShowcaseImage(src, label) {
   const cleanSrc = String(src).split('?')[0];
   const isGif = /\.gif$/i.test(cleanSrc);
   const isVideoSrc = /\.(mp4|webm|mov)$/i.test(cleanSrc);
-  const isShowcaseContainCenter = /desmiembre\.mp4$/i.test(cleanSrc);
-  const isOnOffCorrectedMov = /ON OFF CORRECTED\.mov$/i.test(cleanSrc);
+  const isShowcaseContainCenter =
+    /desmiembre\.mp4$/i.test(cleanSrc) ||
+    /photocallls con luz\.mov$/i.test(cleanSrc);
+  const isOnOffCorrectedClip = /ON OFF CORRECTED\.(mov|mp4)$/i.test(cleanSrc);
 
   let mediaEl = document.getElementById('showcase-img');
   if (!mediaEl) {
@@ -126,10 +144,12 @@ function updateShowcaseImage(src, label) {
     if (isVideoEl) {
       if (isVideoSrc) {
         mediaEl.querySelectorAll('source').forEach(s => s.remove());
-        mediaEl.poster = isOnOffCorrectedMov ? ONOFF_CORRECTED_MOV_POSTER : '';
+        mediaEl.poster = isOnOffCorrectedClip ? ONOFF_CORRECTED_MOV_POSTER : '';
         mediaEl.src = nextSrc;
         mediaEl.load();
         mediaEl.play().catch(() => { });
+        bindPrintitVideoHoverControls(mediaEl);
+        observePrintitVideoAutoplayWhenVisible(mediaEl);
       } else {
         // If showcase is video but target is image, render image as poster.
         mediaEl.pause();
@@ -214,6 +234,14 @@ function showPage(pageName, event) {
   // Show target
   target.classList.add('active');
 
+  // Robust page-state hook for CSS (fallback for environments
+  // where :has() selectors may not evaluate reliably).
+  document.body.classList.toggle('is-contact-page', pageName === 'contact');
+  const officeBanner = document.querySelector('.app-office-contact-banner');
+  if (officeBanner) {
+    officeBanner.classList.toggle('is-visible', pageName === 'contact');
+  }
+
   // Scroll right panel to top
   const panelRight = document.getElementById('panel-right');
   if (panelRight) panelRight.scrollTop = 0;
@@ -245,6 +273,7 @@ function showPage(pageName, event) {
     updateShowcaseImage(CONTACT_SHOWCASE_IMAGE, 'Roberto Ferrero · Print It');
     renderCarouselDots(1);
     updateDots();
+    initContactPageLayout();
   }
 
   if (!printitApplyingHashRoute) {
@@ -259,16 +288,76 @@ function showPage(pageName, event) {
       el.style.animation = '';
     });
   }, 10);
+
+  setTimeout(() => printitKickVisibleVideos(), 80);
 }
 
 function getProductFallbackShowcase() {
   const page = (window.location.pathname || '').split('/').pop() || '';
   if (page === 'product-dali-casambi.html') return DALI_SHOWCASE_VIDEO;
+  if (page === 'product-pixel-led.html')
+    return 'LUMINARIAS CUSTOM /special project led dynamic .mp4';
   return PRODUCT_SHOWCASE_IMAGE;
 }
 
+function initDaliCasambiUseCaseLightbox() {
+  const page = (window.location.pathname || '').split('/').pop() || '';
+  if (page !== 'product-dali-casambi.html') return;
+  const lb = document.getElementById('dali-use-lightbox');
+  const img = lb && lb.querySelector('.dali-use-lightbox-img');
+  const btnClose = lb && lb.querySelector('.dali-use-lightbox-close');
+  if (!lb || !img || !btnClose) return;
+
+  function closeLb() {
+    lb.hidden = true;
+    img.removeAttribute('src');
+    img.alt = '';
+    document.body.style.overflow = '';
+  }
+
+  function openLb(src, alt) {
+    img.src = src;
+    img.alt = alt || '';
+    lb.hidden = false;
+    document.body.style.overflow = 'hidden';
+    queueMicrotask(() => btnClose.focus());
+  }
+
+  document.querySelectorAll('a.dali-use-link').forEach(link => {
+    link.addEventListener('click', ev => {
+      if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey || ev.button !== 0) return;
+      const href = link.getAttribute('href');
+      if (!href) return;
+      ev.preventDefault();
+      openLb(href, link.getAttribute('aria-label') || '');
+    });
+  });
+
+  lb.addEventListener('click', ev => {
+    if (ev.target.closest('.dali-use-lightbox-close')) {
+      closeLb();
+      return;
+    }
+    if (ev.target === img) return;
+    closeLb();
+  });
+
+  document.addEventListener('keydown', ev => {
+    if (lb.hidden) return;
+    if (ev.key === 'Escape') closeLb();
+  });
+}
+
+function getProductGalleryItemNodes() {
+  const sheetItems = document.querySelectorAll(
+    '#page-product .sheet-media-gallery .product-gallery .gallery-item'
+  );
+  if (sheetItems.length) return sheetItems;
+  return document.querySelectorAll('#page-product .product-detail-card .product-gallery .gallery-item');
+}
+
 function getProductGallerySources() {
-  const items = document.querySelectorAll('#page-product .sheet-media-gallery .product-gallery .gallery-item');
+  const items = getProductGalleryItemNodes();
   const sources = [];
   items.forEach(item => {
     const img = item.querySelector('img');
@@ -293,7 +382,7 @@ function getProductGallerySources() {
 }
 
 function syncProductGalleryToShowcase() {
-  const galleryItems = document.querySelectorAll('#page-product .sheet-media-gallery .product-gallery .gallery-item');
+  const galleryItems = getProductGalleryItemNodes();
   if (!galleryItems.length) return;
   const sources = getProductGallerySources();
   if (!sources.length) return;
@@ -432,6 +521,17 @@ function openCatalogueCategory(category, imgSrc, label, event) {
   const pill = document.querySelector(`.filter-pill[data-filter="${category}"]`);
   if (pill) filterCatalogue(category, pill);
   else applyCatalogueShowcaseCarousel();
+  if (category === 'aeris') {
+    setCarouselImages([AERIS_SHOWCASE_IMAGE], 0);
+    currentImageIndex = 0;
+    updateShowcaseImage(AERIS_SHOWCASE_IMAGE, label || 'Aeris');
+    renderCarouselDots(1);
+    updateDots();
+    const slug = filterCategoryKeyToHashAnchor(category);
+    const path = `${window.location.pathname}${window.location.search}`;
+    history.replaceState(null, '', `${path}#${slug}`);
+    return;
+  }
   if (imgSrc && carouselImages.length) {
     let idx = carouselImages.indexOf(imgSrc);
     if (idx < 0) idx = 0;
@@ -509,7 +609,38 @@ function filterCatalogue(category, btn) {
   const pc = document.getElementById('page-catalogue');
   if (pc && pc.classList.contains('active')) {
     applyCatalogueShowcaseCarousel();
+    if (category === 'aeris') {
+      setCarouselImages([AERIS_SHOWCASE_IMAGE], 0);
+      currentImageIndex = 0;
+      updateShowcaseImage(AERIS_SHOWCASE_IMAGE, 'Aeris');
+      renderCarouselDots(1);
+      updateDots();
+    }
   }
+}
+
+function initFilterPillIcons() {
+  const iconByFilter = {
+    all: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.75A2.75 2.75 0 0 1 7.75 3h8.5A2.75 2.75 0 0 1 19 5.75v2.5A2.75 2.75 0 0 1 16.25 11h-8.5A2.75 2.75 0 0 1 5 8.25v-2.5Zm0 10A2.75 2.75 0 0 1 7.75 13h8.5A2.75 2.75 0 0 1 19 15.75v2.5A2.75 2.75 0 0 1 16.25 21h-8.5A2.75 2.75 0 0 1 5 18.25v-2.5Z"/></svg>',
+    lluminaries: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.2 18.6h5.6v1.4a1 1 0 0 1-1 1h-3.6a1 1 0 0 1-1-1v-1.4Zm1.3-2.1h3v1.1h-3v-1.1Zm-1.3-1.2v-.2c0-1.6-.8-2.4-1.8-3.5A5.5 5.5 0 1 1 16.6 11c-1 1.1-1.8 1.9-1.8 3.5v.8H9.2v-.1Zm1.2-1.1h3.2c.2-1.6 1.2-2.6 2-3.4a4.3 4.3 0 1 0-6.9 0c.8.8 1.8 1.8 2 3.4Z"/></svg>',
+    lightbox: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.8A2.8 2.8 0 0 1 6.8 3h10.4A2.8 2.8 0 0 1 20 5.8v12.4a2.8 2.8 0 0 1-2.8 2.8H6.8A2.8 2.8 0 0 1 4 18.2V5.8Zm1.5 0v12.4c0 .7.6 1.3 1.3 1.3h10.4c.7 0 1.3-.6 1.3-1.3V5.8c0-.7-.6-1.3-1.3-1.3H6.8c-.7 0-1.3.6-1.3 1.3Zm2.1 1.6h8.8v9.2H7.6V7.4Zm1.5 1.5V15h5.8V8.9H9.1Z"/></svg>',
+    totems: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3.8A2.8 2.8 0 0 1 12.8 1h.4A2.8 2.8 0 0 1 16 3.8V5h1a1 1 0 0 1 1 1v10.2a2.8 2.8 0 0 1-2.8 2.8h-4.4A2.8 2.8 0 0 1 8 16.2V6a1 1 0 0 1 1-1h1V3.8Zm1.5 1.2h3V3.8c0-.7-.6-1.3-1.3-1.3h-.4c-.7 0-1.3.6-1.3 1.3V5Zm-2 1.5v9.7c0 .7.6 1.3 1.3 1.3h4.4c.7 0 1.3-.6 1.3-1.3V6.5H9.5Zm-1 14h8a.8.8 0 0 1 0 1.5h-8a.8.8 0 0 1 0-1.5Z"/></svg>',
+    aeris: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2a2.1 2.1 0 0 1 2.1 2.1v2.2h2.1a2.8 2.8 0 0 1 2.8 2.8V14a2.8 2.8 0 0 1-2.8 2.8H7.8A2.8 2.8 0 0 1 5 14V9.3a2.8 2.8 0 0 1 2.8-2.8h2.1V4.3A2.1 2.1 0 0 1 12 2.2Zm0 1.5a.6.6 0 0 0-.6.6v2.2h1.2V4.3a.6.6 0 0 0-.6-.6Zm-4.2 4.3c-.7 0-1.3.6-1.3 1.3V14c0 .7.6 1.3 1.3 1.3h8.4c.7 0 1.3-.6 1.3-1.3V9.3c0-.7-.6-1.3-1.3-1.3H7.8Z"/></svg>',
+    vesteix: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.6A2.6 2.6 0 0 1 5.6 3h12.8A2.6 2.6 0 0 1 21 5.6v12.8a2.6 2.6 0 0 1-2.6 2.6H5.6A2.6 2.6 0 0 1 3 18.4V5.6Zm1.5 0v12.8c0 .6.5 1.1 1.1 1.1h12.8c.6 0 1.1-.5 1.1-1.1V5.6c0-.6-.5-1.1-1.1-1.1H5.6c-.6 0-1.1.5-1.1 1.1Zm3.2 2.2h8.6a.8.8 0 0 1 0 1.5H7.7a.8.8 0 1 1 0-1.5Zm0 3.4h8.6a.8.8 0 0 1 0 1.5H7.7a.8.8 0 1 1 0-1.5Zm0 3.4h5.2a.8.8 0 0 1 0 1.5H7.7a.8.8 0 0 1 0-1.5Z"/></svg>',
+    rigids: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.3 5.3A2.3 2.3 0 0 1 6.6 3h10.8a2.3 2.3 0 0 1 2.3 2.3v13.4a2.3 2.3 0 0 1-2.3 2.3H6.6a2.3 2.3 0 0 1-2.3-2.3V5.3Zm1.5 0v13.4c0 .4.4.8.8.8h10.8c.4 0 .8-.4.8-.8V5.3c0-.4-.4-.8-.8-.8H6.6c-.4 0-.8.4-.8.8Zm2.4 2.2h7.6a.8.8 0 0 1 .8.8v7.4a.8.8 0 0 1-.8.8H8.2a.8.8 0 0 1-.8-.8V8.3a.8.8 0 0 1 .8-.8Zm.7 1.5V15h6.1V9H8.9Z"/></svg>'
+  };
+
+  document.querySelectorAll('.filter-pill').forEach((pill) => {
+    if (pill.dataset.iconReady === '1') return;
+    const filter = (pill.dataset.filter || '').trim();
+    const iconMarkup = iconByFilter[filter] || iconByFilter.all;
+    const label = (pill.textContent || '').trim();
+    pill.innerHTML = `
+      <span class="filter-pill-icon" aria-hidden="true">${iconMarkup}</span>
+      <span class="filter-pill-label">${label}</span>
+    `;
+    pill.dataset.iconReady = '1';
+  });
 }
 
 // ===== PROFILE VARIANT SELECTION =====
@@ -520,7 +651,13 @@ function selectVariant(profile, _el) {
     if (badge) badge.remove();
   });
 
-  document.querySelectorAll('.sheet-profile-card').forEach(card => card.classList.remove('active'));
+  const profileCol =
+    _el && _el.closest && _el.closest('.product-profile-col--frontal, .product-profile-col--backlight');
+  if (profileCol) {
+    profileCol.querySelectorAll('.sheet-profile-card').forEach(card => card.classList.remove('active'));
+  } else {
+    document.querySelectorAll('.sheet-profile-card').forEach(card => card.classList.remove('active'));
+  }
 
   document.querySelectorAll(`[data-profile="${profile}"]`).forEach(card => {
     card.classList.add('active');
@@ -529,7 +666,12 @@ function selectVariant(profile, _el) {
     }
   });
 
-  const schematicImg = document.getElementById('schematic-main-image');
+  let schematicImg = document.getElementById('schematic-main-image');
+  if (profileCol && profileCol.classList.contains('product-profile-col--frontal')) {
+    schematicImg = profileCol.querySelector('.product-schematic-frontal img');
+  } else if (profileCol && profileCol.classList.contains('product-profile-col--backlight')) {
+    schematicImg = document.getElementById('schematic-main-image');
+  }
   if (schematicImg) {
     schematicImg.src =
       PROFILE_IMAGE_OVERRIDES[profile] ||
@@ -560,6 +702,13 @@ function applyTheme(theme) {
 
   document.querySelectorAll('.nav-logo').forEach(img => {
     img.src = isLight ? NAV_LOGO_LIGHT_MODE_SRC : NAV_LOGO_DARK_MODE_SRC;
+  });
+
+  document.querySelectorAll('img[data-logo-light][data-logo-dark]').forEach(img => {
+    const lightSrc = (img.getAttribute('data-logo-light') || '').trim();
+    const darkSrc = (img.getAttribute('data-logo-dark') || '').trim();
+    if (!lightSrc || !darkSrc) return;
+    img.src = isLight ? lightSrc : darkSrc;
   });
 }
 
@@ -623,6 +772,104 @@ function initSoftLoopVideos(scope = document) {
         video.classList.remove('is-fading');
       }, 180);
     });
+  });
+}
+
+/** Escritorio: barra nativa solo al pasar el ratón; táctil: controles siempre. */
+function printitPreferHoverOnlyVideoControls() {
+  try {
+    return window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  } catch (_) {
+    return false;
+  }
+}
+
+function printitVideoHoverHost(video) {
+  return (
+    video.closest('.gallery-item') ||
+    video.closest('.product-video-wrap') ||
+    video.closest('.custom-made-spot') ||
+    video.closest('.custom-made-video-box') ||
+    video.closest('.dali-decision-video-wrap') ||
+    video.closest('#image-showcase') ||
+    video.parentElement
+  );
+}
+
+let printitVideoIo = null;
+
+function bindPrintitVideoHoverControls(video) {
+  if (!video || video.tagName !== 'VIDEO' || video.dataset.printitHoverCtl === '1') return;
+  video.dataset.printitHoverCtl = '1';
+
+  if (!printitPreferHoverOnlyVideoControls()) {
+    if (!video.hasAttribute('controls')) video.controls = true;
+    return;
+  }
+
+  video.removeAttribute('controls');
+  video.controls = false;
+  const host = printitVideoHoverHost(video);
+  if (!host) return;
+
+  const show = () => {
+    video.controls = true;
+  };
+  const hide = () => {
+    video.controls = false;
+  };
+
+  host.addEventListener('mouseenter', show);
+  host.addEventListener('mouseleave', ev => {
+    if (!host.contains(ev.relatedTarget)) hide();
+  });
+}
+
+function observePrintitVideoAutoplayWhenVisible(video) {
+  if (!video || video.tagName !== 'VIDEO' || video.dataset.printitAutoIo === '1') return;
+  video.dataset.printitAutoIo = '1';
+
+  if (!('IntersectionObserver' in window)) {
+    video.play().catch(() => {});
+    return;
+  }
+
+  if (!printitVideoIo) {
+    printitVideoIo = new IntersectionObserver(
+      entries => {
+        entries.forEach(ent => {
+          const v = ent.target;
+          if (!(v instanceof HTMLVideoElement)) return;
+          const ratio = ent.intersectionRatio;
+          if (ent.isIntersecting && ratio >= 0.12) {
+            v.play().catch(() => {});
+          } else if (!ent.isIntersecting || ratio < 0.05) {
+            v.pause();
+          }
+        });
+      },
+      { threshold: [0, 0.05, 0.12, 0.25] }
+    );
+  }
+  printitVideoIo.observe(video);
+}
+
+function refreshPrintitVideoBindings(scope = document) {
+  scope.querySelectorAll('video').forEach(v => {
+    bindPrintitVideoHoverControls(v);
+    observePrintitVideoAutoplayWhenVisible(v);
+  });
+}
+
+/** Tras cambiar de vista (p. ej. display de .page), forzar play en vídeos ya visibles. */
+function printitKickVisibleVideos() {
+  document.querySelectorAll('video').forEach(v => {
+    const r = v.getBoundingClientRect();
+    if (r.width < 2 || r.height < 2) return;
+    const st = window.getComputedStyle(v);
+    if (st.visibility === 'hidden' || st.display === 'none' || Number(st.opacity) === 0) return;
+    const inView = r.top < window.innerHeight && r.bottom > 0 && r.left < window.innerWidth && r.right > 0;
+    if (inView) v.play().catch(() => {});
   });
 }
 
@@ -781,8 +1028,162 @@ function applyProductContextFromPage() {
   const labelEl = document.getElementById('selected-label');
   if (titleEl) titleEl.textContent = ctx.category;
   if (leadEl) leadEl.textContent = ctx.subcategory;
-  if (crumbEl) crumbEl.textContent = `${ctx.category} - ${ctx.subcategory}`;
+  if (crumbEl) {
+    const bc =
+      typeof ctx.breadcrumb === 'string' && ctx.breadcrumb.trim()
+        ? ctx.breadcrumb.trim()
+        : `${ctx.category} - ${ctx.subcategory}`;
+    crumbEl.textContent = bc;
+  }
   if (labelEl) labelEl.textContent = FIXED_SHOWCASE_LABEL;
+}
+
+const CONTACT_PERSON_ICON = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 20c0-3.5 3.1-6 7-6s7 2.5 7 6"/></svg>`;
+
+const CONTACT_WEB_ICON = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 3.2 4 6.6 4 9s-1.4 5.8-4 9"/><path d="M12 3c-2.6 3.2-4 6.6-4 9s1.4 5.8 4 9"/></svg>`;
+
+function initContactCardIcons(contactPage) {
+  contactPage.querySelectorAll('.contact-team-grid .profile-card').forEach((card) => {
+    if (card.querySelector('.contact-card-icon')) return;
+    const icon = document.createElement('span');
+    icon.className = 'contact-card-icon';
+    icon.innerHTML = CONTACT_PERSON_ICON;
+    card.insertBefore(icon, card.firstChild);
+  });
+}
+
+function moveContactWebLinkToBar(contactPage) {
+  if (contactPage.querySelector('.contact-web-bar')) return;
+
+  const grid = contactPage.querySelector('.contact-team-grid');
+  if (!grid) return;
+
+  const existingWeb = contactPage.querySelector(
+    '.contact-team-grid .social-link[href*="printitbcn.com"]:not([href^="mailto"])'
+  );
+
+  const bar = document.createElement('div');
+  bar.className = 'contact-web-bar animate-in';
+
+  const iconWrap = document.createElement('span');
+  iconWrap.className = 'contact-web-bar-icon';
+  iconWrap.setAttribute('aria-hidden', 'true');
+  iconWrap.innerHTML = CONTACT_WEB_ICON;
+  bar.appendChild(iconWrap);
+
+  if (existingWeb) {
+    const webLink = existingWeb.cloneNode(true);
+    bar.appendChild(webLink);
+    contactPage
+      .querySelectorAll('.contact-team-grid .social-link[href*="printitbcn.com"]:not([href^="mailto"])')
+      .forEach((link) => link.remove());
+  } else {
+    const webLink = document.createElement('a');
+    webLink.href = 'https://www.printitbcn.com';
+    webLink.className = 'social-link';
+    webLink.target = '_blank';
+    webLink.rel = 'noopener noreferrer';
+    webLink.innerHTML = '<span>Web: www.printitbcn.com</span>';
+    bar.appendChild(webLink);
+  }
+
+  grid.insertAdjacentElement('afterend', bar);
+}
+
+function splitContactSocialLinkLabels(scope = document) {
+  const selectors = [
+    '#page-contact .social-link',
+    '#page-contact .contact-web-bar .social-link',
+    '.app-office-contact-banner .social-link',
+  ];
+
+  selectors.forEach((selector) => {
+    scope.querySelectorAll(selector).forEach((link) => {
+      const span = link.querySelector('span:first-child');
+      if (!span || span.classList.contains('contact-link-label')) return;
+
+      const text = (span.textContent || '').trim();
+      const match = text.match(/^([^:]+):\s*(.+)$/);
+      if (!match) return;
+
+      const label = document.createElement('span');
+      label.className = 'contact-link-label';
+      label.textContent = match[1].trim();
+
+      const value = document.createElement('span');
+      value.className = 'contact-link-value';
+      value.textContent = match[2].trim();
+
+      span.replaceWith(label, value);
+    });
+  });
+}
+
+function initContactPageLayout() {
+  const contactPage = document.getElementById('page-contact');
+  if (!contactPage) return;
+
+  contactPage.classList.add('contact-page--architect');
+
+  const nav = contactPage.querySelector('.top-nav');
+  const cards = [...contactPage.querySelectorAll('.profile-card.animate-in')];
+  const footer = contactPage.querySelector('.footer-bar');
+
+  if (nav && !contactPage.querySelector('.contact-intro')) {
+    const intro = document.createElement('header');
+    intro.className = 'contact-intro animate-in';
+    intro.innerHTML = `
+      <p class="contact-intro-eyebrow">Print It · Barcelona</p>
+      <h1 class="contact-intro-title">Contacto</h1>
+      <p class="contact-intro-lead">Hablemos de tu proyecto.</p>
+    `;
+    nav.insertAdjacentElement('afterend', intro);
+  }
+
+  if (cards.length && !contactPage.querySelector('.contact-team-grid')) {
+    const grid = document.createElement('div');
+    grid.className = 'contact-team-grid';
+    cards.forEach((card) => grid.appendChild(card));
+    if (footer) contactPage.insertBefore(grid, footer);
+    else contactPage.appendChild(grid);
+  }
+
+  moveContactWebLinkToBar(contactPage);
+  initContactCardIcons(contactPage);
+  splitContactSocialLinkLabels(contactPage);
+}
+
+function initWhatsAppLinks(scope = document) {
+  const mobileLinks = scope.querySelectorAll('.social-link[href^="tel:"]');
+  mobileLinks.forEach((link) => {
+    const text = (link.textContent || '').toLowerCase();
+    if (!text.includes('móvil') && !text.includes('movil')) return;
+    if (link.dataset.waBound === '1') return;
+
+    const rawTel = link.getAttribute('href') || '';
+    const phone = rawTel.replace('tel:', '').replace(/[^\d+]/g, '');
+    if (!phone) return;
+
+    const wa = document.createElement('a');
+    wa.className = 'social-link social-link-whatsapp';
+    // Official WhatsApp deep-link with broad desktop/mobile support.
+    wa.href = `https://api.whatsapp.com/send?phone=${phone.replace('+', '')}`;
+    wa.target = '_blank';
+    wa.rel = 'noopener noreferrer';
+    wa.setAttribute('aria-label', `Abrir chat de WhatsApp con ${phone}`);
+    wa.innerHTML = `
+      <span>WhatsApp: ${phone}</span>
+      <span class="link-icon" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+          <path d="M19.11 17.21c-.28-.14-1.67-.82-1.93-.91-.26-.1-.45-.14-.64.14-.19.28-.73.91-.9 1.1-.16.19-.33.21-.61.07-.28-.14-1.19-.44-2.26-1.42-.84-.75-1.4-1.67-1.57-1.95-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.49.14-.16.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.64-1.54-.88-2.11-.23-.55-.47-.48-.64-.49h-.54c-.19 0-.49.07-.75.35-.26.28-.98.95-.98 2.31s1 2.67 1.14 2.86c.14.19 1.95 2.98 4.72 4.18.66.28 1.17.45 1.57.57.66.21 1.26.18 1.73.11.53-.08 1.67-.68 1.9-1.33.23-.66.23-1.22.16-1.33-.07-.12-.26-.19-.54-.33z"></path>
+          <path d="M16.01 3.2c-7.08 0-12.8 5.72-12.8 12.79 0 2.25.59 4.45 1.71 6.39L3 29l6.78-1.78a12.8 12.8 0 0 0 6.23 1.6h.01c7.07 0 12.79-5.72 12.79-12.8 0-3.43-1.34-6.66-3.77-9.08A12.73 12.73 0 0 0 16.01 3.2zm0 23.45h-.01a10.6 10.6 0 0 1-5.4-1.48l-.39-.23-4.02 1.05 1.07-3.92-.25-.4a10.62 10.62 0 0 1-1.64-5.66c0-5.86 4.77-10.63 10.64-10.63 2.84 0 5.52 1.11 7.53 3.11 2.01 2 3.11 4.68 3.11 7.52 0 5.87-4.77 10.64-10.64 10.64z"></path>
+        </svg>
+      </span>
+    `;
+
+    link.insertAdjacentElement('afterend', wa);
+    link.dataset.waBound = '1';
+  });
 }
 
 function initProductPageLinkNavigation() {
@@ -811,8 +1212,11 @@ document.addEventListener('DOMContentLoaded', () => {
     showcaseLastCleanSrc = initial.split('?')[0];
   }
   initTheme();
+  initFilterPillIcons();
   initBeforeAfterComparators();
   initSoftLoopVideos();
+  refreshPrintitVideoBindings();
+  requestAnimationFrame(() => printitKickVisibleVideos());
   syncProductGalleryToShowcase();
   document.querySelectorAll('.nav-theme-toggle').forEach(btn => {
     btn.type = 'button';
@@ -847,6 +1251,10 @@ document.addEventListener('DOMContentLoaded', () => {
   applyHashRoute();
   applyProductContextFromPage();
   initProductPageLinkNavigation();
+  initContactPageLayout();
+  initWhatsAppLinks();
+  splitContactSocialLinkLabels();
+  initDaliCasambiUseCaseLightbox();
 
   initPrintitDiagnostics();
 });

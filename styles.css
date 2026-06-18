@@ -1,5 +1,5 @@
 /* ===== PRINT IT — Catálogo Comercial (Dark Portfolio Style) ===== */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 /* ===== CSS VARIABLES ===== */
 :root {
@@ -195,6 +195,19 @@ img {
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
+/* Escaparate (foto): ~30% más pequeña y contenida para ver bien la imagen completa */
+.image-showcase img#showcase-img {
+    position: absolute;
+    inset: 0;
+    width: 70%;
+    height: 70%;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    object-fit: contain;
+    object-position: center center;
+}
+
 .image-showcase video {
     width: 100%;
     height: 100%;
@@ -203,7 +216,7 @@ img {
     background: #000;
 }
 
-/* desmiembre.mp4 en showcase izquierdo: encaje completo, centrado (misma intención que galería --center) */
+/* Showcase letterbox (contain): desmiembre.mp4, totems backdrops photocallls con luz.mov, etc. */
 .image-showcase video.showcase-video--contain-center {
     width: 100%;
     height: 100%;
@@ -489,6 +502,13 @@ img {
     box-sizing: border-box;
 }
 
+.profile-avatar--theme-clean {
+    border: none;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
 .profile-name {
     font-size: 18px;
     font-weight: 600;
@@ -536,6 +556,551 @@ img {
     color: var(--text-secondary);
     display: flex;
     align-items: center;
+}
+
+/* ===== CONTACT PAGE — ARCHITECTURAL MINIMAL ===== */
+.contact-page--architect {
+    --contact-hairline: color-mix(in srgb, var(--text) 14%, transparent);
+    --contact-hairline-soft: color-mix(in srgb, var(--text) 8%, transparent);
+    --contact-label-col: 92px;
+    --contact-role-color: var(--accent);
+}
+
+.contact-page--architect .top-nav {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+    background: transparent;
+}
+
+.contact-intro {
+    padding: 4px 0 28px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid var(--contact-hairline);
+}
+
+.contact-intro-eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+}
+
+.contact-intro-title {
+    font-size: clamp(2rem, 4.5vw, 2.85rem);
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    line-height: 1.02;
+    margin-bottom: 12px;
+}
+
+.contact-intro-lead {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--text-secondary);
+    letter-spacing: 0.01em;
+    max-width: 32ch;
+    line-height: 1.6;
+}
+
+.contact-team-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.contact-page--architect .profile-card {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 24px 0 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-page--architect .profile-card + .profile-card {
+    border-top: 1px solid var(--contact-hairline);
+}
+
+.contact-card-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    margin-bottom: 16px;
+    color: var(--accent);
+    border: 1px solid color-mix(in srgb, var(--accent) 36%, transparent);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.contact-card-icon svg {
+    display: block;
+}
+
+.contact-page--architect .profile-header {
+    display: block;
+    margin-bottom: 20px;
+    min-height: 5.25rem;
+}
+
+.contact-page--architect .profile-avatar--logo {
+    display: none;
+}
+
+.contact-page--architect .profile-name {
+    font-size: clamp(1.35rem, 2.2vw, 1.65rem);
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    margin-bottom: 10px;
+}
+
+.contact-page--architect .profile-role {
+    display: block;
+    margin: 0;
+    padding: 0;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--contact-role-color);
+    white-space: normal;
+    max-width: none;
+    line-height: 1.55;
+}
+
+.contact-page--architect .profile-description {
+    display: none;
+}
+
+.contact-page--architect .social-links {
+    gap: 0;
+    border-top: 1px solid var(--contact-hairline-soft);
+    margin-top: auto;
+}
+
+.contact-page--architect .social-link {
+    display: grid;
+    grid-template-columns: var(--contact-label-col) minmax(0, 1fr);
+    align-items: baseline;
+    gap: 12px 16px;
+    padding: 12px 0;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid var(--contact-hairline-soft);
+    background: transparent;
+    font-size: 13px;
+    line-height: 1.45;
+    transition: color 0.25s ease, padding-left 0.25s ease;
+}
+
+.contact-page--architect .social-link:last-child {
+    border-bottom: none;
+}
+
+.contact-page--architect .social-link .link-icon {
+    display: none;
+}
+
+.contact-page--architect .contact-link-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.contact-page--architect .contact-link-value {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text);
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.contact-page--architect .social-link:hover {
+    transform: none;
+    background: transparent;
+    padding-left: 4px;
+}
+
+.contact-page--architect .social-link:hover .contact-link-value {
+    color: var(--accent);
+}
+
+.contact-page--architect .social-link-whatsapp:hover .contact-link-value {
+    color: #3ecf7a;
+}
+
+[data-theme="light"] .contact-page--architect .social-link-whatsapp:hover .contact-link-value {
+    color: #1a9d52;
+}
+
+.contact-web-bar {
+    margin-top: 28px;
+    padding: 22px 24px;
+    border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px) saturate(1.2);
+    -webkit-backdrop-filter: blur(10px) saturate(1.2);
+    transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.contact-web-bar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(22px) saturate(1.5);
+    -webkit-backdrop-filter: blur(22px) saturate(1.5);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.contact-web-bar:hover {
+    border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.contact-web-bar:hover::before {
+    opacity: 1;
+}
+
+.contact-web-bar > * {
+    position: relative;
+    z-index: 1;
+}
+
+[data-theme="light"] .contact-web-bar {
+    background: rgba(255, 255, 255, 0.35);
+    border-color: rgba(255, 255, 255, 0.55);
+}
+
+[data-theme="light"] .contact-web-bar::before {
+    background: rgba(255, 255, 255, 0.45);
+}
+
+[data-theme="light"] .contact-web-bar:hover {
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 24px rgba(15, 18, 28, 0.06);
+}
+
+.contact-web-bar-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    color: var(--accent);
+    border: 1px solid color-mix(in srgb, var(--accent) 36%, transparent);
+    border-radius: 50%;
+}
+
+.contact-web-bar-icon svg {
+    display: block;
+}
+
+.contact-web-bar .social-link {
+    flex: 0 1 auto;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+}
+
+.contact-web-bar .contact-link-label {
+    display: none;
+}
+
+.contact-web-bar .contact-link-value {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+}
+
+.contact-web-bar .social-link:hover {
+    padding-left: 0;
+    background: transparent;
+}
+
+.contact-web-bar .social-link:hover .contact-link-value {
+    color: var(--accent);
+}
+
+body.is-contact-page .app-office-contact-banner .social-link[href*="printitbcn.com"]:not([href^="mailto"]),
+body:has(#page-contact.active) .app-office-contact-banner .social-link[href*="printitbcn.com"]:not([href^="mailto"]) {
+    display: none;
+}
+
+/* Office banner — same language on contact */
+body.is-contact-page .app-office-contact-banner,
+body:has(#page-contact.active) .app-office-contact-banner {
+    background: transparent;
+    border: none;
+    border-top: 1px solid var(--contact-hairline, color-mix(in srgb, var(--text) 14%, transparent));
+    border-radius: 0;
+    box-shadow: none;
+    padding: 32px 0 8px;
+    margin-top: 0;
+}
+
+body.is-contact-page .app-office-contact-banner .office-contact-heading-icon,
+body:has(#page-contact.active) .app-office-contact-banner .office-contact-heading-icon {
+    display: none;
+}
+
+body.is-contact-page .app-office-contact-banner .profile-header,
+body:has(#page-contact.active) .app-office-contact-banner .profile-header {
+    display: block;
+    margin-bottom: 20px;
+}
+
+body.is-contact-page .app-office-contact-banner .profile-name,
+body:has(#page-contact.active) .app-office-contact-banner .profile-name {
+    font-size: clamp(1.2rem, 2vw, 1.45rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+}
+
+body.is-contact-page .app-office-contact-banner .profile-role,
+body:has(#page-contact.active) .app-office-contact-banner .profile-role {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 6px;
+}
+
+body.is-contact-page .app-office-contact-banner .social-links,
+body:has(#page-contact.active) .app-office-contact-banner .social-links {
+    border-top: 1px solid color-mix(in srgb, var(--text) 8%, transparent);
+}
+
+body.is-contact-page .app-office-contact-banner .social-link,
+body:has(#page-contact.active) .app-office-contact-banner .social-link {
+    display: grid;
+    grid-template-columns: minmax(72px, 0.22fr) 1fr;
+    gap: 16px 20px;
+    padding: 13px 0;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--text) 8%, transparent);
+    background: transparent;
+}
+
+body.is-contact-page .app-office-contact-banner .social-link .link-icon,
+body:has(#page-contact.active) .app-office-contact-banner .social-link .link-icon {
+    display: none;
+}
+
+body.is-contact-page .app-office-contact-banner .social-link:hover,
+body:has(#page-contact.active) .app-office-contact-banner .social-link:hover {
+    transform: none;
+    background: transparent;
+    padding-left: 6px;
+}
+
+body.is-contact-page .app-office-contact-banner .social-link:hover .contact-link-value,
+body:has(#page-contact.active) .app-office-contact-banner .social-link:hover .contact-link-value {
+    color: var(--accent);
+}
+
+body.is-contact-page .app-office-contact-banner .contact-link-label,
+body:has(#page-contact.active) .app-office-contact-banner .contact-link-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+body.is-contact-page .app-office-contact-banner .contact-link-value,
+body:has(#page-contact.active) .app-office-contact-banner .contact-link-value {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text);
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.app-office-contact-banner {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-top: var(--gap);
+    display: none;
+    padding: 24px 26px;
+}
+
+body .app-office-contact-banner.is-visible {
+    display: block;
+}
+
+body:has(#page-contact.active) .app-office-contact-banner,
+body.is-contact-page .app-office-contact-banner {
+    display: block;
+}
+
+@media (min-width: 901px) {
+    body:has(#page-contact.active) .app,
+    body.is-contact-page .app {
+        grid-template-columns: minmax(240px, 32%) minmax(0, 1fr);
+        align-items: stretch;
+    }
+
+    body:has(#page-contact.active) .panel-right,
+    body.is-contact-page .panel-right {
+        max-height: none;
+        overflow-y: visible;
+        min-height: calc(100vh - var(--gap) * 2);
+    }
+
+    body:has(#page-contact.active) .panel-left,
+    body.is-contact-page .panel-left {
+        position: sticky;
+        top: var(--gap);
+        align-self: center;
+        height: min(56vh, 500px);
+        max-height: calc(100vh - var(--gap) * 2);
+        overflow: hidden;
+    }
+
+    body:has(#page-contact.active) .panel-left #image-showcase,
+    body.is-contact-page .panel-left #image-showcase {
+        height: 100%;
+        margin-top: 0;
+        min-height: 0;
+    }
+
+    body:has(#page-contact.active) #image-showcase .carousel-controls,
+    body:has(#page-contact.active) #image-showcase #prev-btn,
+    body:has(#page-contact.active) #image-showcase #next-btn,
+    body:has(#page-contact.active) #image-showcase #carousel-dots,
+    body.is-contact-page #image-showcase .carousel-controls,
+    body.is-contact-page #image-showcase #prev-btn,
+    body.is-contact-page #image-showcase #next-btn,
+    body.is-contact-page #image-showcase #carousel-dots {
+        display: none !important;
+    }
+
+    body:has(#page-contact.active) #page-contact,
+    body.is-contact-page #page-contact {
+        min-height: calc(100vh - var(--gap) * 2);
+        display: flex;
+        flex-direction: column;
+        padding: 0 10px 28px;
+        flex: 1;
+    }
+
+    body:has(#page-contact.active) .contact-team-grid,
+    body.is-contact-page .contact-team-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0 40px;
+        flex: 1;
+        align-content: start;
+        align-items: stretch;
+        padding-top: 8px;
+    }
+
+    body:has(#page-contact.active) .contact-page--architect .profile-card,
+    body.is-contact-page .contact-page--architect .profile-card {
+        padding: 0 0 0 28px;
+        min-height: 0;
+        border-top: none;
+        border-left: 1px solid var(--contact-hairline);
+        height: 100%;
+    }
+
+    body:has(#page-contact.active) .contact-page--architect .profile-card:first-child,
+    body.is-contact-page .contact-page--architect .profile-card:first-child {
+        border-left: none;
+        padding-left: 0;
+    }
+
+    body:has(#page-contact.active) .contact-web-bar,
+    body.is-contact-page .contact-web-bar {
+        margin-top: 36px;
+        padding: 22px 24px;
+    }
+
+    body:has(#page-contact.active) #page-contact .footer-bar,
+    body.is-contact-page #page-contact .footer-bar {
+        display: none;
+    }
+
+    body.is-contact-page .app-office-contact-banner .social-links,
+    body:has(#page-contact.active) .app-office-contact-banner .social-links {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0 44px;
+    }
+
+    body.is-contact-page .app-office-contact-banner .social-link,
+    body:has(#page-contact.active) .app-office-contact-banner .social-link {
+        grid-template-columns: var(--contact-label-col, 92px) minmax(0, 1fr);
+        border-bottom: none;
+        border-left: 1px solid color-mix(in srgb, var(--text) 10%, transparent);
+        padding-left: 28px;
+    }
+
+    body.is-contact-page .app-office-contact-banner .social-link:first-child,
+    body:has(#page-contact.active) .app-office-contact-banner .social-link:first-child {
+        border-left: none;
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .contact-intro {
+        padding-bottom: 24px;
+        margin-bottom: 4px;
+    }
+
+    .contact-page--architect .profile-header {
+        min-height: 0;
+    }
+
+    .contact-page--architect .social-link {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        padding: 14px 0;
+    }
+
+    .contact-web-bar {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contact-web-bar .social-link {
+        justify-content: center;
+    }
 }
 
 .contact-link {
@@ -611,14 +1176,17 @@ img {
     transform: translateY(-4px);
 }
 
-.mini-card img {
+.mini-card img,
+.mini-card video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: var(--transition);
+    display: block;
 }
 
-.mini-card:hover img {
+.mini-card:hover img,
+.mini-card:hover video {
     transform: scale(1.03);
 }
 
@@ -962,34 +1530,200 @@ img {
 /* ===== FILTER BAR ===== */
 .filter-bar {
     display: flex;
-    gap: 8px;
+    gap: 12px;
     flex-wrap: wrap;
     padding: 4px 0 8px;
 }
 
 .filter-pill {
-    padding: 8px 18px;
-    border-radius: 100px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-width: 86px;
+    padding: 10px 12px 11px;
+    border-radius: 18px;
     border: 1px solid var(--border);
-    background: transparent;
+    background: rgba(255, 255, 255, 0.04);
     color: var(--text-secondary);
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 500;
+    letter-spacing: 0.01em;
     cursor: pointer;
-    transition: var(--transition);
+    transition: background .25s ease, border-color .25s ease, color .25s ease, box-shadow .25s ease, transform .25s ease;
     font-family: var(--font);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+}
+
+.filter-pill-icon {
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 13px;
+    background: linear-gradient(165deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.06) 100%);
+    color: #f5f5f7;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.35),
+        0 6px 16px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.filter-pill-icon::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(125deg, rgba(255, 255, 255, 0.45) 0%, transparent 42%);
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+/* Icon “tiles” — color por categoría (estilo vitrina tipo Apple Store) */
+.filter-pill[data-filter="all"] .filter-pill-icon {
+    background: linear-gradient(155deg, #a1a1a6 0%, #6e6e73 42%, #48484a 100%);
+}
+
+.filter-pill[data-filter="lluminaries"] .filter-pill-icon {
+    background: linear-gradient(160deg, #ffe066 0%, #ffb703 38%, #ff8500 100%);
+}
+
+.filter-pill[data-filter="lightbox"] .filter-pill-icon {
+    background: linear-gradient(165deg, #9be7ff 0%, #00b4d8 42%, #0077b6 100%);
+}
+
+.filter-pill[data-filter="totems"] .filter-pill-icon {
+    background: linear-gradient(158deg, #e9d5ff 0%, #c084fc 40%, #7c3aed 100%);
+}
+
+.filter-pill[data-filter="aeris"] .filter-pill-icon {
+    background: linear-gradient(165deg, #bae6fd 0%, #38bdf8 45%, #0369a1 100%);
+}
+
+.filter-pill[data-filter="vesteix"] .filter-pill-icon {
+    background: linear-gradient(155deg, #fecdd3 0%, #fb7185 38%, #ea580c 100%);
+}
+
+.filter-pill[data-filter="rigids"] .filter-pill-icon {
+    background: linear-gradient(160deg, #cbd5e1 0%, #64748b 48%, #334155 100%);
+}
+
+.filter-pill-icon svg {
+    width: 26px;
+    height: 26px;
+    display: block;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.18));
+}
+
+.filter-pill-label {
+    line-height: 1.1;
+    font-size: 11px;
 }
 
 .filter-pill:hover {
-    border-color: var(--border-hover);
+    border-color: rgba(255, 255, 255, 0.38);
     color: var(--text);
-    background: var(--pill-hover-bg);
+    background: rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(14px) saturate(145%);
+    -webkit-backdrop-filter: blur(14px) saturate(145%);
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.24);
+    transform: translateY(-1px);
+}
+
+.filter-pill:hover .filter-pill-icon {
+    transform: scale(1.04);
+    border-color: rgba(255, 255, 255, 0.28);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.45),
+        0 10px 22px rgba(0, 0, 0, 0.28);
 }
 
 .filter-pill.active {
-    background: var(--text);
-    color: var(--bg);
-    border-color: var(--text);
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text);
+    border-color: rgba(255, 255, 255, 0.32);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+.filter-pill.active .filter-pill-icon {
+    transform: scale(1.06);
+    border-color: rgba(255, 255, 255, 0.42);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.55),
+        0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Modo claro: iconos/texto visibles sin interacción */
+:root[data-theme="light"] .filter-pill {
+    background: rgba(255, 255, 255, 0.68);
+    border-color: rgba(14, 14, 16, 0.14);
+    color: rgba(20, 20, 24, 0.86);
+}
+
+:root[data-theme="light"] .filter-pill-icon {
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.65),
+        0 4px 12px rgba(15, 23, 42, 0.12);
+}
+
+:root[data-theme="light"] .filter-pill[data-filter="all"] .filter-pill-icon {
+    background: linear-gradient(155deg, #d1d1d6 0%, #aeaeb2 45%, #8e8e93 100%);
+}
+
+:root[data-theme="light"] .filter-pill[data-filter="lluminaries"] .filter-pill-icon {
+    background: linear-gradient(160deg, #fff3bf 0%, #ffd60a 40%, #ff9f0a 100%);
+}
+
+:root[data-theme="light"] .filter-pill[data-filter="lightbox"] .filter-pill-icon {
+    background: linear-gradient(165deg, #cff4ff 0%, #48cae4 42%, #0096c7 100%);
+}
+
+:root[data-theme="light"] .filter-pill[data-filter="totems"] .filter-pill-icon {
+    background: linear-gradient(158deg, #f3e8ff 0%, #d8b4fe 38%, #9333ea 100%);
+}
+
+:root[data-theme="light"] .filter-pill[data-filter="aeris"] .filter-pill-icon {
+    background: linear-gradient(165deg, #e0f2fe 0%, #7dd3fc 42%, #0284c7 100%);
+}
+
+:root[data-theme="light"] .filter-pill[data-filter="vesteix"] .filter-pill-icon {
+    background: linear-gradient(155deg, #ffe4e6 0%, #fda4af 38%, #f97316 100%);
+}
+
+:root[data-theme="light"] .filter-pill[data-filter="rigids"] .filter-pill-icon {
+    background: linear-gradient(160deg, #f1f5f9 0%, #94a3b8 45%, #475569 100%);
+}
+
+:root[data-theme="light"] .filter-pill:hover {
+    border-color: rgba(255, 255, 255, 0.72);
+    background: rgba(255, 255, 255, 0.52);
+    color: #0f0f11;
+    box-shadow: 0 10px 30px rgba(130, 140, 170, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.88);
+}
+
+:root[data-theme="light"] .filter-pill:hover .filter-pill-icon {
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.85),
+        0 8px 18px rgba(15, 23, 42, 0.16);
+}
+
+:root[data-theme="light"] .filter-pill.active {
+    background: rgba(255, 255, 255, 0.78);
+    border-color: rgba(14, 14, 16, 0.2);
+    color: #0f0f11;
+}
+
+:root[data-theme="light"] .filter-pill.active .filter-pill-icon {
+    border-color: rgba(0, 0, 0, 0.12);
 }
 
 a.filter-pill {
@@ -1188,6 +1922,49 @@ a.filter-pill {
     width: 100%;
     height: 100%;
     display: block;
+}
+
+.product-spec-sheet .sheet-value--textile-premium {
+    padding: 2px 0;
+}
+
+.product-spec-sheet .textile-premium-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+}
+
+.product-spec-sheet .textile-premium-item {
+    display: grid;
+    grid-template-columns: 20px minmax(0, 1fr);
+    gap: 8px;
+    align-items: start;
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+.product-spec-sheet .textile-premium-icon {
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    margin-top: 1px;
+}
+
+.product-spec-sheet .textile-premium-icon svg {
+    width: 12px;
+    height: 12px;
+}
+
+.product-spec-sheet .textile-premium-item strong {
+    color: var(--text);
+    font-weight: 600;
 }
 
 .product-spec-sheet .product-doc-h2:first-of-type {
@@ -1660,6 +2437,10 @@ html[data-theme='light'] .product-spec-sheet--rigidos .rigidos-flow-step-num {
     margin-bottom: 4px;
 }
 
+.product-finish-swatches + .product-finish-swatches {
+    margin-top: 14px;
+}
+
 /* ===== PRODUCT GALLERY (3 items) ===== */
 .product-gallery {
     display: grid;
@@ -1836,9 +2617,13 @@ html[data-theme="light"] .page--custom-made .custom-made-lead-cap-text strong {
     .page--custom-made .custom-made-lead-capabilities li {
         padding: 18px 16px;
     }
+
+    .page--custom-made .custom-made-spotlight-grid--stacked {
+        grid-template-columns: 1fr;
+    }
 }
 
-/* Vídeo + 4 cajas (2×2) bajo el hero */
+/* Custom showreel: rejilla (hero + spots) y debajo el vídeo principal special custom */
 .page--custom-made .custom-made-showreel {
     display: flex;
     flex-direction: column;
@@ -1868,6 +2653,17 @@ html[data-theme="light"] .page--custom-made .custom-made-lead-cap-text strong {
     gap: 10px;
 }
 
+/* Fila superior: un bloque = ancho de las dos columnas (doble que cada spot); debajo, dos cajas 4/3 */
+.page--custom-made .custom-made-spotlight-grid--stacked {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+}
+
+.page--custom-made .custom-made-spot--hero {
+    grid-column: 1 / -1;
+    aspect-ratio: 16 / 9;
+}
+
 .page--custom-made .custom-made-spot {
     position: relative;
     border-radius: var(--radius);
@@ -1877,7 +2673,8 @@ html[data-theme="light"] .page--custom-made .custom-made-lead-cap-text strong {
     background: var(--bg-card);
 }
 
-.page--custom-made .custom-made-spot img {
+.page--custom-made .custom-made-spot img,
+.page--custom-made .custom-made-spot-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -1896,6 +2693,14 @@ html[data-theme="light"] .page--custom-made .custom-made-lead-cap-text strong {
     text-transform: uppercase;
     color: #fff;
     background: linear-gradient(transparent, rgba(0, 0, 0, 0.78));
+}
+
+/* Etiqueta arriba en el hero vídeo para no tapar los controles nativos abajo */
+.page--custom-made .custom-made-spot--hero .custom-made-spot-label {
+    top: 0;
+    bottom: auto;
+    padding: 10px 10px 28px;
+    background: linear-gradient(rgba(0, 0, 0, 0.72), transparent);
 }
 
 /* product-custom.html: producto Custom a ancho completo (sin panel izquierdo ni galería portfolio) */
@@ -1974,6 +2779,20 @@ body.page-layout-custom-solo .app:has(#page-product.active) #page-product .foote
     max-height: none;
     margin: 0;
     object-fit: cover;
+    object-position: center center;
+    transform: none !important;
+}
+
+/* Galería: vídeo encajado completo (sin recorte) dentro de la celda */
+.product-gallery .gallery-item--video-fit > .gallery-video.gallery-video--contain-center {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    object-fit: contain;
     object-position: center center;
     transform: none !important;
 }
@@ -2111,6 +2930,23 @@ body.page-layout-custom-solo .app:has(#page-product.active) #page-product .foote
 
 .product-breadcrumb {
     margin-bottom: 0;
+}
+
+.product-gallery-tagline {
+    margin: 14px 0 0;
+    padding: 0;
+    max-width: 42em;
+    font-size: 15px;
+    line-height: 1.5;
+    font-weight: 400;
+    color: var(--text-secondary);
+}
+
+.product-gallery-tagline--below-gallery {
+    margin: 32px 0 36px;
+    padding-right: 4px;
+    max-width: 52em;
+    line-height: 1.65;
 }
 
 .product-breadcrumb-list {
@@ -2280,6 +3116,17 @@ body.page-layout-custom-solo .app:has(#page-product.active) #page-product .foote
     flex-shrink: 0;
 }
 
+.product-embed-section--video .product-doc-h2 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 12px;
+    padding: 26px 28px 12px;
+    border-top: 1px solid var(--sheet-row-border);
+}
+
 .product-embed-section--video .product-video-wrap {
     margin: 0;
     border: none;
@@ -2359,6 +3206,34 @@ body.page-layout-custom-solo .app:has(#page-product.active) #page-product .foote
     border: 1px solid var(--border);
     --ba-pos: 50%;
     touch-action: none;
+}
+
+/* Comparador en formato vertical (p. ej. tótems): más alto y sin recorte fuerte */
+.ba-compare.ba-compare--portrait {
+    aspect-ratio: 3 / 4;
+    max-height: min(78vh, 640px);
+    width: 100%;
+    max-width: min(100%, 420px);
+    margin-inline: auto;
+    background: var(--bg-deep, #0d0d0d);
+}
+
+.ba-compare.ba-compare--portrait .ba-layer {
+    object-fit: contain;
+}
+
+/* Comparador cuadrado / retrato suave (p. ej. lightbox a pared — imagen frontal 1:1) */
+.ba-compare.ba-compare--square {
+    aspect-ratio: 1 / 1;
+    max-height: min(88vh, 760px);
+    width: 100%;
+    max-width: min(100%, 440px);
+    margin-inline: auto;
+    background: var(--bg-deep, #0a0a0a);
+}
+
+.ba-compare.ba-compare--square .ba-layer {
+    object-fit: contain;
 }
 
 .ba-layer {
@@ -2704,6 +3579,20 @@ body.page-layout-custom-solo .app:has(#page-product.active) #page-product .foote
         inset 0 1px 1px rgba(255, 255, 255, 0.3),
         inset 0 -2px 4px rgba(0, 0, 0, 0.22),
         0 0 10px rgba(98, 122, 255, 0.28);
+}
+
+.swatch-color--wood {
+    background:
+        radial-gradient(circle at 25% 15%, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0) 55%),
+        repeating-linear-gradient(90deg,
+            rgba(255, 255, 255, 0.07) 0px,
+            rgba(255, 255, 255, 0.07) 2px,
+            rgba(0, 0, 0, 0.06) 2px,
+            rgba(0, 0, 0, 0.06) 6px),
+        linear-gradient(135deg, #b57a3a 0%, #d3a46a 40%, #a56a2f 70%, #e0b57c 100%);
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.22),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.24);
 }
 
 .schematic-placeholder {
@@ -3271,7 +4160,7 @@ body.page-layout-custom-solo .app:has(#page-product.active) #page-product .foote
     }
 
     .filter-bar {
-        gap: 6px;
+        gap: 8px;
         overflow-x: auto;
         flex-wrap: nowrap;
         -webkit-overflow-scrolling: touch;
@@ -3284,10 +4173,26 @@ body.page-layout-custom-solo .app:has(#page-product.active) #page-product .foote
     }
 
     .filter-pill {
-        padding: 6px 14px;
-        font-size: 11px;
+        min-width: 78px;
+        gap: 6px;
+        padding: 8px 10px 9px;
         white-space: nowrap;
         flex-shrink: 0;
+    }
+
+    .filter-pill-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 11px;
+    }
+
+    .filter-pill-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .filter-pill-label {
+        font-size: 10px;
     }
 
     .catalogue-section-header {
