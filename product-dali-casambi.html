@@ -14,7 +14,7 @@
     <title>Dali / Casambi | Print It</title>
     <meta name="description"
         content="Aplicaciones comercial Print It. Soluciones premium de impresión visual: Lightbox, Luminarias, Tótems, Aeris y más.">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20260615a">
     <link rel="icon" type="image/png" href="Material Inicial/logo-oficial.png">
 
     <script>
@@ -24,176 +24,6 @@
       };
       window.location.hash = 'product';
     </script>
-    <style>
-        .dali-hero { border:1px solid var(--border); border-radius:var(--radius); background:var(--bg-card); overflow:hidden; }
-        .dali-hero-copy { padding:22px; display:grid; gap:14px; }
-        .dali-kicker { font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--accent); font-weight:600; }
-        .dali-hero-title { font-size:30px; line-height:1.1; letter-spacing:-.02em; margin:0; }
-        .dali-hero-sub { color:var(--text-secondary); margin:0; max-width:46ch; }
-        .dali-badge-row { display:flex; gap:8px; flex-wrap:wrap; }
-        .dali-badge { font-size:11px; padding:6px 10px; border-radius:999px; border:1px solid var(--border); color:var(--text-secondary); }
-        .dali-section { margin-top:18px; }
-        .dali-section-title { margin:0 0 10px; font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:var(--accent); }
-        .dali-split { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-        .dali-system-card { border:1px solid var(--border); border-radius:var(--radius-sm); padding:16px; background:var(--bg-card); transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
-        .dali-system-card:hover { transform:translateY(-2px); border-color:var(--border-hover); box-shadow:0 10px 24px rgba(0,0,0,.18); }
-        .dali-system-head { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
-        .dali-dot { width:10px; height:10px; border-radius:50%; background:var(--accent); }
-        .dali-system-card h4 { margin:0; font-size:15px; }
-        .dali-system-list { margin:0; padding-left:18px; color:var(--text-secondary); font-size:13px; line-height:1.45; }
-        .dali-icon-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; }
-        .dali-icon-item { border:1px solid var(--border); border-radius:12px; background:var(--bg-card); padding:12px; min-height:92px; display:grid; gap:8px; align-content:start; transition:border-color .2s ease, background .2s ease; }
-        .dali-icon-item:hover { border-color:var(--border-hover); background:var(--bg-card-hover); }
-        .dali-icon { width:18px; height:18px; color:var(--accent); }
-        .dali-icon-item span { font-size:12px; color:var(--text-secondary); line-height:1.35; }
-        .dali-compare-visual { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-        .dali-compare-pane { border:1px solid var(--border); border-radius:14px; overflow:hidden; background:var(--bg-card); }
-        .dali-compare-pane img { width:100%; height:210px; object-fit:cover; display:block; }
-        .dali-compare-copy { padding:12px; font-size:12px; color:var(--text-secondary); }
-        .dali-use-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
-        .dali-use-card { border:1px solid var(--border); border-radius:14px; overflow:hidden; background:var(--bg-card); }
-        .dali-use-card img { width:100%; height:180px; object-fit:cover; display:block; }
-        .dali-use-link { display:block; position:relative; cursor:zoom-in; }
-        .dali-use-link::after { content:"Ampliar"; position:absolute; right:8px; bottom:8px; background:rgba(0,0,0,.72); color:#fff; font-size:11px; line-height:1; padding:6px 8px; border-radius:999px; opacity:0; transition:opacity .2s ease; pointer-events:none; }
-        .dali-use-link:hover::after, .dali-use-link:focus-visible::after { opacity:1; }
-        .dali-use-svg { width:100%; height:180px; display:block; background:#0f1116; }
-        .dali-use-svg image { image-rendering:auto; }
-        .dali-use-card p { margin:0; padding:10px 12px; font-size:12px; color:var(--text-secondary); }
-        .dali-decision { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-        .dali-choice-card { border:1px solid var(--border); border-radius:14px; padding:18px; background:var(--bg-card); cursor:pointer; transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
-        .dali-choice-card:hover { transform:translateY(-2px); border-color:var(--accent); box-shadow:0 12px 28px rgba(0,180,216,.18); }
-        .dali-choice-card strong { display:block; margin-bottom:8px; font-size:15px; }
-        .dali-choice-card p { margin:0; font-size:12px; color:var(--text-secondary); line-height:1.35; }
-        .dali-tech { margin-top:16px; border:1px solid var(--border); border-radius:14px; background:var(--bg-card); overflow:hidden; }
-        .dali-tech summary { list-style:none; cursor:pointer; padding:14px 16px; font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:var(--accent); font-weight:600; }
-        .dali-tech summary::-webkit-details-marker { display:none; }
-        .dali-tech-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; border-top:1px solid var(--border); }
-        .dali-tech-item { padding:12px 16px; border-right:1px solid var(--border); border-bottom:1px solid var(--border); }
-        .dali-tech-item:nth-child(2n) { border-right:none; }
-        .dali-tech-item small { display:block; font-size:11px; color:var(--text-muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:.04em; }
-        .dali-tech-item span { font-size:12px; color:var(--text-secondary); }
-        .dali-showcase-stack {
-            height: 100%;
-            display: block;
-            padding: 10px;
-        }
-        .dali-showcase-video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 12px;
-            background: #000;
-            border: 1px solid var(--border);
-        }
-        .dali-decision-video-wrap {
-            margin-top: 14px;
-            display: flex;
-            justify-content: center;
-        }
-        .dali-decision-video {
-            width: 100%;
-            height: 202px;
-            border-radius: 14px;
-            border: 1px solid var(--border);
-            background: #000;
-            object-fit: cover;
-        }
-        .panel-left .carousel-controls,
-        .panel-left .carousel-dots {
-            display: none;
-        }
-
-        .dali-use-lightbox {
-            position: fixed;
-            inset: 0;
-            z-index: 10000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 56px 20px 24px;
-            background: rgba(0, 0, 0, 0.92);
-            cursor: zoom-out;
-        }
-
-        .dali-use-lightbox[hidden] {
-            display: none !important;
-        }
-
-        .dali-use-lightbox-img {
-            max-width: min(96vw, 1400px);
-            max-height: 88vh;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            border-radius: 8px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
-            cursor: default;
-        }
-
-        .dali-use-lightbox-close {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: 1px solid var(--border, rgba(255, 255, 255, 0.2));
-            background: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            font-size: 26px;
-            line-height: 1;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.2s ease, border-color 0.2s ease;
-        }
-
-        .dali-use-lightbox-close:hover,
-        .dali-use-lightbox-close:focus-visible {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: rgba(255, 255, 255, 0.45);
-            outline: none;
-        }
-        .dali-mini-schema {
-            margin: 8px 0 14px;
-            padding: 8px 10px;
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            background: var(--bg-card);
-            width: fit-content;
-            max-width: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-        .dali-mini-schema img {
-            display: block;
-            width: min(360px, 100%);
-            height: auto;
-            object-fit: contain;
-            filter: none;
-        }
-        .dali-mini-schema::after {
-            content: "";
-            position: absolute;
-            inset: 8px 10px;
-            background-image: url("DALI : CASSAMBI /Cassambi .png");
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            filter: grayscale(1) brightness(0) invert(1) contrast(1.8);
-            mix-blend-mode: screen;
-            opacity: 0.45;
-            pointer-events: none;
-        }
-        @media (max-width: 900px) {
-            .dali-split, .dali-compare-visual, .dali-decision, .dali-tech-grid { grid-template-columns:1fr; }
-            .dali-icon-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
-            .dali-use-grid { grid-template-columns:1fr; }
-            .dali-tech-item { border-right:none; }
-            .dali-decision-video { width: 100%; }
-        }
-    </style>
 </head>
 
 <body>
@@ -864,7 +694,7 @@
             </div><!-- /page-catalogue -->
 
             <!-- PAGE: PRODUCT DETAIL (Blog-style) -->
-            <div class="page" id="page-product">
+            <div class="page product-page-split" id="page-product">
 
                 <nav class="top-nav animate-in">
                     <div class="nav-brand">
@@ -885,18 +715,75 @@
                     <a class="product-home-btn" href="#catalogue" onclick="goToCatalogueAll(event)">← VOLVER A APLICACIONES</a>
                 </div>
 
-                <section class="dali-hero animate-in" aria-label="Hero Dali Casambi">
-                    <div class="dali-hero-copy">
-                        <span class="dali-kicker">Luminarias</span>
-                        <h1 class="dali-hero-title">DALI / CASAMBI</h1>
-                        <p class="dali-hero-sub">Dos caminos para la misma meta: control total de la luz con la experiencia adecuada para cada espacio.</p>
-                        <div class="dali-badge-row">
-                            <span class="dali-badge">Control centralizado</span>
-                            <span class="dali-badge">Escenas inteligentes</span>
-                            <span class="dali-badge">Escalable</span>
+                <!-- Zona superior: ficha de producto (estilo Tunable White, sin perfil / acabados / comparador) -->
+                <div class="product-page-zone product-page-zone--top">
+
+                <div class="product-detail-card animate-in">
+                    <div class="product-detail-header">
+                        <p class="product-struct-kicker">Producto</p>
+                        <h2 class="product-struct-title">Luminarias</h2>
+                        <p class="product-struct-lead">DALI / CASAMBI</p>
+
+                        <div class="product-gallery">
+                            <div class="gallery-item">
+                                <video class="gallery-video" autoplay muted loop playsinline controls preload="metadata"
+                                    poster="DALI : CASSAMBI /Cassambi 2. jpg.webp"
+                                    src="DALI : CASSAMBI /dali cassambi control .mp4"
+                                    aria-label="DALI / CASAMBI — control de iluminación">
+                                    <source src="DALI : CASSAMBI /dali cassambi control .mp4" type="video/mp4">
+                                    Tu navegador no soporta vídeo HTML5.
+                                </video>
+                            </div>
+                            <div class="gallery-item">
+                                <video class="gallery-video" autoplay muted loop playsinline controls preload="metadata"
+                                    poster="DALI : CASSAMBI /Cassambi 2. jpg.webp"
+                                    src="DALI : CASSAMBI /movimiento dedo Dali casambi .mp4"
+                                    aria-label="DALI / CASAMBI — interacción táctil">
+                                    <source src="DALI : CASSAMBI /movimiento dedo Dali casambi .mp4" type="video/mp4">
+                                    Tu navegador no soporta vídeo HTML5.
+                                </video>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="DALI : CASSAMBI /retail dali casasmbi .png"
+                                    alt="DALI / CASAMBI — aplicación retail">
+                            </div>
+                        </div>
+
+                        <div class="product-desc-block">
+                            <p class="product-desc-label">Descripción</p>
+                            <p>Dos caminos para la misma meta: <strong>control total de la luz</strong> con la experiencia adecuada para cada espacio.</p>
+                            <p><strong>DALI:</strong> bus cableado y direccionable; control central en instalaciones complejas; estandarización para obra nueva.</p>
+                            <p><strong>CASAMBI:</strong> red inalámbrica mallada Bluetooth; arranque rápido sin obra de control; escalable con cambios de layout.</p>
+                            <ul class="product-desc-list">
+                                <li><strong>Escenas por zonas</strong> y regulación precisa.</li>
+                                <li><strong>Ahorro energético</strong> y despliegue escalable por fases.</li>
+                                <li>Ámbitos: retail, contract, showroom y oficinas.</li>
+                            </ul>
+                        </div>
+
+                        <button class="read-more-btn" onclick="document.getElementById('dali-zone-bottom').scrollIntoView({behavior:'smooth'})">
+                            Ver sistemas de control ↓
+                        </button>
+                    </div>
+                    <div class="product-meta-row">
+                        <div class="meta-cell">
+                            <div class="meta-cell-label">Familia</div>
+                            <div class="meta-cell-value">Luminarias</div>
+                        </div>
+                        <div class="meta-cell">
+                            <div class="meta-cell-label">Sistema</div>
+                            <div class="meta-cell-value">DALI / CASAMBI</div>
+                        </div>
+                        <div class="meta-cell">
+                            <div class="meta-cell-label">Control</div>
+                            <div class="meta-cell-value">Escenas · Zonas</div>
+                        </div>
+                        <div class="meta-cell">
+                            <div class="meta-cell-label">Ámbito</div>
+                            <div class="meta-cell-value">Retail · Contract</div>
                         </div>
                     </div>
-                </section>
+                </div>
 
                 <div class="product-gallery-intro animate-in">
                     <nav class="product-breadcrumb" aria-label="Migas de pan">
@@ -905,122 +792,223 @@
                                 <a href="#catalogue" class="product-breadcrumb-link" onclick="goToCatalogueAll(event)">Aplicaciones</a>
                             </li>
                             <li class="product-breadcrumb-item" aria-current="page">
-                                LUMINARIAS - Dali / Casambi
+                                LUMINARIAS - DALI / CASAMBI
                             </li>
                         </ol>
                     </nav>
-                    <div class="dali-mini-schema" aria-label="Esquema resumido Casambi">
-                        <img src="DALI : CASSAMBI /Cassambi .png" alt="Esquema resumido de comunicación CASAMBI">
+                </div>
+
+                <div class="sheet-media-gallery animate-in" aria-label="Galería de producto">
+                    <div class="sheet-media-gallery-header">
+                        <span class="sheet-media-gallery-label">Galería</span>
+                    </div>
+                    <div class="product-gallery">
+                        <div class="gallery-item">
+                            <video class="gallery-video" autoplay muted loop playsinline controls preload="metadata"
+                                poster="DALI : CASSAMBI /Cassambi 2. jpg.webp"
+                                src="DALI : CASSAMBI /dali cassambi control .mp4"
+                                aria-label="DALI / CASAMBI — control">
+                                <source src="DALI : CASSAMBI /dali cassambi control .mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="gallery-item">
+                            <video class="gallery-video" autoplay muted loop playsinline controls preload="metadata"
+                                poster="DALI : CASSAMBI /Cassambi 2. jpg.webp"
+                                src="DALI : CASSAMBI /movimiento dedo Dali casambi .mp4"
+                                aria-label="DALI / CASAMBI — gesto">
+                                <source src="DALI : CASSAMBI /movimiento dedo Dali casambi .mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="DALI : CASSAMBI /ferias casambi 4k.png"
+                                alt="DALI / CASAMBI — stands y ferias">
+                        </div>
                     </div>
                 </div>
 
-                <section class="dali-section animate-in" aria-label="Explicación visual">
-                    <h3 class="dali-section-title">Visual explanation</h3>
-                    <div class="dali-split">
-                        <article class="dali-system-card">
-                            <div class="dali-system-head"><span class="dali-dot"></span><h4>DALI</h4></div>
-                            <ul class="dali-system-list">
+                <p class="product-gallery-tagline product-gallery-tagline--below-gallery animate-in">Control profesional de la luz: elige DALI para infraestructura cableada y centralizada, o CASAMBI para flexibilidad inalámbrica y puesta en marcha ágil.</p>
+
+                <div class="technical-sheet animate-in product-spec-sheet">
+                    <h3 class="product-doc-h1">Detalles técnicos</h3>
+
+                    <h4 class="product-doc-h2"><span class="section-title-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="2"></rect><path d="M9 8h6M9 12h6M9 16h4"></path></svg></span>General</h4>
+                    <div class="sheet-table">
+                        <div class="sheet-row">
+                            <div class="sheet-label">Aplicación</div>
+                            <div class="sheet-value">Control profesional de iluminación LED en luminarias Print It.</div>
+                        </div>
+                        <div class="sheet-row">
+                            <div class="sheet-label">Protocolos</div>
+                            <div class="sheet-value">DALI cableado / CASAMBI inalámbrico (Bluetooth mesh).</div>
+                        </div>
+                        <div class="sheet-row">
+                            <div class="sheet-label">Funciones</div>
+                            <div class="sheet-value">Escenas, regulación, grupos y horarios.</div>
+                        </div>
+                        <div class="sheet-row">
+                            <div class="sheet-label">Ámbitos</div>
+                            <div class="sheet-value">Retail, contract, showroom y oficinas.</div>
+                        </div>
+                    </div>
+
+                    <h4 class="product-doc-h2"><span class="section-title-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M8 10a4 4 0 1 1 8 0c0 2-1 3-2 4v2h-4v-2c-1-1-2-2-2-4z"></path></svg></span>DALI</h4>
+                    <div class="sheet-table">
+                        <div class="sheet-row">
+                            <div class="sheet-label">Sistema</div>
+                            <div class="sheet-value">Bus direccionable y control central.</div>
+                        </div>
+                        <div class="sheet-row">
+                            <div class="sheet-label">Ideal para</div>
+                            <div class="sheet-value">Obra nueva e instalaciones complejas que requieren estabilidad y normalización.</div>
+                        </div>
+                    </div>
+
+                    <h4 class="product-doc-h2"><span class="section-title-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.5"></circle><path d="M19.4 15a1 1 0 0 0 .2 1.1l.1.1a1.2 1.2 0 0 1 0 1.7l-.2.2a1.2 1.2 0 0 1-1.7 0l-.1-.1a1 1 0 0 0-1.1-.2 1 1 0 0 0-.6.9V20a1.2 1.2 0 0 1-1.2 1.2h-.3A1.2 1.2 0 0 1 13.3 20v-.2a1 1 0 0 0-.6-.9 1 1 0 0 0-1.1.2l-.1.1a1.2 1.2 0 0 1-1.7 0l-.2-.2a1.2 1.2 0 0 1 0-1.7l.1-.1a1 1 0 0 0 .2-1.1 1 1 0 0 0-.9-.6H8a1.2 1.2 0 0 1-1.2-1.2v-.3A1.2 1.2 0 0 1 8 12.7h.2a1 1 0 0 0 .9-.6 1 1 0 0 0-.2-1.1l-.1-.1a1.2 1.2 0 0 1 0-1.7l.2-.2a1.2 1.2 0 0 1 1.7 0l.1.1a1 1 0 0 0 1.1.2 1 1 0 0 0 .6-.9V8A1.2 1.2 0 0 1 13.7 6.8h.3A1.2 1.2 0 0 1 15.2 8v.2a1 1 0 0 0 .6.9 1 1 0 0 0 1.1-.2l.1-.1a1.2 1.2 0 0 1 1.7 0l.2.2a1.2 1.2 0 0 1 0 1.7l-.1.1a1 1 0 0 0-.2 1.1 1 1 0 0 0 .9.6h.2A1.2 1.2 0 0 1 21 13.7v.3a1.2 1.2 0 0 1-1.2 1.2h-.2a1 1 0 0 0-.9.6z"></path></svg></span>CASAMBI</h4>
+                    <div class="sheet-table">
+                        <div class="sheet-row">
+                            <div class="sheet-label">Sistema</div>
+                            <div class="sheet-value">Red mesh Bluetooth; puesta en marcha rápida.</div>
+                        </div>
+                        <div class="sheet-row">
+                            <div class="sheet-label">Ideal para</div>
+                            <div class="sheet-value">Espacios que cambian de layout y necesitan flexibilidad sin obra de control.</div>
+                        </div>
+                    </div>
+                </div>
+
+                </div><!-- /product-page-zone--top -->
+
+                <!-- Zona inferior: footer informativo ampliado -->
+                <div class="product-page-zone product-page-zone--bottom" id="dali-zone-bottom">
+
+                <div class="technical-sheet product-spec-sheet product-extra-footer animate-in"
+                    aria-label="Información ampliada DALI y CASAMBI">
+
+                    <div class="product-extra-footer-intro">
+                        <p class="product-struct-kicker">Más información</p>
+                        <h3 class="product-doc-h1">Sistemas de control DALI / CASAMBI</h3>
+                        <p class="product-extra-footer-lead">Dos caminos para la misma meta: control total de la luz con la experiencia adecuada para cada espacio.</p>
+                        <div class="product-extra-badges">
+                            <span class="product-extra-badge">Control centralizado</span>
+                            <span class="product-extra-badge">Escenas inteligentes</span>
+                            <span class="product-extra-badge">Escalable</span>
+                        </div>
+                    </div>
+
+                    <div class="product-extra-schema" aria-label="Esquema resumido Casambi">
+                        <img src="DALI : CASSAMBI /Cassambi .png" alt="Esquema resumido de comunicación CASAMBI">
+                    </div>
+
+                    <h4 class="product-doc-h2"><span class="section-title-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"></rect><path d="M9 9h6M9 13h6M9 17h4"></path></svg></span>Comparativa DALI / CASAMBI</h4>
+                    <div class="product-extra-split">
+                        <article class="product-extra-card">
+                            <div class="product-extra-card-head">
+                                <span class="product-extra-card-dot" aria-hidden="true"></span>
+                                <h4>DALI</h4>
+                            </div>
+                            <ul class="product-extra-list">
                                 <li>Bus cableado y direccionable.</li>
                                 <li>Control central en instalaciones complejas.</li>
                                 <li>Estandarización para obra nueva.</li>
                             </ul>
                         </article>
-                        <article class="dali-system-card">
-                            <div class="dali-system-head"><span class="dali-dot"></span><h4>CASAMBI</h4></div>
-                            <ul class="dali-system-list">
+                        <article class="product-extra-card">
+                            <div class="product-extra-card-head">
+                                <span class="product-extra-card-dot" aria-hidden="true"></span>
+                                <h4>CASAMBI</h4>
+                            </div>
+                            <ul class="product-extra-list">
                                 <li>Red inalámbrica mallada Bluetooth.</li>
                                 <li>Arranque rápido sin obra de control.</li>
                                 <li>Escalable con cambios de layout.</li>
                             </ul>
                         </article>
                     </div>
-                </section>
 
-                <section class="dali-section animate-in" aria-label="Beneficios">
-                    <h3 class="dali-section-title">Beneficios en 3 segundos</h3>
-                    <div class="dali-icon-grid">
-                        <article class="dali-icon-item">
-                            <svg class="dali-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M12 3v18"/></svg>
-                            <span>Escenas por zonas</span>
-                        </article>
-                        <article class="dali-icon-item">
-                            <svg class="dali-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-6"/></svg>
-                            <span>Regulación precisa</span>
-                        </article>
-                        <article class="dali-icon-item">
-                            <svg class="dali-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 17l4 4 4-4M12 12v9M20 7a8 8 0 10-16 0"/></svg>
-                            <span>Ahorro energético</span>
-                        </article>
-                        <article class="dali-icon-item">
-                            <svg class="dali-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M12 4v16"/></svg>
-                            <span>Escalable por fases</span>
-                        </article>
+                    <h4 class="product-doc-h2"><span class="section-title-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10M18 20V4M6 20v-6"></path></svg></span>Beneficios clave</h4>
+                    <div class="product-meta-row product-extra-benefits">
+                        <div class="meta-cell">
+                            <div class="meta-cell-label">
+                                <svg class="meta-benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h18M12 3v18"></path></svg>
+                                Escenas
+                            </div>
+                            <div class="meta-cell-value">Escenas por zonas adaptadas a cada momento del día.</div>
+                        </div>
+                        <div class="meta-cell">
+                            <div class="meta-cell-label">
+                                <svg class="meta-benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20V10M18 20V4M6 20v-6"></path></svg>
+                                Regulación
+                            </div>
+                            <div class="meta-cell-value">Regulación precisa de intensidad y atmósfera.</div>
+                        </div>
+                        <div class="meta-cell">
+                            <div class="meta-cell-label">
+                                <svg class="meta-benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 17l4 4 4-4M12 12v9M20 7a8 8 0 10-16 0"></path></svg>
+                                Eficiencia
+                            </div>
+                            <div class="meta-cell-value">Ahorro energético mediante control inteligente.</div>
+                        </div>
+                        <div class="meta-cell">
+                            <div class="meta-cell-label">
+                                <svg class="meta-benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h16M12 4v16"></path></svg>
+                                Escalabilidad
+                            </div>
+                            <div class="meta-cell-value">Despliegue escalable por fases sin frenar el proyecto.</div>
+                        </div>
                     </div>
-                </section>
 
-                <section class="dali-section animate-in" aria-label="Casos de uso">
-                    <h3 class="dali-section-title">Use cases</h3>
-                    <div class="dali-use-grid">
-                        <article class="dali-use-card">
-                            <a class="dali-use-link" href="DALI : CASSAMBI /retail dali casasmbi .png" rel="noopener noreferrer" aria-label="Ampliar imagen retail">
-                                <svg class="dali-use-svg" viewBox="0 0 260 180" role="img" aria-label="Caso retail premium">
-                                    <image href="DALI : CASSAMBI /retail dali casasmbi .png" x="0" y="0" width="260" height="180" preserveAspectRatio="xMidYMid slice"></image>
-                                </svg>
-                            </a>
-                            <p><strong>Retail:</strong> Atmósferas que evolucionan con tu horario.</p>
-                        </article>
-                        <article class="dali-use-card">
-                            <a class="dali-use-link" href="DALI : CASSAMBI /ferias casambi 4k.png" rel="noopener noreferrer" aria-label="Ampliar imagen stands">
-                                <svg class="dali-use-svg" viewBox="0 0 260 180" role="img" aria-label="Caso showroom adaptable">
-                                    <image href="DALI : CASSAMBI /ferias casambi 4k.png" x="0" y="0" width="260" height="180" preserveAspectRatio="xMidYMid slice"></image>
-                                </svg>
-                            </a>
-                            <p><strong>Stands:</strong> Adaptabilidad total para eventos y ferias.</p>
-                        </article>
-                        <article class="dali-use-card">
-                            <a class="dali-use-link" href="DALI : CASSAMBI /ESPACIOS CONTROL ZONAS .png" rel="noopener noreferrer" aria-label="Ampliar imagen espacios">
-                                <svg class="dali-use-svg" viewBox="0 0 260 180" role="img" aria-label="Caso contract y oficina">
-                                    <image href="DALI : CASSAMBI /ESPACIOS CONTROL ZONAS .png" x="0" y="0" width="260" height="180" preserveAspectRatio="xMidYMid slice"></image>
-                                </svg>
-                            </a>
-                            <p><strong>Espacios:</strong> Eficiencia y confort mediante el control por zonas.</p>
-                        </article>
+                    <h4 class="product-doc-h2"><span class="section-title-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="8.5" cy="11" r="1.5"></circle><path d="M14 10l4 2-4 2v-4z"></path></svg></span>Casos de uso</h4>
+                    <div class="sheet-media-gallery" aria-label="Galería de casos de uso">
+                        <div class="product-gallery">
+                            <div class="gallery-item">
+                                <a class="dali-use-link" href="DALI : CASSAMBI /retail dali casasmbi .png" aria-label="Ampliar imagen retail">
+                                    <img src="DALI : CASSAMBI /retail dali casasmbi .png" alt="Retail — control DALI y CASAMBI">
+                                </a>
+                                <p class="product-extra-use-caption"><strong>Retail:</strong> atmósferas que evolucionan con tu horario.</p>
+                            </div>
+                            <div class="gallery-item">
+                                <a class="dali-use-link" href="DALI : CASSAMBI /ferias casambi 4k.png" aria-label="Ampliar imagen stands">
+                                    <img src="DALI : CASSAMBI /ferias casambi 4k.png" alt="Stands y ferias — CASAMBI">
+                                </a>
+                                <p class="product-extra-use-caption"><strong>Stands:</strong> adaptabilidad total para eventos y ferias.</p>
+                            </div>
+                            <div class="gallery-item">
+                                <a class="dali-use-link" href="DALI : CASSAMBI /ESPACIOS CONTROL ZONAS .png" aria-label="Ampliar imagen espacios">
+                                    <img src="DALI : CASSAMBI /ESPACIOS CONTROL ZONAS .png" alt="Espacios — control por zonas">
+                                </a>
+                                <p class="product-extra-use-caption"><strong>Espacios:</strong> eficiencia y confort mediante control por zonas.</p>
+                            </div>
+                        </div>
                     </div>
-                </section>
 
-                <section class="dali-section animate-in" aria-label="Bloque de decisión">
-                    <h3 class="dali-section-title">Decisión</h3>
-                    <div class="dali-decision">
-                        <article class="dali-choice-card" tabindex="0">
+                    <h4 class="product-doc-h2"><span class="section-title-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path></svg></span>¿Qué sistema elegir?</h4>
+                    <div class="product-extra-split">
+                        <article class="product-extra-card product-extra-choice">
                             <strong>¿Necesitas estabilidad y control centralizado?</strong>
-                            <p>Elige <b>DALI</b> para una infraestructura robusta y normalizada.</p>
+                            <p>Elige <strong>DALI</strong> para una infraestructura robusta y normalizada.</p>
                         </article>
-                        <article class="dali-choice-card" tabindex="0">
+                        <article class="product-extra-card product-extra-choice">
                             <strong>¿Necesitas flexibilidad y rapidez de instalación?</strong>
-                            <p>Elige <b>CASAMBI</b> para desplegar y ajustar con máxima agilidad.</p>
+                            <p>Elige <strong>CASAMBI</strong> para desplegar y ajustar con máxima agilidad.</p>
                         </article>
                     </div>
-                    <div class="dali-decision-video-wrap">
-                        <video class="dali-decision-video" autoplay muted loop playsinline preload="metadata"
-                            aria-label="Detalle visual de control DALI y CASAMBI"
-                            poster="DALI : CASSAMBI /Cassambi 2. jpg.webp">
-                            <source src="DALI : CASSAMBI /movimiento dedo Dali casambi .mp4" type="video/mp4">
-                            Tu navegador no soporta vídeo HTML5.
-                        </video>
-                    </div>
-                </section>
 
-                <details class="dali-tech animate-in">
-                    <summary>Detalles técnicos (secundario)</summary>
-                    <div class="dali-tech-grid">
-                        <div class="dali-tech-item"><small>Tipo de sistema</small><span>Control profesional de iluminación LED.</span></div>
-                        <div class="dali-tech-item"><small>Protocolos</small><span>DALI cableado / CASAMBI inalámbrico.</span></div>
-                        <div class="dali-tech-item"><small>DALI</small><span>Bus direccionable, control central.</span></div>
-                        <div class="dali-tech-item"><small>CASAMBI</small><span>Red mesh Bluetooth, puesta en marcha rápida.</span></div>
-                        <div class="dali-tech-item"><small>Funciones</small><span>Escenas, regulación, grupos y horarios.</span></div>
-                        <div class="dali-tech-item"><small>Ámbitos</small><span>Retail, contract, showroom y oficinas.</span></div>
+                    <div class="product-embed-section product-embed-section--video" aria-label="Vídeo de control">
+                        <div class="product-video-wrap">
+                            <div class="product-video-aspect">
+                                <video class="product-feature-video" autoplay muted loop playsinline controls
+                                    preload="metadata" poster="DALI : CASSAMBI /Cassambi 2. jpg.webp"
+                                    aria-label="Detalle visual de control DALI y CASAMBI">
+                                    <source src="DALI : CASSAMBI /movimiento dedo Dali casambi .mp4" type="video/mp4">
+                                    Tu navegador no soporta vídeo HTML5.
+                                </video>
+                            </div>
+                        </div>
                     </div>
-                </details>
+
+                </div>
+
+                </div><!-- /product-page-zone--bottom -->
 
                 <div class="product-cta-row animate-in">
                     <a class="product-cta-btn product-cta-btn--primary"

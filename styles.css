@@ -1973,6 +1973,12 @@ a.filter-pill {
     border-top: none;
 }
 
+.product-spec-sheet .sheet-table + .product-doc-h2 {
+    margin-top: 22px;
+    padding-top: 0;
+    border-top: none;
+}
+
 /* Rígidos — ficha comercial (product-rigidos.html) */
 .product-spec-sheet--rigidos .product-doc-h1 {
     font-size: 18px;
@@ -2947,6 +2953,334 @@ body.page-layout-custom-solo .app:has(#page-product.active) #page-product .foote
     padding-right: 4px;
     max-width: 52em;
     line-height: 1.65;
+}
+
+/* Footer informativo extra (p. ej. DALI / CASAMBI) */
+#page-product.product-page-split {
+    display: flex;
+    flex-direction: column;
+}
+
+#page-product.product-page-split .product-page-zone--top {
+    padding-bottom: 8px;
+}
+
+#page-product .product-page-zone--bottom {
+    margin-top: 8px;
+}
+
+.product-extra-footer {
+    margin-top: 28px;
+    padding-top: 36px;
+    background:
+        linear-gradient(180deg, rgba(0, 180, 216, 0.09) 0%, rgba(0, 180, 216, 0.02) 72px, var(--bg-card) 140px);
+    border-color: rgba(0, 180, 216, 0.28);
+    box-shadow: inset 0 1px 0 rgba(0, 180, 216, 0.12);
+}
+
+.product-extra-footer-intro {
+    margin-bottom: 28px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--border);
+}
+
+.product-extra-footer-lead {
+    margin: 10px 0 0;
+    max-width: 52ch;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-secondary);
+}
+
+.product-extra-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.product-extra-badge {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 100px;
+    border: 1px solid rgba(0, 180, 216, 0.35);
+    color: var(--accent);
+    background: rgba(0, 180, 216, 0.08);
+}
+
+.product-extra-footer .product-doc-h2 {
+    margin-top: 28px;
+}
+
+.product-extra-footer .gallery-item img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    display: block;
+}
+
+.product-extra-footer .product-doc-h1 {
+    margin-top: 0;
+}
+
+.product-extra-footer-intro + .product-extra-schema + .product-doc-h2 {
+    margin-top: 24px;
+}
+
+.product-extra-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.product-extra-card {
+    padding: 18px 20px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: var(--bg-deep, rgba(0, 0, 0, 0.2));
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-extra-card:hover {
+    border-color: rgba(0, 180, 216, 0.45);
+    box-shadow: 0 8px 24px rgba(0, 180, 216, 0.1);
+}
+
+.product-extra-card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.product-extra-card-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+}
+
+.product-extra-card h4 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.product-extra-list {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--text-secondary);
+}
+
+.product-extra-benefits {
+    margin-top: 4px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+.product-extra-benefits .meta-cell {
+    display: grid;
+    gap: 8px;
+    align-content: start;
+    min-height: 88px;
+}
+
+.product-extra-benefits .meta-cell-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 0;
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 10px;
+}
+
+.product-extra-benefits .meta-cell-value {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    line-height: 1.45;
+}
+
+.product-extra-benefits .meta-benefit-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.product-extra-footer .sheet-media-gallery {
+    margin-top: 4px;
+}
+
+.product-extra-footer .product-embed-section--video {
+    margin-top: 28px;
+    padding: 0;
+    background: transparent;
+    border: none;
+}
+
+.product-extra-schema {
+    margin: 20px 0 8px;
+    max-width: 420px;
+    padding: 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: var(--bg-deep, rgba(0, 0, 0, 0.15));
+}
+
+.product-extra-schema img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.product-extra-choice strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: var(--text);
+}
+
+.product-extra-choice p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
+.product-extra-use-caption {
+    padding: 12px 14px;
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.45;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border);
+    background: var(--bg-deep, rgba(0, 0, 0, 0.12));
+}
+
+.product-extra-use-caption strong {
+    color: var(--text);
+}
+
+.product-extra-footer .gallery-item {
+    overflow: hidden;
+}
+
+.product-extra-footer .dali-use-link {
+    display: block;
+    position: relative;
+    cursor: zoom-in;
+}
+
+.product-extra-footer .dali-use-link::after {
+    content: "Ampliar";
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    padding: 6px 10px;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.72);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+.product-extra-footer .dali-use-link:hover::after,
+.product-extra-footer .dali-use-link:focus-visible::after {
+    opacity: 1;
+}
+
+.dali-use-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 56px 20px 24px;
+    background: rgba(0, 0, 0, 0.92);
+    cursor: zoom-out;
+}
+
+.dali-use-lightbox[hidden] {
+    display: none !important;
+}
+
+.dali-use-lightbox-img {
+    max-width: min(96vw, 1400px);
+    max-height: 88vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+    cursor: default;
+}
+
+.dali-use-lightbox-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.dali-use-lightbox-close:hover,
+.dali-use-lightbox-close:focus-visible {
+    background: rgba(0, 180, 216, 0.2);
+    border-color: var(--accent);
+    outline: none;
+}
+
+@media (max-width: 900px) {
+    .product-extra-split {
+        grid-template-columns: 1fr;
+    }
+
+    .product-extra-benefits {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .product-extra-benefits .meta-cell:nth-child(2n) {
+        border-right: none;
+    }
+}
+
+@media (max-width: 560px) {
+    .product-extra-benefits {
+        grid-template-columns: 1fr;
+    }
+
+    .product-extra-benefits .meta-cell {
+        border-right: none;
+    }
 }
 
 .product-breadcrumb-list {
