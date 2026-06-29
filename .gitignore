@@ -12,5 +12,6 @@ Thumbs.db
 # Herramientas locales de Cursor
 .cursor-tools/
 
-# Exceeds GitHub 100MB limit
-vestimos tu espacio /vestimos espacio 2.mp4
+# Backups locales de optimización de vídeo (no versionar)
+_video-originals/
+scripts/video-optimization.log
