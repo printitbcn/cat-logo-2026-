@@ -1,0 +1,17 @@
+.DS_Store
+Thumbs.db
+*.log
+!/LOGS/errors.log
+.env
+.env.*
+!.env.example
+
+# Editor / IDE (opcional: quita la linea si quieres versionar .vscode)
+.idea/
+
+# Herramientas locales de Cursor
+.cursor-tools/
+
+# Backups locales de optimización de vídeo (no versionar)
+_video-originals/
+scripts/video-optimization.log
