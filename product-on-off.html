@@ -17,7 +17,7 @@
     <title>Luminaria ON / OFF | Print It</title>
     <meta name="description"
         content="Aplicaciones comercial Print It. Soluciones premium de impresión visual: Lightbox, Luminarias, Tótems, Aeris y más.">
-    <link rel="stylesheet" href="styles.css?v=20260421h">
+    <link rel="stylesheet" href="styles.css?v=20260626p">
     <link rel="icon" type="image/png" href="Material Inicial/logo-oficial.png">
 
     <script>
@@ -60,15 +60,6 @@
                     <button type="button" class="carousel-dot" onclick="goToImage(2)" aria-label="Vista 3"></button>
                 </div>
 
-                <!-- View Project -->
-                <a href="#" class="view-project-btn" id="view-project-btn" onclick="showProductDetail(event)">
-                    Ver Aplicaciones
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M7 17L17 7M17 7H7M17 7v10" />
-                    </svg>
-                </a>
-
                 <span class="selected-label" id="selected-label">MAKE AN IMPRESSION</span>
             </div>
         </div>
@@ -95,17 +86,15 @@
                 </nav>
 
                 <!-- Profile Card -->
-                <div class="profile-card animate-in">
-                    <div class="profile-header">
-                        <img src="Material Inicial/logo-oficial.png" alt="Print It" class="profile-avatar profile-avatar--logo">
-                        <div>
-                            <div class="profile-name">Print It</div>
-                            <div class="profile-role">Soluciones de impresión premium</div>
-                        </div>
+                <div class="profile-card profile-card--home animate-in">
+                    <div class="home-brand-hero">
+                        <img src="Material Inicial/logo-oficial.png" alt="Print It"
+                            class="home-brand-logo"
+                            data-logo-light="Material Inicial/FULL LOGO BLACK .png"
+                            data-logo-dark="Material Inicial/logo-oficial.png">
+                        <p class="home-brand-tagline">MAKE AN IMPRESSION</p>
                     </div>
-                    <p class="profile-description">Soluciones de impresión visual premium para ferias, retail,
-                        interiorismo y eventos. Diseñamos, fabricamos e instalamos sistemas de iluminación y gran
-                        formato que transforman espacios.</p>
+                    <p class="profile-description home-brand-description">Soluciones de impresión visual premium para ferias, retail, interiorismo y eventos. Diseñamos, fabricamos e instalamos sistemas de iluminación de pequeño y gran formato que transforman espacios y generan impacto.</p>
                 </div>
 
                 <!-- Social / Sector Links -->
@@ -136,7 +125,7 @@
                     </div>
                     <div class="mini-cards">
                         <div class="mini-card"
-                            onclick="openCatalogueCategory('lluminaries', 'ON-OFF/ON OFF ARREGLADO .png', 'Luminarias', event)">
+                            onclick="openCatalogueCategory('lluminaries', 'ON-OFF/EXTERIOR ON OFF P100.png', 'Luminarias', event)">
                             <img src="assets/img/products/luminaria-p100.png" alt="Luminarias">
                             <span class="mini-card-label">Luminarias</span>
                         </div>
@@ -195,9 +184,7 @@
 
                 <!-- Filter Bar -->
                 <div class="filter-bar animate-in">
-                    <button class="filter-pill active" data-filter="all"
-                        onclick="filterCatalogue('all', this)"><span class="filter-pill-icon"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect x="4" y="4" width="14" height="14" rx="4" fill="rgba(255,255,255,.95)"/><rect x="22" y="4" width="14" height="14" rx="4" fill="rgba(255,255,255,.72)"/><rect x="4" y="22" width="14" height="14" rx="4" fill="rgba(255,255,255,.78)"/><rect x="22" y="22" width="14" height="14" rx="4" fill="rgba(255,255,255,.9)"/></svg></span><span class="filter-pill-label">Todos</span></button>
-                    <button class="filter-pill" data-filter="lluminaries"
+<button class="filter-pill" data-filter="lluminaries"
                         onclick="filterCatalogue('lluminaries', this)"><span class="filter-pill-icon"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><ellipse cx="20" cy="27" rx="11" ry="4.5" fill="rgba(255,255,255,.22)"/><path d="M20 5v7" stroke="rgba(255,255,255,.95)" stroke-width="2" stroke-linecap="round"/><path d="M11 22V14a9 9 0 0 1 18 0v8H11Z" fill="rgba(255,255,255,.94)" stroke="rgba(0,0,0,.1)" stroke-width="0.8"/></svg></span><span class="filter-pill-label">Luminarias</span></button>
                     <button class="filter-pill" data-filter="lightbox"
                         onclick="filterCatalogue('lightbox', this)"><span class="filter-pill-icon"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="7" width="30" height="24" rx="3.5" fill="rgba(255,255,255,.22)" stroke="rgba(255,255,255,.48)" stroke-width="1.2"/><rect x="8.5" y="10.5" width="23" height="17" rx="2" fill="rgba(255,255,255,.96)"/><rect x="11" y="19" width="18" height="2.5" rx="1.2" fill="rgba(0,150,199,.28)"/></svg></span><span class="filter-pill-label">Lightbox</span></button>
@@ -223,7 +210,7 @@
                         <span class="catalogue-item-name"><a href="product-on-off.html">On - Off</a></span>
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lluminaries"
-                        data-img="ON-OFF/ON OFF ARREGLADO .png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
+                        data-img="ON-OFF/EXTERIOR ON OFF P100.png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
                         <span class="catalogue-item-name"><a href="product-tunable-white.html">Tunable white</a></span>
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lluminaries"
@@ -258,7 +245,7 @@
                         </details>
                     </div>
                     <div class="catalogue-item catalogue-item-detailed" data-category="lluminaries"
-                        data-img="ON-OFF/ON OFF ARREGLADO .png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
+                        data-img="ON-OFF/EXTERIOR ON OFF P100.png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
                         <details class="tech-details">
                             <summary class="catalogue-item-name"><a href="product-tunable-white.html">Tunable White</a></summary>
                             <div class="tech-spec-line">
@@ -727,23 +714,23 @@
                             <div class="gallery-item">
                                 <video class="gallery-video" autoplay muted loop playsinline controls preload="auto"
                                     poster="assets/img/products/luminaria-showroom-1.jpeg"
-                                    src="ON-OFF/on off action .mov">
-                                    <source src="ON-OFF/on off action .mov" type="video/quicktime">
+                                    src="ON-OFF/DEFP100 ON OFF HEX.mov">
+                                    <source src="ON-OFF/DEFP100 ON OFF HEX.mov" type="video/quicktime">
                                     Tu navegador no soporta vídeo HTML5.
                                 </video>
                             </div>
                         <div class="gallery-item gallery-item--video-fit">
                             <video class="gallery-video onoff-gallery-video--fit-center onoff-gallery-video--4k-poster" autoplay muted loop playsinline preload="auto"
-                                src="ON-OFF/ON OFF CORRECTED.mp4"
-                                poster="ON-OFF/cover on off.png">
-                                <source src="ON-OFF/ON OFF CORRECTED.mp4" type="video/mp4">
+                                src="ON-OFF/on off 4k action .mp4"
+                                poster="ON-OFF/EXTERIOR ON OFF P100.png">
+                                <source src="ON-OFF/on off 4k action .mp4" type="video/mp4">
                                 Tu navegador no soporta vídeo HTML5.
                             </video>
                         </div>
                         <div class="gallery-item">
                             <video class="gallery-video onoff-gallery-video--center" autoplay muted loop playsinline controls
                                 poster="assets/img/products/luminaria-showroom-2.jpeg">
-                                <source src="Material Inicial/desmiembre.mp4" type="video/mp4">
+                                <source src="Material Inicial/vid1.mp4" type="video/mp4">
                                 Tu navegador no soporta vídeo HTML5.
                             </video>
                         </div>
@@ -755,8 +742,8 @@
                             <p><strong>Estructura:</strong> perfilería de aluminio P100 (100&nbsp;mm de grosor). Producto personalizable en medidas.</p>
                             <p>Composición según ficha técnica:</p>
                             <ul class="product-desc-list">
-                                <li><strong>Dorso:</strong> LYXBOND Lite de aluminio blanco, 3&nbsp;mm de espesor; panel composite tricapa (aluminio + núcleo de polietileno + aluminio); ligero, rígido y estable.</li>
-                                <li><strong>Iluminación:</strong> Frontline LED S12 FLAT (175°). PCB Front LED orientado hacia la cara del tejido.</li>
+                                <li><strong>Dorso:</strong> panel LYXBOND Lite de aluminio blanco de 3&nbsp;mm de grosor, blanco a 2 caras; panel tricapa (aluminio + núcleo de polietileno + aluminio). Ligero, rígido y estable.</li>
+                                <li><strong>Iluminación:</strong> Frontline S12 FLAT (175°). PCB Front LED orientado hacia la cara del tejido.</li>
                                 <li><strong>Tejido frontal:</strong> textil blanco 100&nbsp;% poliéster, certificado B1 + ignífugo, bobina hasta 320&nbsp;cm; confección de guía de silicona; posibilidad de impresión UV / sublimación.</li>
                             </ul>
                             <p><strong>Otras opciones de perfilería:</strong> P50&nbsp;mm · P70&nbsp;mm · P120&nbsp;mm.</p>
@@ -799,6 +786,8 @@
                     </nav>
                 </div>
 
+                <p class="product-gallery-tagline product-gallery-tagline--above-gallery animate-in">La combinación perfecta entre rendimiento lumínico y presencia arquitectónica, aportando carácter, equilibrio y una nueva dimensión al espacio.</p>
+
                 <!-- Galería (vídeos) — antes de la ficha técnica -->
                 <div class="sheet-media-gallery animate-in" aria-label="Galería de producto">
                     <div class="sheet-media-gallery-header">
@@ -826,7 +815,7 @@
                         <div class="gallery-item gallery-item--video-fit">
                             <video class="gallery-video onoff-gallery-video--fit-center onoff-gallery-video--4k-poster" autoplay muted loop playsinline controls preload="auto"
                                 src="ON-OFF/DEFP100 ON OFF HEX.mov"
-                                poster="ON-OFF/cover on off.png"
+                                poster="ON-OFF/EXTERIOR ON OFF P100.png"
                                 aria-label="ON / OFF — DEF P100 HEX">
                                 <source src="ON-OFF/DEFP100 ON OFF HEX.mov" type="video/quicktime">
                                 Tu navegador no soporta vídeo HTML5.
@@ -835,7 +824,7 @@
                         <div class="gallery-item">
                             <video class="gallery-video" autoplay muted loop playsinline controls preload="auto"
                                 src="ON-OFF/16-9 ON OFF P100 - PLACEMENTS.mov"
-                                poster="ON-OFF/cover on off.png"
+                                poster="ON-OFF/EXTERIOR ON OFF P100.png"
                                 aria-label="ON / OFF — placements P100">
                                 <source src="ON-OFF/16-9 ON OFF P100 - PLACEMENTS.mov" type="video/quicktime">
                                 Tu navegador no soporta vídeo HTML5.
@@ -843,8 +832,6 @@
                         </div>
                     </div>
                 </div>
-
-                <p class="product-gallery-tagline product-gallery-tagline--below-gallery animate-in">La combinación perfecta entre rendimiento lumínico y presencia arquitectónica, aportando carácter, equilibrio y una nueva dimensión al espacio.</p>
 
                 <!-- Detalles técnicos (estructura única producto) -->
                 <div class="technical-sheet animate-in product-spec-sheet">
@@ -863,11 +850,34 @@
                         </div>
                         <div class="sheet-row">
                             <div class="sheet-label">Dorso</div>
-                            <div class="sheet-value">LYXBOND Lite de aluminio blanco, 3&nbsp;mm de espesor. Panel composite tricapa (aluminio + núcleo de polietileno + aluminio). Ligero, rígido y estable.</div>
+                            <div class="sheet-value sheet-value--textile-premium">
+                                <p class="sheet-value-lead">Panel LYXBOND Lite de aluminio blanco de 3&nbsp;mm de grosor, blanco a 2 caras.</p>
+                                <p class="sheet-value-sub">Panel tricapa (aluminio + núcleo de polietileno + aluminio).</p>
+                                <ul class="textile-premium-list textile-premium-list--chips" aria-label="Ventajas del panel LYXBOND Lite">
+                                    <li class="textile-premium-item">
+                                        <span class="textile-premium-icon textile-premium-icon--check" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg>
+                                        </span>
+                                        <span class="textile-premium-chip-label">Ligero</span>
+                                    </li>
+                                    <li class="textile-premium-item">
+                                        <span class="textile-premium-icon textile-premium-icon--check" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg>
+                                        </span>
+                                        <span class="textile-premium-chip-label">Rígido</span>
+                                    </li>
+                                    <li class="textile-premium-item">
+                                        <span class="textile-premium-icon textile-premium-icon--check" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg>
+                                        </span>
+                                        <span class="textile-premium-chip-label">Estable</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="sheet-row">
                             <div class="sheet-label">Sistema de iluminación</div>
-                            <div class="sheet-value">Frontline LED S12 FLAT (175°). PCB Front LED orientado hacia la cara del tejido.</div>
+                            <div class="sheet-value">Frontline S12 FLAT (175°). PCB Front LED orientado hacia la cara del tejido.</div>
                         </div>
                         <div class="sheet-row">
                             <div class="sheet-label">Tejido frontal</div>
@@ -883,7 +893,13 @@
                                         <span class="textile-premium-icon" aria-hidden="true">
                                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
                                         </span>
-                                        <span>Certificado B1 + ignífugo. Ancho de bobina hasta 320&nbsp;cm.</span>
+                                        <span>Certificado B1 + ignífugo.</span>
+                                    </li>
+                                    <li class="textile-premium-item">
+                                        <span class="textile-premium-icon" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M5 12l3-3M5 12l3 3M19 12l-3-3M19 12l-3 3"></path></svg>
+                                        </span>
+                                        <span>Ancho de bobina hasta 320&nbsp;cm.</span>
                                     </li>
                                     <li class="textile-premium-item">
                                         <span class="textile-premium-icon" aria-hidden="true">
@@ -906,7 +922,7 @@
                     <div class="sheet-table">
                         <div class="sheet-row">
                             <div class="sheet-label">Referencia LED</div>
-                            <div class="sheet-value">Frontline LED S12 FLAT (175°).</div>
+                            <div class="sheet-value">Frontline S12 FLAT (175°).</div>
                         </div>
                         <div class="sheet-row">
                             <div class="sheet-label">Voltaje</div>
@@ -914,7 +930,7 @@
                         </div>
                         <div class="sheet-row">
                             <div class="sheet-label">Consumo</div>
-                            <div class="sheet-value">8&nbsp;W / 13&nbsp;W.</div>
+                            <div class="sheet-value">13&nbsp;W.</div>
                         </div>
                         <div class="sheet-row">
                             <div class="sheet-label">Temperatura de color</div>
@@ -922,11 +938,11 @@
                         </div>
                         <div class="sheet-row">
                             <div class="sheet-label">Lumen</div>
-                            <div class="sheet-value">≈ 960&nbsp;lm / ≈ 1457&nbsp;lm.</div>
+                            <div class="sheet-value">≈ 1457&nbsp;lm.</div>
                         </div>
                         <div class="sheet-row">
                             <div class="sheet-label">Eficiencia</div>
-                            <div class="sheet-value">≈ 123&nbsp;lm/W / ≈ 117&nbsp;lm/W.</div>
+                            <div class="sheet-value">≈ 117&nbsp;lm/W.</div>
                         </div>
                         <div class="sheet-row">
                             <div class="sheet-label">CRI</div>
@@ -942,71 +958,58 @@
                         </div>
                     </div>
 
-                    <h4 class="product-doc-h2"><span class="section-title-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l9-9 9 9"></path><path d="M7 17h10"></path><path d="M8.5 14.5l1.3-1.3M11.5 11.5l1.3-1.3M14.5 14.5l1.3-1.3"></path></svg></span>Secciones de perfil</h4>
-                    <p class="product-doc-intro">Referencia: <strong>P100</strong>.</p>
-                    <div class="sheet-profile-section product-profile-inline">
-                        <div class="sheet-profile-cards">
-                            <button type="button" class="sheet-profile-card active" data-profile="P100"
-                                onclick="selectVariant('P100', this)">
-                                <div class="sheet-profile-thumb">
-                                    <img src="Material Inicial/OPCIONES-DE-PERFILERIA/P100.png" alt="Sección P100">
+                    <div class="product-profile-finish-row">
+                        <div class="product-profile-finish-col product-profile-finish-col--profile">
+                            <h4 class="product-doc-h2"><span class="section-title-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l9-9 9 9"></path><path d="M7 17h10"></path><path d="M8.5 14.5l1.3-1.3M11.5 11.5l1.3-1.3M14.5 14.5l1.3-1.3"></path></svg></span>Secciones de perfil</h4>
+                            <p class="product-doc-intro">Referencia: <strong>P100</strong>.</p>
+                            <div class="sheet-profile-section product-profile-inline">
+                                <div class="sheet-profile-cards">
+                                    <button type="button" class="sheet-profile-card active" data-profile="P100"
+                                        onclick="selectVariant('P100', this)">
+                                        <div class="sheet-profile-thumb sheet-profile-thumb--peek" aria-expanded="false">
+                                            <div class="sheet-profile-peek-frame">
+                                                <img src="Material Inicial/OPCIONES-DE-PERFILERIA/P100.png"
+                                                    alt="Vista técnica sección P100">
+                                            </div>
+                                            <span class="sheet-profile-peek-hint">Ampliar vista técnica</span>
+                                        </div>
+                                        <div class="sheet-profile-meta">
+                                            <span class="sheet-profile-name">P100</span>
+                                            <span class="sheet-profile-desc">100&nbsp;mm</span>
+                                        </div>
+                                    </button>
                                 </div>
-                                <div class="sheet-profile-meta">
-                                    <span class="sheet-profile-name">P100</span>
-                                    <span class="sheet-profile-desc">100&nbsp;mm</span>
-                                </div>
-                            </button>
-                        </div>
-                    </div>
-
-                    <h4 class="product-doc-h2">VISTA TÉCNICA SECCIÓN</h4>
-                    <div class="schematic-placeholder product-schematic-full">
-                        <img id="schematic-main-image" src="Material Inicial/OPCIONES-DE-PERFILERIA/P100.png"
-                            alt="VISTA TÉCNICA SECCIÓN — perfil seleccionado">
-                    </div>
-
-                    <h4 class="product-doc-h2"><span class="section-title-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0-6 6c0 4 6 12 6 12s6-8 6-12a6 6 0 0 0-6-6z"></path><circle cx="12" cy="9" r="2"></circle></svg></span>OPCIONES DE ACABADOS</h4>
-                    <div class="finish-swatches product-finish-swatches">
-                        <div class="swatch">
-                            <div class="swatch-color swatch-color--white" style="background: #ffffff;"></div>
-                            <span class="swatch-name">Blanco</span>
-                        </div>
-                        <div class="swatch">
-                            <div class="swatch-color swatch-color--dark" style="background: #111111;"></div>
-                            <span class="swatch-name">Negro</span>
-                        </div>
-                        <div class="swatch">
-                            <div class="swatch-color"
-                                style="background: linear-gradient(135deg, #3a3a3a 0%, #7d7d7d 50%, #c9c9c9 100%);">
                             </div>
-                            <span class="swatch-name">Anodizado</span>
                         </div>
-                        <div class="swatch">
-                            <div class="swatch-color swatch-color--wood"></div>
-                            <span class="swatch-name">Madera</span>
-                        </div>
-                        <div class="swatch">
-                            <div class="swatch-color swatch-color--ral"></div>
-                            <span class="swatch-name">RAL (bajo demanda)</span>
+                        <div class="product-profile-finish-col product-profile-finish-col--finish">
+                            <h4 class="product-doc-h2"><span class="section-title-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0-6 6c0 4 6 12 6 12s6-8 6-12a6 6 0 0 0-6-6z"></path><circle cx="12" cy="9" r="2"></circle></svg></span>OPCIONES DE ACABADOS</h4>
+                            <div class="finish-swatches product-finish-swatches">
+                                <div class="swatch">
+                                    <div class="swatch-color swatch-color--white" style="background: #ffffff;"></div>
+                                    <span class="swatch-name">Blanco</span>
+                                </div>
+                                <div class="swatch">
+                                    <div class="swatch-color swatch-color--dark" style="background: #111111;"></div>
+                                    <span class="swatch-name">Negro</span>
+                                </div>
+                                <div class="swatch">
+                                    <div class="swatch-color"
+                                        style="background: linear-gradient(135deg, #3a3a3a 0%, #7d7d7d 50%, #c9c9c9 100%);">
+                                    </div>
+                                    <span class="swatch-name">Anodizado</span>
+                                </div>
+                                <div class="swatch">
+                                    <div class="swatch-color swatch-color--wood"></div>
+                                    <span class="swatch-name">Madera</span>
+                                </div>
+                                <div class="swatch">
+                                    <div class="swatch-color swatch-color--ral"></div>
+                                    <span class="swatch-name">RAL (bajo demanda)</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                </div>
-
-                <!-- Vídeo destacado (debajo de ficha técnica principal) -->
-                <div class="technical-sheet animate-in product-embed-section product-embed-section--video"
-                    aria-label="Vídeo del producto">
-                    <div class="product-video-wrap">
-                        <div class="product-video-aspect">
-                            <video class="product-feature-video" autoplay loop muted playsinline controls
-                                src="ON-OFF/P100 ON OFF 4K.mp4"
-                                preload="auto" poster="ON-OFF/cover on off.png"
-                                aria-label="ON / OFF — P100 4K">
-                                <source src="ON-OFF/P100 ON OFF 4K.mp4" type="video/mp4">
-                                Tu navegador no soporta vídeo HTML5.
-                            </video>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- Comparador exterior / interior -->
@@ -1050,7 +1053,7 @@
                         <img src="Material Inicial/logo-oficial.png" alt="" class="footer-logo">
                         <span>@2026 Print it - MAKE AN IMPRESSION</span>
                     </div>
-                    <a href="#catalogue" onclick="goToCatalogueAll(event)">VOLVER A TODOS LOS PRODUCTOS</a>
+                    <a href="#catalogue" onclick="goToCatalogueAll(event)">VER APLICACIONES</a>
                 </div>
 
             </div><!-- /page-product -->
@@ -1226,7 +1229,8 @@
         </div>
     </aside>
 
-    <script src="app.js?v=20260506b"></script>
+
+    <script src="app.js?v=20260626m"></script>
 </body>
 
 </html>

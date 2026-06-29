@@ -28,7 +28,7 @@ const PRINTIT_CATALOGUE_GALLERY_FIRST_PREVIEW = {
   'product-custom.html':
     'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
   'product-dali-casambi.html': 'DALI : CASSAMBI /dali cassambi control .mp4',
-  'product-dynamic-white.html': 'LED DYNAMICO/led dinamico solis .mp4',
+  'product-dynamic-white.html': 'DYNAMIC WHITE /LED DYNAMIC.mp4',
   'product-pixel-led.html': 'LUMINARIAS CUSTOM /special project led dynamic .mp4',
   'product-forrado-columnas.html':
     'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
@@ -48,13 +48,13 @@ const PRINTIT_CATALOGUE_GALLERY_FIRST_PREVIEW = {
   'product-relieve-cmyk.html':
     'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
   'product-rigidos.html': 'RI%CC%81GIDOS%20/ri%CC%81gidos%202.png',
-  'product-sin-luz.html': 'totems :photocalls : backdrops /totem sin luz madera.png',
-  'product-tunable-white.html': 'TUNABLE WHITE /TUNABLE EXTERIOR.png'
+  'product-sin-luz.html': 'totems :photocalls : backdrops /TOTEMS CON LUZ POLESTAR .png',
+  'product-tunable-white.html': 'TUNABLE WHITE /tunable white action .mp4'
 };
 
 let showcaseLastCleanSrc = '';
 
-const ONOFF_CORRECTED_MOV_POSTER = 'ON-OFF/cover on off.png';
+const ONOFF_CORRECTED_MOV_POSTER = 'ON-OFF/EXTERIOR ON OFF P100.png';
 const PROFILE_IMAGE_OVERRIDES = {
   P120: 'PERFILERIA /P120.png',
   P30: 'PERFILERIA /P30.png',
@@ -70,9 +70,9 @@ function updateShowcaseImage(src, label) {
   const isGif = /\.gif$/i.test(cleanSrc);
   const isVideoSrc = /\.(mp4|webm|mov)$/i.test(cleanSrc);
   const isShowcaseContainCenter =
-    /desmiembre\.mp4$/i.test(cleanSrc) ||
+    /vid1\.mp4$/i.test(cleanSrc) ||
     /photocallls con luz\.mov$/i.test(cleanSrc);
-  const isOnOffCorrectedClip = /ON OFF CORRECTED\.(mov|mp4)$/i.test(cleanSrc);
+  const isOnOffCorrectedClip = /on off 4k action \.mp4$/i.test(cleanSrc);
 
   let mediaEl = document.getElementById('showcase-img');
   if (!mediaEl) {
@@ -205,6 +205,10 @@ function goToImage(index) {
 /** Evita bucles cuando applyHashRoute() llama a showPage / goToCatalogueAll. */
 let printitApplyingHashRoute = false;
 
+function isDedicatedProductPageUrl() {
+  return /product-[^/]+\.html$/i.test(window.location.pathname || '');
+}
+
 function replaceAppHashForPage(pageName) {
   const path = `${window.location.pathname}${window.location.search}`;
   const allowed = ['home', 'catalogue', 'product', 'contact'];
@@ -225,6 +229,11 @@ function replaceAppHashForPage(pageName) {
 function showPage(pageName, event) {
   if (event) event.preventDefault();
 
+  if (pageName === 'home' && isDedicatedProductPageUrl()) {
+    window.location.assign('index.html');
+    return;
+  }
+
   const target = document.getElementById(`page-${pageName}`);
   if (!target) return;
 
@@ -233,10 +242,16 @@ function showPage(pageName, event) {
 
   // Show target
   target.classList.add('active');
+  document.documentElement.removeAttribute('data-initial-route');
 
   // Robust page-state hook for CSS (fallback for environments
   // where :has() selectors may not evaluate reliably).
   document.body.classList.toggle('is-contact-page', pageName === 'contact');
+  document.body.classList.toggle('is-home-page', pageName === 'home');
+  document.body.classList.toggle(
+    'has-catalogue-filter-nav',
+    pageName === 'catalogue' || pageName === 'product'
+  );
   const officeBanner = document.querySelector('.app-office-contact-banner');
   if (officeBanner) {
     officeBanner.classList.toggle('is-visible', pageName === 'contact');
@@ -268,6 +283,7 @@ function showPage(pageName, event) {
       renderCarouselDots(1);
     }
     applyProductContextFromPage();
+    highlightProductFilterPill();
   } else if (pageName === 'contact') {
     setCarouselImages([CONTACT_SHOWCASE_IMAGE], 0);
     updateShowcaseImage(CONTACT_SHOWCASE_IMAGE, 'Roberto Ferrero · Print It');
@@ -279,6 +295,8 @@ function showPage(pageName, event) {
   if (!printitApplyingHashRoute) {
     replaceAppHashForPage(pageName);
   }
+
+  repositionCatalogueFilterNav(pageName);
 
   // Re-trigger animations
   setTimeout(() => {
@@ -297,6 +315,8 @@ function getProductFallbackShowcase() {
   if (page === 'product-dali-casambi.html') return DALI_SHOWCASE_VIDEO;
   if (page === 'product-pixel-led.html')
     return 'LUMINARIAS CUSTOM /special project led dynamic .mp4';
+  if (page === 'product-tunable-white.html')
+    return 'TUNABLE WHITE /tunable white action .mp4';
   return PRODUCT_SHOWCASE_IMAGE;
 }
 
@@ -388,6 +408,14 @@ function syncProductGalleryToShowcase() {
   if (!sources.length) return;
   setCarouselImages(sources, 0);
 
+  const productPage = document.getElementById('page-product');
+  if (productPage && (productPage.classList.contains('active') || isDedicatedProductPageUrl())) {
+    currentImageIndex = 0;
+    updateShowcaseImage(sources[0], FIXED_SHOWCASE_LABEL);
+    renderCarouselDots(sources.length);
+    updateDots();
+  }
+
   galleryItems.forEach((item, idx) => {
     if (item.dataset.previewBound === '1') return;
     item.dataset.previewBound = '1';
@@ -406,6 +434,29 @@ function productHrefFromCatalogueRow(item) {
   const link = item.querySelector('a[href^="product-"][href$=".html"]');
   if (!link) return '';
   return (link.getAttribute('href') || '').trim();
+}
+
+function bindCatalogueProductLinks() {
+  const list = document.getElementById('catalogue-list');
+  if (!list) return;
+
+  list.querySelectorAll('a[href^="product-"][href$=".html"]').forEach((link) => {
+    if (link.dataset.catalogueNavBound === '1') return;
+    link.dataset.catalogueNavBound = '1';
+
+    link.addEventListener(
+      'click',
+      (e) => {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+        const href = (link.getAttribute('href') || '').trim();
+        if (!href) return;
+        e.preventDefault();
+        e.stopPropagation();
+        window.location.assign(href);
+      },
+      true
+    );
+  });
 }
 
 function collectCatalogueCarouselData() {
@@ -467,10 +518,7 @@ function applyCatalogueShowcaseCarousel() {
 
 // ===== CATALOGUE LIST INTERACTION =====
 function selectCatalogueItem(item) {
-  // Remove active from all
   document.querySelectorAll('.catalogue-item').forEach(el => el.classList.remove('active'));
-
-  // Set active
   item.classList.add('active');
 
   const label = item.dataset.label;
@@ -560,12 +608,44 @@ function openEmbeddedProduct(category, subcategory, event) {
   showPage('product');
 }
 
+const PRODUCT_PAGE_CATALOGUE_FILTER = {
+  'product-banners-y-circulares.html': 'aeris',
+  'product-barniz-drop-gloss.html': 'rigids',
+  'product-barniz-semi-mate.html': 'rigids',
+  'product-con-luz.html': 'totems',
+  'product-cubos.html': 'aeris',
+  'product-custom.html': 'lluminaries',
+  'product-dali-casambi.html': 'lluminaries',
+  'product-dynamic-white.html': 'lluminaries',
+  'product-forrado-columnas.html': 'vesteix',
+  'product-forrado-paredes.html': 'vesteix',
+  'product-frisos.html': 'aeris',
+  'product-impresion-uvi.html': 'rigids',
+  'product-lightbox-doble-cara.html': 'lightbox',
+  'product-lightbox-pared.html': 'lightbox',
+  'product-luxpanel.html': 'lightbox',
+  'product-on-off.html': 'lluminaries',
+  'product-pixel-led.html': 'lluminaries',
+  'product-relieve-braille.html': 'rigids',
+  'product-relieve-cmyk.html': 'rigids',
+  'product-rigidos.html': 'rigids',
+  'product-sin-luz.html': 'totems',
+  'product-tunable-white.html': 'lluminaries'
+};
+
+function highlightProductFilterPill() {
+  const page = (window.location.pathname || '').split('/').pop() || '';
+  const filter = PRODUCT_PAGE_CATALOGUE_FILTER[page];
+  document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+  if (!filter) return;
+  const pill = document.querySelector(`.filter-pill[data-filter="${filter}"]`);
+  if (pill) pill.classList.add('active');
+}
+
 function goToCatalogueAll(event) {
   if (event) event.preventDefault();
   showPage('catalogue', null);
-  const allPill = document.querySelector('.filter-pill[data-filter="all"]');
-  if (allPill) filterCatalogue('all', allPill);
-  else applyCatalogueShowcaseCarousel();
+  filterCatalogue('all', null);
 }
 
 // ===== FILTER BY TAG (Home page links) =====
@@ -576,9 +656,15 @@ function filterByTag(tag, event) {
 
 // ===== CATALOGUE FILTER =====
 function filterCatalogue(category, btn) {
+  let pc = document.getElementById('page-catalogue');
+  if (!pc || !pc.classList.contains('active')) {
+    showPage('catalogue', null);
+    pc = document.getElementById('page-catalogue');
+  }
+
   // Update active pill
   document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
-  btn.classList.add('active');
+  if (btn) btn.classList.add('active');
 
   const items = document.querySelectorAll('.catalogue-item, .catalogue-section-header');
   const simpleItems = document.querySelectorAll('.catalogue-item-simple');
@@ -606,7 +692,6 @@ function filterCatalogue(category, btn) {
     });
   }
 
-  const pc = document.getElementById('page-catalogue');
   if (pc && pc.classList.contains('active')) {
     applyCatalogueShowcaseCarousel();
     if (category === 'aeris') {
@@ -617,28 +702,146 @@ function filterCatalogue(category, btn) {
       updateDots();
     }
   }
+
+  if (!printitApplyingHashRoute) {
+    const path = `${window.location.pathname}${window.location.search}`;
+    if (category === 'all') {
+      history.replaceState(null, '', `${path}#catalogue`);
+    } else {
+      history.replaceState(null, '', `${path}#${filterCategoryKeyToHashAnchor(category)}`);
+    }
+  }
+}
+
+function getMiniCardThumbSrc(miniCard) {
+  if (!miniCard) return '';
+  const img = miniCard.querySelector('img');
+  if (img && img.getAttribute('src')) return img.getAttribute('src');
+  const video = miniCard.querySelector('video');
+  if (video) {
+    const poster = video.getAttribute('poster');
+    if (poster) return poster;
+    const source = video.querySelector('source[src]');
+    if (source) return source.getAttribute('src');
+    return video.getAttribute('src') || '';
+  }
+  return '';
+}
+
+const FILTER_MINI_CARD_ORDER = [
+  'lluminaries',
+  'lightbox',
+  'totems',
+  'aeris',
+  'vesteix',
+  'rigids'
+];
+
+const FALLBACK_FILTER_THUMBS = {
+  lluminaries: 'assets/img/products/luminaria-p100.png',
+  lightbox: 'LIGHTBOX /lightbox a pared .png',
+  totems: 'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
+  aeris: 'assets/img/categories/cubos aereos .png',
+  vesteix: 'assets/img/categories/vesteix.png',
+  rigids: 'RI%CC%81GIDOS%20/ri%CC%81gidos%202.png'
+};
+
+function buildFilterThumbMapFromMiniCards() {
+  const miniCards = document.querySelectorAll('#page-home .mini-cards .mini-card');
+  const map = { ...FALLBACK_FILTER_THUMBS };
+  miniCards.forEach((card, index) => {
+    const filter = FILTER_MINI_CARD_ORDER[index];
+    const src = getMiniCardThumbSrc(card);
+    if (filter && src) map[filter] = src;
+  });
+  return { map, miniCards };
+}
+
+function buildAllThumbGridMarkup(miniCards) {
+  const tiles = [...miniCards]
+    .slice(0, 4)
+    .map((card) => {
+      const src = getMiniCardThumbSrc(card);
+      return src
+        ? `<img src="${src}" alt="" decoding="async" loading="lazy">`
+        : '';
+    })
+    .filter(Boolean)
+    .join('');
+  return tiles ? `<span class="filter-pill-thumb-grid">${tiles}</span>` : '';
+}
+
+function initGlobalCatalogueFilterNav() {
+  const panelRight = document.getElementById('panel-right');
+  if (!panelRight) return;
+
+  let bar = document.getElementById('catalogue-filter-nav');
+  if (!bar) {
+    bar = document.querySelector('#page-catalogue .filter-bar');
+    if (!bar) return;
+    bar.id = 'catalogue-filter-nav';
+    bar.classList.add('catalogue-filter-nav');
+  }
+
+  bar.setAttribute('role', 'navigation');
+  bar.setAttribute('aria-label', 'Categorías de aplicaciones');
+
+  const activePage = document.querySelector('.page.active');
+  if (activePage) {
+    const pageName = activePage.id.replace('page-', '');
+    repositionCatalogueFilterNav(pageName === 'home' ? 'catalogue' : pageName);
+  }
+}
+
+function repositionCatalogueFilterNav(pageName) {
+  const bar = document.getElementById('catalogue-filter-nav');
+  if (!bar) return;
+
+  /* En inicio no se muestra: las mini-cards ya actúan como índice por categoría. */
+  if (pageName === 'home') {
+    pageName = 'catalogue';
+  }
+
+  if (!['catalogue', 'product'].includes(pageName)) return;
+
+  const page = document.getElementById(`page-${pageName}`);
+  if (!page) return;
+
+  const insertAfter =
+    pageName === 'product'
+      ? page.querySelector('.product-top-actions') || page.querySelector('.top-nav')
+      : page.querySelector('.top-nav');
+
+  if (!insertAfter || bar.previousElementSibling === insertAfter) return;
+  insertAfter.insertAdjacentElement('afterend', bar);
 }
 
 function initFilterPillIcons() {
-  const iconByFilter = {
-    all: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.75A2.75 2.75 0 0 1 7.75 3h8.5A2.75 2.75 0 0 1 19 5.75v2.5A2.75 2.75 0 0 1 16.25 11h-8.5A2.75 2.75 0 0 1 5 8.25v-2.5Zm0 10A2.75 2.75 0 0 1 7.75 13h8.5A2.75 2.75 0 0 1 19 15.75v2.5A2.75 2.75 0 0 1 16.25 21h-8.5A2.75 2.75 0 0 1 5 18.25v-2.5Z"/></svg>',
-    lluminaries: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.2 18.6h5.6v1.4a1 1 0 0 1-1 1h-3.6a1 1 0 0 1-1-1v-1.4Zm1.3-2.1h3v1.1h-3v-1.1Zm-1.3-1.2v-.2c0-1.6-.8-2.4-1.8-3.5A5.5 5.5 0 1 1 16.6 11c-1 1.1-1.8 1.9-1.8 3.5v.8H9.2v-.1Zm1.2-1.1h3.2c.2-1.6 1.2-2.6 2-3.4a4.3 4.3 0 1 0-6.9 0c.8.8 1.8 1.8 2 3.4Z"/></svg>',
-    lightbox: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.8A2.8 2.8 0 0 1 6.8 3h10.4A2.8 2.8 0 0 1 20 5.8v12.4a2.8 2.8 0 0 1-2.8 2.8H6.8A2.8 2.8 0 0 1 4 18.2V5.8Zm1.5 0v12.4c0 .7.6 1.3 1.3 1.3h10.4c.7 0 1.3-.6 1.3-1.3V5.8c0-.7-.6-1.3-1.3-1.3H6.8c-.7 0-1.3.6-1.3 1.3Zm2.1 1.6h8.8v9.2H7.6V7.4Zm1.5 1.5V15h5.8V8.9H9.1Z"/></svg>',
-    totems: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3.8A2.8 2.8 0 0 1 12.8 1h.4A2.8 2.8 0 0 1 16 3.8V5h1a1 1 0 0 1 1 1v10.2a2.8 2.8 0 0 1-2.8 2.8h-4.4A2.8 2.8 0 0 1 8 16.2V6a1 1 0 0 1 1-1h1V3.8Zm1.5 1.2h3V3.8c0-.7-.6-1.3-1.3-1.3h-.4c-.7 0-1.3.6-1.3 1.3V5Zm-2 1.5v9.7c0 .7.6 1.3 1.3 1.3h4.4c.7 0 1.3-.6 1.3-1.3V6.5H9.5Zm-1 14h8a.8.8 0 0 1 0 1.5h-8a.8.8 0 0 1 0-1.5Z"/></svg>',
-    aeris: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2a2.1 2.1 0 0 1 2.1 2.1v2.2h2.1a2.8 2.8 0 0 1 2.8 2.8V14a2.8 2.8 0 0 1-2.8 2.8H7.8A2.8 2.8 0 0 1 5 14V9.3a2.8 2.8 0 0 1 2.8-2.8h2.1V4.3A2.1 2.1 0 0 1 12 2.2Zm0 1.5a.6.6 0 0 0-.6.6v2.2h1.2V4.3a.6.6 0 0 0-.6-.6Zm-4.2 4.3c-.7 0-1.3.6-1.3 1.3V14c0 .7.6 1.3 1.3 1.3h8.4c.7 0 1.3-.6 1.3-1.3V9.3c0-.7-.6-1.3-1.3-1.3H7.8Z"/></svg>',
-    vesteix: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.6A2.6 2.6 0 0 1 5.6 3h12.8A2.6 2.6 0 0 1 21 5.6v12.8a2.6 2.6 0 0 1-2.6 2.6H5.6A2.6 2.6 0 0 1 3 18.4V5.6Zm1.5 0v12.8c0 .6.5 1.1 1.1 1.1h12.8c.6 0 1.1-.5 1.1-1.1V5.6c0-.6-.5-1.1-1.1-1.1H5.6c-.6 0-1.1.5-1.1 1.1Zm3.2 2.2h8.6a.8.8 0 0 1 0 1.5H7.7a.8.8 0 1 1 0-1.5Zm0 3.4h8.6a.8.8 0 0 1 0 1.5H7.7a.8.8 0 1 1 0-1.5Zm0 3.4h5.2a.8.8 0 0 1 0 1.5H7.7a.8.8 0 0 1 0-1.5Z"/></svg>',
-    rigids: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.3 5.3A2.3 2.3 0 0 1 6.6 3h10.8a2.3 2.3 0 0 1 2.3 2.3v13.4a2.3 2.3 0 0 1-2.3 2.3H6.6a2.3 2.3 0 0 1-2.3-2.3V5.3Zm1.5 0v13.4c0 .4.4.8.8.8h10.8c.4 0 .8-.4.8-.8V5.3c0-.4-.4-.8-.8-.8H6.6c-.4 0-.8.4-.8.8Zm2.4 2.2h7.6a.8.8 0 0 1 .8.8v7.4a.8.8 0 0 1-.8.8H8.2a.8.8 0 0 1-.8-.8V8.3a.8.8 0 0 1 .8-.8Zm.7 1.5V15h6.1V9H8.9Z"/></svg>'
-  };
+  const { map: thumbByFilter, miniCards } = buildFilterThumbMapFromMiniCards();
+
+  document.querySelectorAll('.filter-bar').forEach((bar) => {
+    bar.classList.add('filter-bar--thumbs');
+  });
 
   document.querySelectorAll('.filter-pill').forEach((pill) => {
-    if (pill.dataset.iconReady === '1') return;
+    if (pill.dataset.thumbReady === '1') return;
     const filter = (pill.dataset.filter || '').trim();
-    const iconMarkup = iconByFilter[filter] || iconByFilter.all;
-    const label = (pill.textContent || '').trim();
+    const labelEl = pill.querySelector('.filter-pill-label');
+    const label = labelEl
+      ? labelEl.textContent.trim()
+      : (pill.textContent || '').trim();
+
+    let thumbMarkup = '';
+    const thumbSrc = pill.dataset.thumbSrc || thumbByFilter[filter] || '';
+    if (thumbSrc) {
+      thumbMarkup = `<img class="filter-pill-thumb-img" src="${thumbSrc}" alt="" decoding="async" loading="lazy">`;
+    }
+
     pill.innerHTML = `
-      <span class="filter-pill-icon" aria-hidden="true">${iconMarkup}</span>
+      <span class="filter-pill-thumb" aria-hidden="true">${thumbMarkup}</span>
       <span class="filter-pill-label">${label}</span>
     `;
+    pill.dataset.thumbReady = '1';
     pill.dataset.iconReady = '1';
   });
 }
@@ -800,6 +1003,7 @@ let printitVideoIo = null;
 
 function bindPrintitVideoHoverControls(video) {
   if (!video || video.tagName !== 'VIDEO' || video.dataset.printitHoverCtl === '1') return;
+  if (video.closest('#page-home .mini-card')) return;
   video.dataset.printitHoverCtl = '1';
 
   if (!printitPreferHoverOnlyVideoControls()) {
@@ -923,6 +1127,38 @@ function printitLog(level, message, detail) {
   if (el) el.textContent = printitLogLines.join('\n');
 }
 
+function initProductSheetDownloadCtaRow(scope = document) {
+  const page = scope.getElementById ? scope.getElementById('page-product') : null;
+  if (!page) return;
+
+  const specSheet = page.querySelector('.product-spec-sheet');
+  if (!specSheet) return;
+
+  const h1 = specSheet.querySelector(':scope > .product-doc-h1');
+  if (!h1) return;
+
+  let cta = null;
+  page.querySelectorAll('.sheet-media-gallery').forEach((gallery) => {
+    if (cta) return;
+    const link = gallery.querySelector(':scope > .sheet-media-gallery-header .sheet-download-cta');
+    if (link) cta = link;
+  });
+  if (!cta || cta.dataset.sheetHeadPlaced === '1') return;
+
+  let head = specSheet.querySelector('.product-spec-sheet-head');
+  if (!head) {
+    head = document.createElement('div');
+    head.className = 'product-spec-sheet-head';
+    specSheet.insertBefore(head, h1);
+    head.appendChild(h1);
+  } else if (h1.parentElement !== head) {
+    head.insertBefore(h1, head.firstChild);
+  }
+
+  head.appendChild(cta);
+  cta.dataset.sheetHeadPlaced = '1';
+}
+
 function initPrintitDiagnostics() {
   const out = document.getElementById('printit-log-output');
   const toggle = document.getElementById('printit-log-toggle');
@@ -937,7 +1173,7 @@ function initPrintitDiagnostics() {
     printitLog(
       'ERROR',
       'Protocolo file://',
-      'Usa un servidor HTTP (ej. python3 -m http.server 5500) y abre http://localhost:5500/'
+      'Abre http://127.0.0.1:8080/ en Safari (no abras el HTML desde Finder)'
     );
   }
 
@@ -1186,16 +1422,141 @@ function initWhatsAppLinks(scope = document) {
   });
 }
 
-function initProductPageLinkNavigation() {
-  document.addEventListener('click', (e) => {
-    const productLink = e.target.closest('a[href^="product-"]');
-    if (!productLink) return;
-    const href = productLink.getAttribute('href');
-    if (!href) return;
-    e.preventDefault();
-    e.stopPropagation();
-    window.location.href = href;
+function closeProfilePeekLightbox() {
+  const lb = document.getElementById('sheet-profile-peek-lightbox');
+  if (lb) lb.hidden = true;
+  document.body.classList.remove('sheet-profile-peek-lightbox-open');
+  document.querySelectorAll('.sheet-profile-thumb--peek.is-enlarged').forEach((thumb) => {
+    thumb.classList.remove('is-enlarged');
+    thumb.setAttribute('aria-expanded', 'false');
   });
+}
+
+function ensureProfilePeekLightbox() {
+  let lb = document.getElementById('sheet-profile-peek-lightbox');
+  if (lb) return lb;
+
+  lb = document.createElement('div');
+  lb.id = 'sheet-profile-peek-lightbox';
+  lb.className = 'sheet-profile-peek-lightbox';
+  lb.hidden = true;
+  lb.innerHTML = `
+    <div class="sheet-profile-peek-lightbox__backdrop" data-peek-close tabindex="-1" aria-hidden="true"></div>
+    <div class="sheet-profile-peek-lightbox__dialog" role="dialog" aria-modal="true" aria-label="Vista técnica ampliada">
+      <button type="button" class="sheet-profile-peek-lightbox__close" aria-label="Cerrar vista ampliada">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <p class="sheet-profile-peek-lightbox__title"></p>
+      <div class="sheet-profile-peek-lightbox__stage">
+        <img class="sheet-profile-peek-lightbox__img" alt="">
+      </div>
+    </div>
+  `;
+  document.body.appendChild(lb);
+
+  lb.querySelector('[data-peek-close]').addEventListener('click', closeProfilePeekLightbox);
+  lb.querySelector('.sheet-profile-peek-lightbox__close').addEventListener('click', closeProfilePeekLightbox);
+
+  return lb;
+}
+
+function openProfilePeekLightbox(thumb) {
+  const frameImg = thumb.querySelector('.sheet-profile-peek-frame img');
+  if (!frameImg) return;
+
+  const lb = ensureProfilePeekLightbox();
+  const img = lb.querySelector('.sheet-profile-peek-lightbox__img');
+  const title = lb.querySelector('.sheet-profile-peek-lightbox__title');
+  const card = thumb.closest('.sheet-profile-card');
+  const profileName = card?.querySelector('.sheet-profile-name')?.textContent?.trim() || '';
+
+  img.src = frameImg.getAttribute('src') || frameImg.src;
+  img.alt = frameImg.alt || (profileName ? `Vista técnica sección ${profileName}` : 'Vista técnica ampliada');
+  title.textContent = profileName ? `Sección de perfil · ${profileName}` : 'Vista técnica ampliada';
+
+  document.querySelectorAll('.sheet-profile-thumb--peek.is-enlarged').forEach((t) => {
+    if (t !== thumb) {
+      t.classList.remove('is-enlarged');
+      t.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  thumb.classList.add('is-enlarged');
+  thumb.setAttribute('aria-expanded', 'true');
+  lb.hidden = false;
+  document.body.classList.add('sheet-profile-peek-lightbox-open');
+  lb.querySelector('.sheet-profile-peek-lightbox__close').focus();
+}
+
+const PROFILE_PEEK_LOUPE_SVG =
+  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>';
+
+function initProfilePeekThumbs(scope = document) {
+  scope.querySelectorAll('.sheet-profile-thumb--peek').forEach((thumb) => {
+    if (thumb.dataset.peekBound === '1') return;
+    thumb.dataset.peekBound = '1';
+    thumb.setAttribute('role', 'button');
+    thumb.setAttribute('tabindex', '0');
+    thumb.setAttribute('aria-label', 'Ampliar vista técnica del perfil');
+
+    if (!thumb.querySelector('.sheet-profile-peek-loupe')) {
+      const loupe = document.createElement('span');
+      loupe.className = 'sheet-profile-peek-loupe';
+      loupe.innerHTML = PROFILE_PEEK_LOUPE_SVG;
+      thumb.appendChild(loupe);
+    }
+
+    const toggle = (e) => {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      if (thumb.classList.contains('is-enlarged')) {
+        closeProfilePeekLightbox();
+      } else {
+        openProfilePeekLightbox(thumb);
+      }
+    };
+
+    thumb.addEventListener('click', toggle);
+    thumb.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        toggle(e);
+      }
+      if (e.key === 'Escape') {
+        closeProfilePeekLightbox();
+      }
+    });
+  });
+
+  if (!document.body.dataset.profilePeekDismissBound) {
+    document.body.dataset.profilePeekDismissBound = '1';
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      closeProfilePeekLightbox();
+    });
+  }
+}
+
+function initProductPageLinkNavigation() {
+  if (document.body.dataset.productNavBound === '1') return;
+  document.body.dataset.productNavBound = '1';
+
+  document.addEventListener(
+    'click',
+    (e) => {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+      const el = e.target instanceof Element ? e.target : e.target?.parentElement;
+      const productLink = el && el.closest('a[href^="product-"][href$=".html"]');
+      if (!productLink || productLink.closest('#catalogue-list')) return;
+      const href = (productLink.getAttribute('href') || '').trim();
+      if (!href) return;
+      e.preventDefault();
+      e.stopPropagation();
+      window.location.assign(href);
+    },
+    true
+  );
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -1212,6 +1573,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showcaseLastCleanSrc = initial.split('?')[0];
   }
   initTheme();
+  initGlobalCatalogueFilterNav();
   initFilterPillIcons();
   initBeforeAfterComparators();
   initSoftLoopVideos();
@@ -1223,6 +1585,9 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', toggleTheme);
   });
 
+  const initialHash = (window.location.hash || '').replace('#', '');
+  const dedicatedProduct = isDedicatedProductPageUrl();
+
   const catalogueRoot = document.getElementById('catalogue-list');
   if (catalogueRoot) {
     // Mark non-simple catalogue rows as detailed for filter behavior.
@@ -1232,19 +1597,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    const allPill = document.querySelector('.filter-pill[data-filter="all"]');
-    if (allPill) filterCatalogue('all', allPill);
-
-    // Product links inside catalogue rows should navigate directly.
-    document.querySelectorAll('.catalogue-item-name a[href^="product-"]').forEach(link => {
-      link.addEventListener('click', e => {
-        e.stopPropagation();
-      });
-    });
+    bindCatalogueProductLinks();
   }
 
-  const hasInitialHash = Boolean((window.location.hash || '').replace('#', ''));
-  if (!hasInitialHash && document.getElementById('page-home')) {
+  if (!initialHash && !dedicatedProduct && document.getElementById('page-home')) {
     showPage('home', null);
   }
 
@@ -1255,8 +1611,21 @@ document.addEventListener('DOMContentLoaded', () => {
   initWhatsAppLinks();
   splitContactSocialLinkLabels();
   initDaliCasambiUseCaseLightbox();
+  initProfilePeekThumbs();
+  initProductSheetDownloadCtaRow();
 
   initPrintitDiagnostics();
+});
+
+Object.assign(window, {
+  selectCatalogueItem,
+  bindCatalogueProductLinks,
+  filterCatalogue,
+  showPage,
+  goToCatalogueAll,
+  openCatalogueCategory,
+  showProductDetail,
+  openEmbeddedProduct
 });
 
 function applyHashRoute() {
@@ -1265,7 +1634,10 @@ function applyHashRoute() {
     const hash = (window.location.hash || '').replace('#', '');
     if ((hash === 'catalogue' || hash === 'all') && document.getElementById('page-catalogue')) {
       goToCatalogueAll(null);
-    } else if (hash === 'product' && document.getElementById('page-product')) {
+    } else if (
+      (hash === 'product' || isDedicatedProductPageUrl()) &&
+      document.getElementById('page-product')
+    ) {
       if (!window.PRINTIT_PRODUCT_CONTEXT) {
         window.PRINTIT_PRODUCT_CONTEXT = { ...DEFAULT_PRODUCT_CONTEXT };
       }
