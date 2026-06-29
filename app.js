@@ -978,56 +978,24 @@ function initSoftLoopVideos(scope = document) {
   });
 }
 
-/** Escritorio: barra nativa solo al pasar el ratón; táctil: controles siempre. */
-function printitPreferHoverOnlyVideoControls() {
-  try {
-    return window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  } catch (_) {
-    return false;
-  }
+/** Vídeos del catálogo: sin barra nativa (sin volumen/audio al hover). */
+function printitStripVideoUiControls(video) {
+  if (!video || video.tagName !== 'VIDEO') return;
+  video.muted = true;
+  video.defaultMuted = true;
+  video.controls = false;
+  video.removeAttribute('controls');
+  video.setAttribute('controlsList', 'nodownload nofullscreen noremoteplayback noplaybackrate');
+  video.disablePictureInPicture = true;
 }
-
-function printitVideoHoverHost(video) {
-  return (
-    video.closest('.gallery-item') ||
-    video.closest('.product-video-wrap') ||
-    video.closest('.custom-made-spot') ||
-    video.closest('.custom-made-video-box') ||
-    video.closest('.dali-decision-video-wrap') ||
-    video.closest('#image-showcase') ||
-    video.parentElement
-  );
-}
-
-let printitVideoIo = null;
 
 function bindPrintitVideoHoverControls(video) {
   if (!video || video.tagName !== 'VIDEO' || video.dataset.printitHoverCtl === '1') return;
-  if (video.closest('#page-home .mini-card')) return;
   video.dataset.printitHoverCtl = '1';
-
-  if (!printitPreferHoverOnlyVideoControls()) {
-    if (!video.hasAttribute('controls')) video.controls = true;
-    return;
-  }
-
-  video.removeAttribute('controls');
-  video.controls = false;
-  const host = printitVideoHoverHost(video);
-  if (!host) return;
-
-  const show = () => {
-    video.controls = true;
-  };
-  const hide = () => {
-    video.controls = false;
-  };
-
-  host.addEventListener('mouseenter', show);
-  host.addEventListener('mouseleave', ev => {
-    if (!host.contains(ev.relatedTarget)) hide();
-  });
+  printitStripVideoUiControls(video);
 }
+
+let printitVideoIo = null;
 
 function observePrintitVideoAutoplayWhenVisible(video) {
   if (!video || video.tagName !== 'VIDEO' || video.dataset.printitAutoIo === '1') return;
@@ -1060,6 +1028,7 @@ function observePrintitVideoAutoplayWhenVisible(video) {
 
 function refreshPrintitVideoBindings(scope = document) {
   scope.querySelectorAll('video').forEach(v => {
+    printitStripVideoUiControls(v);
     bindPrintitVideoHoverControls(v);
     observePrintitVideoAutoplayWhenVisible(v);
   });
