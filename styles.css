@@ -353,6 +353,15 @@ body.is-home-page .image-showcase::after {
     object-position: center center;
 }
 
+.image-showcase img#showcase-img.showcase-img--svg {
+    width: 88%;
+    height: 88%;
+    padding: 4%;
+    box-sizing: border-box;
+    background: var(--bg-elevated);
+    border-radius: var(--radius-sm);
+}
+
 .image-showcase video {
     width: 100%;
     height: 100%;
@@ -368,6 +377,11 @@ body.is-home-page .image-showcase::after {
     margin: 0;
     object-fit: contain;
     object-position: center center;
+}
+
+.image-showcase video.showcase-video--focus-left {
+    object-fit: cover;
+    object-position: left center;
 }
 
 .image-showcase .image-label {
@@ -3150,7 +3164,6 @@ html[data-theme='light'] .product-spec-sheet--rigidos .rigidos-flow-step-num {
     width: 100%;
     margin-top: clamp(20px, 3vw, 32px);
     padding-top: clamp(16px, 2.5vw, 24px);
-    border-top: 1px solid var(--sheet-row-border);
 }
 
 .product-profile-finish-col {
@@ -3815,6 +3828,45 @@ body.page-layout-custom-solo .app:has(#page-product.active) #page-product .foote
     text-align: right;
     background: #000;
     transform: none !important;
+}
+
+/* DALI / Casambi — diagrama de sistema en galería (encuadre 4/5) */
+.gallery-item--dali-diagram {
+    background: var(--bg-elevated);
+    border-color: var(--border);
+    padding: 0;
+}
+
+.dali-casambi-diagram {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.dali-casambi-diagram img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+    transform: none;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item--dali-diagram:hover .dali-casambi-diagram img {
+    transform: scale(1.015);
+}
+
+[data-theme="light"] .gallery-item--dali-diagram {
+    background: var(--bg-card);
+}
+
+[data-theme="light"] .dali-casambi-diagram img {
+    filter: invert(1) hue-rotate(180deg) brightness(0.92) contrast(1.05);
 }
 
 /* ON/OFF galería: vídeo + poster rellenan la celda 4/5 (recorte centrado, sin bandas) */
@@ -4800,6 +4852,69 @@ body.page-layout-custom-solo .app:has(#page-product.active) #page-product .foote
     font-size: 13px;
     color: var(--text);
     line-height: 1.5;
+}
+
+.sheet-row--lighting-badges {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.sheet-row--lighting-badges .sheet-label {
+    flex: 0 0 35%;
+}
+
+.lighting-feature-badges {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 28px 40px;
+}
+
+.lighting-feature-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 120px;
+    text-align: center;
+}
+
+.lighting-feature-badge-icon {
+    width: 72px;
+    height: 64px;
+    color: var(--accent);
+}
+
+.lighting-feature-badges--triple {
+    gap: 20px 28px;
+}
+
+.lighting-feature-badges--triple .lighting-feature-badge {
+    min-width: 108px;
+}
+
+.lighting-feature-badges--triple .lighting-feature-badge-label {
+    max-width: 9em;
+}
+
+.lighting-feature-badge-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    line-height: 1.2;
+}
+
+.lighting-feature-badge-sublabel {
+    margin-top: -4px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    line-height: 1.2;
 }
 
 .sheet-bottom-grid {
@@ -5811,6 +5926,64 @@ body.page-layout-custom-solo .app:has(#page-product.active) #page-product .foote
 
     video.gallery-video {
         max-width: 100%;
+    }
+
+    .page--custom-made .custom-made-showreel {
+        gap: 12px;
+        min-width: 0;
+    }
+
+    .page--custom-made .custom-made-video-box,
+    .page--custom-made .custom-made-spot--hero {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .page--custom-made .custom-made-feature-video,
+    .page--custom-made .custom-made-spot-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .gallery-item--dali-diagram .dali-casambi-diagram {
+        padding: 6px;
+    }
+
+    .gallery-item--dali-diagram .dali-casambi-diagram__svg,
+    .gallery-item--dali-diagram .dali-casambi-diagram img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    #page-product .product-page-zone--bottom,
+    #page-product .product-extra-footer,
+    #page-product .product-embed-section--video {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .product-embed-section--video .product-feature-video,
+    .product-extra-footer .product-feature-video {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .image-showcase img#showcase-img.showcase-img--svg {
+        width: 92%;
+        height: 92%;
+    }
+
+    .product-gallery .gallery-item[tabindex='0']:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
     }
 
     .ba-range::-webkit-slider-thumb {

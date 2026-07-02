@@ -7,7 +7,7 @@ const CATALOGUE_SHOWCASE_IMAGE =
   'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png';
 const AERIS_SHOWCASE_IMAGE = 'assets/img/categories/cubos aereos .png';
 const PRODUCT_SHOWCASE_IMAGE = 'assets/img/products/luminaria-p100.png';
-const DALI_SHOWCASE_VIDEO = 'DALI : CASSAMBI /dali cassambi control .mp4';
+const DALI_SHOWCASE_VIDEO = 'DALI : CASSAMBI /DALLI - CASSAMBI EFFECT.mp4';
 const CONTACT_SHOWCASE_IMAGE = 'assets/img/products/luminaria-showroom-2.jpeg';
 let currentImageIndex = 0;
 const FIXED_SHOWCASE_LABEL = 'MAKE AN IMPRESSION';
@@ -25,9 +25,8 @@ const PRINTIT_CATALOGUE_GALLERY_FIRST_PREVIEW = {
   'product-con-luz.html':
     'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
   'product-cubos.html': 'assets/img/categories/cubos%20aereos%20.png',
-  'product-custom.html':
-    'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
-  'product-dali-casambi.html': 'DALI : CASSAMBI /dali cassambi control .mp4',
+  'product-custom.html': 'LUMINARIAS CUSTOM /special project led dynamic .mp4',
+  'product-dali-casambi.html': 'DALI : CASSAMBI /DALLI - CASSAMBI EFFECT.mp4',
   'product-dynamic-white.html': 'DYNAMIC WHITE /LED DYNAMIC.mp4',
   'product-pixel-led.html': 'LUMINARIAS CUSTOM /special project led dynamic .mp4',
   'product-forrado-columnas.html':
@@ -73,6 +72,8 @@ function updateShowcaseImage(src, label) {
     /vid1\.mp4$/i.test(cleanSrc) ||
     /photocallls con luz\.mov$/i.test(cleanSrc);
   const isOnOffCorrectedClip = /on off 4k action \.mp4$/i.test(cleanSrc);
+  const isDalliCasambiEffectShowcase = /DALLI\s*-\s*CASSAMBI\s+EFFECT\.mp4$/i.test(cleanSrc);
+  const isSvgShowcase = /\.svg$/i.test(cleanSrc);
 
   let mediaEl = document.getElementById('showcase-img');
   if (!mediaEl) {
@@ -141,6 +142,8 @@ function updateShowcaseImage(src, label) {
     }
     showcaseLastCleanSrc = cleanSrc;
     mediaEl.classList.toggle('showcase-video--contain-center', isShowcaseContainCenter);
+    mediaEl.classList.toggle('showcase-video--focus-left', isDalliCasambiEffectShowcase);
+    mediaEl.classList.toggle('showcase-img--svg', isSvgShowcase && mediaEl.tagName !== 'VIDEO');
     if (isVideoEl) {
       if (isVideoSrc) {
         mediaEl.querySelectorAll('source').forEach(s => s.remove());
@@ -376,27 +379,35 @@ function getProductGalleryItemNodes() {
   return document.querySelectorAll('#page-product .product-detail-card .product-gallery .gallery-item');
 }
 
+function getGalleryMediaSrcFromItem(item) {
+  if (!item) return '';
+  const video = item.querySelector('video');
+  if (video) {
+    const sourceEl = video.querySelector('source[src]');
+    const videoSrc = (sourceEl && sourceEl.getAttribute('src')) || video.getAttribute('src') || '';
+    if (videoSrc) return videoSrc;
+    const poster = video.getAttribute('poster');
+    if (poster) return poster;
+  }
+  const objectEl = item.querySelector('object[data]');
+  if (objectEl) {
+    const data = (objectEl.getAttribute('data') || '').trim();
+    if (data) return data;
+  }
+  const img = item.querySelector('img');
+  if (img) {
+    const src = (img.getAttribute('src') || img.src || '').trim();
+    if (src) return src;
+  }
+  return '';
+}
+
 function getProductGallerySources() {
   const items = getProductGalleryItemNodes();
   const sources = [];
   items.forEach(item => {
-    const img = item.querySelector('img');
-    if (img) {
-      const src = img.getAttribute('src') || img.src;
-      if (src) sources.push(src);
-      return;
-    }
-    const video = item.querySelector('video');
-    if (video) {
-      const sourceEl = video.querySelector('source[src]');
-      const videoSrc = (sourceEl && sourceEl.getAttribute('src')) || video.getAttribute('src') || '';
-      if (videoSrc) {
-        sources.push(videoSrc);
-        return;
-      }
-      const poster = video.getAttribute('poster');
-      if (poster) sources.push(poster);
-    }
+    const src = getGalleryMediaSrcFromItem(item);
+    if (src) sources.push(src);
   });
   return sources;
 }
@@ -420,13 +431,23 @@ function syncProductGalleryToShowcase() {
     if (item.dataset.previewBound === '1') return;
     item.dataset.previewBound = '1';
     item.style.cursor = 'pointer';
-    item.addEventListener('click', (e) => {
+    item.setAttribute('tabindex', '0');
+    const previewLabel =
+      item.querySelector('video, img, object')?.getAttribute('aria-label') || 'Ampliar en escaparate';
+    item.setAttribute('aria-label', previewLabel);
+
+    const activatePreview = (e) => {
+      if (e.type === 'keydown' && e.key !== 'Enter' && e.key !== ' ') return;
+      if (e.type === 'keydown') e.preventDefault();
       e.preventDefault();
       const targetSrc = sources[idx] || sources[0];
       currentImageIndex = idx < sources.length ? idx : 0;
       updateShowcaseImage(targetSrc, 'MAKE AN IMPRESSION');
       updateDots();
-    });
+    };
+
+    item.addEventListener('click', activatePreview);
+    item.addEventListener('keydown', activatePreview);
   });
 }
 
@@ -738,7 +759,7 @@ const FILTER_MINI_CARD_ORDER = [
 ];
 
 const FALLBACK_FILTER_THUMBS = {
-  lluminaries: 'assets/img/products/luminaria-p100.png',
+  lluminaries: 'ON-OFF/LUMINARIA INDICE.png',
   lightbox: 'LIGHTBOX /lightbox a pared .png',
   totems: 'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
   aeris: 'assets/img/categories/cubos aereos .png',
