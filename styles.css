@@ -5842,6 +5842,11 @@ body.page-layout-custom-solo .app:has(#page-product.active) #page-product .foote
         min-width: 0;
     }
 
+    /* Una sola galería en móvil: .sheet-media-gallery es la fuente principal */
+    #page-product:has(.sheet-media-gallery) .product-detail-card .product-gallery {
+        display: none;
+    }
+
     .sheet-media-gallery {
         min-width: 0;
         max-width: 100%;
