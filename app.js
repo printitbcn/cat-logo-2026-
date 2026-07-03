@@ -11,6 +11,45 @@ const DALI_SHOWCASE_VIDEO = 'DALI : CASSAMBI /DALLI - CASSAMBI EFFECT.mp4';
 const CONTACT_SHOWCASE_IMAGE = 'assets/img/products/luminaria-showroom-2.jpeg';
 let currentImageIndex = 0;
 const FIXED_SHOWCASE_LABEL = 'MAKE AN IMPRESSION';
+/** Cache bust para imágenes/vídeos en móvil (Safari cachea agresivamente sin query). */
+const PRINTIT_MEDIA_CACHE = '20260703a';
+
+function withPrintitMediaCache(url) {
+  if (url == null) return url;
+  const trimmed = String(url).trim();
+  if (!trimmed || /^(data:|blob:|#)/i.test(trimmed)) return trimmed;
+  const base = trimmed.split('?')[0];
+  return `${base}?v=${PRINTIT_MEDIA_CACHE}`;
+}
+
+function bustPrintitGalleryMediaCache() {
+  const scope = document.getElementById('page-product');
+  if (!scope) return;
+
+  scope.querySelectorAll('.sheet-media-gallery img[src]').forEach((img) => {
+    const src = img.getAttribute('src');
+    if (src) img.src = withPrintitMediaCache(src);
+  });
+
+  scope.querySelectorAll('.sheet-media-gallery video').forEach((video) => {
+    const poster = video.getAttribute('poster');
+    if (poster) video.poster = withPrintitMediaCache(poster);
+    const src = video.getAttribute('src');
+    if (src) video.src = withPrintitMediaCache(src);
+    video.querySelectorAll('source[src]').forEach((source) => {
+      const sourceSrc = source.getAttribute('src');
+      if (sourceSrc) source.src = withPrintitMediaCache(sourceSrc);
+    });
+    try {
+      video.load();
+    } catch (_) {}
+  });
+
+  scope.querySelectorAll('.sheet-media-gallery object[data]').forEach((objectEl) => {
+    const data = objectEl.getAttribute('data');
+    if (data) objectEl.data = withPrintitMediaCache(data);
+  });
+}
 
 /**
  * Primera vista de la galería principal de cada ficha (imagen o poster del primer vídeo),
@@ -133,11 +172,11 @@ function updateShowcaseImage(src, label) {
     }
 
     const isVideoEl = mediaEl.tagName === 'VIDEO';
-    let nextSrc = cleanSrc;
+    let nextSrc = withPrintitMediaCache(cleanSrc);
     if (isGif) {
       if (!isVideoEl) mediaEl.loading = 'eager';
       if (showcaseLastCleanSrc && showcaseLastCleanSrc !== cleanSrc) {
-        nextSrc = `${cleanSrc}?_=${Date.now()}`;
+        nextSrc = `${nextSrc}&_=${Date.now()}`;
       }
     }
     showcaseLastCleanSrc = cleanSrc;
@@ -147,7 +186,7 @@ function updateShowcaseImage(src, label) {
     if (isVideoEl) {
       if (isVideoSrc) {
         mediaEl.querySelectorAll('source').forEach(s => s.remove());
-        mediaEl.poster = isOnOffCorrectedClip ? ONOFF_CORRECTED_MOV_POSTER : '';
+        mediaEl.poster = isOnOffCorrectedClip ? withPrintitMediaCache(ONOFF_CORRECTED_MOV_POSTER) : '';
         mediaEl.src = nextSrc;
         mediaEl.load();
         mediaEl.play().catch(() => { });
@@ -1569,6 +1608,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSoftLoopVideos();
   refreshPrintitVideoBindings();
   requestAnimationFrame(() => printitKickVisibleVideos());
+  bustPrintitGalleryMediaCache();
   syncProductGalleryToShowcase();
   document.querySelectorAll('.nav-theme-toggle').forEach(btn => {
     btn.type = 'button';
