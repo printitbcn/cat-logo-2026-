@@ -4860,7 +4860,13 @@ body.page-layout-custom-solo .app:has(#page-product.active) #page-product .foote
 }
 
 .sheet-row--lighting-badges .sheet-label {
-    flex: 0 0 35%;
+    display: none;
+}
+
+.sheet-row--lighting-badges .sheet-value {
+    flex: 1 1 100%;
+    width: 100%;
+    min-width: 0;
 }
 
 .lighting-feature-badges {
@@ -4887,15 +4893,29 @@ body.page-layout-custom-solo .app:has(#page-product.active) #page-product .foote
 }
 
 .lighting-feature-badges--triple {
-    gap: 20px 28px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px 14px;
+    width: 100%;
+    align-items: start;
 }
 
 .lighting-feature-badges--triple .lighting-feature-badge {
-    min-width: 108px;
+    min-width: 0;
+}
+
+.lighting-feature-badges--triple .lighting-feature-badge-icon {
+    width: 56px;
+    height: 50px;
 }
 
 .lighting-feature-badges--triple .lighting-feature-badge-label {
-    max-width: 9em;
+    max-width: none;
+    font-size: 10px;
+}
+
+.lighting-feature-badges--triple .lighting-feature-badge-sublabel {
+    font-size: 9px;
 }
 
 .lighting-feature-badge-label {
