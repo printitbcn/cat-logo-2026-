@@ -14,7 +14,6 @@ When the user says **lift project** (or clearly the same intent: levantar el pro
 1. Run the static server **in the background** (the script does not exit):
 
 ```bash
-cd "/Users/printitprojects/Desktop/PRINT-IT-PROP-CATALOGO"
 ./scripts/serve-lan.sh
 ```
 
