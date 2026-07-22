@@ -15,3 +15,6 @@ Thumbs.db
 # Backups locales de optimización de vídeo (no versionar)
 _video-originals/
 scripts/video-optimization.log
+
+# Archivos >100MB (GitHub limit); mantener locales
+LUXPANEL/luxpanel tecnico PRADA.mov

@@ -1,7 +1,7 @@
 /* ===== Print It — Catálogo Comercial JS (Dark Portfolio Style) ===== */
 
 // ===== IMAGE CAROUSEL =====
-const HOME_CAROUSEL_IMAGE = 'Material Inicial/PORTADA-PRINT-IT.png';
+const HOME_CAROUSEL_IMAGE = 'Material Inicial/PORTADA 3 PRINT IT.png';
 let carouselImages = [HOME_CAROUSEL_IMAGE];
 const CATALOGUE_SHOWCASE_IMAGE =
   'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png';
@@ -12,7 +12,9 @@ const CONTACT_SHOWCASE_IMAGE = 'assets/img/products/luminaria-showroom-2.jpeg';
 let currentImageIndex = 0;
 const FIXED_SHOWCASE_LABEL = 'MAKE AN IMPRESSION';
 /** Cache bust para imágenes/vídeos en móvil (Safari cachea agresivamente sin query). */
-const PRINTIT_MEDIA_CACHE = '20260703a';
+const PRINTIT_MEDIA_CACHE = '20260722ad';
+let catalogueCarouselTimer = null;
+const CATALOGUE_CAROUSEL_MS = 4500;
 
 function withPrintitMediaCache(url) {
   if (url == null) return url;
@@ -22,33 +24,51 @@ function withPrintitMediaCache(url) {
   return `${base}?v=${PRINTIT_MEDIA_CACHE}`;
 }
 
+function bustPrintitImgSrc(img) {
+  const src = img.getAttribute('src');
+  if (src) img.src = withPrintitMediaCache(src);
+}
+
+function bustPrintitVideoSrc(video) {
+  const poster = video.getAttribute('poster');
+  if (poster) video.poster = withPrintitMediaCache(poster);
+  const src = video.getAttribute('src');
+  if (src) video.src = withPrintitMediaCache(src);
+  video.querySelectorAll('source[src]').forEach((source) => {
+    const sourceSrc = source.getAttribute('src');
+    if (sourceSrc) source.src = withPrintitMediaCache(sourceSrc);
+  });
+  try {
+    video.load();
+  } catch (_) {}
+}
+
 function bustPrintitGalleryMediaCache() {
   const scope = document.getElementById('page-product');
   if (!scope) return;
 
-  scope.querySelectorAll('.sheet-media-gallery img[src]').forEach((img) => {
-    const src = img.getAttribute('src');
-    if (src) img.src = withPrintitMediaCache(src);
-  });
+  scope
+    .querySelectorAll(
+      '.sheet-media-gallery img[src], .ba-compare img[src], .product-embed-section img[src], .product-extra-footer img[src], .product-detail-card .product-gallery img[src]'
+    )
+    .forEach(bustPrintitImgSrc);
 
-  scope.querySelectorAll('.sheet-media-gallery video').forEach((video) => {
-    const poster = video.getAttribute('poster');
-    if (poster) video.poster = withPrintitMediaCache(poster);
-    const src = video.getAttribute('src');
-    if (src) video.src = withPrintitMediaCache(src);
-    video.querySelectorAll('source[src]').forEach((source) => {
-      const sourceSrc = source.getAttribute('src');
-      if (sourceSrc) source.src = withPrintitMediaCache(sourceSrc);
-    });
-    try {
-      video.load();
-    } catch (_) {}
-  });
+  scope
+    .querySelectorAll(
+      '.sheet-media-gallery video, .product-embed-section video, .product-extra-footer video, .product-detail-card .product-gallery video, .product-feature-video'
+    )
+    .forEach(bustPrintitVideoSrc);
 
   scope.querySelectorAll('.sheet-media-gallery object[data]').forEach((objectEl) => {
     const data = objectEl.getAttribute('data');
     if (data) objectEl.data = withPrintitMediaCache(data);
   });
+
+  const showcaseImg = document.getElementById('showcase-img');
+  if (showcaseImg) {
+    if (showcaseImg.tagName === 'VIDEO') bustPrintitVideoSrc(showcaseImg);
+    else bustPrintitImgSrc(showcaseImg);
+  }
 }
 
 /**
@@ -66,7 +86,7 @@ const PRINTIT_CATALOGUE_GALLERY_FIRST_PREVIEW = {
   'product-cubos.html': 'assets/img/categories/cubos%20aereos%20.png',
   'product-custom.html': 'LUMINARIAS CUSTOM /special project led dynamic .mp4',
   'product-dali-casambi.html': 'DALI : CASSAMBI /DALLI - CASSAMBI EFFECT.mp4',
-  'product-dynamic-white.html': 'DYNAMIC WHITE /LED DYNAMIC.mp4',
+  'product-dynamic-white.html': 'DYNAMIC WHITE /dinamico tecnico completo def .mov',
   'product-pixel-led.html': 'LUMINARIAS CUSTOM /special project led dynamic .mp4',
   'product-forrado-columnas.html':
     'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
@@ -76,10 +96,9 @@ const PRINTIT_CATALOGUE_GALLERY_FIRST_PREVIEW = {
     'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
   'product-impresion-uvi.html':
     'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
-  'product-lightbox-doble-cara.html':
-    'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
-  'product-lightbox-pared.html': 'LIGHTBOX /lightbox a pared mercedes.mov',
-  'product-luxpanel.html': 'assets/img/products/luxpanel-2.png',
+  'product-lightbox-doble-cara.html': 'LIGHTBOX /doble cara /lightbox completo def .jpg',
+  'product-lightbox-pared.html': 'LIGHTBOX /A PARED /exterior P50 A PARED .jpg',
+  'product-luxpanel.html': 'LUXPANEL/LUX EXTERIOR.png',
   'product-on-off.html': 'ON-OFF/on off 4k action .mp4',
   'product-relieve-braille.html':
     'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
@@ -110,6 +129,13 @@ function updateShowcaseImage(src, label) {
   const isShowcaseContainCenter =
     /vid1\.mp4$/i.test(cleanSrc) ||
     /photocallls con luz\.mov$/i.test(cleanSrc);
+  const isShowcaseContainFit =
+    /dinamico prueba 1\.mov$/i.test(cleanSrc) ||
+    /dinamico tecnico completo def \.mov$/i.test(cleanSrc) ||
+    /DINAMIC TECNICO COMPLETO?\.mov$/i.test(cleanSrc) ||
+    /DINAMIC TECNICO COMPLETE\.mov$/i.test(cleanSrc) ||
+    /dinamic white placements\. ?\.mp4$/i.test(cleanSrc) ||
+    /dinamico \.mp4$/i.test(cleanSrc);
   const isOnOffCorrectedClip = /on off 4k action \.mp4$/i.test(cleanSrc);
   const isDalliCasambiEffectShowcase = /DALLI\s*-\s*CASSAMBI\s+EFFECT\.mp4$/i.test(cleanSrc);
   const isSvgShowcase = /\.svg$/i.test(cleanSrc);
@@ -181,12 +207,14 @@ function updateShowcaseImage(src, label) {
     }
     showcaseLastCleanSrc = cleanSrc;
     mediaEl.classList.toggle('showcase-video--contain-center', isShowcaseContainCenter);
-    mediaEl.classList.toggle('showcase-video--focus-left', isDalliCasambiEffectShowcase);
+    mediaEl.classList.toggle('showcase-video--contain-fit', isShowcaseContainFit);
+    mediaEl.classList.toggle('showcase-video--portrait-9-16', isDalliCasambiEffectShowcase);
     mediaEl.classList.toggle('showcase-img--svg', isSvgShowcase && mediaEl.tagName !== 'VIDEO');
     if (isVideoEl) {
       if (isVideoSrc) {
         mediaEl.querySelectorAll('source').forEach(s => s.remove());
         mediaEl.poster = isOnOffCorrectedClip ? withPrintitMediaCache(ONOFF_CORRECTED_MOV_POSTER) : '';
+        mediaEl.preload = isDalliCasambiEffectShowcase ? 'auto' : 'metadata';
         mediaEl.src = nextSrc;
         mediaEl.load();
         mediaEl.play().catch(() => { });
@@ -290,6 +318,7 @@ function showPage(pageName, event) {
   // where :has() selectors may not evaluate reliably).
   document.body.classList.toggle('is-contact-page', pageName === 'contact');
   document.body.classList.toggle('is-home-page', pageName === 'home');
+  document.body.classList.toggle('is-product-page', pageName === 'product');
   document.body.classList.toggle(
     'has-catalogue-filter-nav',
     pageName === 'catalogue' || pageName === 'product'
@@ -305,6 +334,7 @@ function showPage(pageName, event) {
 
   // Reset image based on page
   if (pageName === 'home') {
+    stopCatalogueCarouselAutoplay();
     setCarouselImages([HOME_CAROUSEL_IMAGE], 0);
     updateShowcaseImage(HOME_CAROUSEL_IMAGE, 'Catálogo Comercial');
     currentImageIndex = 0;
@@ -313,11 +343,17 @@ function showPage(pageName, event) {
   } else if (pageName === 'catalogue') {
     /* El carrusel del catálogo se actualiza en filterCatalogue(), goToCatalogueAll() y openCatalogueCategory(). */
   } else if (pageName === 'product') {
+    stopCatalogueCarouselAutoplay();
     syncProductGalleryToShowcase();
     const productSources = getProductGallerySources();
     if (productSources.length) {
-      currentImageIndex = 0;
-      updateShowcaseImage(productSources[0], FIXED_SHOWCASE_LABEL);
+      const page = (window.location.pathname || '').split('/').pop() || '';
+      let startIndex = 0;
+      if (page === 'product-dynamic-white.html' && productSources.length > 1) {
+        startIndex = 1;
+      }
+      currentImageIndex = startIndex;
+      updateShowcaseImage(productSources[startIndex], FIXED_SHOWCASE_LABEL);
       renderCarouselDots(productSources.length);
       updateDots();
     } else {
@@ -327,6 +363,7 @@ function showPage(pageName, event) {
     applyProductContextFromPage();
     highlightProductFilterPill();
   } else if (pageName === 'contact') {
+    stopCatalogueCarouselAutoplay();
     setCarouselImages([CONTACT_SHOWCASE_IMAGE], 0);
     updateShowcaseImage(CONTACT_SHOWCASE_IMAGE, 'Roberto Ferrero · Print It');
     renderCarouselDots(1);
@@ -410,6 +447,32 @@ function initDaliCasambiUseCaseLightbox() {
   });
 }
 
+function initDaliCasambiSchemaShowcase() {
+  const page = (window.location.pathname || '').split('/').pop() || '';
+  if (page !== 'product-dali-casambi.html') return;
+  const schemaBlock = document.querySelector('#page-product .product-extra-schema');
+  const schemaImg = schemaBlock && schemaBlock.querySelector('img');
+  if (!schemaBlock || !schemaImg || schemaBlock.dataset.showcaseBound === '1') return;
+  schemaBlock.dataset.showcaseBound = '1';
+  schemaBlock.setAttribute('tabindex', '0');
+  schemaBlock.setAttribute('role', 'button');
+  const previewLabel =
+    schemaImg.getAttribute('alt') || 'Esquema DALI y Casambi';
+  schemaBlock.setAttribute('aria-label', `${previewLabel} — ampliar en escaparate`);
+
+  const activate = e => {
+    if (e.type === 'keydown' && e.key !== 'Enter' && e.key !== ' ') return;
+    if (e.type === 'keydown') e.preventDefault();
+    e.preventDefault();
+    const src = (schemaImg.getAttribute('src') || schemaImg.src || '').split('?')[0];
+    if (!src) return;
+    updateShowcaseImage(src, FIXED_SHOWCASE_LABEL);
+  };
+
+  schemaBlock.addEventListener('click', activate);
+  schemaBlock.addEventListener('keydown', activate);
+}
+
 function getProductGalleryItemNodes() {
   const sheetItems = document.querySelectorAll(
     '#page-product .sheet-media-gallery .product-gallery .gallery-item'
@@ -456,12 +519,19 @@ function syncProductGalleryToShowcase() {
   if (!galleryItems.length) return;
   const sources = getProductGallerySources();
   if (!sources.length) return;
-  setCarouselImages(sources, 0);
+
+  const page = (window.location.pathname || '').split('/').pop() || '';
+  let startIndex = 0;
+  if (page === 'product-dynamic-white.html' && sources.length > 1) {
+    startIndex = 1;
+  }
+
+  setCarouselImages(sources, startIndex);
 
   const productPage = document.getElementById('page-product');
   if (productPage && (productPage.classList.contains('active') || isDedicatedProductPageUrl())) {
-    currentImageIndex = 0;
-    updateShowcaseImage(sources[0], FIXED_SHOWCASE_LABEL);
+    currentImageIndex = startIndex;
+    updateShowcaseImage(sources[startIndex], FIXED_SHOWCASE_LABEL);
     renderCarouselDots(sources.length);
     updateDots();
   }
@@ -557,12 +627,35 @@ function renderCarouselDots(n) {
   wrap.innerHTML = `\n                    ${buttons.join('\n                    ')}\n                `;
 }
 
+function stopCatalogueCarouselAutoplay() {
+  if (catalogueCarouselTimer) {
+    clearInterval(catalogueCarouselTimer);
+    catalogueCarouselTimer = null;
+  }
+}
+
+function startCatalogueCarouselAutoplay() {
+  stopCatalogueCarouselAutoplay();
+  const pc = document.getElementById('page-catalogue');
+  if (!pc || !pc.classList.contains('active')) return;
+  if (!Array.isArray(carouselImages) || carouselImages.length < 2) return;
+  catalogueCarouselTimer = setInterval(() => {
+    const stillCatalogue = document.getElementById('page-catalogue');
+    if (!stillCatalogue || !stillCatalogue.classList.contains('active')) {
+      stopCatalogueCarouselAutoplay();
+      return;
+    }
+    nextImage();
+  }, CATALOGUE_CAROUSEL_MS);
+}
+
 function applyCatalogueShowcaseCarousel() {
   const list = document.getElementById('catalogue-list');
   if (!list) return;
   const { sources, hrefs, rows } = collectCatalogueCarouselData();
   window.PRINTIT_CATALOGUE_CAROUSEL_HREFS = hrefs;
   if (!sources.length) {
+    stopCatalogueCarouselAutoplay();
     setCarouselImages([CATALOGUE_SHOWCASE_IMAGE], 0);
     updateShowcaseImage(CATALOGUE_SHOWCASE_IMAGE, 'Catálogo Completo');
     renderCarouselDots(1);
@@ -574,6 +667,7 @@ function applyCatalogueShowcaseCarousel() {
   updateShowcaseImage(sources[0], label0);
   renderCarouselDots(sources.length);
   updateDots();
+  startCatalogueCarouselAutoplay();
 }
 
 // ===== CATALOGUE LIST INTERACTION =====
@@ -744,12 +838,19 @@ function filterCatalogue(category, btn) {
       }
     });
 
-    simpleItems.forEach(el => el.classList.add('hidden'));
-    detailedItems.forEach(el => {
-      if (el.dataset.category === category) {
-        el.classList.remove('hidden');
-      }
-    });
+    const detailedForCat = [...detailedItems].filter(el => el.dataset.category === category);
+    const simpleForCat = [...simpleItems].filter(el => el.dataset.category === category);
+    // If detailed rows have product links, use those; otherwise fall back to simple rows
+    // (Aéreos on product pages had a single details block without navigable links).
+    const detailedHaveLinks = detailedForCat.some(el => el.querySelector('a[href]'));
+
+    if (detailedHaveLinks) {
+      simpleForCat.forEach(el => el.classList.add('hidden'));
+      detailedForCat.forEach(el => el.classList.remove('hidden'));
+    } else {
+      detailedForCat.forEach(el => el.classList.add('hidden'));
+      simpleForCat.forEach(el => el.classList.remove('hidden'));
+    }
   }
 
   if (pc && pc.classList.contains('active')) {
@@ -799,7 +900,7 @@ const FILTER_MINI_CARD_ORDER = [
 
 const FALLBACK_FILTER_THUMBS = {
   lluminaries: 'ON-OFF/LUMINARIA INDICE.png',
-  lightbox: 'LIGHTBOX /lightbox a pared .png',
+  lightbox: 'LIGHTBOX /doble cara /lightbox completo def .jpg',
   totems: 'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
   aeris: 'assets/img/categories/cubos aereos .png',
   vesteix: 'assets/img/categories/vesteix.png',
@@ -853,6 +954,10 @@ function initGlobalCatalogueFilterNav() {
   }
 }
 
+function isMobileProductFilterDock() {
+  return window.matchMedia('(max-width: 767px)').matches;
+}
+
 function repositionCatalogueFilterNav(pageName) {
   const bar = document.getElementById('catalogue-filter-nav');
   if (!bar) return;
@@ -862,17 +967,35 @@ function repositionCatalogueFilterNav(pageName) {
     pageName = 'catalogue';
   }
 
-  if (!['catalogue', 'product'].includes(pageName)) return;
+  if (!['catalogue', 'product'].includes(pageName)) {
+    bar.classList.remove('catalogue-filter-nav--mobile-dock');
+    return;
+  }
 
   const page = document.getElementById(`page-${pageName}`);
   if (!page) return;
+
+  if (pageName === 'product' && isMobileProductFilterDock()) {
+    bar.classList.add('catalogue-filter-nav--mobile-dock');
+    if (bar.parentElement !== document.body) {
+      document.body.appendChild(bar);
+    }
+    return;
+  }
+
+  bar.classList.remove('catalogue-filter-nav--mobile-dock');
 
   const insertAfter =
     pageName === 'product'
       ? page.querySelector('.product-top-actions') || page.querySelector('.top-nav')
       : page.querySelector('.top-nav');
 
-  if (!insertAfter || bar.previousElementSibling === insertAfter) return;
+  if (!insertAfter) return;
+  if (bar.parentElement !== page) {
+    insertAfter.insertAdjacentElement('afterend', bar);
+    return;
+  }
+  if (bar.previousElementSibling === insertAfter) return;
   insertAfter.insertAdjacentElement('afterend', bar);
 }
 
@@ -996,6 +1119,7 @@ function initTheme() {
 
 function initBeforeAfterComparators() {
   document.querySelectorAll('.ba-compare').forEach(root => {
+    if (root.classList.contains('ba-compare--triple')) return;
     const initial = parseInt(root.dataset.baInitial || '50', 10);
     const range = root.querySelector('.ba-range');
     if (!range) return;
@@ -1006,6 +1130,36 @@ function initBeforeAfterComparators() {
       root.style.setProperty('--ba-pos', `${v}%`);
       range.setAttribute('aria-valuenow', String(v));
     };
+    apply();
+    range.addEventListener('input', apply);
+    range.addEventListener('change', apply);
+  });
+}
+
+/** Fotos apiladas: la de delante deja ver un trozo de las de atrás a la derecha. */
+function initLayerStairs() {
+  document.querySelectorAll('.photo-stack').forEach(root => {
+    if (root.dataset.stackBound === '1') return;
+    root.dataset.stackBound = '1';
+
+    const range = root.querySelector('.photo-stack-range');
+    if (!range) return;
+
+    const peek = Math.min(28, Math.max(12, parseInt(root.dataset.stackPeek || '18', 10)));
+    const initial = parseInt(root.dataset.stackInitial || '55', 10);
+    // Front edge between peek and (100 - 2*peek) so mid + back always peek on the right
+    const minFront = peek;
+    const maxFront = 100 - 2 * peek;
+
+    const apply = () => {
+      const t = Math.min(100, Math.max(0, Number(range.value)));
+      const front = minFront + (t / 100) * (maxFront - minFront);
+      root.style.setProperty('--peek', `${peek}%`);
+      root.style.setProperty('--front', `${front}%`);
+      range.setAttribute('aria-valuenow', String(Math.round(t)));
+    };
+
+    range.value = String(Math.min(100, Math.max(0, initial)));
     apply();
     range.addEventListener('input', apply);
     range.addEventListener('change', apply);
@@ -1605,10 +1759,13 @@ document.addEventListener('DOMContentLoaded', () => {
   initGlobalCatalogueFilterNav();
   initFilterPillIcons();
   initBeforeAfterComparators();
+  initLayerStairs();
   initSoftLoopVideos();
   refreshPrintitVideoBindings();
   requestAnimationFrame(() => printitKickVisibleVideos());
   bustPrintitGalleryMediaCache();
+  initBeforeAfterComparators();
+  initLayerStairs();
   syncProductGalleryToShowcase();
   document.querySelectorAll('.nav-theme-toggle').forEach(btn => {
     btn.type = 'button';
@@ -1641,6 +1798,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initWhatsAppLinks();
   splitContactSocialLinkLabels();
   initDaliCasambiUseCaseLightbox();
+  initDaliCasambiSchemaShowcase();
   initProfilePeekThumbs();
   initProductSheetDownloadCtaRow();
 
@@ -1699,6 +1857,12 @@ function applyHashRoute() {
 }
 
 window.addEventListener('hashchange', applyHashRoute);
+
+window.addEventListener('resize', () => {
+  const activePage = document.querySelector('.page.active');
+  if (!activePage) return;
+  repositionCatalogueFilterNav(activePage.id.replace('page-', ''));
+});
 
 // ===== SUBCAT PILLS =====
 document.addEventListener('click', function (e) {

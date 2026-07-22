@@ -1,0 +1,51 @@
+{
+  "scanRoots": [
+    "../",
+    "../../"
+  ],
+  "projects": [
+    {
+      "id": "prop-catalogo",
+      "name": "Catalogo PROP 2026",
+      "description": "Catalogo comercial principal (este repo)",
+      "folder": ".",
+      "entry": "index.html",
+      "browserUrl": "http://127.0.0.1:8080/",
+      "group": "Brochure 2026"
+    },
+    {
+      "id": "prop-pressing",
+      "name": "Catalogo PROP Pressing",
+      "description": "Variante pressing del catalogo",
+      "folder": "../PRINT-IT-PROP-CATALOGO - PRESSING ",
+      "entry": "index.html",
+      "browserUrl": "http://127.0.0.1:8081/",
+      "group": "Brochure 2026"
+    },
+    {
+      "id": "timeline-proposal",
+      "name": "Timeline proposal",
+      "description": "Propuesta timeline interactiva",
+      "folder": "../Timeline proposal ",
+      "entry": "index.html",
+      "browserUrl": "http://127.0.0.1:8082/",
+      "group": "Brochure 2026"
+    },
+    {
+      "id": "brand-guidelines",
+      "name": "Brand Guidelines 2026",
+      "description": "Guia de marca online",
+      "folder": "../../Brand Guidelines  2026/ONLINE ",
+      "entry": "index.html",
+      "group": "Design and Web"
+    },
+    {
+      "id": "evento-octanorm",
+      "name": "Evento Octanorm",
+      "description": "Landing evento marketing",
+      "folder": "../../../Marketing PRINT IT /JUNIO 2026 /EVENTO OCTANORM ",
+      "entry": "index.html",
+      "group": "Marketing"
+    }
+  ]
+}

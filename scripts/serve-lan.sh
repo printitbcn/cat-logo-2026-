@@ -15,7 +15,7 @@ HOST="${PRINTIT_SERVE_HOST:-0.0.0.0}"
 PORT="${PRINTIT_SERVE_PORT:-8080}"
 
 if [[ "$HOST" == "127.0.0.1" || "$HOST" == "localhost" ]]; then
-  echo "WARN: PRINTIT_SERVE_HOST=$HOST — other devices on the LAN cannot reach this." >&2
+  echo "WARN: PRINTIT_SERVE_HOST=$HOST ï¿½ other devices on the LAN cannot reach this." >&2
   echo "      Use 0.0.0.0 in .env (or remove PRINTIT_SERVE_HOST) for LAN access." >&2
   echo "" >&2
 fi
@@ -41,17 +41,22 @@ done < <(ifconfig 2>/dev/null | awk '
 ' | sort -u)
 
 if [[ "$found" -eq 0 ]]; then
-  echo "  (no LAN IPv4 found — check Wi?Fi / Ethernet is up)"
+  echo "  (no LAN IPv4 found ï¿½ check Wi?Fi / Ethernet is up)"
 fi
 
 echo ""
 echo "If another device still cannot load the page:"
-echo "  • Same network as this Mac (avoid Guest Wi?Fi; some routers block device-to-device)."
-echo "  • Use http:// not https://"
-echo "  • Turn off VPN on the Mac or on the other device."
-echo "  • From the other device, try: ping <one-of-the-IPs-above>"
+echo "  ï¿½ Same network as this Mac (avoid Guest Wi?Fi; some routers block device-to-device)."
+echo "  ï¿½ Use http:// not https://"
+echo "  ï¿½ Turn off VPN on the Mac or on the other device."
+echo "  ï¿½ From the other device, try: ping <one-of-the-IPs-above>"
 echo ""
 echo "Starting server (Ctrl+C to stop)..."
 echo ""
 
-exec python3 -m http.server "$PORT" --bind "$HOST" --directory "$ROOT"
+echo "Projects hub: http://127.0.0.1:${PORT}/projects.html"
+echo ""
+
+export PRINTIT_SERVE_HOST="$HOST"
+export PRINTIT_SERVE_PORT="$PORT"
+exec python3 "$ROOT/scripts/serve-dev.py"

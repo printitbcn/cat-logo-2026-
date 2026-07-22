@@ -17,7 +17,7 @@
     <title>Lightbox a pared | Print It</title>
     <meta name="description"
         content="Aplicaciones comercial Print It. Soluciones premium de impresión visual: Lightbox, Luminarias, Tótems, Aeris y más.">
-    <link rel="stylesheet" href="styles.css?v=20260703a">
+    <link rel="stylesheet" href="styles.css?v=20260713b">
     <link rel="icon" type="image/png" href="Material Inicial/logo-oficial.png">
 
     <style>
@@ -129,6 +129,99 @@
             background: linear-gradient(135deg, rgba(200, 220, 255, 0.2), rgba(220, 235, 255, 0.08));
         }
 
+        /* temperatura de color — pastillas */
+        #page-product .lux-led-color-scale {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 8px;
+            width: 100%;
+        }
+        #page-product .lux-led-color-item {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+            min-width: 0;
+        }
+        #page-product .lux-led-color-temp {
+            font-size: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+            color: inherit;
+            font-variant-numeric: tabular-nums;
+            white-space: nowrap;
+        }
+        #page-product .lux-led-color-bar {
+            display: block;
+            width: 40px;
+            height: 4px;
+            border-radius: 999px;
+        }
+        #page-product .lux-led-color-bar--2700 { background: linear-gradient(90deg, #ff7a2f, #ffb347); }
+        #page-product .lux-led-color-bar--3000 { background: linear-gradient(90deg, #ffb347, #ffd27a); }
+        #page-product .lux-led-color-bar--4000 { background: linear-gradient(90deg, #fff1c9, #f4f0e6); }
+        #page-product .lux-led-color-bar--5000 { background: linear-gradient(90deg, #d7e9ff, #9ec7ff); }
+        #page-product .lux-led-color-bar--6500 { background: linear-gradient(90deg, #5b9dff, #2f6fed); }
+
+        /* badges Dimmable / Flicker free dentro de la columna de iluminación */
+        #page-product .product-illumination-col .sheet-row--lighting-badges {
+            border-top: none;
+        }
+        #page-product .product-illumination-col .sheet-row--lighting-badges .sheet-value {
+            width: 100%;
+        }
+        #page-product .product-illumination-col .sheet-row--lighting-badges .lighting-feature-badges {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px 16px;
+            width: 100%;
+            align-items: start;
+        }
+        #page-product .product-illumination-col .sheet-row--lighting-badges .lighting-feature-badge {
+            min-width: 0;
+            width: 100%;
+        }
+        #page-product .product-illumination-col .sheet-row--lighting-badges .lighting-feature-badge-icon {
+            color: #4db8e8;
+        }
+        #page-product .product-illumination-full .sheet-row--lighting-badges {
+            border-top: none;
+        }
+        #page-product .product-illumination-full .sheet-row--lighting-badges .sheet-value {
+            width: 100%;
+        }
+        #page-product .product-illumination-full .sheet-row--lighting-badges .lighting-feature-badges {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px 16px;
+            width: 100%;
+            align-items: start;
+        }
+        #page-product .product-illumination-full .sheet-row--lighting-badges .lighting-feature-badge {
+            min-width: 0;
+            width: 100%;
+        }
+        #page-product .product-illumination-full .sheet-row--lighting-badges .lighting-feature-badge-icon {
+            color: #4db8e8;
+        }
+        #page-product .product-illumination-full {
+            margin-top: 18px;
+        }
+
+        /* Comparador P50: llenar el ancho del bloque y cubrir el cuadro */
+        #page-product .product-embed-section .ba-compare.ba-compare--square {
+            max-width: 100%;
+            width: 100%;
+            max-height: min(72vh, 640px);
+            margin-inline: auto;
+            background: #0a0a0a;
+        }
+        #page-product .product-embed-section .ba-compare.ba-compare--square .ba-layer {
+            object-fit: cover;
+            object-position: center center;
+        }
+
         #page-product .product-spec-sheet .product-illumination-col-badge {
             display: inline-block;
             margin-left: 6px;
@@ -164,6 +257,11 @@
 
         #page-product .product-spec-sheet .product-profile-col .sheet-profile-section {
             margin-bottom: 12px;
+        }
+
+        /* Lupa en lugar de texto "Ampliar vista técnica" */
+        #page-product .sheet-profile-peek-hint {
+            display: none;
         }
 
         #page-product .product-spec-sheet .product-profile-col .sheet-profile-cards {
@@ -315,7 +413,7 @@
                         </div>
                         <div class="mini-card"
                             onclick="openCatalogueCategory('lightbox', 'assets/img/categories/lightbox.png', 'Lightbox', event)">
-                            <img src="LIGHTBOX /lightbox a pared .png" alt="Lightbox">
+                            <img src="LIGHTBOX /doble cara /lightbox completo def .jpg" alt="Lightbox">
                             <span class="mini-card-label">Lightbox</span>
                         </div>
                         <div class="mini-card"
@@ -377,7 +475,7 @@
                     <button class="filter-pill" data-filter="aeris"
                         onclick="filterCatalogue('aeris', this)"><span class="filter-pill-icon"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 3v5" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="1.8" stroke-linecap="round"/><path d="M14 12h12l-6 3.2-6-3.2z" fill="rgba(255,255,255,.38)"/><path d="M14 12v14.5l6 3.8V15.2" fill="rgba(255,255,255,.2)" stroke="rgba(255,255,255,.65)" stroke-width="1.15"/><path d="M26 12v14.5l-6 3.8V15.2" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.55)" stroke-width="1.15"/><path d="M14 26.5l6 3.8 6-3.8" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.1"/></svg></span><span class="filter-pill-label">Aéreos</span></button>
                     <button class="filter-pill" data-filter="vesteix"
-                        onclick="filterCatalogue('vesteix', this)"><span class="filter-pill-icon"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="8" width="9" height="24" rx="1.5" fill="rgba(255,255,255,.32)" stroke="rgba(255,255,255,.42)" stroke-width="1"/><rect x="15.5" y="6" width="9" height="28" rx="1.5" fill="rgba(255,255,255,.52)" stroke="rgba(255,255,255,.52)" stroke-width="1"/><rect x="26" y="9" width="9" height="23" rx="1.5" fill="rgba(255,255,255,.36)" stroke="rgba(255,255,255,.42)" stroke-width="1"/></svg></span><span class="filter-pill-label">Revestimientos</span></button>
+                        onclick="filterCatalogue('vesteix', this)"><span class="filter-pill-icon"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="8" width="9" height="24" rx="1.5" fill="rgba(255,255,255,.32)" stroke="rgba(255,255,255,.42)" stroke-width="1"/><rect x="15.5" y="6" width="9" height="28" rx="1.5" fill="rgba(255,255,255,.52)" stroke="rgba(255,255,255,.52)" stroke-width="1"/><rect x="26" y="9" width="9" height="23" rx="1.5" fill="rgba(255,255,255,.36)" stroke="rgba(255,255,255,.42)" stroke-width="1"/></svg></span><span class="filter-pill-label">Viste tu espacio</span></button>
                     <button class="filter-pill" data-filter="rigids"
                         onclick="filterCatalogue('rigids', this)"><span class="filter-pill-icon"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="7" y="23" width="26" height="9" rx="1.5" fill="rgba(255,255,255,.26)"/><rect x="9" y="15" width="22" height="9" rx="1.5" fill="rgba(255,255,255,.48)" stroke="rgba(255,255,255,.5)" stroke-width="1"/><rect x="11" y="7" width="18" height="9" rx="1.5" fill="rgba(255,255,255,.95)" stroke="rgba(255,255,255,.55)" stroke-width="1"/></svg></span><span class="filter-pill-label">Rígidos</span></button>
                 </div>
@@ -399,11 +497,11 @@
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lluminaries"
                         data-img="DALI : CASSAMBI /dali cassambi control .mp4" data-label="Luminarias" onclick="selectCatalogueItem(this)">
-                        <span class="catalogue-item-name"><a href="product-dali-casambi.html">Dali / Casambi</a></span>
+                        <span class="catalogue-item-name"><a href="product-dali-casambi.html">Dimmer</a></span>
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lluminaries"
                         data-img="assets/img/products/luminaria-p100.png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
-                        <span class="catalogue-item-name"><a href="product-dynamic-white.html">DYNAMIC WHITE</a></span>
+                        <span class="catalogue-item-name"><a href="product-dynamic-white.html">Dinamic White</a></span>
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lluminaries"
                         data-img="assets/img/products/luminaria-p100.png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
@@ -446,22 +544,21 @@
                     <div class="catalogue-item catalogue-item-detailed" data-category="lluminaries"
                         data-img="DALI : CASSAMBI /dali cassambi control .mp4" data-label="Luminarias" onclick="selectCatalogueItem(this)">
                         <details class="tech-details">
-                            <summary class="catalogue-item-name"><a href="product-dali-casambi.html">Dali / Casambi</a></summary>
+                            <summary class="catalogue-item-name"><a href="product-dali-casambi.html">Dimmer</a></summary>
                             <div class="tech-spec-line">
                                 <span class="tech-spec-label">
                                     <svg class="tech-icon tech-icon-light" viewBox="0 0 24 24" aria-hidden="true">
                                         <path d="M9 18h6M10 21h4M8 10a4 4 0 1 1 8 0c0 2-1 3-2 4v2h-4v-2c-1-1-2-2-2-4z" />
                                     </svg>
-                                    Sistema de iluminacion
+                                    Tecnologia Dali - Casambi
                                 </span>
-                                <span class="catalogue-item-ref">Front Led S12R</span>
                             </div>
                         </details>
                     </div>
                     <div class="catalogue-item catalogue-item-detailed" data-category="lluminaries"
                         data-img="assets/img/products/luminaria-p100.png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
                         <details class="tech-details">
-                            <summary class="catalogue-item-name"><a href="product-dynamic-white.html">DYNAMIC WHITE</a></summary>
+                            <summary class="catalogue-item-name"><a href="product-dynamic-white.html">Dinamic White</a></summary>
                             <div class="tech-spec-line">
                                 <span class="tech-spec-label">
                                     <svg class="tech-icon tech-icon-light" viewBox="0 0 24 24" aria-hidden="true">
@@ -522,19 +619,19 @@
                         <span class="section-header-tags">Ferias · Retail · Showroom · Interiorismo</span>
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lightbox"
-                        data-img="assets/img/categories/lightbox.png" data-label="Lightbox" onclick="selectCatalogueItem(this)">
+                        data-img="LUXPANEL/LUX EXTERIOR.png" data-label="Lightbox" onclick="selectCatalogueItem(this)">
                         <span class="catalogue-item-name"><a href="product-luxpanel.html">Luxpanel</a></span>
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lightbox"
-                        data-img="assets/img/categories/lightbox.png" data-label="Lightbox" onclick="selectCatalogueItem(this)">
+                        data-img="LIGHTBOX /A PARED /exterior P50 A PARED .jpg" data-label="Lightbox" onclick="selectCatalogueItem(this)">
                         <span class="catalogue-item-name"><a href="product-lightbox-pared.html">Lightbox a pared</a></span>
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lightbox"
-                        data-img="assets/img/categories/lightbox.png" data-label="Lightbox" onclick="selectCatalogueItem(this)">
+                        data-img="LIGHTBOX /doble cara /lightbox completo def .jpg" data-label="Lightbox" onclick="selectCatalogueItem(this)">
                         <span class="catalogue-item-name"><a href="product-lightbox-doble-cara.html">Lightbox a doble cara</a></span>
                     </div>
                     <div class="catalogue-item catalogue-item-detailed" data-category="lightbox"
-                        data-img="assets/img/categories/lightbox.png" data-label="Lightbox" onclick="selectCatalogueItem(this)">
+                        data-img="LUXPANEL/LUX EXTERIOR.png" data-label="Lightbox" onclick="selectCatalogueItem(this)">
                         <details class="tech-details">
                             <summary class="catalogue-item-name"><a href="product-luxpanel.html">Luxpanel</a></summary>
                             <div class="tech-spec-line">
@@ -567,7 +664,7 @@
                         </details>
                     </div>
                     <div class="catalogue-item catalogue-item-detailed" data-category="lightbox"
-                        data-img="assets/img/categories/lightbox.png" data-label="Lightbox" onclick="selectCatalogueItem(this)">
+                        data-img="LIGHTBOX /A PARED /exterior P50 A PARED .jpg" data-label="Lightbox" onclick="selectCatalogueItem(this)">
                         <details class="tech-details">
                             <summary class="catalogue-item-name"><a href="product-lightbox-pared.html">Lightbox a pared</a></summary>
                             <div class="tech-pack">
@@ -615,7 +712,7 @@
                         </details>
                     </div>
                     <div class="catalogue-item catalogue-item-detailed" data-category="lightbox"
-                        data-img="assets/img/categories/lightbox.png" data-label="Lightbox" onclick="selectCatalogueItem(this)">
+                        data-img="LIGHTBOX /doble cara /lightbox completo def .jpg" data-label="Lightbox" onclick="selectCatalogueItem(this)">
                         <details class="tech-details">
                             <summary class="catalogue-item-name"><a href="product-lightbox-doble-cara.html">Lightbox a doble cara</a></summary>
                             <div class="tech-pack">
@@ -898,21 +995,26 @@
 <div class="gallery-item">
                             <video class="gallery-video" autoplay muted loop playsinline controls preload="metadata"
                                 poster="assets/img/products/luminaria-showroom-2.jpeg"
-                                src="LIGHTBOX /lightbox a pared mercedes.mov"
-                                aria-label="Lightbox a pared — Mercedes">
-                                <source src="LIGHTBOX /lightbox a pared mercedes.mov" type="video/quicktime">
+                                src="LIGHTBOX /A PARED /DIMMER P50 PARED .mov"
+                                aria-label="Lightbox a pared — Dimmer P50">
+                                <source src="LIGHTBOX /A PARED /DIMMER P50 PARED .mov" type="video/quicktime">
                                 Tu navegador no soporta vídeo HTML5.
                             </video>
                         </div>
                         <div class="gallery-item">
-                            <img src="LIGHTBOX /lightbox a pared .png" alt="Lightbox a pared — vista principal">
+                            <video class="gallery-video" autoplay muted loop playsinline controls preload="metadata"
+                                src="LIGHTBOX /A PARED /tecnico P50 S12 R.mov"
+                                aria-label="Lightbox a pared — técnico P50 S12R">
+                                <source src="LIGHTBOX /A PARED /tecnico P50 S12 R.mov" type="video/quicktime">
+                                Tu navegador no soporta vídeo HTML5.
+                            </video>
                         </div>
                         <div class="gallery-item">
                             <video class="gallery-video" autoplay muted loop playsinline controls preload="metadata"
                                 poster="LIGHTBOX /lightbox a pared .png"
-                                src="LIGHTBOX /lightbox scenes .mp4"
-                                aria-label="Lightbox a pared — escenas">
-                                <source src="LIGHTBOX /lightbox scenes .mp4" type="video/mp4">
+                                src="LIGHTBOX /A PARED /p50 placements .mp4"
+                                aria-label="Lightbox a pared — placements P50">
+                                <source src="LIGHTBOX /A PARED /p50 placements .mp4" type="video/mp4">
                                 Tu navegador no soporta vídeo HTML5.
                             </video>
                         </div>
@@ -974,8 +1076,8 @@
                     <div class="sheet-media-gallery-header">
                         <span class="sheet-media-gallery-label">Galería</span>
                         <a class="sheet-download-cta"
-                            href="LIGHTBOX /PRINTIT LIGHTBOX P100_SUSPENDIDO.pdf"
-                            download="PRINTIT LIGHTBOX P100_SUSPENDIDO.pdf"
+                            href="FICHAS TÉCNICAS /FICHA TÉCNICA Lightbox a pared P50 S12R.pdf"
+                            download="FICHA TÉCNICA Lightbox a pared P50 S12R.pdf"
                             target="_blank" rel="noopener noreferrer">
                             Descargar ficha técnica
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -988,21 +1090,26 @@
                         <div class="gallery-item">
                             <video class="gallery-video" autoplay muted loop playsinline controls preload="metadata"
                                 poster="assets/img/products/luminaria-showroom-2.jpeg"
-                                src="LIGHTBOX /lightbox a pared mercedes.mov"
-                                aria-label="Lightbox a pared — Mercedes">
-                                <source src="LIGHTBOX /lightbox a pared mercedes.mov" type="video/quicktime">
+                                src="LIGHTBOX /A PARED /DIMMER P50 PARED .mov"
+                                aria-label="Lightbox a pared — Dimmer P50">
+                                <source src="LIGHTBOX /A PARED /DIMMER P50 PARED .mov" type="video/quicktime">
                                 Tu navegador no soporta vídeo HTML5.
                             </video>
                         </div>
                         <div class="gallery-item">
-                            <img src="LIGHTBOX /lightbox a pared .png" alt="Lightbox a pared — vista principal">
+                            <video class="gallery-video" autoplay muted loop playsinline controls preload="metadata"
+                                src="LIGHTBOX /A PARED /tecnico P50 S12 R.mov"
+                                aria-label="Lightbox a pared — técnico P50 S12R">
+                                <source src="LIGHTBOX /A PARED /tecnico P50 S12 R.mov" type="video/quicktime">
+                                Tu navegador no soporta vídeo HTML5.
+                            </video>
                         </div>
                         <div class="gallery-item">
                             <video class="gallery-video" autoplay muted loop playsinline controls preload="metadata"
                                 poster="LIGHTBOX /lightbox a pared .png"
-                                src="LIGHTBOX /lightbox scenes .mp4"
-                                aria-label="Lightbox a pared — escenas">
-                                <source src="LIGHTBOX /lightbox scenes .mp4" type="video/mp4">
+                                src="LIGHTBOX /A PARED /p50 placements .mp4"
+                                aria-label="Lightbox a pared — placements P50">
+                                <source src="LIGHTBOX /A PARED /p50 placements .mp4" type="video/mp4">
                                 Tu navegador no soporta vídeo HTML5.
                             </video>
                         </div>
@@ -1018,56 +1125,79 @@
                     <div class="sheet-table">
                         <div class="sheet-row">
                             <div class="sheet-label">Aplicación</div>
-                            <div class="sheet-value">Backlight a pared.</div>
+                            <div class="sheet-value">Lightbox a Pared.</div>
                         </div>
                         <div class="sheet-row">
                             <div class="sheet-label">Estructura</div>
-                            <div class="sheet-value">Perfilería de aluminio según iluminación: <strong>P50</strong>, <strong>P70</strong>, <strong>P100</strong> y <strong>P120</strong> (50–120&nbsp;mm de ancho).</div>
+                            <div class="sheet-value">Perfilería de aluminio P50 (50&nbsp;mm de grosor). Producto personalizable en medidas.</div>
                         </div>
                         <div class="sheet-row">
-                            <div class="sheet-label">Tejido</div>
+                            <div class="sheet-label">Dorso</div>
                             <div class="sheet-value sheet-value--textile-premium">
-                                <ul class="textile-premium-list" aria-label="Especificación de tejido e impresión">
+                                <p class="sheet-value-lead">LYXBOND Lite de aluminio blanco, 3&nbsp;mm de espesor.</p>
+                                <p class="sheet-value-sub">Panel composite tricapa (aluminio + núcleo de polietileno + aluminio).</p>
+                                <ul class="textile-premium-list textile-premium-list--chips" aria-label="Ventajas del panel LYXBOND Lite">
                                     <li class="textile-premium-item">
-                                        <span class="textile-premium-icon" aria-hidden="true">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"></path><path d="M8 4v16M16 4v16"></path></svg>
+                                        <span class="textile-premium-icon textile-premium-icon--check" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg>
                                         </span>
-                                        <span><strong>Gráfica:</strong> Tejido lightbox 165g.</span>
+                                        <span class="textile-premium-chip-label">Ligero</span>
                                     </li>
                                     <li class="textile-premium-item">
-                                        <span class="textile-premium-icon" aria-hidden="true">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2s-4 4.2-4 7.4A4 4 0 0 0 16 10c0-3.2-4-8-4-8z"></path><path d="M8.5 13a3.5 3.5 0 1 0 7 0c0-1.4-.8-2.8-2.2-4.2"></path></svg>
+                                        <span class="textile-premium-icon textile-premium-icon--check" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg>
                                         </span>
-                                        <span><strong>Seguridad:</strong> Firesafe ignífugo B1 / M1.</span>
+                                        <span class="textile-premium-chip-label">Rígido</span>
                                     </li>
                                     <li class="textile-premium-item">
-                                        <span class="textile-premium-icon" aria-hidden="true">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="6" width="16" height="12" rx="2"></rect><path d="M8 10h8M8 14h5"></path></svg>
+                                        <span class="textile-premium-icon textile-premium-icon--check" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg>
                                         </span>
-                                        <span><strong>Composición:</strong> 100% poliéster.</span>
-                                    </li>
-                                    <li class="textile-premium-item">
-                                        <span class="textile-premium-icon" aria-hidden="true">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"></path><path d="M9 12l2 2 4-4"></path></svg>
-                                        </span>
-                                        <span><strong>Certificación:</strong> Greenguard Gold.</span>
-                                    </li>
-                                    <li class="textile-premium-item">
-                                        <span class="textile-premium-icon" aria-hidden="true">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14M5 12h14M5 16h14"></path><path d="M7 5v14M17 5v14"></path></svg>
-                                        </span>
-                                        <span><strong>Dorso:</strong> Tejido opaco 260g confeccionado con guía de silicona 13&nbsp;mm en perímetro.</span>
+                                        <span class="textile-premium-chip-label">Estable</span>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="sheet-row">
-                            <div class="sheet-label">Impresión</div>
-                            <div class="sheet-value">Sublimación por transferencia de papel a textil termofijado a 205º o UVI por LED frío, sin compuestos orgánicos volátiles (solventes).</div>
+                            <div class="sheet-label">Iluminación</div>
+                            <div class="sheet-value">Backlight S12R.</div>
                         </div>
                         <div class="sheet-row">
-                            <div class="sheet-label">Acabados</div>
-                            <div class="sheet-value">Anodizado, blanco, negro o color RAL.</div>
+                            <div class="sheet-label">Tejido frontal</div>
+                            <div class="sheet-value sheet-value--textile-premium">
+                                <ul class="textile-premium-list" aria-label="Tejido frontal e impresión">
+                                    <li class="textile-premium-item">
+                                        <span class="textile-premium-icon" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14M5 12h14M5 16h14"></path><path d="M7 5v14M17 5v14"></path></svg>
+                                        </span>
+                                        <span>Textil blanco 100&nbsp;% poliéster (PES).</span>
+                                    </li>
+                                    <li class="textile-premium-item">
+                                        <span class="textile-premium-icon" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                                        </span>
+                                        <span>Certificado B1 + ignífugo.</span>
+                                    </li>
+                                    <li class="textile-premium-item">
+                                        <span class="textile-premium-icon" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M5 12l3-3M5 12l3 3M19 12l-3-3M19 12l-3 3"></path></svg>
+                                        </span>
+                                        <span>Ancho de bobina hasta 320&nbsp;cm.</span>
+                                    </li>
+                                    <li class="textile-premium-item">
+                                        <span class="textile-premium-icon" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="10" rx="2"></rect><path d="M8 12h8M8 16h5"></path></svg>
+                                        </span>
+                                        <span>Confección de guía de silicona perimetral 12&nbsp;mm.</span>
+                                    </li>
+                                    <li class="textile-premium-item">
+                                        <span class="textile-premium-icon" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="6" width="16" height="12" rx="2"></rect><path d="M8 10h8M8 14h5"></path></svg>
+                                        </span>
+                                        <span>Posibilidad de impresión UV / sublimación.</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
@@ -1084,48 +1214,7 @@
                                 </div>
                                 <div class="sheet-row">
                                     <div class="sheet-label">Sistema</div>
-                                    <div class="sheet-value">LED <strong>S12</strong> / <strong>S12R</strong>
-                                        (Frontline).</div>
-                                </div>
-                                <div class="sheet-row">
-                                    <div class="sheet-label">Voltaje</div>
-                                    <div class="sheet-value">24&nbsp;V.</div>
-                                </div>
-                                <div class="sheet-row">
-                                    <div class="sheet-label">Consumo</div>
-                                    <div class="sheet-value">8&nbsp;W / 13&nbsp;W.</div>
-                                </div>
-                                <div class="sheet-row">
-                                    <div class="sheet-label">Temperatura</div>
-                                    <div class="sheet-value">
-                                        <ul class="illumination-temp-chips" aria-label="Temperaturas de color">
-                                            <li>2700&nbsp;Kº</li>
-                                            <li>3000&nbsp;Kº</li>
-                                            <li>4000&nbsp;Kº</li>
-                                            <li>5000&nbsp;Kº</li>
-                                            <li>6500&nbsp;Kº</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="sheet-row">
-                                    <div class="sheet-label">Lumen</div>
-                                    <div class="sheet-value">≈ 960&nbsp;lm / ≈ 1457&nbsp;lm.</div>
-                                </div>
-                                <div class="sheet-row">
-                                    <div class="sheet-label">Eficiencia</div>
-                                    <div class="sheet-value">≈ 123&nbsp;lm/W / ≈ 117&nbsp;lm/W.</div>
-                                </div>
-                                <div class="sheet-row">
-                                    <div class="sheet-label">CRI</div>
-                                    <div class="sheet-value">80 / 90 / SOLAR.</div>
-                                </div>
-                                <div class="sheet-row">
-                                    <div class="sheet-label">Haz de luz</div>
-                                    <div class="sheet-value">175°.</div>
-                                </div>
-                                <div class="sheet-row">
-                                    <div class="sheet-label">Dimmable</div>
-                                    <div class="sheet-value">Sí.</div>
+                                    <div class="sheet-value">LED <strong>S12R</strong>.</div>
                                 </div>
                             </div>
                         </div>
@@ -1142,41 +1231,85 @@
                                     <div class="sheet-value"><strong>CORTINAS LED</strong> — módulos Flex
                                         <strong>L3</strong> y Flex <strong>L6</strong>.</div>
                                 </div>
-                                <div class="sheet-row">
-                                    <div class="sheet-label">Voltaje</div>
-                                    <div class="sheet-value">24&nbsp;V.</div>
-                                </div>
-                                <div class="sheet-row">
-                                    <div class="sheet-label">Consumo</div>
-                                    <div class="sheet-value">L3: 8&nbsp;W · L6: 15,8&nbsp;W.</div>
-                                </div>
-                                <div class="sheet-row">
-                                    <div class="sheet-label">Temperatura</div>
-                                    <div class="sheet-value">
-                                        <ul class="illumination-temp-chips" aria-label="Temperaturas de color">
-                                            <li>2700&nbsp;Kº</li>
-                                            <li>3000&nbsp;Kº</li>
-                                            <li>4000&nbsp;Kº</li>
-                                            <li>5000&nbsp;Kº</li>
-                                            <li>6500&nbsp;Kº</li>
-                                        </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sheet-table product-illumination-full">
+                        <div class="sheet-row">
+                            <div class="sheet-label">Voltaje</div>
+                            <div class="sheet-value">24&nbsp;V.</div>
+                        </div>
+                        <div class="sheet-row">
+                            <div class="sheet-label">Consumo</div>
+                            <div class="sheet-value">13&nbsp;W.</div>
+                        </div>
+                        <div class="sheet-row">
+                            <div class="sheet-label">Temperatura de color</div>
+                            <div class="sheet-value">
+                                <div class="lux-led-color-scale" aria-label="Temperaturas de color">
+                                    <div class="lux-led-color-item">
+                                        <span class="lux-led-color-temp">2.700&nbsp;Kº</span>
+                                        <span class="lux-led-color-bar lux-led-color-bar--2700" aria-hidden="true"></span>
+                                    </div>
+                                    <div class="lux-led-color-item">
+                                        <span class="lux-led-color-temp">3.000&nbsp;Kº</span>
+                                        <span class="lux-led-color-bar lux-led-color-bar--3000" aria-hidden="true"></span>
+                                    </div>
+                                    <div class="lux-led-color-item">
+                                        <span class="lux-led-color-temp">4.000&nbsp;Kº</span>
+                                        <span class="lux-led-color-bar lux-led-color-bar--4000" aria-hidden="true"></span>
+                                    </div>
+                                    <div class="lux-led-color-item">
+                                        <span class="lux-led-color-temp">5.000&nbsp;Kº</span>
+                                        <span class="lux-led-color-bar lux-led-color-bar--5000" aria-hidden="true"></span>
+                                    </div>
+                                    <div class="lux-led-color-item">
+                                        <span class="lux-led-color-temp">6.500&nbsp;Kº</span>
+                                        <span class="lux-led-color-bar lux-led-color-bar--6500" aria-hidden="true"></span>
                                     </div>
                                 </div>
-                                <div class="sheet-row">
-                                    <div class="sheet-label">Lumen</div>
-                                    <div class="sheet-value">L3: ≈ 967&nbsp;lm · L6: ≈ 1.890&nbsp;lm.</div>
-                                </div>
-                                <div class="sheet-row">
-                                    <div class="sheet-label">Eficiencia</div>
-                                    <div class="sheet-value">L3: ≈ 121&nbsp;lm/W · L6: ≈ 120&nbsp;lm/W.</div>
-                                </div>
-                                <div class="sheet-row">
-                                    <div class="sheet-label">CRI / Haz</div>
-                                    <div class="sheet-value">CRI &gt; 80&nbsp;% · haz 10º–42º.</div>
-                                </div>
-                                <div class="sheet-row">
-                                    <div class="sheet-label">Dimmable</div>
-                                    <div class="sheet-value">Sí.</div>
+                            </div>
+                        </div>
+                        <div class="sheet-row">
+                            <div class="sheet-label">Lumen</div>
+                            <div class="sheet-value">≈ 960&nbsp;lm / ≈ 1457&nbsp;lm.</div>
+                        </div>
+                        <div class="sheet-row">
+                            <div class="sheet-label">Eficiencia</div>
+                            <div class="sheet-value">≈ 123&nbsp;lm/W / ≈ 117&nbsp;lm/W.</div>
+                        </div>
+                        <div class="sheet-row">
+                            <div class="sheet-label">CRI</div>
+                            <div class="sheet-value">80 / 90 / SOLAR.</div>
+                        </div>
+                        <div class="sheet-row">
+                            <div class="sheet-label">Haz de luz</div>
+                            <div class="sheet-value">175°.</div>
+                        </div>
+                        <div class="sheet-row sheet-row--lighting-badges">
+                            <div class="sheet-label" aria-hidden="true"></div>
+                            <div class="sheet-value">
+                                <div class="lighting-feature-badges lighting-feature-badges--triple" role="list" aria-label="Características de iluminación">
+                                    <div class="lighting-feature-badge" role="listitem">
+                                        <svg class="lighting-feature-badge-icon" viewBox="0 0 72 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M20 24a16 16 0 0 1 32 0"/>
+                                            <path d="M24 21v2M30 17v2M36 15v2M42 17v2M48 21v2"/>
+                                            <circle cx="36" cy="36" r="13"/>
+                                            <circle cx="36" cy="30" r="2.2" fill="currentColor" stroke="none"/>
+                                            <path d="M18 46h6M48 46h6"/>
+                                            <path d="M21 46v-4M51 46v-4"/>
+                                        </svg>
+                                        <span class="lighting-feature-badge-label">Dimmable</span>
+                                    </div>
+                                    <div class="lighting-feature-badge" role="listitem">
+                                        <svg class="lighting-feature-badge-icon" viewBox="0 0 72 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <rect x="28" y="20" width="30" height="30" rx="1.5"/>
+                                            <path d="M32 28h22M32 34h22M32 40h22M32 46h22"/>
+                                            <circle cx="24" cy="28" r="11"/>
+                                            <path d="M31.5 35.5L40 44"/>
+                                        </svg>
+                                        <span class="lighting-feature-badge-label">Flicker free</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1198,7 +1331,7 @@
                                             <div class="sheet-profile-peek-frame">
                                                 <img src="Material Inicial/OPCIONES-DE-PERFILERIA/P50.png" alt="Vista técnica sección P50">
                                             </div>
-                                            <span class="sheet-profile-peek-hint">Ampliar vista técnica</span>
+                                            <span class="sheet-profile-peek-loupe" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></span>
                                         </div>
                                         <div class="sheet-profile-meta">
                                             <span class="sheet-profile-name">P50</span>
@@ -1211,7 +1344,7 @@
                                             <div class="sheet-profile-peek-frame">
                                                 <img src="Material Inicial/OPCIONES-DE-PERFILERIA/P70.png" alt="Vista técnica sección P70">
                                             </div>
-                                            <span class="sheet-profile-peek-hint">Ampliar vista técnica</span>
+                                            <span class="sheet-profile-peek-loupe" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></span>
                                         </div>
                                         <div class="sheet-profile-meta">
                                             <span class="sheet-profile-name">P70</span>
@@ -1240,7 +1373,7 @@
                                             <div class="sheet-profile-peek-frame">
                                                 <img src="PERFILERIA /P120.png" alt="Vista técnica sección P120">
                                             </div>
-                                            <span class="sheet-profile-peek-hint">Ampliar vista técnica</span>
+                                            <span class="sheet-profile-peek-loupe" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></span>
                                         </div>
                                         <div class="sheet-profile-meta">
                                             <span class="sheet-profile-name">P120</span>
@@ -1253,7 +1386,7 @@
                                             <div class="sheet-profile-peek-frame">
                                                 <img src="Material Inicial/OPCIONES-DE-PERFILERIA/P100.png" alt="Vista técnica sección P100">
                                             </div>
-                                            <span class="sheet-profile-peek-hint">Ampliar vista técnica</span>
+                                            <span class="sheet-profile-peek-loupe" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></span>
                                         </div>
                                         <div class="sheet-profile-meta">
                                             <span class="sheet-profile-name">P100</span>
@@ -1298,23 +1431,6 @@
                     </div>
                 </div>
 
-                <!-- Vídeo destacado (debajo de ficha técnica principal) -->
-                <div class="technical-sheet animate-in product-embed-section product-embed-section--video"
-                    aria-label="Vídeo del producto">
-                    <div class="product-video-wrap">
-                        <div class="product-video-aspect">
-                            <video class="product-feature-video" autoplay loop muted playsinline controls
-                                preload="auto"
-                                poster="assets/img/products/luminaria-showroom-2.jpeg"
-                                src="LIGHTBOX /lightbox a pared mercedes.mov"
-                                aria-label="Lightbox a pared — Mercedes">
-                                <source src="LIGHTBOX /lightbox a pared mercedes.mov" type="video/quicktime">
-                                Tu navegador no soporta vídeo HTML5.
-                            </video>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Comparador exterior / interior -->
                 <div class="technical-sheet animate-in product-embed-section"
                     aria-label="Comparación exterior e interior">
@@ -1324,10 +1440,10 @@
                     </div>
                     <div class="ba-compare ba-compare--square" role="group" aria-label="Comparador de vistas exterior e interior"
                         data-ba-initial="50">
-                        <img class="ba-layer ba-after" src="LIGHTBOX /front INTERIOR.png"
-                            alt="Vista interior — lightbox con LED" decoding="async">
-                        <img class="ba-layer ba-before" src="LIGHTBOX /FRONT EXTERIOR .png"
-                            alt="Vista exterior — lightbox frontal" decoding="async">
+                        <img class="ba-layer ba-after" src="LIGHTBOX /A PARED /interior P50 A PARED compare.png"
+                            alt="Vista interior — lightbox P50 a pared" decoding="async">
+                        <img class="ba-layer ba-before" src="LIGHTBOX /A PARED /exterior P50 A PARED compare.jpg"
+                            alt="Vista exterior — lightbox P50 a pared" decoding="async">
                         <div class="ba-divider" aria-hidden="true">
                             <span class="ba-knob">
                                 <svg class="ba-knob-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"
@@ -1532,7 +1648,7 @@
         </div>
     </aside>
 
-    <script src="app.js?v=20260703a"></script>
+    <script src="app.js?v=20260713b"></script>
 </body>
 
 </html>

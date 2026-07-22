@@ -1,118 +1,140 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 400" fill="none" aria-hidden="true">
   <defs>
     <style>
+      .dc-title {
+        font-family: Montserrat, -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 6.5px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        fill: rgba(255, 255, 255, 0.72);
+      }
       .dc-label {
         font-family: Montserrat, -apple-system, BlinkMacSystemFont, sans-serif;
-        font-size: 7px;
+        font-size: 6px;
         font-weight: 600;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.06em;
         text-transform: uppercase;
       }
-      .dc-label--sm { font-size: 6px; letter-spacing: 0.06em; }
-      .dc-label--muted { fill: rgba(255, 255, 255, 0.55); }
+      .dc-label--sm { font-size: 5.5px; letter-spacing: 0.05em; }
+      .dc-label--xs { font-size: 5px; letter-spacing: 0.04em; }
+      .dc-label--muted { fill: rgba(255, 255, 255, 0.5); }
       .dc-label--dali { fill: #e8943a; }
       .dc-label--casambi { fill: #00b4d8; }
-      .dc-stroke { stroke: rgba(255, 255, 255, 0.32); }
+      .dc-label--white { fill: rgba(255, 255, 255, 0.82); }
+      .dc-stroke { stroke: rgba(255, 255, 255, 0.28); }
       .dc-stroke--dali { stroke: rgba(232, 148, 58, 0.55); }
       .dc-stroke--casambi { stroke: rgba(0, 180, 216, 0.55); }
-      .dc-stroke--mesh { stroke: rgba(0, 180, 216, 0.3); stroke-dasharray: 3 2.5; }
-      .dc-frame { fill: rgba(255, 255, 255, 0.04); stroke: rgba(255, 255, 255, 0.2); }
-      .dc-frame--dali { fill: rgba(232, 148, 58, 0.06); stroke: rgba(232, 148, 58, 0.38); }
-      .dc-frame--casambi { fill: rgba(0, 180, 216, 0.06); stroke: rgba(0, 180, 216, 0.38); }
+      .dc-stroke--mesh { stroke: rgba(0, 180, 216, 0.32); stroke-dasharray: 3 2.5; }
+      .dc-frame { fill: rgba(255, 255, 255, 0.04); stroke: rgba(255, 255, 255, 0.18); }
+      .dc-frame--dali { fill: rgba(232, 148, 58, 0.05); stroke: rgba(232, 148, 58, 0.38); }
+      .dc-frame--casambi { fill: rgba(0, 180, 216, 0.05); stroke: rgba(0, 180, 216, 0.38); }
+      .dc-node--dali { fill: rgba(232, 148, 58, 0.12); stroke: rgba(232, 148, 58, 0.42); }
+      .dc-node--casambi { fill: rgba(0, 180, 216, 0.12); stroke: rgba(0, 180, 216, 0.42); }
       .dc-fill-dali { fill: rgba(232, 148, 58, 0.9); }
       .dc-fill-casambi { fill: rgba(0, 180, 216, 0.9); }
-      .dc-fill-node { fill: rgba(255, 255, 255, 0.08); stroke: rgba(255, 255, 255, 0.26); }
     </style>
   </defs>
 
-  <!-- CONTROL DALI -->
-  <rect x="96" y="10" width="128" height="54" rx="7" class="dc-frame" stroke-width="1.2"/>
-  <g transform="translate(160 28)">
-    <rect x="-18" y="-12" width="36" height="22" rx="2.5" class="dc-fill-node" stroke-width="1"/>
-    <rect x="-14" y="-9" width="28" height="16" rx="1.5" fill="rgba(255,255,255,0.06)"/>
-    <rect x="-12" y="14" width="24" height="4" rx="1" fill="rgba(255,255,255,0.1)"/>
+  <text x="160" y="15" text-anchor="middle" class="dc-title">Print It · dimerizables</text>
+
+  <line x1="160" y1="22" x2="160" y2="354" class="dc-stroke" stroke-width="1" stroke-dasharray="4 4"/>
+
+  <!-- DALI — intensidad -->
+  <rect x="8" y="24" width="144" height="332" rx="8" class="dc-frame--dali" stroke-width="1.2"/>
+  <text x="80" y="40" text-anchor="middle" class="dc-label dc-label--dali">DALI</text>
+  <text x="80" y="50" text-anchor="middle" class="dc-label dc-label--xs dc-label--muted">Regula intensidad</text>
+
+  <rect x="18" y="58" width="124" height="46" rx="5" class="dc-node--dali" stroke-width="1"/>
+  <g transform="translate(80 72)">
+    <rect x="-14" y="-7" width="28" height="14" rx="2" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.22)" stroke-width="0.8"/>
+    <rect x="-10" y="-4" width="20" height="8" rx="1" fill="rgba(255,255,255,0.05)"/>
+    <rect x="-8" y="10" width="16" height="2.5" rx="0.6" fill="rgba(255,255,255,0.1)"/>
   </g>
-  <text x="160" y="56" text-anchor="middle" class="dc-label dc-label--muted">CONTROL DALI</text>
+  <text x="80" y="94" text-anchor="middle" class="dc-label dc-label--sm dc-label--white">Control central</text>
 
-  <!-- BUS -->
-  <line x1="160" y1="64" x2="160" y2="78" class="dc-stroke" stroke-width="1.4"/>
-  <line x1="28" y1="78" x2="292" y2="78" class="dc-stroke" stroke-width="1.4"/>
-  <text x="160" y="75" text-anchor="middle" class="dc-label dc-label--sm dc-label--muted">BUS DALI</text>
+  <line x1="80" y1="104" x2="80" y2="114" class="dc-stroke--dali" stroke-width="1.2"/>
 
-  <!-- MASTER boxes -->
-  <rect x="14" y="86" width="88" height="28" rx="5" class="dc-fill-node" stroke-width="1.1"/>
-  <text x="58" y="104" text-anchor="middle" class="dc-label dc-label--sm dc-label--muted">MASTER DALI</text>
+  <rect x="18" y="114" width="124" height="30" rx="5" class="dc-node--dali" stroke-width="1"/>
+  <line x1="28" y1="122" x2="132" y2="122" class="dc-stroke--dali" stroke-width="1.1"/>
+  <text x="80" y="134" text-anchor="middle" class="dc-label dc-label--sm dc-label--dali">Bus DALI</text>
 
-  <rect x="116" y="86" width="88" height="28" rx="5" class="dc-fill-node" stroke-width="1.1"/>
-  <text x="160" y="104" text-anchor="middle" class="dc-label dc-label--sm dc-label--muted">MASTER DALI</text>
+  <line x1="80" y1="144" x2="80" y2="154" class="dc-stroke--dali" stroke-width="1.2"/>
 
-  <rect x="218" y="86" width="88" height="28" rx="5" class="dc-fill-node" stroke-width="1.1"/>
-  <text x="262" y="104" text-anchor="middle" class="dc-label dc-label--sm dc-label--muted">MASTER DALI</text>
+  <rect x="18" y="154" width="124" height="38" rx="5" class="dc-node--dali" stroke-width="1"/>
+  <text x="80" y="170" text-anchor="middle" class="dc-label dc-label--sm dc-label--white">Driver DALI</text>
+  <text x="80" y="182" text-anchor="middle" class="dc-label dc-label--xs dc-label--muted">Dimmer · sube / baja luz</text>
 
-  <line x1="58" y1="78" x2="58" y2="86" class="dc-stroke" stroke-width="1.3"/>
-  <line x1="160" y1="78" x2="160" y2="86" class="dc-stroke" stroke-width="1.3"/>
-  <line x1="262" y1="78" x2="262" y2="86" class="dc-stroke" stroke-width="1.3"/>
+  <line x1="80" y1="192" x2="80" y2="202" class="dc-stroke--dali" stroke-width="1.2"/>
 
-  <!-- Luminarias cableadas — col 1 -->
-  <rect x="10" y="122" width="96" height="118" rx="7" class="dc-frame--dali" stroke-width="1.2"/>
-  <line x1="58" y1="114" x2="58" y2="122" class="dc-stroke--dali" stroke-width="1.3"/>
-  <g transform="translate(32 148)">
-    <rect width="9" height="9" rx="1.5" class="dc-fill-dali"/><rect x="13" width="9" height="9" rx="1.5" class="dc-fill-dali"/><rect x="26" width="9" height="9" rx="1.5" class="dc-fill-dali"/>
-    <rect y="13" width="9" height="9" rx="1.5" class="dc-fill-dali"/><rect x="13" y="13" width="9" height="9" rx="1.5" class="dc-fill-dali"/><rect x="26" y="13" width="9" height="9" rx="1.5" class="dc-fill-dali"/>
-    <rect y="26" width="9" height="9" rx="1.5" class="dc-fill-dali"/><rect x="13" y="26" width="9" height="9" rx="1.5" class="dc-fill-dali"/><rect x="26" y="26" width="9" height="9" rx="1.5" class="dc-fill-dali"/>
+  <rect x="18" y="202" width="124" height="104" rx="6" class="dc-frame--dali" stroke-width="1.1"/>
+  <g transform="translate(49 218)">
+    <rect width="7" height="7" rx="1.5" class="dc-fill-dali"/><rect x="11" width="7" height="7" rx="1.5" class="dc-fill-dali"/><rect x="22" width="7" height="7" rx="1.5" class="dc-fill-dali"/><rect x="33" width="7" height="7" rx="1.5" class="dc-fill-dali"/><rect x="44" width="7" height="7" rx="1.5" class="dc-fill-dali"/><rect x="55" width="7" height="7" rx="1.5" class="dc-fill-dali"/>
+    <rect y="11" width="7" height="7" rx="1.5" class="dc-fill-dali"/><rect x="11" y="11" width="7" height="7" rx="1.5" class="dc-fill-dali"/><rect x="22" y="11" width="7" height="7" rx="1.5" class="dc-fill-dali"/><rect x="33" y="11" width="7" height="7" rx="1.5" class="dc-fill-dali"/><rect x="44" y="11" width="7" height="7" rx="1.5" class="dc-fill-dali"/><rect x="55" y="11" width="7" height="7" rx="1.5" class="dc-fill-dali"/>
+    <rect y="22" width="7" height="7" rx="1.5" class="dc-fill-dali"/><rect x="11" y="22" width="7" height="7" rx="1.5" class="dc-fill-dali"/><rect x="22" y="22" width="7" height="7" rx="1.5" class="dc-fill-dali"/><rect x="33" y="22" width="7" height="7" rx="1.5" class="dc-fill-dali"/><rect x="44" y="22" width="7" height="7" rx="1.5" class="dc-fill-dali"/><rect x="55" y="22" width="7" height="7" rx="1.5" class="dc-fill-dali"/>
+    <rect y="33" width="7" height="7" rx="1.5" class="dc-fill-dali"/><rect x="11" y="33" width="7" height="7" rx="1.5" class="dc-fill-dali"/><rect x="22" y="33" width="7" height="7" rx="1.5" class="dc-fill-dali"/><rect x="33" y="33" width="7" height="7" rx="1.5" class="dc-fill-dali"/><rect x="44" y="33" width="7" height="7" rx="1.5" class="dc-fill-dali"/><rect x="55" y="33" width="7" height="7" rx="1.5" class="dc-fill-dali"/>
   </g>
-  <text x="58" y="228" text-anchor="middle" class="dc-label dc-label--sm dc-label--dali">LUMINARIAS</text>
+  <text x="80" y="294" text-anchor="middle" class="dc-label dc-label--sm dc-label--dali">Luminarias Print It</text>
 
-  <!-- Luminarias cableadas — col 2 -->
-  <rect x="112" y="122" width="96" height="118" rx="7" class="dc-frame--dali" stroke-width="1.2"/>
-  <line x1="160" y1="114" x2="160" y2="122" class="dc-stroke--dali" stroke-width="1.3"/>
-  <g transform="translate(134 148)">
-    <rect width="9" height="9" rx="1.5" class="dc-fill-dali"/><rect x="13" width="9" height="9" rx="1.5" class="dc-fill-dali"/><rect x="26" width="9" height="9" rx="1.5" class="dc-fill-dali"/>
-    <rect y="13" width="9" height="9" rx="1.5" class="dc-fill-dali"/><rect x="13" y="13" width="9" height="9" rx="1.5" class="dc-fill-dali"/><rect x="26" y="13" width="9" height="9" rx="1.5" class="dc-fill-dali"/>
-    <rect y="26" width="9" height="9" rx="1.5" class="dc-fill-dali"/><rect x="13" y="26" width="9" height="9" rx="1.5" class="dc-fill-dali"/><rect x="26" y="26" width="9" height="9" rx="1.5" class="dc-fill-dali"/>
+  <text x="80" y="318" text-anchor="middle" class="dc-label dc-label--xs dc-label--muted">Intensidad</text>
+  <text x="80" y="328" text-anchor="middle" class="dc-label dc-label--xs dc-label--muted">Sube · baja · dimmer</text>
+
+  <!-- Casambi — temperatura -->
+  <rect x="168" y="24" width="144" height="332" rx="8" class="dc-frame--casambi" stroke-width="1.2"/>
+  <text x="240" y="40" text-anchor="middle" class="dc-label dc-label--casambi">Casambi</text>
+  <text x="240" y="50" text-anchor="middle" class="dc-label dc-label--xs dc-label--muted">Regula temperatura</text>
+
+  <rect x="178" y="58" width="124" height="46" rx="5" class="dc-node--casambi" stroke-width="1"/>
+  <g transform="translate(240 72)">
+    <rect x="-7" y="-10" width="14" height="22" rx="2.5" fill="rgba(255,255,255,0.08)" stroke="rgba(0,180,216,0.45)" stroke-width="0.8"/>
+    <rect x="-5" y="-7" width="10" height="15" rx="1" fill="rgba(255,255,255,0.05)"/>
+    <circle cx="0" cy="12" r="1.2" fill="rgba(0,180,216,0.7)"/>
   </g>
-  <text x="160" y="228" text-anchor="middle" class="dc-label dc-label--sm dc-label--dali">LUMINARIAS</text>
+  <text x="240" y="94" text-anchor="middle" class="dc-label dc-label--sm dc-label--white">App móvil</text>
 
-  <!-- Zona Casambi — col 3 -->
-  <rect x="214" y="122" width="96" height="268" rx="7" class="dc-frame--casambi" stroke-width="1.2"/>
-  <line x1="262" y1="114" x2="262" y2="122" class="dc-stroke--casambi" stroke-width="1.3"/>
+  <line x1="240" y1="104" x2="240" y2="114" class="dc-stroke--casambi" stroke-width="1.2"/>
 
-  <!-- Pasarela -->
-  <rect x="222" y="132" width="80" height="30" rx="5" class="dc-frame--casambi" stroke-width="1.1"/>
-  <text x="262" y="151" text-anchor="middle" class="dc-label dc-label--sm dc-label--casambi">PASARELA CASAMBI</text>
-
-  <line x1="262" y1="162" x2="262" y2="176" class="dc-stroke--casambi" stroke-width="1.2"/>
-
-  <!-- Bluetooth -->
-  <rect x="234" y="176" width="56" height="44" rx="5" class="dc-frame--casambi" stroke-width="1"/>
-  <g transform="translate(262 194)">
-    <path d="M0 -8 L6 -2 L1 -2 L6 5 L1 5 L0 8 L-6 2 L-1 2 L-6 -5 L-1 -5 Z" fill="rgba(0,180,216,0.92)"/>
+  <rect x="178" y="114" width="124" height="48" rx="5" class="dc-node--casambi" stroke-width="1"/>
+  <g transform="translate(240 124)">
+    <path d="M0 -4.5 L3.5 -1.2 L0.7 -1.2 L4 2.8 L0.7 2.8 L0 4.8 L-3.5 1.5 L-0.7 1.5 L-4 -2.8 L-0.7 -2.8 Z" fill="rgba(0,180,216,0.92)"/>
   </g>
-  <text x="262" y="212" text-anchor="middle" class="dc-label dc-label--sm dc-label--casambi">BLUETOOTH</text>
-
-  <line x1="262" y1="220" x2="262" y2="234" class="dc-stroke--casambi" stroke-width="1.2"/>
-
-  <!-- Red inalámbrica -->
-  <rect x="222" y="234" width="80" height="148" rx="5" class="dc-frame--casambi" stroke-width="1.1"/>
-  <g transform="translate(262 292)">
-    <line x1="-34" y1="-14" x2="34" y2="-14" class="dc-stroke--mesh" stroke-width="1"/>
-    <line x1="-34" y1="0" x2="34" y2="0" class="dc-stroke--mesh" stroke-width="1"/>
-    <line x1="-34" y1="14" x2="34" y2="14" class="dc-stroke--mesh" stroke-width="1"/>
-    <line x1="-24" y1="-24" x2="-24" y2="24" class="dc-stroke--mesh" stroke-width="1"/>
-    <line x1="0" y1="-24" x2="0" y2="24" class="dc-stroke--mesh" stroke-width="1"/>
-    <line x1="24" y1="-24" x2="24" y2="24" class="dc-stroke--mesh" stroke-width="1"/>
-    <rect x="-38" y="-20" width="10" height="10" rx="1.5" class="dc-fill-casambi"/>
-    <rect x="-14" y="-20" width="10" height="10" rx="1.5" class="dc-fill-casambi"/>
-    <rect x="10" y="-20" width="10" height="10" rx="1.5" class="dc-fill-casambi"/>
-    <rect x="34" y="-20" width="10" height="10" rx="1.5" class="dc-fill-casambi"/>
-    <rect x="-38" y="-6" width="10" height="10" rx="1.5" class="dc-fill-casambi"/>
-    <rect x="-14" y="-6" width="10" height="10" rx="1.5" class="dc-fill-casambi"/>
-    <rect x="10" y="-6" width="10" height="10" rx="1.5" class="dc-fill-casambi"/>
-    <rect x="34" y="-6" width="10" height="10" rx="1.5" class="dc-fill-casambi"/>
-    <rect x="-38" y="8" width="10" height="10" rx="1.5" class="dc-fill-casambi"/>
-    <rect x="-14" y="8" width="10" height="10" rx="1.5" class="dc-fill-casambi"/>
-    <rect x="10" y="8" width="10" height="10" rx="1.5" class="dc-fill-casambi"/>
-    <rect x="34" y="8" width="10" height="10" rx="1.5" class="dc-fill-casambi"/>
+  <g transform="translate(240 146)">
+    <line x1="-20" y1="-5" x2="20" y2="-5" class="dc-stroke--mesh" stroke-width="0.8"/>
+    <line x1="-20" y1="5" x2="20" y2="5" class="dc-stroke--mesh" stroke-width="0.8"/>
+    <line x1="-12" y1="-9" x2="-12" y2="9" class="dc-stroke--mesh" stroke-width="0.8"/>
+    <line x1="0" y1="-9" x2="0" y2="9" class="dc-stroke--mesh" stroke-width="0.8"/>
+    <line x1="12" y1="-9" x2="12" y2="9" class="dc-stroke--mesh" stroke-width="0.8"/>
+    <rect x="-22" y="-7" width="4" height="4" rx="1" class="dc-fill-casambi"/>
+    <rect x="-7" y="-7" width="4" height="4" rx="1" class="dc-fill-casambi"/>
+    <rect x="8" y="-7" width="4" height="4" rx="1" class="dc-fill-casambi"/>
+    <rect x="18" y="-7" width="4" height="4" rx="1" class="dc-fill-casambi"/>
+    <rect x="-22" y="3" width="4" height="4" rx="1" class="dc-fill-casambi"/>
+    <rect x="-7" y="3" width="4" height="4" rx="1" class="dc-fill-casambi"/>
+    <rect x="8" y="3" width="4" height="4" rx="1" class="dc-fill-casambi"/>
+    <rect x="18" y="3" width="4" height="4" rx="1" class="dc-fill-casambi"/>
   </g>
-  <text x="262" y="368" text-anchor="middle" class="dc-label dc-label--sm dc-label--casambi">RED INALÁMBRICA</text>
+  <text x="240" y="158" text-anchor="middle" class="dc-label dc-label--sm dc-label--casambi">Bluetooth mesh</text>
+
+  <line x1="240" y1="162" x2="240" y2="172" class="dc-stroke--casambi" stroke-width="1.2"/>
+
+  <rect x="178" y="172" width="124" height="38" rx="5" class="dc-node--casambi" stroke-width="1"/>
+  <text x="240" y="188" text-anchor="middle" class="dc-label dc-label--sm dc-label--white">Módulo Casambi</text>
+  <text x="240" y="200" text-anchor="middle" class="dc-label dc-label--xs dc-label--muted">Temperatura · CCT</text>
+
+  <line x1="240" y1="210" x2="240" y2="220" class="dc-stroke--casambi" stroke-width="1.2"/>
+
+  <rect x="178" y="220" width="124" height="86" rx="6" class="dc-frame--casambi" stroke-width="1.1"/>
+  <g transform="translate(209 234)">
+    <rect width="7" height="7" rx="1.5" class="dc-fill-casambi"/><rect x="11" width="7" height="7" rx="1.5" class="dc-fill-casambi"/><rect x="22" width="7" height="7" rx="1.5" class="dc-fill-casambi"/><rect x="33" width="7" height="7" rx="1.5" class="dc-fill-casambi"/><rect x="44" width="7" height="7" rx="1.5" class="dc-fill-casambi"/><rect x="55" width="7" height="7" rx="1.5" class="dc-fill-casambi"/>
+    <rect y="11" width="7" height="7" rx="1.5" class="dc-fill-casambi"/><rect x="11" y="11" width="7" height="7" rx="1.5" class="dc-fill-casambi"/><rect x="22" y="11" width="7" height="7" rx="1.5" class="dc-fill-casambi"/><rect x="33" y="11" width="7" height="7" rx="1.5" class="dc-fill-casambi"/><rect x="44" y="11" width="7" height="7" rx="1.5" class="dc-fill-casambi"/><rect x="55" y="11" width="7" height="7" rx="1.5" class="dc-fill-casambi"/>
+    <rect y="22" width="7" height="7" rx="1.5" class="dc-fill-casambi"/><rect x="11" y="22" width="7" height="7" rx="1.5" class="dc-fill-casambi"/><rect x="22" y="22" width="7" height="7" rx="1.5" class="dc-fill-casambi"/><rect x="33" y="22" width="7" height="7" rx="1.5" class="dc-fill-casambi"/><rect x="44" y="22" width="7" height="7" rx="1.5" class="dc-fill-casambi"/><rect x="55" y="22" width="7" height="7" rx="1.5" class="dc-fill-casambi"/>
+  </g>
+  <text x="240" y="294" text-anchor="middle" class="dc-label dc-label--sm dc-label--casambi">Luminarias Print It</text>
+
+  <text x="240" y="318" text-anchor="middle" class="dc-label dc-label--xs dc-label--muted">Temperatura de color</text>
+  <text x="240" y="328" text-anchor="middle" class="dc-label dc-label--xs dc-label--muted">CCT · blanco cálido / frío</text>
+
+  <rect x="8" y="362" width="304" height="30" rx="6" class="dc-frame" stroke-width="1"/>
+  <text x="160" y="375" text-anchor="middle" class="dc-label dc-label--xs dc-label--muted">Dos sistemas · una función cada uno</text>
+  <text x="160" y="385" text-anchor="middle" class="dc-label dc-label--xs dc-label--muted">Print It integra · instala · asesora</text>
 </svg>
