@@ -1,0 +1,376 @@
+<HTML>
+ <HEAD>
+  <TITLE>detalle frontal </TITLE>
+ </HEAD>
+ <BODY onLoad="Load()">
+ <FONT FACE=VERDANA SIZE=2><B>detalle frontal </B><BR>
+	<IMG BORDER=1 STYLE="border-color:black" ID="animated_image"><BR>
+<FONT FACE=COURIER SIZE=2>
+<SPAN ID="frame_title" STYLE="position:relative;left:0;top:-15;color:black;background-color:white;padding:1px;border-width:1px;border-style:solid;border-color:black;display:inline;"></SPAN>
+&nbsp;</FONT><BR>
+  <BUTTON ID="btnToggle" onClick="start_stop()" onDblClick="start_stop()">Detener</BUTTON>&nbsp;
+<BUTTON ID="btnFirst" onClick="firstFrame()" onDblClick="firstFrame()" STYLE="width:35">&lt;&lt;</BUTTON>&nbsp;
+  <BUTTON ID="btnPrev" onClick="prevFrame()" onDblClick="prevFrame()" STYLE="width:35">&lt;</BUTTON>&nbsp;
+  <BUTTON ID="btnNext" onClick="nextFrame()" onDblClick="nextFrame()" STYLE="width:35">&gt;</BUTTON>&nbsp;
+  <BUTTON ID="btnLast" onClick="lastFrame()" onDblClick="lastFrame()" STYLE="width:35">&gt;&gt;</BUTTON>
+  <FONT SIZE=1>
+  <BR><BR>&nbsp;&nbsp;&nbsp;<INPUT ID="checkLoop"" TYPE="checkbox" style="width:13;height:13;">Bucle continuo
+  <BR>&nbsp;&nbsp;&nbsp;<INPUT ID="checkCounter" TYPE="checkbox" CHECKED onClick="showCounter(this.checked)" style="width:13;height:13;">Mostrar contador de fotogramas
+  </FONT>
+  <P>
+  <FONT COLOR=888888 SIZE=1>Animación creada en <A TARGET=_blank HREF="http://www.rhino3d.com"><FONT COLOR=7777ff SIZE=1>Rhino</FONT></A>.</FONT>
+ </BODY>
+</HTML>
+
+<STYLE>
+  button {width:75;height:25;font-family:mssansserif;font-size:8pt}
+</STYLE>
+<SCRIPT LANGUAGE="JavaScript">
+  var FRAME_DELAY = 75;
+  var timeoutID;
+  var ImageCount = 200;
+  var Images = new Array();
+  for( i=0; i < ImageCount; i++ )
+  	Images[i] = new Image();
+
+  var currentImageIndex = 0;
+  var bDisplayDate = 0;
+  var Dates = new Array(25);
+Images[0].src = "detalle frontal _00000.jpg"
+Images[1].src = "detalle frontal _00001.jpg"
+Images[2].src = "detalle frontal _00002.jpg"
+Images[3].src = "detalle frontal _00003.jpg"
+Images[4].src = "detalle frontal _00004.jpg"
+Images[5].src = "detalle frontal _00005.jpg"
+Images[6].src = "detalle frontal _00006.jpg"
+Images[7].src = "detalle frontal _00007.jpg"
+Images[8].src = "detalle frontal _00008.jpg"
+Images[9].src = "detalle frontal _00009.jpg"
+Images[10].src = "detalle frontal _00010.jpg"
+Images[11].src = "detalle frontal _00011.jpg"
+Images[12].src = "detalle frontal _00012.jpg"
+Images[13].src = "detalle frontal _00013.jpg"
+Images[14].src = "detalle frontal _00014.jpg"
+Images[15].src = "detalle frontal _00015.jpg"
+Images[16].src = "detalle frontal _00016.jpg"
+Images[17].src = "detalle frontal _00017.jpg"
+Images[18].src = "detalle frontal _00018.jpg"
+Images[19].src = "detalle frontal _00019.jpg"
+Images[20].src = "detalle frontal _00020.jpg"
+Images[21].src = "detalle frontal _00021.jpg"
+Images[22].src = "detalle frontal _00022.jpg"
+Images[23].src = "detalle frontal _00023.jpg"
+Images[24].src = "detalle frontal _00024.jpg"
+Images[25].src = "detalle frontal _00025.jpg"
+Images[26].src = "detalle frontal _00026.jpg"
+Images[27].src = "detalle frontal _00027.jpg"
+Images[28].src = "detalle frontal _00028.jpg"
+Images[29].src = "detalle frontal _00029.jpg"
+Images[30].src = "detalle frontal _00030.jpg"
+Images[31].src = "detalle frontal _00031.jpg"
+Images[32].src = "detalle frontal _00032.jpg"
+Images[33].src = "detalle frontal _00033.jpg"
+Images[34].src = "detalle frontal _00034.jpg"
+Images[35].src = "detalle frontal _00035.jpg"
+Images[36].src = "detalle frontal _00036.jpg"
+Images[37].src = "detalle frontal _00037.jpg"
+Images[38].src = "detalle frontal _00038.jpg"
+Images[39].src = "detalle frontal _00039.jpg"
+Images[40].src = "detalle frontal _00040.jpg"
+Images[41].src = "detalle frontal _00041.jpg"
+Images[42].src = "detalle frontal _00042.jpg"
+Images[43].src = "detalle frontal _00043.jpg"
+Images[44].src = "detalle frontal _00044.jpg"
+Images[45].src = "detalle frontal _00045.jpg"
+Images[46].src = "detalle frontal _00046.jpg"
+Images[47].src = "detalle frontal _00047.jpg"
+Images[48].src = "detalle frontal _00048.jpg"
+Images[49].src = "detalle frontal _00049.jpg"
+Images[50].src = "detalle frontal _00050.jpg"
+Images[51].src = "detalle frontal _00051.jpg"
+Images[52].src = "detalle frontal _00052.jpg"
+Images[53].src = "detalle frontal _00053.jpg"
+Images[54].src = "detalle frontal _00054.jpg"
+Images[55].src = "detalle frontal _00055.jpg"
+Images[56].src = "detalle frontal _00056.jpg"
+Images[57].src = "detalle frontal _00057.jpg"
+Images[58].src = "detalle frontal _00058.jpg"
+Images[59].src = "detalle frontal _00059.jpg"
+Images[60].src = "detalle frontal _00060.jpg"
+Images[61].src = "detalle frontal _00061.jpg"
+Images[62].src = "detalle frontal _00062.jpg"
+Images[63].src = "detalle frontal _00063.jpg"
+Images[64].src = "detalle frontal _00064.jpg"
+Images[65].src = "detalle frontal _00065.jpg"
+Images[66].src = "detalle frontal _00066.jpg"
+Images[67].src = "detalle frontal _00067.jpg"
+Images[68].src = "detalle frontal _00068.jpg"
+Images[69].src = "detalle frontal _00069.jpg"
+Images[70].src = "detalle frontal _00070.jpg"
+Images[71].src = "detalle frontal _00071.jpg"
+Images[72].src = "detalle frontal _00072.jpg"
+Images[73].src = "detalle frontal _00073.jpg"
+Images[74].src = "detalle frontal _00074.jpg"
+Images[75].src = "detalle frontal _00075.jpg"
+Images[76].src = "detalle frontal _00076.jpg"
+Images[77].src = "detalle frontal _00077.jpg"
+Images[78].src = "detalle frontal _00078.jpg"
+Images[79].src = "detalle frontal _00079.jpg"
+Images[80].src = "detalle frontal _00080.jpg"
+Images[81].src = "detalle frontal _00081.jpg"
+Images[82].src = "detalle frontal _00082.jpg"
+Images[83].src = "detalle frontal _00083.jpg"
+Images[84].src = "detalle frontal _00084.jpg"
+Images[85].src = "detalle frontal _00085.jpg"
+Images[86].src = "detalle frontal _00086.jpg"
+Images[87].src = "detalle frontal _00087.jpg"
+Images[88].src = "detalle frontal _00088.jpg"
+Images[89].src = "detalle frontal _00089.jpg"
+Images[90].src = "detalle frontal _00090.jpg"
+Images[91].src = "detalle frontal _00091.jpg"
+Images[92].src = "detalle frontal _00092.jpg"
+Images[93].src = "detalle frontal _00093.jpg"
+Images[94].src = "detalle frontal _00094.jpg"
+Images[95].src = "detalle frontal _00095.jpg"
+Images[96].src = "detalle frontal _00096.jpg"
+Images[97].src = "detalle frontal _00097.jpg"
+Images[98].src = "detalle frontal _00098.jpg"
+Images[99].src = "detalle frontal _00099.jpg"
+Images[100].src = "detalle frontal _00100.jpg"
+Images[101].src = "detalle frontal _00101.jpg"
+Images[102].src = "detalle frontal _00102.jpg"
+Images[103].src = "detalle frontal _00103.jpg"
+Images[104].src = "detalle frontal _00104.jpg"
+Images[105].src = "detalle frontal _00105.jpg"
+Images[106].src = "detalle frontal _00106.jpg"
+Images[107].src = "detalle frontal _00107.jpg"
+Images[108].src = "detalle frontal _00108.jpg"
+Images[109].src = "detalle frontal _00109.jpg"
+Images[110].src = "detalle frontal _00110.jpg"
+Images[111].src = "detalle frontal _00111.jpg"
+Images[112].src = "detalle frontal _00112.jpg"
+Images[113].src = "detalle frontal _00113.jpg"
+Images[114].src = "detalle frontal _00114.jpg"
+Images[115].src = "detalle frontal _00115.jpg"
+Images[116].src = "detalle frontal _00116.jpg"
+Images[117].src = "detalle frontal _00117.jpg"
+Images[118].src = "detalle frontal _00118.jpg"
+Images[119].src = "detalle frontal _00119.jpg"
+Images[120].src = "detalle frontal _00120.jpg"
+Images[121].src = "detalle frontal _00121.jpg"
+Images[122].src = "detalle frontal _00122.jpg"
+Images[123].src = "detalle frontal _00123.jpg"
+Images[124].src = "detalle frontal _00124.jpg"
+Images[125].src = "detalle frontal _00125.jpg"
+Images[126].src = "detalle frontal _00126.jpg"
+Images[127].src = "detalle frontal _00127.jpg"
+Images[128].src = "detalle frontal _00128.jpg"
+Images[129].src = "detalle frontal _00129.jpg"
+Images[130].src = "detalle frontal _00130.jpg"
+Images[131].src = "detalle frontal _00131.jpg"
+Images[132].src = "detalle frontal _00132.jpg"
+Images[133].src = "detalle frontal _00133.jpg"
+Images[134].src = "detalle frontal _00134.jpg"
+Images[135].src = "detalle frontal _00135.jpg"
+Images[136].src = "detalle frontal _00136.jpg"
+Images[137].src = "detalle frontal _00137.jpg"
+Images[138].src = "detalle frontal _00138.jpg"
+Images[139].src = "detalle frontal _00139.jpg"
+Images[140].src = "detalle frontal _00140.jpg"
+Images[141].src = "detalle frontal _00141.jpg"
+Images[142].src = "detalle frontal _00142.jpg"
+Images[143].src = "detalle frontal _00143.jpg"
+Images[144].src = "detalle frontal _00144.jpg"
+Images[145].src = "detalle frontal _00145.jpg"
+Images[146].src = "detalle frontal _00146.jpg"
+Images[147].src = "detalle frontal _00147.jpg"
+Images[148].src = "detalle frontal _00148.jpg"
+Images[149].src = "detalle frontal _00149.jpg"
+Images[150].src = "detalle frontal _00150.jpg"
+Images[151].src = "detalle frontal _00151.jpg"
+Images[152].src = "detalle frontal _00152.jpg"
+Images[153].src = "detalle frontal _00153.jpg"
+Images[154].src = "detalle frontal _00154.jpg"
+Images[155].src = "detalle frontal _00155.jpg"
+Images[156].src = "detalle frontal _00156.jpg"
+Images[157].src = "detalle frontal _00157.jpg"
+Images[158].src = "detalle frontal _00158.jpg"
+Images[159].src = "detalle frontal _00159.jpg"
+Images[160].src = "detalle frontal _00160.jpg"
+Images[161].src = "detalle frontal _00161.jpg"
+Images[162].src = "detalle frontal _00162.jpg"
+Images[163].src = "detalle frontal _00163.jpg"
+Images[164].src = "detalle frontal _00164.jpg"
+Images[165].src = "detalle frontal _00165.jpg"
+Images[166].src = "detalle frontal _00166.jpg"
+Images[167].src = "detalle frontal _00167.jpg"
+Images[168].src = "detalle frontal _00168.jpg"
+Images[169].src = "detalle frontal _00169.jpg"
+Images[170].src = "detalle frontal _00170.jpg"
+Images[171].src = "detalle frontal _00171.jpg"
+Images[172].src = "detalle frontal _00172.jpg"
+Images[173].src = "detalle frontal _00173.jpg"
+Images[174].src = "detalle frontal _00174.jpg"
+Images[175].src = "detalle frontal _00175.jpg"
+Images[176].src = "detalle frontal _00176.jpg"
+Images[177].src = "detalle frontal _00177.jpg"
+Images[178].src = "detalle frontal _00178.jpg"
+Images[179].src = "detalle frontal _00179.jpg"
+Images[180].src = "detalle frontal _00180.jpg"
+Images[181].src = "detalle frontal _00181.jpg"
+Images[182].src = "detalle frontal _00182.jpg"
+Images[183].src = "detalle frontal _00183.jpg"
+Images[184].src = "detalle frontal _00184.jpg"
+Images[185].src = "detalle frontal _00185.jpg"
+Images[186].src = "detalle frontal _00186.jpg"
+Images[187].src = "detalle frontal _00187.jpg"
+Images[188].src = "detalle frontal _00188.jpg"
+Images[189].src = "detalle frontal _00189.jpg"
+Images[190].src = "detalle frontal _00190.jpg"
+Images[191].src = "detalle frontal _00191.jpg"
+Images[192].src = "detalle frontal _00192.jpg"
+Images[193].src = "detalle frontal _00193.jpg"
+Images[194].src = "detalle frontal _00194.jpg"
+Images[195].src = "detalle frontal _00195.jpg"
+Images[196].src = "detalle frontal _00196.jpg"
+Images[197].src = "detalle frontal _00197.jpg"
+Images[198].src = "detalle frontal _00198.jpg"
+Images[199].src = "detalle frontal _00199.jpg"
+
+Dates[0] = "01/06/2010 6:00:00"
+Dates[1] = "01/06/2010 6:30:00"
+Dates[2] = "01/06/2010 7:00:00"
+Dates[3] = "01/06/2010 7:30:00"
+Dates[4] = "01/06/2010 8:00:00"
+Dates[5] = "01/06/2010 8:30:00"
+Dates[6] = "01/06/2010 9:00:00"
+Dates[7] = "01/06/2010 9:30:00"
+Dates[8] = "01/06/2010 10:00:00"
+Dates[9] = "01/06/2010 10:30:00"
+Dates[10] = "01/06/2010 11:00:00"
+Dates[11] = "01/06/2010 11:30:00"
+Dates[12] = "01/06/2010 12:00:00"
+Dates[13] = "01/06/2010 12:30:00"
+Dates[14] = "01/06/2010 13:00:00"
+Dates[15] = "01/06/2010 13:30:00"
+Dates[16] = "01/06/2010 14:00:00"
+Dates[17] = "01/06/2010 14:30:00"
+Dates[18] = "01/06/2010 15:00:00"
+Dates[19] = "01/06/2010 15:30:00"
+Dates[20] = "01/06/2010 16:00:00"
+Dates[21] = "01/06/2010 16:30:00"
+Dates[22] = "01/06/2010 17:00:00"
+Dates[23] = "01/06/2010 17:30:00"
+Dates[24] = "01/06/2010 18:00:00"
+
+
+  function Load() {
+    begin_animation();
+  }
+
+  function begin_animation() {
+    stop_animation();
+  	EnableCtrls("stop");
+  	run();
+        bRunning = true;
+  }
+
+  function stop_animation() {
+  	EnableCtrls("start");
+  	clearTimeout( timeoutID );
+        bRunning = false;
+  }
+
+  function start_stop() {
+    if (bRunning) {
+      stop_animation();
+    }
+    else {
+      begin_animation();
+    }
+  }
+
+  function run() {
+  	if (nextFrame())
+    	timeoutID = setTimeout( "run()", FRAME_DELAY );
+  }
+
+  function firstFrame() {
+	currentImageIndex = 0;
+  	document.all.animated_image.src = Images[currentImageIndex].src;
+  	DisplayCaption(currentImageIndex)
+  }
+
+  function prevFrame() {
+  	currentImageIndex--;
+  	if( currentImageIndex < 0 )
+  		currentImageIndex= Images.length - 1;
+  	document.all.animated_image.src = Images[currentImageIndex].src;
+  	DisplayCaption(currentImageIndex)
+  }
+
+  function nextFrame() {
+  	currentImageIndex++;
+  	bRetVal = true;
+  	if( currentImageIndex >= Images.length ) {
+  	  if (document.all('checkLoop').checked) {
+    		currentImageIndex = 0;
+  	  }
+  	  else {
+  	    stop_animation();
+  	    currentImageIndex = 0;
+  	    bRetVal = false;
+        return bRetVal;
+  	  }
+  	}
+  	document.all.animated_image.src = Images[currentImageIndex].src;
+  	DisplayCaption(currentImageIndex)
+  	return bRetVal;
+  }
+
+  function lastFrame() {
+	currentImageIndex = Images.length - 1;
+  	document.all.animated_image.src = Images[currentImageIndex].src;
+  	DisplayCaption(currentImageIndex)
+  }
+
+ function DisplayCaption(nFrameNumber) {
+	  document.all.frame_title.innerHTML =  (nFrameNumber + 1)
+ if (bDisplayDate) {
+    	document.all.frame_title.innerHTML = Dates[nFrameNumber];
+ }
+  }
+
+
+  function EnableCtrls(sCtl) {
+	if (sCtl == "stop") {
+		//document.all("btnStop").disabled = false;
+		//document.all("btnStart").disabled = true;
+
+		document.all("btnFirst").disabled = true; 
+		document.all("btnPrev").disabled = true; 
+		document.all("btnNext").disabled = true; 
+		document.all("btnLast").disabled = true; 
+                document.all("btnToggle").innerText = "Detener";
+	}
+	if (sCtl == "start") {
+		//document.all("btnStop").disabled = true; 
+		//document.all("btnStart").disabled = false;
+
+		document.all("btnFirst").disabled = false;
+		document.all("btnPrev").disabled = false;
+		document.all("btnNext").disabled = false;
+		document.all("btnLast").disabled = false;
+                document.all("btnToggle").innerText = "Iniciar";
+	}
+  }
+
+  function showCounter(bShow) {
+    if (bShow) {
+      document.all('frame_title').style.display = "inline";
+    }
+    else {
+      document.all('frame_title').style.display = "none";
+    }
+  }
+</SCRIPT>

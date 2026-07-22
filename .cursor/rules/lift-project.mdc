@@ -1,0 +1,36 @@
+---
+description: When user says "lift project", start LAN static server for PRINT-IT catalog
+alwaysApply: true
+---
+
+# Lift project (LAN preview)
+
+## Trigger
+
+When the user says **lift project** (or clearly the same intent: levantar el proyecto, serve on LAN, preview on network), do this **without asking them to run it manually**:
+
+## Terminal (required)
+
+1. Run the static server **in the background** (the script does not exit):
+
+```bash
+cd "/Users/printitprojects/Desktop/PRINT-IT-PROP-CATALOGO"
+./scripts/serve-lan.sh
+```
+
+Use a **background** shell invocation so the session does not block waiting on `http.server`.
+
+## URL to tell the user
+
+After starting the server, state that the catalog should be opened at:
+
+**`http://192.168.1.12:8080/`**
+
+Use **`http://`**, not `https://`. Default port **8080** matches `PRINTIT_SERVE_PORT` in `.env.example` / `./scripts/serve-lan.sh`.
+
+If the user reports the page does not load: prefer the **URLs printed by `./scripts/serve-lan.sh`** (all non-loopback IPv4s). Verify `ipconfig getifaddr en0`, port **8080** free, and **`.env`** does not set `PRINTIT_SERVE_HOST=127.0.0.1`. Remind them: same Wi?Fi (not mobile data), avoid **Guest** networks (AP isolation), **http** not **https**, VPN off.
+
+## Do not
+
+- Do not suggest only instructions without running the command when they asked to lift the project.
+- Do not use a different project path unless the user changed the repo location.

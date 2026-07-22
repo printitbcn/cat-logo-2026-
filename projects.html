@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark light">
+    <script>
+        try {
+            if (localStorage.getItem('printit-theme') === 'light')
+                document.documentElement.setAttribute('data-theme', 'light');
+        } catch (e) { }
+    </script>
+    <title>Print It � Proyectos locales</title>
+    <link rel="stylesheet" href="styles.css?v=20260710a">
+    <link rel="icon" type="image/png" href="Material Inicial/logo-oficial.png">
+</head>
+
+<body class="projects-hub-body">
+    <div class="projects-hub">
+        <header class="projects-hub-header">
+            <div class="projects-hub-brand">
+                <img src="Material Inicial/logo-oficial.png" alt="Print It" class="projects-hub-logo"
+                    data-logo-light="Material Inicial/FULL LOGO BLACK .png"
+                    data-logo-dark="Material Inicial/logo-oficial.png">
+                <div>
+                    <p class="projects-hub-eyebrow">Desarrollo local</p>
+                    <h1 class="projects-hub-title">Proyectos Print It</h1>
+                </div>
+            </div>
+            <div class="projects-hub-header-actions">
+                <a href="index.html" class="projects-hub-link">? Cat�logo</a>
+                <button type="button" class="nav-theme-toggle" aria-label="Cambiar tema"></button>
+            </div>
+        </header>
+
+        <p class="projects-hub-lead">
+            Abre cada proyecto en el navegador o mu�stralo en Finder. Requiere el servidor local
+            (<code>./scripts/serve-lan.sh</code>) � las acciones de Finder solo funcionan en este Mac.
+        </p>
+
+        <div id="projects-status" class="projects-hub-status" role="status" aria-live="polite"></div>
+
+        <div id="projects-list" class="projects-list" aria-busy="true">
+            <p class="projects-hub-loading">Cargando proyectos�</p>
+        </div>
+    </div>
+
+    <script src="projects.js?v=20260710a"></script>
+</body>
+
+</html>

@@ -1,0 +1,3 @@
+# PRINT-IT — LOGS/errors.log
+# Las entradas ERROR y WARN del panel «Diagnóstico» se pueden volcar aquí con «Exportar .log».
+# El navegador no escribe en esta carpeta solo: descarga el archivo y sustitúyelo o fusiónalo en LOGS/errors.log
