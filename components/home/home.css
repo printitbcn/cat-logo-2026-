@@ -53,6 +53,11 @@ body.is-home-page .panel-left {
 
 body.is-home-page .panel-left .image-showcase {
   position: relative;
+  /* Izquierda a 0,5 cm del marco; derecha 0,5 cm más estrecha */
+  width: calc(100% - (0.5cm - var(--home-frame-inner)) - 0.5cm);
+  max-width: none;
+  align-self: flex-start;
+  margin-left: calc(0.5cm - var(--home-frame-inner));
   border: 1px solid var(--home-line);
   border-radius: 0;
   overflow: hidden;
@@ -82,7 +87,7 @@ body.is-home-page .panel-left .image-showcase::after {
 }
 
 html[data-theme="light"] body.is-home-page .panel-left .image-showcase {
-  background: #ebe4da;
+  background: #0a0a0b;
 }
 
 /* Motion: dark = luz encendida; light = barrida impresión */
@@ -179,13 +184,20 @@ body.is-home-page #page-home .contact-link:focus-visible {
 body.is-home-page #page-home .home-cover-brand {
   margin: 0;
   padding: 0;
-  align-items: flex-start;
+  width: 100%;
+  align-items: flex-start; /* misma columna que .home-cover-editorial */
 }
 
 body.is-home-page #page-home .home-cover-logo {
-  height: clamp(64px, 9vw, 96px);
-  width: auto;
+  /* Misma caja en light y dark (proporción logo-oficial.png) */
+  --home-logo-h: clamp(64px, 9vw, 96px);
+  height: var(--home-logo-h);
+  width: calc(var(--home-logo-h) * 2271 / 1472);
   display: block;
+  object-fit: contain;
+  object-position: left center;
+  /* Compensa padding transparente; idéntico en ambos temas */
+  margin-left: calc(var(--home-logo-h) * -0.145);
 }
 
 body.is-home-page #page-home .home-cover-main {
@@ -319,9 +331,10 @@ body.is-home-page #page-home .home-page-categories {
 body.is-home-page #page-home .mini-cards.home-pantone-grid {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: clamp(12px, 1.4vw, 18px);
+  gap: 12px;
   width: 100%;
   align-items: stretch;
+  justify-items: stretch;
 }
 
 body.is-home-page #page-home .mini-card.home-pantone {
@@ -329,6 +342,7 @@ body.is-home-page #page-home .mini-card.home-pantone {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -339,7 +353,7 @@ body.is-home-page #page-home .mini-card.home-pantone {
   background: var(--home-chip-block);
   color: var(--home-chip-ink);
   cursor: pointer;
-  aspect-ratio: 3 / 4.35;
+  aspect-ratio: 3 / 4.9;
   box-shadow: none;
   transform: translate3d(0, 0, 0) scale(1);
   transition:
@@ -376,6 +390,9 @@ body.is-home-page #page-home .home-pantone-swatch {
   margin: 0;
   display: block;
   background: var(--home-chip-block);
+  /* Marco ultrafino: tono meta a baja opacidad (más sutil que 0.1px sólido) */
+  border: 0;
+  box-shadow: inset 0 0 0 0.5px color-mix(in srgb, var(--home-chip-bg) 28%, transparent);
   overflow: hidden;
   box-sizing: border-box;
   isolation: isolate;
@@ -383,32 +400,32 @@ body.is-home-page #page-home .home-pantone-swatch {
 
 body.is-home-page #page-home .home-cat-icon {
   position: absolute;
-  /* recorte óptico: oculta restos de marco / letterbox del render */
-  top: 50%;
-  left: 50%;
+  inset: 0;
   z-index: 1;
-  width: 120%;
-  height: 120%;
-  max-width: none; /* anula img { max-width:100% } global que bloqueaba el recorte */
+  width: 100%;
+  height: 100%;
+  max-width: none;
   max-height: none;
   margin: 0;
-  object-fit: cover;
+  padding: 0;
+  object-fit: contain;
   object-position: center center;
   display: none;
   pointer-events: none;
-  transform: translate(-50%, -50%) scale(1);
+  transform: scale(0.92);
+  transform-origin: center center;
   transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), filter 0.7s ease;
   will-change: transform;
 }
 
 body.is-home-page #page-home .mini-card.home-pantone:hover .home-cat-icon,
 body.is-home-page #page-home .mini-card.home-pantone:focus-within .home-cat-icon {
-  transform: translate(-50%, -50%) scale(1.04);
+  transform: scale(0.96);
   filter: brightness(1.04);
 }
 
 body.is-home-page #page-home .mini-card.home-pantone:active .home-cat-icon {
-  transform: translate(-50%, -50%) scale(0.98);
+  transform: scale(0.9);
   transition-duration: 0.16s;
 }
 
@@ -447,12 +464,13 @@ body.is-home-page #page-home .home-pantone-meta {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 4px;
-  padding: 12px 12px 14px;
+  gap: 3px;
+  padding: 10px 10px 12px;
   flex: 1 1 auto;
-  min-height: 5.5em;
+  min-height: 0;
   border-top: 0;
   background: var(--home-chip-bg);
+  box-sizing: border-box;
 }
 
 body.is-home-page #page-home .home-pantone-brand {
@@ -477,6 +495,7 @@ body.is-home-page #page-home .home-pantone-code {
 body.is-home-page #page-home .mini-card.home-pantone .mini-card-label {
   position: static;
   width: 100%;
+  min-height: 3.75em;
   margin: 2px 0 0;
   padding: 0;
   font-family: "Montserrat", sans-serif;
@@ -487,10 +506,10 @@ body.is-home-page #page-home .mini-card.home-pantone .mini-card-label {
   color: var(--home-chip-ink);
   text-shadow: none;
   text-align: left;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  display: block;
+  overflow: visible;
+  overflow-wrap: break-word;
+  hyphens: manual;
 }
 
 /* Footer home */
@@ -548,12 +567,23 @@ body.is-home-page #page-home .mini-card.home-pantone.home-reveal.is-inview:activ
 @media (max-width: 1280px) {
   body.is-home-page #page-home .mini-cards.home-pantone-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
   }
 }
 
 @media (max-width: 900px) {
   body.is-home-page #page-home .mini-cards.home-pantone-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  body.is-home-page .panel-left .image-showcase {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    align-self: stretch;
   }
 }
 
@@ -571,7 +601,7 @@ body.is-home-page #page-home .mini-card.home-pantone.home-reveal.is-inview:activ
   body.is-home-page #page-home .mini-card.home-pantone {
     flex: 0 0 min(46vw, 200px);
     scroll-snap-align: start;
-    aspect-ratio: 3 / 4.35;
+    aspect-ratio: 3 / 4.9;
   }
 
   body.is-home-page #page-home .home-cover-headline {

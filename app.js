@@ -28,7 +28,9 @@
 })();
 
 // ===== IMAGE CAROUSEL =====
-const HOME_CAROUSEL_IMAGE = 'media/brand/portada-3-print-it.png';
+const HOME_CAROUSEL_IMAGE = 'media/brand/video intro catalogo .mp4';
+/** Velocidad lenta del vídeo intro de home (1 = normal). */
+const HOME_SHOWCASE_PLAYBACK_RATE = 0.5;
 let carouselImages = [HOME_CAROUSEL_IMAGE];
 const CATALOGUE_SHOWCASE_IMAGE =
   'media/aplicaciones/totems/totems-backdrops-photocalls-con-luz.png';
@@ -39,7 +41,7 @@ const CONTACT_SHOWCASE_IMAGE = 'media/brand/products/showroom-indu-2.jpg';
 let currentImageIndex = 0;
 const FIXED_SHOWCASE_LABEL = 'MAKE AN IMPRESSION';
 /** Cache bust para imágenes/vídeos en móvil (Safari cachea agresivamente sin query). */
-const PRINTIT_MEDIA_CACHE = '20261103frame4';
+const PRINTIT_MEDIA_CACHE = '20261119introVid';
 let catalogueCarouselTimer = null;
 const CATALOGUE_CAROUSEL_MS = 4500;
 
@@ -279,11 +281,16 @@ function updateShowcaseImage(src, label) {
     mediaEl.classList.toggle('showcase-img--svg', isSvgShowcase && mediaEl.tagName !== 'VIDEO');
     if (isVideoEl) {
       if (isVideoSrc) {
+        const isHomeIntroVideo = /video intro catalogo/i.test(cleanSrc);
         mediaEl.querySelectorAll('source').forEach(s => s.remove());
         mediaEl.poster = isOnOffCorrectedClip ? withPrintitMediaCache(ONOFF_CORRECTED_MOV_POSTER) : '';
-        mediaEl.preload = (isDalliCasambiEffectShowcase || /CIRCULAR FERIA/i.test(cleanSrc)) ? 'auto' : 'metadata';
+        mediaEl.preload = (isDalliCasambiEffectShowcase || isHomeIntroVideo || /CIRCULAR FERIA/i.test(cleanSrc)) ? 'auto' : 'metadata';
         mediaEl.src = nextSrc;
         mediaEl.load();
+        try {
+          mediaEl.playbackRate = isHomeIntroVideo ? HOME_SHOWCASE_PLAYBACK_RATE : 1;
+          mediaEl.defaultPlaybackRate = isHomeIntroVideo ? HOME_SHOWCASE_PLAYBACK_RATE : 1;
+        } catch (_) {}
         mediaEl.play().catch(() => { });
         bindPrintitVideoHoverControls(mediaEl);
         observePrintitVideoAutoplayWhenVisible(mediaEl);
@@ -1276,69 +1283,41 @@ function filterCatalogue(category, btn) {
   }
 }
 
-function getMiniCardThumbSrc(miniCard) {
-  if (!miniCard) return '';
-  const img = miniCard.querySelector('img');
-  if (img && img.getAttribute('src')) return img.getAttribute('src');
-  const video = miniCard.querySelector('video');
-  if (video) {
-    const poster = video.getAttribute('poster');
-    if (poster) return poster;
-    const source = video.querySelector('source[src]');
-    if (source) return source.getAttribute('src');
-    return video.getAttribute('src') || '';
+/** Iconos de categoría (mismos que home Pantone): light = para dark mode, dark = para light mode. */
+const FILTER_CATEGORY_ICONS = {
+  lluminaries: {
+    forDark: 'public/icons/categorias/luminarias-light.png?v=20261118lightIcons',
+    forLight: 'public/icons/categorias/luminarias-dark.png?v=20261118lightIcons'
+  },
+  lightbox: {
+    forDark: 'public/icons/categorias/lightbox-light.png?v=20261118lightIcons',
+    forLight: 'public/icons/categorias/lightbox-dark.png?v=20261118lightIcons'
+  },
+  totems: {
+    forDark: 'public/icons/categorias/totems-light.png?v=20261118lightIcons',
+    forLight: 'public/icons/categorias/totems-dark.png?v=20261118lightIcons'
+  },
+  aeris: {
+    forDark: 'public/icons/categorias/aereos-light.png?v=20261118lightIcons',
+    forLight: 'public/icons/categorias/aereos-dark.png?v=20261118lightIcons'
+  },
+  vesteix: {
+    forDark: 'public/icons/categorias/viste-tu-espacio-light.png?v=20261118lightIcons',
+    forLight: 'public/icons/categorias/viste-tu-espacio-dark.png?v=20261118lightIcons'
+  },
+  rigids: {
+    forDark: 'public/icons/categorias/rigidos-light.png?v=20261118lightIcons',
+    forLight: 'public/icons/categorias/rigidos-dark.png?v=20261118lightIcons'
   }
-  return '';
-}
-
-const FILTER_MINI_CARD_ORDER = [
-  'lluminaries',
-  'lightbox',
-  'totems',
-  'aeris',
-  'vesteix',
-  'rigids'
-];
-
-const FALLBACK_FILTER_THUMBS = {
-  lluminaries: 'media/aplicaciones/luminarias/luminaria-indice.png',
-  lightbox: 'media/aplicaciones/lightbox/lightbox-miniatura.png',
-  totems: 'media/aplicaciones/totems/2.jpg',
-  aeris: 'media/aplicaciones/aereos/exteirior-cubo.jpg',
-  vesteix: 'media/aplicaciones/vestimos/voile-miniatura.png',
-  rigids: 'media/aplicaciones/rigidos/rigidos-miniatura.jpg'
 };
 
-/** Miniaturas de filtro que no deben variar entre páginas (ni por mini-cards). */
-const LOCKED_FILTER_THUMBS = new Set(['totems', 'vesteix', 'rigids', 'lightbox']);
-
-function buildFilterThumbMapFromMiniCards() {
-  const miniCards = document.querySelectorAll('#page-home .mini-cards .mini-card');
-  const map = { ...FALLBACK_FILTER_THUMBS };
-  miniCards.forEach((card, index) => {
-    const filter = FILTER_MINI_CARD_ORDER[index];
-    if (!filter || LOCKED_FILTER_THUMBS.has(filter)) return;
-    const src = getMiniCardThumbSrc(card);
-    if (src) map[filter] = src;
-  });
-  LOCKED_FILTER_THUMBS.forEach((filter) => {
-    if (FALLBACK_FILTER_THUMBS[filter]) map[filter] = FALLBACK_FILTER_THUMBS[filter];
-  });
-  return { map, miniCards };
-}
-
-function buildAllThumbGridMarkup(miniCards) {
-  const tiles = [...miniCards]
-    .slice(0, 4)
-    .map((card) => {
-      const src = getMiniCardThumbSrc(card);
-      return src
-        ? `<img src="${src}" alt="" decoding="async" loading="lazy">`
-        : '';
-    })
-    .filter(Boolean)
-    .join('');
-  return tiles ? `<span class="filter-pill-thumb-grid">${tiles}</span>` : '';
+function buildFilterCategoryIconMarkup(filter) {
+  const icons = FILTER_CATEGORY_ICONS[filter];
+  if (!icons) return '';
+  return `
+    <img class="filter-pill-thumb-img filter-pill-thumb-img--for-dark" src="${icons.forDark}" alt="" decoding="async" loading="lazy">
+    <img class="filter-pill-thumb-img filter-pill-thumb-img--for-light" src="${icons.forLight}" alt="" decoding="async" loading="lazy">
+  `.trim();
 }
 
 function initGlobalCatalogueFilterNav() {
@@ -1409,25 +1388,19 @@ function repositionCatalogueFilterNav(pageName) {
 }
 
 function initFilterPillIcons() {
-  const { map: thumbByFilter, miniCards } = buildFilterThumbMapFromMiniCards();
-
   document.querySelectorAll('.filter-bar').forEach((bar) => {
     bar.classList.add('filter-bar--thumbs');
   });
 
   document.querySelectorAll('.filter-pill').forEach((pill) => {
-    if (pill.dataset.thumbReady === '1') return;
     const filter = (pill.dataset.filter || '').trim();
     const labelEl = pill.querySelector('.filter-pill-label');
     const label = labelEl
       ? labelEl.textContent.trim()
       : (pill.textContent || '').trim();
 
-    let thumbMarkup = '';
-    const thumbSrc = pill.dataset.thumbSrc || thumbByFilter[filter] || '';
-    if (thumbSrc) {
-      thumbMarkup = `<img class="filter-pill-thumb-img" src="${thumbSrc}" alt="" decoding="async" loading="lazy">`;
-    }
+    const thumbMarkup = buildFilterCategoryIconMarkup(filter);
+    if (!thumbMarkup) return;
 
     pill.innerHTML = `
       <span class="filter-pill-thumb" aria-hidden="true">${thumbMarkup}</span>
@@ -1435,6 +1408,7 @@ function initFilterPillIcons() {
     `;
     pill.dataset.thumbReady = '1';
     pill.dataset.iconReady = '1';
+    pill.dataset.catIconReady = '1';
   });
 }
 
@@ -1478,7 +1452,7 @@ function selectVariant(profile, _el) {
 // ===== TEMA CLARO / OSCURO =====
 const THEME_STORAGE_KEY = 'printit-theme';
 const NAV_LOGO_DARK_MODE_SRC = 'media/brand/logo-oficial.png';
-const NAV_LOGO_LIGHT_MODE_SRC = 'media/brand/logo-dark.jpg';
+const NAV_LOGO_LIGHT_MODE_SRC = 'media/brand/full-logo-black.png';
 
 function applyTheme(theme) {
   const isLight = theme === 'light';
