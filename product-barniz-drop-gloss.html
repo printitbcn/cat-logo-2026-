@@ -17,8 +17,8 @@
     <title>Barniz Drop Gloss | Print It</title>
     <meta name="description"
         content="Aplicaciones comercial Print It. Soluciones premium de impresión visual: Lightbox, Luminarias, Tótems, Aeris y más.">
-    <link rel="stylesheet" href="styles.css?v=20260713b">
-    <link rel="icon" type="image/png" href="Material Inicial/logo-oficial.png">
+    <link rel="stylesheet" href="styles.css?v=20261113show80">
+    <link rel="icon" type="image/png" href="media/brand/logo-oficial.png">
 
     <script>
       window.PRINTIT_PRODUCT_CONTEXT = {
@@ -72,14 +72,14 @@
                 <!-- Top Nav -->
                 <nav class="top-nav animate-in">
                     <div class="nav-brand">
-                        <a href="#" class="nav-brand-link" onclick="showPage('home', event)"
+                        <a href="index.html" class="nav-brand-link" 
                             aria-label="Print It — Inicio">
                         </a>
                     </div>
                     <div class="nav-links">
-                        <a href="#" class="active" onclick="showPage('home', event)">Inicio</a>
-                        <a href="#catalogue" onclick="goToCatalogueAll(event)">Aplicaciones</a>
-                        <a href="#" onclick="showPage('contact', event)">Contacto</a>
+                        <a href="index.html" class="active" >Inicio</a>
+                        <a href="index.html#catalogue">Aplicaciones</a>
+                        <a href="index.html#contact">Contacto</a>
                         <button type="button" class="nav-theme-toggle" aria-label="Cambiar a modo claro"></button>
                     </div>
                 </nav>
@@ -87,7 +87,7 @@
                 <!-- Profile Card -->
                 <div class="profile-card animate-in">
                     <div class="profile-header">
-                        <img src="Material Inicial/logo-oficial.png" alt="Print It" class="profile-avatar profile-avatar--logo">
+                        <img src="media/brand/logo-oficial.png" alt="Print It" class="profile-avatar profile-avatar--logo">
                         <div>
                             <div class="profile-name">Print It</div>
                             <div class="profile-role">Soluciones de impresión premium</div>
@@ -122,42 +122,37 @@
                                 </svg>
                             </span>
                         </h3>
-                        <a href="#catalogue" class="view-all" onclick="goToCatalogueAll(event)">Ver Todo</a>
+                        <a href="index.html#catalogue" class="view-all">Ver Todo</a>
                     </div>
                     <div class="mini-cards">
                         <div class="mini-card"
-                            onclick="openCatalogueCategory('lluminaries', 'ON-OFF/ON OFF ARREGLADO .png', 'Luminarias', event)">
-                            <img src="ON-OFF/LUMINARIA INDICE.png" alt="Luminarias">
+                            onclick="openCatalogueCategory('lluminaries', 'media/aplicaciones/luminarias/exterior-on-off-p100.png', 'Luminarias', event)">
+                            <img src="media/aplicaciones/luminarias/luminaria-indice.png" alt="Luminarias">
                             <span class="mini-card-label">Luminarias</span>
                         </div>
                         <div class="mini-card"
-                            onclick="openCatalogueCategory('lightbox', 'assets/img/categories/lightbox.png', 'Lightbox', event)">
-                            <img src="LIGHTBOX /doble cara /lightbox completo def .jpg" alt="Lightbox">
+                            onclick="openCatalogueCategory('lightbox', 'media/aplicaciones/lightbox/lightbox-miniatura.png', 'Lightbox', event)">
+                            <img src="media/aplicaciones/lightbox/lightbox-miniatura.png" alt="Lightbox">
                             <span class="mini-card-label">Lightbox</span>
                         </div>
                         <div class="mini-card"
-                            onclick="openCatalogueCategory('totems', 'totems :photocalls : backdrops /totems backdrops photocallls con luz.mov', 'Tótems / Muros / Photocalls', event)">
-                            <video autoplay muted loop playsinline preload="metadata"
-                                poster="totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png"
-                                src="totems :photocalls : backdrops /totems backdrops photocallls con luz.mov"
-                                aria-label="Tótems / Muros / Photocalls">
-                                <source src="totems :photocalls : backdrops /totems backdrops photocallls con luz.mov" type="video/quicktime">
-                            </video>
+                            onclick="openCatalogueCategory('totems', 'media/aplicaciones/totems/2.jpg', 'Tótems / Muros / Photocalls', event)">
+                            <img src="media/aplicaciones/totems/2.jpg" alt="Tótems / Backdrops / Photocalls">
                             <span class="mini-card-label">Tótems / Muros / Photocalls</span>
                         </div>
                         <div class="mini-card"
-                            onclick="openCatalogueCategory('aeris', 'assets/img/categories/aeris.png', 'Aeris', event)">
-                            <img src="assets/img/categories/cubos aereos .png" alt="Aeris">
+                            onclick="openCatalogueCategory('aeris', 'media/brand/categories/aeris.png', 'Aeris', event)">
+                            <img src="media/aplicaciones/aereos/exteirior-cubo.jpg" alt="Aeris">
                             <span class="mini-card-label">Aeris</span>
                         </div>
                         <div class="mini-card"
-                            onclick="openCatalogueCategory('vesteix', 'assets/img/categories/vesteix.png', 'Viste tu espacio', event)">
-                            <img src="assets/img/categories/vesteix.png" alt="Viste tu espacio">
+                            onclick="openCatalogueCategory('vesteix', 'media/aplicaciones/vestimos/voile-diferentes-placements-special.mp4', 'Viste tu espacio', event)">
+                            <img src="media/aplicaciones/vestimos/voile-miniatura.png" alt="Viste tu espacio">
                             <span class="mini-card-label">Viste tu espacio</span>
                         </div>
                         <div class="mini-card"
-                            onclick="openCatalogueCategory('rigids', 'RI%CC%81GIDOS%20/ri%CC%81gidos%202.png', 'Rígidos', event)">
-                            <img src="RI%CC%81GIDOS%20/ri%CC%81gidos%202.png" alt="Rígidos">
+                            onclick="openCatalogueCategory('rigids', 'media/aplicaciones/rigidos/rigidos-miniatura.jpg', 'Rígidos', event)">
+                            <img src="media/aplicaciones/rigidos/rigidos-miniatura.jpg" alt="Rígidos">
                             <span class="mini-card-label">Rígidos</span>
                         </div>
                     </div>
@@ -170,33 +165,27 @@
 
                 <nav class="top-nav animate-in">
                     <div class="nav-brand">
-                        <a href="#" class="nav-brand-link" onclick="showPage('home', event)"
+                        <a href="index.html" class="nav-brand-link" 
                             aria-label="Print It — Inicio">
-                            <img src="Material Inicial/logo-oficial.png" alt="" class="nav-logo">
+                            <img src="media/brand/logo-oficial.png" alt="" class="nav-logo">
                         </a>
                     </div>
                     <div class="nav-links">
-                        <a href="#" onclick="showPage('home', event)">Inicio</a>
-                        <a href="#catalogue" class="active" onclick="goToCatalogueAll(event)">Aplicaciones</a>
-                        <a href="#" onclick="showPage('contact', event)">Contacto</a>
+                        <a href="index.html" >Inicio</a>
+                        <a href="index.html#catalogue" class="active">Aplicaciones</a>
+                        <a href="index.html#contact">Contacto</a>
                         <button type="button" class="nav-theme-toggle" aria-label="Cambiar a modo claro"></button>
                     </div>
                 </nav>
 
                 <!-- Filter Bar -->
                 <div class="filter-bar animate-in">
-<button class="filter-pill" data-filter="lluminaries"
-                        onclick="filterCatalogue('lluminaries', this)"><span class="filter-pill-icon"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><ellipse cx="20" cy="27" rx="11" ry="4.5" fill="rgba(255,255,255,.22)"/><path d="M20 5v7" stroke="rgba(255,255,255,.95)" stroke-width="2" stroke-linecap="round"/><path d="M11 22V14a9 9 0 0 1 18 0v8H11Z" fill="rgba(255,255,255,.94)" stroke="rgba(0,0,0,.1)" stroke-width="0.8"/></svg></span><span class="filter-pill-label">Luminarias</span></button>
-                    <button class="filter-pill" data-filter="lightbox"
-                        onclick="filterCatalogue('lightbox', this)"><span class="filter-pill-icon"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="7" width="30" height="24" rx="3.5" fill="rgba(255,255,255,.22)" stroke="rgba(255,255,255,.48)" stroke-width="1.2"/><rect x="8.5" y="10.5" width="23" height="17" rx="2" fill="rgba(255,255,255,.96)"/><rect x="11" y="19" width="18" height="2.5" rx="1.2" fill="rgba(0,150,199,.28)"/></svg></span><span class="filter-pill-label">Lightbox</span></button>
-                    <button class="filter-pill" data-filter="totems"
-                        onclick="filterCatalogue('totems', this)"><span class="filter-pill-icon"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="12" y="5" width="16" height="28" rx="2.5" fill="rgba(255,255,255,.18)" stroke="rgba(255,255,255,.72)" stroke-width="1.3"/><rect x="14.5" y="7.5" width="11" height="16" rx="1.5" fill="rgba(255,255,255,.92)"/><rect x="8" y="34" width="24" height="3.5" rx="1" fill="rgba(255,255,255,.92)"/></svg></span><span class="filter-pill-label">Tótems</span></button>
-                    <button class="filter-pill" data-filter="aeris"
-                        onclick="filterCatalogue('aeris', this)"><span class="filter-pill-icon"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 3v5" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="1.8" stroke-linecap="round"/><path d="M14 12h12l-6 3.2-6-3.2z" fill="rgba(255,255,255,.38)"/><path d="M14 12v14.5l6 3.8V15.2" fill="rgba(255,255,255,.2)" stroke="rgba(255,255,255,.65)" stroke-width="1.15"/><path d="M26 12v14.5l-6 3.8V15.2" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.55)" stroke-width="1.15"/><path d="M14 26.5l6 3.8 6-3.8" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.1"/></svg></span><span class="filter-pill-label">Aéreos</span></button>
-                    <button class="filter-pill" data-filter="vesteix"
-                        onclick="filterCatalogue('vesteix', this)"><span class="filter-pill-icon"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="8" width="9" height="24" rx="1.5" fill="rgba(255,255,255,.32)" stroke="rgba(255,255,255,.42)" stroke-width="1"/><rect x="15.5" y="6" width="9" height="28" rx="1.5" fill="rgba(255,255,255,.52)" stroke="rgba(255,255,255,.52)" stroke-width="1"/><rect x="26" y="9" width="9" height="23" rx="1.5" fill="rgba(255,255,255,.36)" stroke="rgba(255,255,255,.42)" stroke-width="1"/></svg></span><span class="filter-pill-label">Viste tu espacio</span></button>
-                    <button class="filter-pill" data-filter="rigids"
-                        onclick="filterCatalogue('rigids', this)"><span class="filter-pill-icon"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="7" y="23" width="26" height="9" rx="1.5" fill="rgba(255,255,255,.26)"/><rect x="9" y="15" width="22" height="9" rx="1.5" fill="rgba(255,255,255,.48)" stroke="rgba(255,255,255,.5)" stroke-width="1"/><rect x="11" y="7" width="18" height="9" rx="1.5" fill="rgba(255,255,255,.95)" stroke="rgba(255,255,255,.55)" stroke-width="1"/></svg></span><span class="filter-pill-label">Rígidos</span></button>
+<a class="filter-pill" data-filter="lluminaries" href="index.html#luminarias"><span class="filter-pill-icon"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><ellipse cx="20" cy="27" rx="11" ry="4.5" fill="rgba(255,255,255,.22)"/><path d="M20 5v7" stroke="rgba(255,255,255,.95)" stroke-width="2" stroke-linecap="round"/><path d="M11 22V14a9 9 0 0 1 18 0v8H11Z" fill="rgba(255,255,255,.94)" stroke="rgba(0,0,0,.1)" stroke-width="0.8"/></svg></span><span class="filter-pill-label">Luminarias</span></a>
+                    <a class="filter-pill" data-filter="lightbox" href="index.html#lightbox"><span class="filter-pill-icon"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="7" width="30" height="24" rx="3.5" fill="rgba(255,255,255,.22)" stroke="rgba(255,255,255,.48)" stroke-width="1.2"/><rect x="8.5" y="10.5" width="23" height="17" rx="2" fill="rgba(255,255,255,.96)"/><rect x="11" y="19" width="18" height="2.5" rx="1.2" fill="rgba(0,150,199,.28)"/></svg></span><span class="filter-pill-label">Lightbox</span></a>
+                    <a class="filter-pill" data-filter="totems" href="index.html#totems"><span class="filter-pill-icon"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="12" y="5" width="16" height="28" rx="2.5" fill="rgba(255,255,255,.18)" stroke="rgba(255,255,255,.72)" stroke-width="1.3"/><rect x="14.5" y="7.5" width="11" height="16" rx="1.5" fill="rgba(255,255,255,.92)"/><rect x="8" y="34" width="24" height="3.5" rx="1" fill="rgba(255,255,255,.92)"/></svg></span><span class="filter-pill-label">Tótems</span></a>
+                    <a class="filter-pill" data-filter="aeris" href="index.html#aereos"><span class="filter-pill-icon"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 3v5" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="1.8" stroke-linecap="round"/><path d="M14 12h12l-6 3.2-6-3.2z" fill="rgba(255,255,255,.38)"/><path d="M14 12v14.5l6 3.8V15.2" fill="rgba(255,255,255,.2)" stroke="rgba(255,255,255,.65)" stroke-width="1.15"/><path d="M26 12v14.5l-6 3.8V15.2" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.55)" stroke-width="1.15"/><path d="M14 26.5l6 3.8 6-3.8" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.1"/></svg></span><span class="filter-pill-label">Aéreos</span></a>
+                    <a class="filter-pill" data-filter="vesteix" href="index.html#revestimientos"><span class="filter-pill-icon"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="8" width="9" height="24" rx="1.5" fill="rgba(255,255,255,.32)" stroke="rgba(255,255,255,.42)" stroke-width="1"/><rect x="15.5" y="6" width="9" height="28" rx="1.5" fill="rgba(255,255,255,.52)" stroke="rgba(255,255,255,.52)" stroke-width="1"/><rect x="26" y="9" width="9" height="23" rx="1.5" fill="rgba(255,255,255,.36)" stroke="rgba(255,255,255,.42)" stroke-width="1"/></svg></span><span class="filter-pill-label">Viste tu espacio</span></a>
+                    <a class="filter-pill" data-filter="rigids" href="index.html#rigidos"><span class="filter-pill-icon"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="7" y="23" width="26" height="9" rx="1.5" fill="rgba(255,255,255,.26)"/><rect x="9" y="15" width="22" height="9" rx="1.5" fill="rgba(255,255,255,.48)" stroke="rgba(255,255,255,.5)" stroke-width="1"/><rect x="11" y="7" width="18" height="9" rx="1.5" fill="rgba(255,255,255,.95)" stroke="rgba(255,255,255,.55)" stroke-width="1"/></svg></span><span class="filter-pill-label">Rígidos</span></a>
                 </div>
 
                 <div class="catalogue-list animate-in" id="catalogue-list">
@@ -207,128 +196,33 @@
                         <span class="section-header-tags">Interiorismo · Showroom</span>
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lluminaries"
-                        data-img="assets/img/products/luminaria-p100.png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
+                        data-img="media/brand/products/luminaria-p100.png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
                         <span class="catalogue-item-name"><a href="product-on-off.html">On - Off</a></span>
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lluminaries"
-                        data-img="ON-OFF/ON OFF ARREGLADO .png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
+                        data-img="media/aplicaciones/luminarias/exterior-on-off-p100.png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
                         <span class="catalogue-item-name"><a href="product-tunable-white.html">Tunable white</a></span>
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lluminaries"
-                        data-img="DALI : CASSAMBI /dali cassambi control .mp4" data-label="Luminarias" onclick="selectCatalogueItem(this)">
+                        data-img="media/aplicaciones/luminarias/dimmer-control-intensidad.mp4" data-label="Luminarias" onclick="selectCatalogueItem(this)">
                         <span class="catalogue-item-name"><a href="product-dali-casambi.html">Dimmer</a></span>
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lluminaries"
-                        data-img="assets/img/products/luminaria-p100.png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
+                        data-img="media/brand/products/luminaria-p100.png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
                         <span class="catalogue-item-name"><a href="product-dynamic-white.html">Dinamic White</a></span>
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lluminaries"
-                        data-img="assets/img/products/luminaria-p100.png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
+                        data-img="media/brand/products/luminaria-p100.png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
                         <span class="catalogue-item-name"><a href="product-pixel-led.html">Pixel Led</a></span>
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lluminaries"
-                        data-img="assets/img/products/luminaria-p100.png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
+                        data-img="media/brand/products/luminaria-p100.png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
                         <span class="catalogue-item-name"><a href="product-custom.html">Custom</a></span>
                     </div>
                     <div class="catalogue-item catalogue-item-detailed" data-category="lluminaries"
-                        data-img="assets/img/products/luminaria-p100.png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
+                        data-img="media/brand/products/luminaria-p100.png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
                         <details class="tech-details">
                             <summary class="catalogue-item-name"><a href="product-on-off.html">On - Off</a></summary>
-                            <div class="tech-spec-line">
-                                <span class="tech-spec-label">
-                                    <svg class="tech-icon tech-icon-light" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path d="M9 18h6M10 21h4M8 10a4 4 0 1 1 8 0c0 2-1 3-2 4v2h-4v-2c-1-1-2-2-2-4z" />
-                                    </svg>
-                                    Sistema de iluminacion
-                                </span>
-                                <span class="catalogue-item-ref">Front Led S12</span>
-                            </div>
-                        </details>
-                    </div>
-                    <div class="catalogue-item catalogue-item-detailed" data-category="lluminaries"
-                        data-img="ON-OFF/ON OFF ARREGLADO .png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
-                        <details class="tech-details">
-                            <summary class="catalogue-item-name"><a href="product-tunable-white.html">Tunable White</a></summary>
-                            <div class="tech-spec-line">
-                                <span class="tech-spec-label">
-                                    <svg class="tech-icon tech-icon-light" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path d="M9 18h6M10 21h4M8 10a4 4 0 1 1 8 0c0 2-1 3-2 4v2h-4v-2c-1-1-2-2-2-4z" />
-                                    </svg>
-                                    Sistema de iluminacion
-                                </span>
-                                <span class="catalogue-item-ref">Front Led S-TW18</span>
-                            </div>
-                        </details>
-                    </div>
-                    <div class="catalogue-item catalogue-item-detailed" data-category="lluminaries"
-                        data-img="DALI : CASSAMBI /dali cassambi control .mp4" data-label="Luminarias" onclick="selectCatalogueItem(this)">
-                        <details class="tech-details">
-                            <summary class="catalogue-item-name"><a href="product-dali-casambi.html">Dimmer</a></summary>
-                            <div class="tech-spec-line">
-                                <span class="tech-spec-label">
-                                    <svg class="tech-icon tech-icon-light" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path d="M9 18h6M10 21h4M8 10a4 4 0 1 1 8 0c0 2-1 3-2 4v2h-4v-2c-1-1-2-2-2-4z" />
-                                    </svg>
-                                    Tecnologia Dali - Casambi
-                                </span>
-                            </div>
-                        </details>
-                    </div>
-                    <div class="catalogue-item catalogue-item-detailed" data-category="lluminaries"
-                        data-img="assets/img/products/luminaria-p100.png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
-                        <details class="tech-details">
-                            <summary class="catalogue-item-name"><a href="product-dynamic-white.html">Dinamic White</a></summary>
-                            <div class="tech-spec-line">
-                                <span class="tech-spec-label">
-                                    <svg class="tech-icon tech-icon-light" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path d="M9 18h6M10 21h4M8 10a4 4 0 1 1 8 0c0 2-1 3-2 4v2h-4v-2c-1-1-2-2-2-4z" />
-                                    </svg>
-                                    Sistema de iluminacion
-                                </span>
-                                <span class="catalogue-item-ref">Tira Pixel Led</span>
-                            </div>
-                        </details>
-                    </div>
-                    <div class="catalogue-item catalogue-item-detailed" data-category="lluminaries"
-                        data-img="assets/img/products/luminaria-p100.png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
-                        <details class="tech-details">
-                            <summary class="catalogue-item-name"><a href="product-pixel-led.html">Pixel Led</a></summary>
-                            <div class="tech-spec-line">
-                                <span class="tech-spec-label">
-                                    <svg class="tech-icon tech-icon-light" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path d="M12 3v4m0 10v4m9-9h-4M7 12H3m15.364 6.364-2.829-2.828M8.465 8.464 5.636 5.636m12.728 0-2.829 2.828M8.465 15.536l-2.829 2.828M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"/>
-                                    </svg>
-                                    CCT
-                                </span>
-                                4.000 / 5.000 / 6.000 K
-                            </div>
-                            <div class="tech-spec-line">
-                                <span class="tech-spec-label">
-                                    <svg class="tech-icon tech-icon-power" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path d="M12 2v10m6.364-6.364a9 9 0 1 1-12.728 0"/>
-                                    </svg>
-                                    W/m
-                                </span>
-                                10 / 15
-                            </div>
-                            <div class="tech-spec-line">
-                                <span class="tech-spec-label">
-                                    <svg class="tech-icon tech-icon-size" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path d="M3 7V3h4M21 7V3h-4M3 17v4h4M21 17v4h-4M8 12h8"/>
-                                    </svg>
-                                    PERFIL
-                                </span>
-                                P100
-                            </div>
-                        </details>
-                    </div>
-                    <div class="catalogue-item catalogue-item-detailed" data-category="lluminaries"
-                        data-img="assets/img/products/luminaria-p100.png" data-label="Luminarias" onclick="selectCatalogueItem(this)">
-                        <details class="tech-details">
-                            <summary class="catalogue-item-name"><a href="product-custom.html">Custom</a></summary>
-                            <div class="tech-spec-line">
-                                <span class="catalogue-item-ref">Tailor made, proyectos a medida</span>
-                            </div>
                         </details>
                     </div>
 
@@ -338,19 +232,19 @@
                         <span class="section-header-tags">Ferias · Retail · Showroom · Interiorismo</span>
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lightbox"
-                        data-img="LUXPANEL/LUX EXTERIOR.png" data-label="Lightbox" onclick="selectCatalogueItem(this)">
+                        data-img="media/aplicaciones/lightbox/lux-exterior.png" data-label="Lightbox" onclick="selectCatalogueItem(this)">
                         <span class="catalogue-item-name"><a href="product-luxpanel.html">Luxpanel</a></span>
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lightbox"
-                        data-img="LIGHTBOX /A PARED /exterior P50 A PARED .jpg" data-label="Lightbox" onclick="selectCatalogueItem(this)">
+                        data-img="media/aplicaciones/lightbox/exterior-p50-a-pared.jpg" data-label="Lightbox" onclick="selectCatalogueItem(this)">
                         <span class="catalogue-item-name"><a href="product-lightbox-pared.html">Lightbox a pared</a></span>
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="lightbox"
-                        data-img="LIGHTBOX /doble cara /lightbox completo def .jpg" data-label="Lightbox" onclick="selectCatalogueItem(this)">
+                        data-img="media/aplicaciones/lightbox/lightbox-completo-def.jpg" data-label="Lightbox" onclick="selectCatalogueItem(this)">
                         <span class="catalogue-item-name"><a href="product-lightbox-doble-cara.html">Lightbox a doble cara</a></span>
                     </div>
                     <div class="catalogue-item catalogue-item-detailed" data-category="lightbox"
-                        data-img="LUXPANEL/LUX EXTERIOR.png" data-label="Lightbox" onclick="selectCatalogueItem(this)">
+                        data-img="media/aplicaciones/lightbox/lux-exterior.png" data-label="Lightbox" onclick="selectCatalogueItem(this)">
                         <details class="tech-details">
                             <summary class="catalogue-item-name"><a href="product-luxpanel.html">Luxpanel</a></summary>
                             <div class="tech-spec-line">
@@ -383,7 +277,7 @@
                         </details>
                     </div>
                     <div class="catalogue-item catalogue-item-detailed" data-category="lightbox"
-                        data-img="LIGHTBOX /A PARED /exterior P50 A PARED .jpg" data-label="Lightbox" onclick="selectCatalogueItem(this)">
+                        data-img="media/aplicaciones/lightbox/exterior-p50-a-pared.jpg" data-label="Lightbox" onclick="selectCatalogueItem(this)">
                         <details class="tech-details">
                             <summary class="catalogue-item-name"><a href="product-lightbox-pared.html">Lightbox a pared</a></summary>
                             <div class="tech-pack">
@@ -431,7 +325,7 @@
                         </details>
                     </div>
                     <div class="catalogue-item catalogue-item-detailed" data-category="lightbox"
-                        data-img="LIGHTBOX /doble cara /lightbox completo def .jpg" data-label="Lightbox" onclick="selectCatalogueItem(this)">
+                        data-img="media/aplicaciones/lightbox/lightbox-completo-def.jpg" data-label="Lightbox" onclick="selectCatalogueItem(this)">
                         <details class="tech-details">
                             <summary class="catalogue-item-name"><a href="product-lightbox-doble-cara.html">Lightbox a doble cara</a></summary>
                             <div class="tech-pack">
@@ -485,15 +379,15 @@
                         <span class="section-header-tags">Ferias · Eventos · Retail · Interiorismo</span>
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="totems"
-                        data-img="assets/img/categories/totems.png" data-label="Tótems" onclick="selectCatalogueItem(this)">
+                        data-img="media/brand/categories/totems.png" data-label="Tótems" onclick="selectCatalogueItem(this)">
                         <span class="catalogue-item-name"><a href="product-con-luz.html">Con luz (1/2 caras)</a></span>
                     </div>
                     <div class="catalogue-item catalogue-item-simple" data-category="totems"
-                        data-img="assets/img/categories/totems.png" data-label="Tótems" onclick="selectCatalogueItem(this)">
+                        data-img="media/brand/categories/totems.png" data-label="Tótems" onclick="selectCatalogueItem(this)">
                         <span class="catalogue-item-name"><a href="product-sin-luz.html">Sin luz (1/2 caras)</a></span>
                     </div>
                     <div class="catalogue-item catalogue-item-detailed" data-category="totems"
-                        data-img="assets/img/categories/totems.png" data-label="Tótems" onclick="selectCatalogueItem(this)">
+                        data-img="media/brand/categories/totems.png" data-label="Tótems" onclick="selectCatalogueItem(this)">
                         <details class="tech-details">
                             <summary class="catalogue-item-name"><a href="product-con-luz.html">Con luz</a></summary>
                             <div class="tech-spec-line">
@@ -526,7 +420,7 @@
                         </details>
                     </div>
                     <div class="catalogue-item catalogue-item-detailed" data-category="totems"
-                        data-img="assets/img/categories/totems.png" data-label="Tótems" onclick="selectCatalogueItem(this)">
+                        data-img="media/brand/categories/totems.png" data-label="Tótems" onclick="selectCatalogueItem(this)">
                         <details class="tech-details">
                             <summary class="catalogue-item-name"><a href="product-sin-luz.html">Sin luz</a></summary>
                             <div class="tech-spec-line">
@@ -555,19 +449,50 @@
                         <span class="section-header-title">AÉREOS</span>
                         <span class="section-header-tags">Ferias · Eventos · Retail · Interiorismo</span>
                     </div>
-                    <div class="catalogue-item catalogue-item-simple" data-category="aeris" data-img="assets/img/categories/aeris.png"
+                    <div class="catalogue-item catalogue-item-simple" data-category="aeris" data-img="media/brand/categories/aeris.png"
                         data-label="Aeris" onclick="selectCatalogueItem(this)">
                         <span class="catalogue-item-name"><a href="product-cubos.html">Cubos</a></span>
                     </div>
-                    <div class="catalogue-item catalogue-item-simple" data-category="aeris" data-img="assets/img/categories/aeris.png"
+                    <div class="catalogue-item catalogue-item-simple" data-category="aeris" data-img="media/brand/categories/aeris.png"
                         data-label="Aeris" onclick="selectCatalogueItem(this)">
                         <span class="catalogue-item-name"><a href="product-frisos.html">Frisos</a></span>
                     </div>
-                    <div class="catalogue-item catalogue-item-simple" data-category="aeris" data-img="assets/img/categories/aeris.png"
+                    <div class="catalogue-item catalogue-item-detailed catalogue-item--branch" data-category="aeris" data-img="media/brand/categories/aeris.png"
                         data-label="Aeris" onclick="selectCatalogueItem(this)">
-                        <span class="catalogue-item-name"><a href="product-banners-y-circulares.html">Banners y circulares</a></span>
+                        <details class="tech-details">
+                            <summary class="catalogue-item-name catalogue-item-name--branch">
+                                <span class="catalogue-branch-title">Circulares</span>
+                                <span class="catalogue-branch-meta" aria-hidden="true">
+                                    <span class="catalogue-branch-pills">
+                                        <span class="catalogue-branch-pill">CON LUZ</span>
+                                        <span class="catalogue-branch-pill">SIN LUZ</span>
+                                    </span>
+                                </span>
+                            </summary>
+                            <ul class="catalogue-branch-options" role="list">
+                                <li>
+                                    <a class="catalogue-branch-link" href="product-circulares-con-luz.html">
+                                        <span class="catalogue-branch-link-main">
+                                            <span class="catalogue-branch-link-title">Aéreos circulares CON LUZ</span>
+                                            <span class="catalogue-branch-link-sub">Aéreos · con iluminación</span>
+                                        </span>
+                                        <span class="catalogue-branch-link-go" aria-hidden="true">→</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="catalogue-branch-link" href="product-circulares-sin-luz.html">
+                                        <span class="catalogue-branch-link-main">
+                                            <span class="catalogue-branch-link-title">Aéreos Circulares SIN LUZ</span>
+                                            <span class="catalogue-branch-link-sub">Aéreos · sin iluminación</span>
+                                        </span>
+                                        <span class="catalogue-branch-link-go" aria-hidden="true">→</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </details>
                     </div>
-                    <div class="catalogue-item catalogue-item-detailed" data-category="aeris" data-img="assets/img/categories/aeris.png"
+
+                    <div class="catalogue-item catalogue-item-detailed" data-category="aeris" data-img="media/brand/categories/aeris.png"
                         data-label="Aeris" onclick="selectCatalogueItem(this)">
                         <details class="tech-details">
                             <summary class="catalogue-item-name">Aereos</summary>
@@ -589,32 +514,34 @@
                                 </span>
                                 <span class="catalogue-item-ref">Frisos</span>
                             </div>
-                            <div class="tech-spec-line">
-                                <span class="tech-spec-label">
-                                    <svg class="tech-icon tech-icon-ruler" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path d="M4 16l8-8 8 8-4 4H8zM9 11l1.5 1.5M12 8l1.5 1.5M14.5 10.5l1.5 1.5" />
-                                    </svg>
-                                    Opcion
-                                </span>
-                                <span class="catalogue-item-ref">Banners y circulares</span>
-                            </div>
                         </details>
                     </div>
 
                     <!-- ── VESTEIX EL TEU ESPAI ── -->
+                    
+<!-- ── VESTEIX EL TEU ESPAI ── -->
+
+<!-- ── VESTEIX EL TEU ESPAI ── -->
+
+<!-- ── VESTEIX EL TEU ESPAI ── -->
                     <div class="catalogue-section-header" id="revestimientos" data-category="vesteix">
                         <span class="section-header-title">VISTE TU ESPACIO</span>
                         <span class="section-header-tags">Ferias · Retail · Showroom · Interiorismo</span>
                     </div>
-                    <div class="catalogue-item catalogue-item-simple" data-category="vesteix" data-img="assets/img/categories/vesteix.png"
+                    <div class="catalogue-item catalogue-item-simple" data-category="vesteix" data-img="media/aplicaciones/vestimos/vestir-espacio-def-def.mov"
                         data-label="Revestimientos" onclick="selectCatalogueItem(this)">
                         <span class="catalogue-item-name"><a href="product-forrado-paredes.html">Forrado de paredes</a></span>
                     </div>
-                    <div class="catalogue-item catalogue-item-simple" data-category="vesteix" data-img="assets/img/categories/vesteix.png"
+                    <div class="catalogue-item catalogue-item-simple" data-category="vesteix" data-img="media/aplicaciones/vestimos/voile-tecnico-def-def.mov"
+                        data-label="VOILÉ" onclick="selectCatalogueItem(this)">
+                        <span class="catalogue-item-name"><a href="product-voile.html">Voilé</a></span>
+                    </div>
+
+                    <div class="catalogue-item catalogue-item-simple" data-category="vesteix" data-img="media/aplicaciones/vestimos/vestir-espacio-def-def.mov"
                         data-label="Revestimientos" onclick="selectCatalogueItem(this)">
                         <span class="catalogue-item-name"><a href="product-forrado-columnas.html">Forrado de columnas</a></span>
                     </div>
-                    <div class="catalogue-item catalogue-item-detailed" data-category="vesteix" data-img="assets/img/categories/vesteix.png"
+                    <div class="catalogue-item catalogue-item-detailed" data-category="vesteix" data-img="media/aplicaciones/vestimos/vestir-espacio-def-def.mov"
                         data-label="Revestimientos" onclick="selectCatalogueItem(this)">
                         <details class="tech-details">
                             <summary class="catalogue-item-name"><a href="product-forrado-paredes.html">Forrado de paredes</a></summary>
@@ -623,13 +550,29 @@
                                     <svg class="tech-icon tech-icon-ruler" viewBox="0 0 24 24" aria-hidden="true">
                                         <path d="M4 16l8-8 8 8-4 4H8zM9 11l1.5 1.5M12 8l1.5 1.5M14.5 10.5l1.5 1.5" />
                                     </svg>
-                                    Opciones de perfileria
+                                    Impresión
                                 </span>
-                                <span class="catalogue-item-ref">M1614 / P15 Pared</span>
+                                <span class="catalogue-item-ref">UV / Sublimación · textil PES</span>
                             </div>
                         </details>
                     </div>
-                    <div class="catalogue-item catalogue-item-detailed" data-category="vesteix" data-img="assets/img/categories/vesteix.png"
+                    <div class="catalogue-item catalogue-item-detailed" data-category="vesteix" data-img="media/aplicaciones/vestimos/voile-tecnico-def-def.mov"
+                        data-label="VOILÉ" onclick="selectCatalogueItem(this)">
+                        <details class="tech-details">
+                            <summary class="catalogue-item-name"><a href="product-voile.html">Voilé</a></summary>
+                            <div class="tech-spec-line">
+                                <span class="tech-spec-label">
+                                    <svg class="tech-icon tech-icon-ruler" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M4 16l8-8 8 8-4 4H8zM9 11l1.5 1.5M12 8l1.5 1.5M14.5 10.5l1.5 1.5" />
+                                    </svg>
+                                    Impresión
+                                </span>
+                                <span class="catalogue-item-ref">UV / Sublimación · textil PES · Voilé</span>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div class="catalogue-item catalogue-item-detailed" data-category="vesteix" data-img="media/aplicaciones/vestimos/vestir-espacio-def-def.mov"
                         data-label="Revestimientos" onclick="selectCatalogueItem(this)">
                         <details class="tech-details">
                             <summary class="catalogue-item-name"><a href="product-forrado-columnas.html">Forrado de columnas</a></summary>
@@ -638,9 +581,9 @@
                                     <svg class="tech-icon tech-icon-ruler" viewBox="0 0 24 24" aria-hidden="true">
                                         <path d="M4 16l8-8 8 8-4 4H8zM9 11l1.5 1.5M12 8l1.5 1.5M14.5 10.5l1.5 1.5" />
                                     </svg>
-                                    Opciones de perfileria
+                                    Impresión
                                 </span>
-                                <span class="catalogue-item-ref">M1614 / P15 Columna</span>
+                                <span class="catalogue-item-ref">UV / Sublimación · textil PES</span>
                             </div>
                         </details>
                     </div>
@@ -650,11 +593,11 @@
                         <span class="section-header-title">RÍGIDOS</span>
                         <span class="section-header-tags">Retail · Interiorismo · Aplicaciones especiales</span>
                     </div>
-                    <div class="catalogue-item catalogue-item-simple" data-category="rigids" data-img="assets/img/products/luminaria-p100.png"
+                    <div class="catalogue-item catalogue-item-simple" data-category="rigids" data-img="media/brand/products/luminaria-p100.png"
                         data-label="Rígidos" onclick="selectCatalogueItem(this)">
                         <span class="catalogue-item-name"><a href="product-rigidos.html">Impresión UVI, barnices y relieves · soporte rígido</a></span>
                     </div>
-                    <div class="catalogue-item catalogue-item-detailed" data-category="rigids" data-img="assets/img/products/luminaria-p100.png"
+                    <div class="catalogue-item catalogue-item-detailed" data-category="rigids" data-img="media/brand/products/luminaria-p100.png"
                         data-label="Rígidos" onclick="selectCatalogueItem(this)">
                         <details class="tech-details">
                             <summary class="catalogue-item-name"><a href="product-rigidos.html">Rígidos — impresión, barnices y relieves</a></summary>
@@ -676,7 +619,7 @@
                     <div class="footer-bar-left">
                         <span>&copy; 2026 Print It</span>
                     </div>
-                    <a href="#">Impresiona</a>
+                    <a href="#">MAKE AN IMPRESSION</a>
                 </div>
 
             </div><!-- /page-catalogue -->
@@ -686,89 +629,28 @@
 
                 <nav class="top-nav animate-in">
                     <div class="nav-brand">
-                        <a href="#" class="nav-brand-link" onclick="showPage('home', event)"
+                        <a href="index.html" class="nav-brand-link" 
                             aria-label="Print It — Inicio">
-                            <img src="Material Inicial/logo-oficial.png" alt="" class="nav-logo">
+                            <img src="media/brand/logo-oficial.png" alt="" class="nav-logo">
                         </a>
                     </div>
                     <div class="nav-links">
-                        <a href="#" onclick="showPage('home', event)">Inicio</a>
-                        <a href="#catalogue" onclick="goToCatalogueAll(event)">Aplicaciones</a>
-                        <a href="#" onclick="showPage('contact', event)">Contacto</a>
+                        <a href="index.html" >Inicio</a>
+                        <a href="index.html#catalogue">Aplicaciones</a>
+                        <a href="index.html#contact">Contacto</a>
                         <button type="button" class="nav-theme-toggle" aria-label="Cambiar a modo claro"></button>
                     </div>
                 </nav>
 
                 <div class="product-top-actions animate-in">
-                    <a class="product-home-btn" href="#catalogue" onclick="goToCatalogueAll(event)">← VOLVER A APLICACIONES</a>
-                </div>
-
-                <!-- Producto único: Luminaria ON/OFF -->
-                <div class="product-detail-card animate-in">
-                    <div class="product-detail-header">
-                        <p class="product-struct-kicker">Producto</p>
-                        <h2 class="product-struct-title">Luminaria</h2>
-                        <p class="product-struct-lead">ON / OFF</p>
-
-                        <div class="product-gallery">
-<div class="gallery-item">
-                            <img src="totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png" alt="Instalación luminaria — vista 1">
-                        </div>
-                        <div class="gallery-item">
-                            <img src="assets/img/products/luminaria-p100.png" alt="Detalle perfil P100">
-                        </div>
-                        <div class="gallery-item">
-                            <video class="gallery-video" autoplay muted loop playsinline controls
-                                poster="assets/img/products/luminaria-showroom-2.jpeg">
-                                <source src="Material Inicial/vid1.mp4" type="video/mp4">
-                                Tu navegador no soporta vídeo HTML5.
-                            </video>
-                        </div>
-                        </div>
-
-                        <div class="product-desc-block">
-                            <p class="product-desc-label">Descripción</p>
-                            <p><strong>Estructura:</strong> P100 — perfilería de aluminio P100 (100&nbsp;mm de ancho).</p>
-                            <p>El tejido y la iluminación se componen por:</p>
-                            <ul class="product-desc-list">
-                                <li><strong>Opciones de acabado:</strong> blanco, negro, anodizado.</li>
-                                <li><strong>Dorso:</strong> plancha de Dibond blanco de 3&nbsp;mm de espesor.</li>
-                                <li><strong>Iluminación:</strong> Frontline S12 FLAT (175°).</li>
-                                <li><strong>Tejido frontal:</strong> textil blanco 100&nbsp;% poliéster, con posibilidad de
-                                    impresión UVI / sublimación.</li>
-                            </ul>
-                            <p><strong>Otras opciones de perfilería:</strong> P50&nbsp;mm · P70&nbsp;mm · P120&nbsp;mm.</p>
-                        </div>
-
-                        <button class="read-more-btn" onclick="goToCatalogueAll(event)">
-                            Volver al Aplicaciones ↓
-                        </button>
-                    </div>
-                    <div class="product-meta-row">
-                        <div class="meta-cell">
-                            <div class="meta-cell-label">Familia</div>
-                            <div class="meta-cell-value">Luminaria</div>
-                        </div>
-                        <div class="meta-cell">
-                            <div class="meta-cell-label">Sistema</div>
-                            <div class="meta-cell-value">ON / OFF</div>
-                        </div>
-                        <div class="meta-cell">
-                            <div class="meta-cell-label">Estructura</div>
-                            <div class="meta-cell-value">P100</div>
-                        </div>
-                        <div class="meta-cell">
-                            <div class="meta-cell-label">LED</div>
-                            <div class="meta-cell-value">Frontline S12 FLAT</div>
-                        </div>
-                    </div>
+                    <a class="product-home-btn" href="index.html#catalogue">← VOLVER A APLICACIONES</a>
                 </div>
 
                 <div class="product-gallery-intro animate-in">
                     <nav class="product-breadcrumb" aria-label="Migas de pan">
                         <ol class="product-breadcrumb-list">
                             <li class="product-breadcrumb-item">
-                                <a href="#catalogue" class="product-breadcrumb-link" onclick="goToCatalogueAll(event)">Aplicaciones</a>
+                                <a href="index.html#catalogue" class="product-breadcrumb-link">Aplicaciones</a>
                             </li>
                             <li class="product-breadcrumb-item" aria-current="page">
                                 Luminaria ON / OFF — P100
@@ -782,7 +664,7 @@
                     <div class="sheet-media-gallery-header">
                         <span class="sheet-media-gallery-label">Galería</span>
                         <a class="sheet-download-cta"
-                            href="Material Inicial/PRINTIT Backlite ON-OFF P100+Fronts_ESP.pdf" download
+                            href="media/fichas/ficha-tecnica-backlight-suspendido-on-off-p100-fronts-esp.pdf" download
                             target="_blank" rel="noopener noreferrer">
                             Descargar ficha técnica
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -793,19 +675,18 @@
                     </div>
                     <div class="product-gallery">
                         <div class="gallery-item">
-                            <img src="totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png" alt="Instalación luminaria — vista 1">
+                            <img src="media/aplicaciones/totems/totems-backdrops-photocalls-con-luz.png" alt="Instalación luminaria — vista 1">
                         </div>
                         <div class="gallery-item">
-                            <img src="assets/img/products/luminaria-p100.png" alt="Detalle perfil P100">
+                            <img src="media/brand/products/luminaria-p100.png" alt="Detalle perfil P100">
                         </div>
                         <div class="gallery-item">
                             <video class="gallery-video" autoplay muted loop playsinline controls
-                                poster="assets/img/products/luminaria-showroom-2.jpeg">
-                                <source src="Material Inicial/vid1.mp4" type="video/mp4">
+                                poster="media/brand/products/luminaria-showroom-2.jpg">
+                                <source src="media/brand/vid1.mp4" type="video/mp4">
                                 Tu navegador no soporta vídeo HTML5.
                             </video>
                         </div>
-                    </div>
                 </div>
 
                 <!-- Detalles técnicos (estructura única producto) -->
@@ -849,7 +730,7 @@
                                 onclick="selectVariant('P50', this)">
                                 <div class="sheet-profile-thumb sheet-profile-thumb--peek" aria-expanded="false">
                                             <div class="sheet-profile-peek-frame">
-                                                <img src="Material Inicial/OPCIONES-DE-PERFILERIA/P50.png" alt="Vista técnica sección P50">
+                                                <img src="media/perfiles/p50.png" alt="Vista técnica sección P50">
                                             </div>
                                             <span class="sheet-profile-peek-hint">Ampliar vista técnica</span>
                                         </div>
@@ -862,7 +743,7 @@
                                 onclick="selectVariant('P70', this)">
                                 <div class="sheet-profile-thumb sheet-profile-thumb--peek" aria-expanded="false">
                                             <div class="sheet-profile-peek-frame">
-                                                <img src="Material Inicial/OPCIONES-DE-PERFILERIA/P70.png" alt="Vista técnica sección P70">
+                                                <img src="media/brand/p70.png" alt="Vista técnica sección P70">
                                             </div>
                                             <span class="sheet-profile-peek-hint">Ampliar vista técnica</span>
                                         </div>
@@ -875,7 +756,7 @@
                                 onclick="selectVariant('P100', this)">
                                 <div class="sheet-profile-thumb sheet-profile-thumb--peek" aria-expanded="false">
                                             <div class="sheet-profile-peek-frame">
-                                                <img src="Material Inicial/OPCIONES-DE-PERFILERIA/P100.png" alt="Vista técnica sección P100">
+                                                <img src="media/perfiles/p100.png" alt="Vista técnica sección P100">
                                             </div>
                                             <span class="sheet-profile-peek-hint">Ampliar vista técnica</span>
                                         </div>
@@ -905,10 +786,6 @@
                             <span class="swatch-name">Anodizado</span>
                         </div>
                         <div class="swatch">
-                            <div class="swatch-color swatch-color--wood"></div>
-                            <span class="swatch-name">Madera</span>
-                        </div>
-                        <div class="swatch">
                             <div class="swatch-color swatch-color--ral"></div>
                             <span class="swatch-name">RAL (bajo demanda)</span>
                         </div>
@@ -924,9 +801,9 @@
                     <div class="product-video-wrap">
                         <div class="product-video-aspect">
                             <video class="product-feature-video" autoplay loop muted playsinline controls
-                                preload="auto" poster="ON-OFF/ON OFF ARREGLADO .png"
+                                preload="auto" poster="media/aplicaciones/luminarias/exterior-on-off-p100.png"
                                 aria-label="Vídeo render 3D Rhino">
-                                <source src="Material Inicial/COMPRIMIDOVideo-Render-Rhino.mp4" type="video/mp4">
+                                <source src="media/brand/comprimidovideo-render-rhino.mp4" type="video/mp4">
                                 Tu navegador no soporta vídeo HTML5.
                             </video>
                         </div>
@@ -942,9 +819,9 @@
                     </div>
                     <div class="ba-compare" role="group" aria-label="Comparador de vistas exterior e interior"
                         data-ba-initial="50">
-                        <img class="ba-layer ba-after" src="Material Inicial/LUMINARIA-P-100-NAKED.jpeg"
+                        <img class="ba-layer ba-after" src="media/brand/luminaria-p-100-naked.jpg"
                             alt="Vista interior — luminaria P100 naked" decoding="async">
-                        <img class="ba-layer ba-before" src="Material Inicial/LUMINARIA-P-100-RELLENO.png"
+                        <img class="ba-layer ba-before" src="media/brand/luminaria-p-100-relleno.png"
                             alt="Vista exterior — luminaria P100 con relleno" decoding="async">
                         <div class="ba-divider" aria-hidden="true">
                             <span class="ba-knob">
@@ -965,16 +842,15 @@
                 <div class="product-cta-row animate-in">
                     <a class="product-cta-btn product-cta-btn--primary"
                         href="mailto:roberto.ferrero@printitbcn.com?subject=Solicitud%20de%20presupuesto%20%E2%80%94%20Print%20It">Solicitar presupuesto</a>
-                    <a class="product-cta-btn product-cta-btn--secondary" href="#"
-                        onclick="showPage('contact', event)">Hablar con un comercial</a>
+                    <a class="product-cta-btn product-cta-btn--secondary" href="index.html#contact">Hablar con un comercial</a>
                 </div>
 
                 <div class="footer-bar">
                     <div class="footer-bar-left">
-                        <img src="Material Inicial/logo-oficial.png" alt="" class="footer-logo">
+                        <img src="media/brand/logo-oficial.png" alt="" class="footer-logo">
                         <span>@2026 Print it - MAKE AN IMPRESSION</span>
                     </div>
-                    <a href="#catalogue" onclick="goToCatalogueAll(event)">VOLVER A TODOS LOS PRODUCTOS</a>
+                    <a href="index.html#catalogue">VOLVER A TODOS LOS PRODUCTOS</a>
                 </div>
 
             </div><!-- /page-product -->
@@ -984,22 +860,22 @@
 
                 <nav class="top-nav animate-in">
                     <div class="nav-brand">
-                        <a href="#" class="nav-brand-link" onclick="showPage('home', event)"
+                        <a href="index.html" class="nav-brand-link" 
                             aria-label="Print It — Inicio">
-                            <img src="Material Inicial/logo-oficial.png" alt="" class="nav-logo">
+                            <img src="media/brand/logo-oficial.png" alt="" class="nav-logo">
                         </a>
                     </div>
                     <div class="nav-links">
-                        <a href="#" onclick="showPage('home', event)">Inicio</a>
-                        <a href="#catalogue" onclick="goToCatalogueAll(event)">Aplicaciones</a>
-                        <a href="#" class="active" onclick="showPage('contact', event)">Contacto</a>
+                        <a href="index.html" >Inicio</a>
+                        <a href="index.html#catalogue">Aplicaciones</a>
+                        <a href="index.html#contact" class="active">Contacto</a>
                         <button type="button" class="nav-theme-toggle" aria-label="Cambiar a modo claro"></button>
                     </div>
                 </nav>
 
                 <div class="profile-card animate-in">
                     <div class="profile-header">
-                        <img src="Material Inicial/logo-oficial.png" alt="Print It — Roberto Ferrero"
+                        <img src="media/brand/logo-oficial.png" alt="Print It — Roberto Ferrero"
                             class="profile-avatar profile-avatar--logo">
                         <div>
                             <div class="profile-name">Roberto Ferrero</div>
@@ -1054,7 +930,7 @@
 
                 <div class="profile-card animate-in">
                     <div class="profile-header">
-                        <img src="Material Inicial/logo-oficial.png" alt="Print It — Núria Reche"
+                        <img src="media/brand/logo-oficial.png" alt="Print It — Núria Reche"
                             class="profile-avatar profile-avatar--logo">
                         <div>
                             <div class="profile-name">Núria Reche</div>
@@ -1089,7 +965,7 @@
 
                 <div class="profile-card animate-in">
                     <div class="profile-header">
-                        <img src="Material Inicial/logo-oficial.png" alt="Print It — Miquel Ferrer"
+                        <img src="media/brand/logo-oficial.png" alt="Print It — Miquel Ferrer"
                             class="profile-avatar profile-avatar--logo">
                         <div>
                             <div class="profile-name">Miquel Ferrer</div>
@@ -1122,10 +998,10 @@
 
                 <div class="footer-bar">
                     <div class="footer-bar-left">
-                        <img src="Material Inicial/logo-oficial.png" alt="" class="footer-logo">
+                        <img src="media/brand/logo-oficial.png" alt="" class="footer-logo">
                         <span>&copy; 2026 Print It. Todos los derechos reservados.</span>
                     </div>
-                    <a href="#">Impresiona</a>
+                    <a href="#">MAKE AN IMPRESSION</a>
                 </div>
 
             </div><!-- /page-contact -->
@@ -1150,7 +1026,7 @@
         </div>
     </aside>
 
-    <script src="app.js?v=20260713b"></script>
+    <script src="app.js?v=20261113frame025"></script>
 </body>
 
 </html>

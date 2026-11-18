@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" width="1200" height="620" role="img" aria-labelledby="title desc">
+  <title id="title">Sistema Voile - bandera suspendida</title>
+  <desc id="desc">Esquema visual del sistema: cable, regulador, colgador, barra, tejido voile y contrapeso.</desc>
+  <defs>
+    <linearGradient id="fabric" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00b4d8" stop-opacity="0.28"/>
+      <stop offset="45%" stop-color="#00b4d8" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#00b4d8" stop-opacity="0.04"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#00b4d8" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#00b4d8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="620" fill="#000000"/>
+  <rect x="0" y="0" width="1200" height="620" fill="url(#glow)"/>
+
+  <g opacity="0.07" stroke="#00b4d8" stroke-width="1">
+    <line x1="60" y1="80" x2="1140" y2="80"/>
+    <line x1="60" y1="540" x2="1140" y2="540"/>
+    <line x1="60" y1="80" x2="60" y2="540"/>
+    <line x1="1140" y1="80" x2="1140" y2="540"/>
+  </g>
+
+  <line x1="280" y1="96" x2="920" y2="96" stroke="#00b4d8" stroke-width="2.2" opacity="0.55"/>
+  <circle cx="360" cy="96" r="3.5" fill="#00b4d8"/>
+  <circle cx="840" cy="96" r="3.5" fill="#00b4d8"/>
+
+  <line x1="360" y1="96" x2="360" y2="168" stroke="#00b4d8" stroke-width="2.4" stroke-linecap="round"/>
+  <line x1="840" y1="96" x2="840" y2="168" stroke="#00b4d8" stroke-width="2.4" stroke-linecap="round"/>
+
+  <rect x="342" y="168" width="36" height="42" rx="3" fill="#061018" stroke="#00b4d8" stroke-width="1.8"/>
+  <rect x="822" y="168" width="36" height="42" rx="3" fill="#061018" stroke="#00b4d8" stroke-width="1.8"/>
+  <circle cx="360" cy="189" r="5" fill="none" stroke="#00b4d8" stroke-width="1.4"/>
+  <circle cx="840" cy="189" r="5" fill="none" stroke="#00b4d8" stroke-width="1.4"/>
+
+  <rect x="348" y="210" width="24" height="40" rx="2.5" fill="#061018" stroke="#00b4d8" stroke-width="1.6"/>
+  <rect x="828" y="210" width="24" height="40" rx="2.5" fill="#061018" stroke="#00b4d8" stroke-width="1.6"/>
+  <circle cx="384" cy="230" r="7" fill="none" stroke="#00b4d8" stroke-width="1.5"/>
+  <circle cx="864" cy="230" r="7" fill="none" stroke="#00b4d8" stroke-width="1.5"/>
+
+  <rect x="300" y="250" width="600" height="16" rx="2" fill="#07141c" stroke="#00b4d8" stroke-width="2"/>
+
+  <rect x="330" y="266" width="540" height="250" fill="url(#fabric)" stroke="#00b4d8" stroke-width="1.8"/>
+  <path d="M420 266 C430 340 430 400 420 516" fill="none" stroke="#00b4d8" stroke-width="1" opacity="0.25"/>
+  <path d="M600 266 C612 340 612 400 600 516" fill="none" stroke="#00b4d8" stroke-width="1" opacity="0.2"/>
+  <path d="M780 266 C790 340 790 400 780 516" fill="none" stroke="#00b4d8" stroke-width="1" opacity="0.25"/>
+
+  <rect x="330" y="266" width="540" height="22" fill="#00b4d8" opacity="0.12" stroke="#00b4d8" stroke-width="1"/>
+  <rect x="330" y="494" width="540" height="22" fill="#00b4d8" opacity="0.12" stroke="#00b4d8" stroke-width="1"/>
+
+  <rect x="380" y="516" width="440" height="12" rx="2" fill="#07141c" stroke="#00b4d8" stroke-width="1.8"/>
+
+  <g font-family="Helvetica, Arial, sans-serif">
+    <line x1="360" y1="120" x2="210" y2="120" stroke="#00b4d8" stroke-width="1.2" opacity="0.7"/>
+    <circle cx="360" cy="120" r="3" fill="#00b4d8"/>
+    <text x="88" y="116" font-size="18" font-weight="700" fill="#00b4d8">V01</text>
+    <text x="88" y="136" font-size="13" font-weight="500" fill="#7ec8d8">Cable de acero</text>
+
+    <line x1="360" y1="189" x2="210" y2="189" stroke="#00b4d8" stroke-width="1.2" opacity="0.7"/>
+    <circle cx="360" cy="189" r="3" fill="#00b4d8"/>
+    <text x="88" y="185" font-size="18" font-weight="700" fill="#00b4d8">V02</text>
+    <text x="88" y="205" font-size="13" font-weight="500" fill="#7ec8d8">Regulador</text>
+
+    <line x1="384" y1="230" x2="210" y2="250" stroke="#00b4d8" stroke-width="1.2" opacity="0.7"/>
+    <circle cx="384" cy="230" r="3" fill="#00b4d8"/>
+    <text x="88" y="246" font-size="18" font-weight="700" fill="#00b4d8">V03</text>
+    <text x="88" y="266" font-size="13" font-weight="500" fill="#7ec8d8">Colgador</text>
+  </g>
+
+  <g font-family="Helvetica, Arial, sans-serif">
+    <line x1="900" y1="258" x2="1020" y2="230" stroke="#00b4d8" stroke-width="1.2" opacity="0.7"/>
+    <circle cx="900" cy="258" r="3" fill="#00b4d8"/>
+    <text x="1030" y="226" font-size="18" font-weight="700" fill="#00b4d8">V04</text>
+    <text x="1030" y="246" font-size="13" font-weight="500" fill="#7ec8d8">Barra aluminio</text>
+
+    <line x1="870" y1="390" x2="1020" y2="390" stroke="#00b4d8" stroke-width="1.2" opacity="0.7"/>
+    <circle cx="870" cy="390" r="3" fill="#00b4d8"/>
+    <text x="1030" y="386" font-size="18" font-weight="700" fill="#00b4d8">V05</text>
+    <text x="1030" y="406" font-size="13" font-weight="500" fill="#7ec8d8">Tejido Voile</text>
+
+    <line x1="820" y1="522" x2="1020" y2="522" stroke="#00b4d8" stroke-width="1.2" opacity="0.7"/>
+    <circle cx="820" cy="522" r="3" fill="#00b4d8"/>
+    <text x="1030" y="518" font-size="18" font-weight="700" fill="#00b4d8">V06</text>
+    <text x="1030" y="538" font-size="13" font-weight="500" fill="#7ec8d8">Contrapeso</text>
+  </g>
+
+  <g font-family="Helvetica, Arial, sans-serif">
+    <text x="60" y="582" font-size="11" font-weight="600" letter-spacing="0.22em" fill="#00b4d8" opacity="0.85">SISTEMA BANDERA</text>
+    <text x="1140" y="582" font-size="11" font-weight="500" letter-spacing="0.08em" fill="#7ec8d8" text-anchor="end" opacity="0.75">Suspendido - 6 piezas - una logica</text>
+  </g>
+</svg>

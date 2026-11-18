@@ -19,7 +19,8 @@ except ImportError:
     sys.exit(1)
 
 ROOT = Path(__file__).resolve().parents[1]
-BACKUP_DIR = ROOT / "_video-originals"
+BACKUP_DIR = ROOT / "revisar" / "_optimize-originals"
+MEDIA_DIR = ROOT / "media"
 FFMPEG = imageio_ffmpeg.get_ffmpeg_exe()
 
 MIN_SHORT = 1080
@@ -81,12 +82,13 @@ def needs_work(src: dict, size_bytes: int) -> tuple[bool, str]:
     duration = src.get("duration") or 10.0
     budget = max(2 * 1024 * 1024, duration * BYTES_PER_SECOND_BUDGET)
 
-    if short < MIN_SHORT:
-        return True, f"upscale {w}x{h} -> {tw}x{th}"
+    # Web pass: never upscale — only downscale oversized frames or heavy bitrates.
     if long_ > MAX_LONG:
         return True, f"downscale {w}x{h} -> {tw}x{th}"
     if size_bytes > budget * 1.15:
         return True, f"re-encode {size_bytes / 1048576:.1f}MB > budget {budget / 1048576:.1f}MB"
+    if short < MIN_SHORT:
+        return False, f"ok-lowres {w}x{h} {size_bytes / 1048576:.1f}MB"
     return False, f"ok {w}x{h} {size_bytes / 1048576:.1f}MB"
 
 
@@ -125,8 +127,10 @@ def encode(src: Path, dst: Path, tw: int, th: int) -> None:
 
 def iter_videos() -> list[Path]:
     out: list[Path] = []
-    for dirpath, _dirnames, filenames in os.walk(ROOT):
-        if ".git" in dirpath.split(os.sep) or "_video-originals" in dirpath:
+    walk_root = MEDIA_DIR if MEDIA_DIR.is_dir() else ROOT
+    for dirpath, _dirnames, filenames in os.walk(walk_root):
+        parts = Path(dirpath).parts
+        if ".git" in parts or "revisar" in parts or "_video-originals" in parts:
             continue
         for name in filenames:
             p = Path(dirpath) / name
@@ -150,6 +154,9 @@ def main() -> int:
 
         work, reason = needs_work(info, size)
         tw, th = target_size(info["width"], info["height"])
+        # If only bitrate is heavy and frame is already within max long edge, keep native size.
+        if work and "re-encode" in reason and max(info["width"], info["height"]) <= MAX_LONG:
+            tw, th = info["width"] - info["width"] % 2, info["height"] - info["height"] % 2
         row = {
             "file": str(rel),
             "from": f"{info['width']}x{info['height']}",

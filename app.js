@@ -1479,24 +1479,6 @@ function selectVariant(profile, _el) {
 const THEME_STORAGE_KEY = 'printit-theme';
 const NAV_LOGO_DARK_MODE_SRC = 'media/brand/logo-oficial.png';
 const NAV_LOGO_LIGHT_MODE_SRC = 'media/brand/logo-dark.jpg';
-const THEME_TOGGLE_MARKUP = `
-  <span class="nav-theme-toggle-track" aria-hidden="true">
-    <span class="nav-theme-opt nav-theme-opt--dark">
-      <svg class="nav-theme-ico" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5z"/></svg>
-      <span class="nav-theme-opt-label">Oscuro</span>
-    </span>
-    <span class="nav-theme-opt nav-theme-opt--light">
-      <svg class="nav-theme-ico" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-      <span class="nav-theme-opt-label">Claro</span>
-    </span>
-  </span>
-`.trim();
-
-function ensureThemeToggleMarkup(btn) {
-  if (!(btn instanceof HTMLElement)) return;
-  if (btn.querySelector('.nav-theme-toggle-track')) return;
-  btn.innerHTML = THEME_TOGGLE_MARKUP;
-}
 
 function applyTheme(theme) {
   const isLight = theme === 'light';
@@ -1506,14 +1488,15 @@ function applyTheme(theme) {
     document.documentElement.removeAttribute('data-theme');
   }
   document.querySelectorAll('.nav-theme-toggle').forEach(btn => {
-    ensureThemeToggleMarkup(btn);
+    // Vaciar markup del control Oscuro/Claro si quedó de una versión anterior
+    if (btn.querySelector('.nav-theme-toggle-track')) btn.innerHTML = '';
     btn.setAttribute('aria-pressed', isLight ? 'true' : 'false');
     btn.setAttribute(
       'aria-label',
-      isLight ? 'Modo claro activo. Cambiar a modo oscuro' : 'Modo oscuro activo. Cambiar a modo claro'
+      isLight ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro'
     );
-    btn.setAttribute('title', isLight ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro');
-    btn.dataset.themeActive = isLight ? 'light' : 'dark';
+    btn.removeAttribute('title');
+    delete btn.dataset.themeActive;
   });
 
   document.querySelectorAll('.nav-logo').forEach(img => {
@@ -1528,20 +1511,15 @@ function applyTheme(theme) {
   });
 }
 
-function setTheme(theme) {
-  const next = theme === 'light' ? 'light' : 'dark';
-  applyTheme(next);
-  try {
-    localStorage.setItem(THEME_STORAGE_KEY, next);
-  } catch (_) {}
-}
-
 function toggleTheme() {
   const next =
     document.documentElement.getAttribute('data-theme') === 'light'
       ? 'dark'
       : 'light';
-  setTheme(next);
+  applyTheme(next);
+  try {
+    localStorage.setItem(THEME_STORAGE_KEY, next);
+  } catch (_) {}
 }
 
 function initTheme() {
@@ -2568,20 +2546,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.type = 'button';
     if (btn.dataset.themeBound === '1') return;
     btn.dataset.themeBound = '1';
-    btn.addEventListener('click', (event) => {
-      const opt = event.target instanceof Element
-        ? event.target.closest('.nav-theme-opt')
-        : null;
-      if (opt?.classList.contains('nav-theme-opt--light')) {
-        setTheme('light');
-        return;
-      }
-      if (opt?.classList.contains('nav-theme-opt--dark')) {
-        setTheme('dark');
-        return;
-      }
-      toggleTheme();
-    });
+    btn.addEventListener('click', () => toggleTheme());
   });
 
   const initialHash = (window.location.hash || '').replace('#', '');

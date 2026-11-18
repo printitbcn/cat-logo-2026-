@@ -1,14 +1,33 @@
 [
   {
-    "file": "AÉREOS /AEREOS CUBO LUZ.mp4",
-    "from": "1908x1080",
-    "to": "1908.0x1080.0",
-    "size_mb": 3.27,
-    "reason": "ok 1908x1080 3.3MB",
-    "status": "kept"
+    "file": "media/aplicaciones/aereos/circular-tecnico-aereo-490.mov",
+    "from": "2160x3840",
+    "to": "1080x1920",
+    "size_mb": 48.91,
+    "reason": "downscale 2160x3840 -> 1080x1920",
+    "new_size_mb": 2.98,
+    "status": "optimized"
   },
   {
-    "file": "AÉREOS /frisos aereos varios.mp4",
+    "file": "media/aplicaciones/aereos/cubos-updated-placements-nov.mov",
+    "from": "2160x3840",
+    "to": "1080x1920",
+    "size_mb": 71.64,
+    "reason": "downscale 2160x3840 -> 1080x1920",
+    "new_size_mb": 6.89,
+    "status": "optimized"
+  },
+  {
+    "file": "media/aplicaciones/aereos/friso-tecnico-con-luz.mov",
+    "from": "2160x3840",
+    "to": "1080x1920",
+    "size_mb": 19.04,
+    "reason": "downscale 2160x3840 -> 1080x1920",
+    "new_size_mb": 1.37,
+    "status": "optimized"
+  },
+  {
+    "file": "media/aplicaciones/aereos/frisos-aereos-varios.mp4",
     "from": "1920x1080",
     "to": "1920.0x1080.0",
     "size_mb": 2.25,
@@ -16,132 +35,94 @@
     "status": "kept"
   },
   {
-    "file": "CUSTOM/PASTILLA PRUEBA .mp4",
-    "from": "1920x1080",
-    "to": "1920.0x1080.0",
-    "size_mb": 11.94,
-    "reason": "re-encode 11.9MB > budget 8.3MB",
-    "new_size_mb": 2.25,
-    "status": "optimized"
-  },
-  {
-    "file": "DALI : CASSAMBI /DALI CASSAMBI effect + tech.mov",
+    "file": "media/aplicaciones/aereos/frisos-primeros.mov",
     "from": "3840x2160",
     "to": "1920x1080",
-    "size_mb": 124.7,
+    "size_mb": 8.49,
     "reason": "downscale 3840x2160 -> 1920x1080",
-    "new_size_mb": 5.4,
+    "new_size_mb": 0.55,
     "status": "optimized"
   },
   {
-    "file": "DALI : CASSAMBI /DALLI - CASSAMBI EFFECT.mp4",
-    "from": "1280x720",
-    "to": "1920x1080",
-    "size_mb": 19.75,
-    "reason": "upscale 1280x720 -> 1920x1080",
-    "new_size_mb": 3.6,
+    "file": "media/aplicaciones/aereos/tecnico-cubos.mov",
+    "from": "2160x3840",
+    "to": "1080x1920",
+    "size_mb": 62.57,
+    "reason": "downscale 2160x3840 -> 1080x1920",
+    "new_size_mb": 3.74,
     "status": "optimized"
   },
   {
-    "file": "DALI : CASSAMBI /dali cassambi control .mp4",
-    "from": "1920x1080",
-    "to": "1920.0x1080.0",
-    "size_mb": 3.03,
-    "reason": "ok 1920x1080 3.0MB",
+    "file": "media/aplicaciones/lightbox/def-placements-lightbox-p120.mp4",
+    "from": "720x1280",
+    "to": "1080x1920",
+    "size_mb": 9.05,
+    "reason": "ok-lowres 720x1280 9.1MB",
     "status": "kept"
   },
   {
-    "file": "DALI : CASSAMBI /detalle dali casambi LEDS.mov",
-    "from": "2560x1440",
-    "to": "1920x1080",
-    "size_mb": 32.77,
-    "reason": "downscale 2560x1440 -> 1920x1080",
-    "new_size_mb": 2.49,
+    "file": "media/aplicaciones/lightbox/lightbox-autoportante-360-doble-cara.mp4",
+    "from": "720x1280",
+    "to": "1080x1920",
+    "size_mb": 8.41,
+    "reason": "ok-lowres 720x1280 8.4MB",
+    "status": "kept"
+  },
+  {
+    "file": "media/aplicaciones/lightbox/luxpanel-definitivo-sin-logo-montblanc.mov",
+    "from": "2160x3840",
+    "to": "1080x1920",
+    "size_mb": 74.79,
+    "reason": "downscale 2160x3840 -> 1080x1920",
+    "new_size_mb": 4.3,
     "status": "optimized"
   },
   {
-    "file": "DALI : CASSAMBI /movimiento dedo Dali casambi .mp4",
-    "from": "1920x1080",
-    "to": "1920.0x1080.0",
-    "size_mb": 3.03,
-    "reason": "ok 1920x1080 3.0MB",
-    "status": "kept"
-  },
-  {
-    "file": "DYNAMIC WHITE /DYNAMIC crazy.mp4",
-    "from": "1920x1080",
-    "to": "1920.0x1080.0",
-    "size_mb": 3.66,
-    "reason": "ok 1920x1080 3.7MB",
-    "status": "kept"
-  },
-  {
-    "file": "DYNAMIC WHITE /LED DYNAMIC.mp4",
-    "from": "1080x1080",
-    "to": "1080.0x1080.0",
-    "size_mb": 0.48,
-    "reason": "ok 1080x1080 0.5MB",
-    "status": "kept"
-  },
-  {
-    "file": "DYNAMIC WHITE /LIGHTBOX DYMNAMIC EXTRUSION.mov",
-    "from": "1920x1080",
-    "to": "1920.0x1080.0",
-    "size_mb": 1.65,
-    "reason": "ok 1920x1080 1.7MB",
-    "status": "kept"
-  },
-  {
-    "file": "LIGHTBOX /lightbox a pared mercedes.mov",
-    "from": "1080x1080",
-    "to": "1080.0x1080.0",
-    "size_mb": 1.75,
-    "reason": "ok 1080x1080 1.7MB",
-    "status": "kept"
-  },
-  {
-    "file": "LIGHTBOX /lightbox scenes .mp4",
-    "from": "1920x1080",
-    "to": "1920.0x1080.0",
-    "size_mb": 7.29,
-    "reason": "ok 1920x1080 7.3MB",
-    "status": "kept"
-  },
-  {
-    "file": "LUMINARIAS CUSTOM /special custom.mov",
-    "from": "1920x1080",
-    "to": "1920.0x1080.0",
-    "size_mb": 5.88,
-    "reason": "ok 1920x1080 5.9MB",
-    "status": "kept"
-  },
-  {
-    "file": "LUMINARIAS CUSTOM /special project led dynamic .mp4",
-    "from": "1920x1080",
-    "to": "1920.0x1080.0",
-    "size_mb": 6.62,
-    "reason": "ok 1920x1080 6.6MB",
-    "status": "kept"
-  },
-  {
-    "file": "LUXPANEL/def render lux.mp4",
-    "from": "1920x1080",
-    "to": "1920.0x1080.0",
-    "size_mb": 3.72,
-    "reason": "ok 1920x1080 3.7MB",
-    "status": "kept"
-  },
-  {
-    "file": "Material Inicial/vid1.mp4",
-    "from": "1920x1080",
-    "to": "1920.0x1080.0",
-    "size_mb": 6.93,
-    "reason": "re-encode 6.9MB > budget 5.5MB",
-    "new_size_mb": 6.79,
+    "file": "media/aplicaciones/lightbox/luxpanel-placements-new.mov",
+    "from": "2160x3840",
+    "to": "1080x1920",
+    "size_mb": 47.18,
+    "reason": "downscale 2160x3840 -> 1080x1920",
+    "new_size_mb": 4.91,
     "status": "optimized"
   },
   {
-    "file": "ON-OFF/16-9 ON OFF P100 - PLACEMENTS.mov",
+    "file": "media/aplicaciones/lightbox/p120-lightboxes-def.mp4",
+    "from": "720x1280",
+    "to": "720x1280",
+    "size_mb": 38.37,
+    "reason": "re-encode 38.4MB > budget 8.3MB",
+    "new_size_mb": 3.88,
+    "status": "optimized"
+  },
+  {
+    "file": "media/aplicaciones/lightbox/p50-backlight-tecnico.mov",
+    "from": "2160x3840",
+    "to": "1080x1920",
+    "size_mb": 75.16,
+    "reason": "downscale 2160x3840 -> 1080x1920",
+    "new_size_mb": 3.83,
+    "status": "optimized"
+  },
+  {
+    "file": "media/aplicaciones/lightbox/p50-placements-modificado.mov",
+    "from": "2160x3840",
+    "to": "1080x1920",
+    "size_mb": 63.09,
+    "reason": "downscale 2160x3840 -> 1080x1920",
+    "new_size_mb": 3.83,
+    "status": "optimized"
+  },
+  {
+    "file": "media/aplicaciones/lightbox/tecnico-final-lightbox-p120.mp4",
+    "from": "720x1280",
+    "to": "1080x1920",
+    "size_mb": 3.21,
+    "reason": "ok-lowres 720x1280 3.2MB",
+    "status": "kept"
+  },
+  {
+    "file": "media/aplicaciones/luminarias/16-9-on-off-p100-placements.mov",
     "from": "1920x1080",
     "to": "1920.0x1080.0",
     "size_mb": 6.56,
@@ -149,32 +130,93 @@
     "status": "kept"
   },
   {
-    "file": "ON-OFF/DEFP100 ON OFF HEX.mov",
-    "from": "1920x1082",
-    "to": "1920.0x1082.0",
-    "size_mb": 2.71,
-    "reason": "ok 1920x1082 2.7MB",
-    "status": "kept"
-  },
-  {
-    "file": "ON-OFF/PLACEMENTS .mov",
-    "from": "1440x1440",
-    "to": "1440.0x1440.0",
-    "size_mb": 4.45,
-    "reason": "ok 1440x1440 4.4MB",
-    "status": "kept"
-  },
-  {
-    "file": "ON-OFF/def P100 hex - ON OFF.mov",
-    "from": "3826x2160",
-    "to": "1920x1084",
-    "size_mb": 90.08,
-    "reason": "downscale 3826x2160 -> 1920x1084",
-    "new_size_mb": 2.87,
+    "file": "media/aplicaciones/luminarias/cassambi-tunable.mp4",
+    "from": "1280x720",
+    "to": "1280x720",
+    "size_mb": 15.85,
+    "reason": "re-encode 15.9MB > budget 8.3MB",
+    "new_size_mb": 0.81,
     "status": "optimized"
   },
   {
-    "file": "ON-OFF/on off 4k action .mp4",
+    "file": "media/aplicaciones/luminarias/def-p100-hex-on-off.mov",
+    "from": "1920x1084",
+    "to": "1920.0x1084.0",
+    "size_mb": 2.87,
+    "reason": "ok 1920x1084 2.9MB",
+    "status": "kept"
+  },
+  {
+    "file": "media/aplicaciones/luminarias/detalle-dali-casambi-leds.mov",
+    "from": "1920x1080",
+    "to": "1920.0x1080.0",
+    "size_mb": 2.49,
+    "reason": "ok 1920x1080 2.5MB",
+    "status": "kept"
+  },
+  {
+    "file": "media/aplicaciones/luminarias/dimmer-control-intensidad.mp4",
+    "from": "720x1280",
+    "to": "720x1280",
+    "size_mb": 13.79,
+    "reason": "re-encode 13.8MB > budget 8.3MB",
+    "new_size_mb": 0.61,
+    "status": "optimized"
+  },
+  {
+    "file": "media/aplicaciones/luminarias/dimmer-placements.mp4",
+    "from": "1280x720",
+    "to": "1920x1080",
+    "size_mb": 7.0,
+    "reason": "ok-lowres 1280x720 7.0MB",
+    "status": "kept"
+  },
+  {
+    "file": "media/aplicaciones/luminarias/dimmer-tecnico.mov",
+    "from": "3826x2160",
+    "to": "1920x1084",
+    "size_mb": 61.12,
+    "reason": "downscale 3826x2160 -> 1920x1084",
+    "new_size_mb": 3.17,
+    "status": "optimized"
+  },
+  {
+    "file": "media/aplicaciones/luminarias/dinamic-white-placements.mp4",
+    "from": "720x1280",
+    "to": "720x1280",
+    "size_mb": 17.1,
+    "reason": "re-encode 17.1MB > budget 8.3MB",
+    "new_size_mb": 2.15,
+    "status": "optimized"
+  },
+  {
+    "file": "media/aplicaciones/luminarias/dinamico-prueba-1.mov",
+    "from": "2160x3840",
+    "to": "1080x1920",
+    "size_mb": 16.5,
+    "reason": "downscale 2160x3840 -> 1080x1920",
+    "new_size_mb": 1.02,
+    "status": "optimized"
+  },
+  {
+    "file": "media/aplicaciones/luminarias/dinamico-tecnico-completo-def.mov",
+    "from": "3840x2160",
+    "to": "1920x1080",
+    "size_mb": 34.71,
+    "reason": "downscale 3840x2160 -> 1920x1080",
+    "new_size_mb": 1.85,
+    "status": "optimized"
+  },
+  {
+    "file": "media/aplicaciones/luminarias/led-dynamic.mp4",
+    "from": "1080x1080",
+    "to": "1080.0x1080.0",
+    "size_mb": 0.48,
+    "reason": "ok 1080x1080 0.5MB",
+    "status": "kept"
+  },
+  {
+    "file": "media/aplicaciones/luminarias/on-off-4k-action.mp4",
     "from": "1208x1920",
     "to": "1208.0x1920.0",
     "size_mb": 0.92,
@@ -182,7 +224,15 @@
     "status": "kept"
   },
   {
-    "file": "PIXEL LED/PIXEL LED NIKE .mp4",
+    "file": "media/aplicaciones/luminarias/pastilla-prueba.mp4",
+    "from": "1920x1080",
+    "to": "1920.0x1080.0",
+    "size_mb": 2.25,
+    "reason": "ok 1920x1080 2.2MB",
+    "status": "kept"
+  },
+  {
+    "file": "media/aplicaciones/luminarias/pixel-led-nike.mp4",
     "from": "1920x1080",
     "to": "1920.0x1080.0",
     "size_mb": 5.32,
@@ -190,32 +240,31 @@
     "status": "kept"
   },
   {
-    "file": "PIXEL LED/TECHNICAL NIKE PIXEL LED DYNAMIC.mov",
+    "file": "media/aplicaciones/luminarias/special-custom.mov",
     "from": "1920x1080",
     "to": "1920.0x1080.0",
-    "size_mb": 4.86,
-    "reason": "ok 1920x1080 4.9MB",
+    "size_mb": 5.88,
+    "reason": "ok 1920x1080 5.9MB",
     "status": "kept"
   },
   {
-    "file": "PIXEL LED/technical pixel led DEF.mov",
-    "from": "3840x2160",
-    "to": "1920x1080",
-    "size_mb": 125.51,
-    "reason": "downscale 3840x2160 -> 1920x1080",
-    "new_size_mb": 4.81,
-    "status": "optimized"
-  },
-  {
-    "file": "RÍGIDOS /Rígidos hotel.mp4",
+    "file": "media/aplicaciones/luminarias/special-project-led-dynamic.mp4",
     "from": "1920x1080",
     "to": "1920.0x1080.0",
-    "size_mb": 6.0,
-    "reason": "ok 1920x1080 6.0MB",
+    "size_mb": 6.62,
+    "reason": "ok 1920x1080 6.6MB",
     "status": "kept"
   },
   {
-    "file": "TUNABLE WHITE /technical tunable white circular .mov",
+    "file": "media/aplicaciones/luminarias/technical-pixel-led-def.mov",
+    "from": "1920x1080",
+    "to": "1920.0x1080.0",
+    "size_mb": 4.81,
+    "reason": "ok 1920x1080 4.8MB",
+    "status": "kept"
+  },
+  {
+    "file": "media/aplicaciones/luminarias/technical-tunable-white-circular.mov",
     "from": "1920x1080",
     "to": "1920.0x1080.0",
     "size_mb": 2.52,
@@ -223,15 +272,15 @@
     "status": "kept"
   },
   {
-    "file": "TUNABLE WHITE /tunable placements .mp4",
-    "from": "1920x1080",
-    "to": "1920.0x1080.0",
-    "size_mb": 4.63,
-    "reason": "ok 1920x1080 4.6MB",
+    "file": "media/aplicaciones/luminarias/tunable-rectified-placements.mp4",
+    "from": "1280x720",
+    "to": "1920x1080",
+    "size_mb": 9.1,
+    "reason": "ok-lowres 1280x720 9.1MB",
     "status": "kept"
   },
   {
-    "file": "TUNABLE WHITE /tunable white action .mp4",
+    "file": "media/aplicaciones/luminarias/tunable-white-action.mp4",
     "from": "1920x1080",
     "to": "1920.0x1080.0",
     "size_mb": 2.05,
@@ -239,37 +288,110 @@
     "status": "kept"
   },
   {
-    "file": "totems :photocalls : backdrops /mock up backdrops BACKDROPS CON LUZ .mp4",
-    "from": "1920x1068",
-    "to": "1942x1080",
-    "size_mb": 2.88,
-    "reason": "upscale 1920x1068 -> 1942x1080",
-    "new_size_mb": 2.83,
+    "file": "media/aplicaciones/rigidos/rigidos-nyala-def-presentacion.mov",
+    "from": "3840x2160",
+    "to": "1920x1080",
+    "size_mb": 323.92,
+    "reason": "downscale 3840x2160 -> 1920x1080",
+    "new_size_mb": 24.38,
     "status": "optimized"
   },
   {
-    "file": "totems :photocalls : backdrops /totems backdrops photocallls con luz.mov",
-    "from": "1920x1072",
-    "to": "1934x1080",
+    "file": "media/aplicaciones/rigidos/showroom-rigidos-print-it.mov",
+    "from": "2160x3840",
+    "to": "1080x1920",
+    "size_mb": 52.04,
+    "reason": "downscale 2160x3840 -> 1080x1920",
+    "new_size_mb": 6.59,
+    "status": "optimized"
+  },
+  {
+    "file": "media/aplicaciones/totems/mock-up-backdrops-backdrops-con-luz.mp4",
+    "from": "1942x1080",
+    "to": "1942.0x1080.0",
+    "size_mb": 2.83,
+    "reason": "downscale 1942x1080 -> 1942.0x1080.0",
+    "new_size_mb": 2.69,
+    "status": "optimized"
+  },
+  {
+    "file": "media/aplicaciones/totems/placement-totem-sin-luz-varios-styles.mp4",
+    "from": "720x1280",
+    "to": "720x1280",
+    "size_mb": 18.96,
+    "reason": "re-encode 19.0MB > budget 8.3MB",
+    "new_size_mb": 2.7,
+    "status": "optimized"
+  },
+  {
+    "file": "media/aplicaciones/totems/totems-backdrops-photocallls-con-luz.mov",
+    "from": "1934x1080",
+    "to": "1934.0x1080.0",
     "size_mb": 1.38,
-    "reason": "upscale 1920x1072 -> 1934x1080",
-    "new_size_mb": 1.38,
+    "reason": "downscale 1934x1080 -> 1934.0x1080.0",
+    "new_size_mb": 1.33,
     "status": "optimized"
   },
   {
-    "file": "vestimos tu espacio /vestimos espacio 2.mp4",
-    "from": "1920x1080",
-    "to": "1920.0x1080.0",
-    "size_mb": 5.76,
-    "reason": "ok 1920x1080 5.8MB",
-    "status": "kept"
+    "file": "media/aplicaciones/vestimos/tecnico-voile.mov",
+    "from": "720x1280",
+    "to": "720x1280",
+    "size_mb": 13.43,
+    "reason": "re-encode 13.4MB > budget 8.3MB",
+    "new_size_mb": 1.68,
+    "status": "optimized"
   },
   {
-    "file": "vestimos tu espacio /vestimos tu espacio.mp4",
+    "file": "media/aplicaciones/vestimos/vestimos-tu-espacio.mp4",
     "from": "1920x1080",
     "to": "1920.0x1080.0",
     "size_mb": 5.55,
     "reason": "ok 1920x1080 5.5MB",
     "status": "kept"
+  },
+  {
+    "file": "media/aplicaciones/vestimos/vestir-espacio-placements.mov",
+    "from": "3840x2160",
+    "to": "1920x1080",
+    "size_mb": 164.5,
+    "reason": "downscale 3840x2160 -> 1920x1080",
+    "new_size_mb": 23.86,
+    "status": "optimized"
+  },
+  {
+    "file": "media/aplicaciones/vestimos/viste-tu-espacio-def-def.mov",
+    "from": "3840x2160",
+    "to": "1920x1080",
+    "size_mb": 80.51,
+    "reason": "downscale 3840x2160 -> 1920x1080",
+    "new_size_mb": 10.65,
+    "status": "optimized"
+  },
+  {
+    "file": "media/aplicaciones/vestimos/voile-diferentes-placements-special.mp4",
+    "from": "720x1280",
+    "to": "720x1280",
+    "size_mb": 31.67,
+    "reason": "re-encode 31.7MB > budget 8.3MB",
+    "new_size_mb": 5.75,
+    "status": "optimized"
+  },
+  {
+    "file": "media/brand/comprimidovideo-render-rhino.mp4",
+    "from": "1814x896",
+    "to": "1814x896",
+    "size_mb": 45.85,
+    "reason": "re-encode 45.8MB > budget 16.1MB",
+    "new_size_mb": 3.29,
+    "status": "optimized"
+  },
+  {
+    "file": "media/brand/vid1.mp4",
+    "from": "1920x1080",
+    "to": "1920x1080",
+    "size_mb": 6.79,
+    "reason": "re-encode 6.8MB > budget 5.5MB",
+    "new_size_mb": 6.59,
+    "status": "optimized"
   }
 ]

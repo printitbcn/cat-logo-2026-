@@ -27,17 +27,33 @@ Sitio **estático** (HTML, CSS, JavaScript sin framework) que presenta el catál
 
 ```
 PRINT-IT-PROP-CATALOGO/
-├── index.html              # App principal: home, catálogo, producto embebido, contacto
-├── app.js                  # Carrusel, navegación entre “páginas”, filtros del catálogo, tema, diagnóstico
-├── styles.css              # Estilos globales, catálogo, producto, diagnóstico, responsive
-├── PROJECT-GUIDE.md        # Este documento
-├── product-*.html          # Páginas de producto por subcategoría (mismo look general)
-├── Material Inicial/       # PDFs, vídeo, logo, portada, opciones de perfilería, etc.
-├── assets/                 # Imágenes referenciadas (categorías, productos, showroom)
-└── (otros)                 # Capturas de prueba, etc., según el entorno
+├── index.html                 # Inicio + Aplicaciones + Contacto (SPA)
+├── app.js / styles.css
+├── product-*.html             # Fichas por subcategoría (mismas rutas públicas)
+├── media/
+│   ├── brand/                 # Logos, portada, thumbs de categorías/productos
+│   ├── perfiles/              # Secciones de perfil (P30–P120, M1614…)
+│   ├── fichas/                # PDFs de descarga activos
+│   └── aplicaciones/
+│       ├── luminarias/
+│       ├── lightbox/
+│       ├── totems/
+│       ├── aereos/
+│       ├── vestimos/
+│       └── rigidos/
+├── scripts/                   # serve-lan, migrate/optimize media
+├── sitemap/
+├── revisar/                   # WIP / antiguo / no usado (NO borrar a ciegas)
+│   ├── _MANIFEST.md
+│   ├── _pre-migrate-html/
+│   ├── _optimize-originals/
+│   └── origen/                # carpetas históricas movidas desde la raíz
+└── PROJECT-GUIDE.md
 ```
 
-**Nota:** Las rutas con espacios (`Material Inicial/...`) deben servirse por HTTP; evitar abrir `index.html` como `file://` para un comportamiento fiable.
+**Despliegue web:** servir la raíz por HTTP (`./scripts/serve-lan.sh` o hosting estático). No abrir como `file://`.
+
+**Regla de orden:** todo lo que no esté referenciado por el catálogo vivo va a `revisar/`. El mapa de rutas de la migración está en `scripts/media-path-map.json`.
 
 ---
 
@@ -210,6 +226,13 @@ Algunos visores embebidos no llegan bien a `localhost`; probar **Chrome/Safari**
 ## 12. Contacto y enlaces externos
 
 Datos de contacto y web corporativa están en la página **Contacto** de `index.html` (email, teléfonos, `printitbcn.com`).
+
+---
+
+## 13. Review sticky pins (interno)
+
+Anotaciones colaborativas (Stephie / Roberto / Nuria) con SQLite local via `./scripts/serve-lan.sh`. Entrada: [`review/login.html`](review/login.html). Setup: [`review/README.md`](review/README.md). Sin sesion de review el catalogo no carga esta capa.
+
 
 ---
 

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480" width="400" height="480" overflow="hidden">
+  <title>V06 · Contrapeso</title>
+  <defs><pattern id="hV06" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#A0A8B0" stroke-width="0.55" /><line x1="2" y1="0" x2="2" y2="8" stroke="#A0A8B0" stroke-width="0.55" /><line x1="4" y1="0" x2="4" y2="8" stroke="#A0A8B0" stroke-width="0.55" /><line x1="6" y1="0" x2="6" y2="8" stroke="#A0A8B0" stroke-width="0.55" /></pattern></defs>
+  <rect width="400" height="480" fill="#000000" />
+  <g class="voile-framed" data-voile-framed="1" transform="translate(18.000 41.535) scale(1.268956) translate(-40.000 -106.000)"><g class="voile-part">
+    <rect x="50" y="150" width="210" height="72" fill="none" stroke="#A0A8B0" stroke-width="1" stroke-dasharray="5 3" />
+    <text x="155" y="142" font-family="Montserrat, Helvetica, Arial, sans-serif" font-size="8" font-weight="400" fill="#A0A8B0" text-anchor="middle">vaina inferior (V05)</text>
+    <ellipse cx="58" cy="186" rx="12" ry="26" fill="#0E0E0E" stroke="#FFFFFF" stroke-width="1.15" />
+    <rect x="58" y="160" width="194" height="52" fill="#0E0E0E" stroke="#FFFFFF" stroke-width="1.25" />
+    <ellipse cx="252" cy="186" rx="12" ry="26" fill="#141414" stroke="#FFFFFF" stroke-width="1.25" />
+    <ellipse cx="252" cy="186" rx="6.5" ry="14" fill="#000000" stroke="#D0D5DA" stroke-width="1.05" />
+    <line x1="40" y1="186" x2="270" y2="186" stroke="#A0A8B0" stroke-width="0.85" stroke-dasharray="4 3" />
+    <g transform="translate(200,350)">
+      <circle r="48" fill="#000000" stroke="#FFFFFF" stroke-width="1.15" />
+      <circle r="48" fill="url(#hV06)" opacity="0.4" />
+      <circle r="48" fill="none" stroke="#FFFFFF" stroke-width="1.15" />
+      <circle r="29" fill="#000000" stroke="#FFFFFF" stroke-width="1.1" />
+      <text x="0" y="66" font-family="Montserrat, Helvetica, Arial, sans-serif" font-size="8" font-weight="500" fill="#A0A8B0" text-anchor="middle">SECCIÓN · contrapeso</text>
+    </g>
+  </g>
+  <g class="voile-sheet-chrome">
+    <line x1="160" y1="160" x2="220" y2="120" stroke="#A0A8B0" stroke-width="0.85" />
+  <circle cx="160" cy="160" r="1.8" fill="#FFFFFF" />
+  <text x="224" y="116" font-family="Montserrat, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#FFFFFF">Tubo Al</text>
+  <text x="224" y="129" font-family="Montserrat, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="400" fill="#A0A8B0">Ø / e · según proyecto</text>
+    <line x1="252" y1="186" x2="300" y2="210" stroke="#A0A8B0" stroke-width="0.85" />
+  <circle cx="252" cy="186" r="1.8" fill="#FFFFFF" />
+  <text x="224" y="240" font-family="Montserrat, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#FFFFFF">Peso</text>
+  <text x="224" y="253" font-family="Montserrat, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="400" fill="#A0A8B0">según proyecto</text>
+  </g>
+</g></svg>

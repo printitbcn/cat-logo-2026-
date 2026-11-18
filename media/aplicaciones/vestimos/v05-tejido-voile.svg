@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480" width="400" height="480" overflow="hidden">
+  <title>V05 · Tejido voile</title>
+  <rect width="400" height="480" fill="#000000" />
+  <g class="voile-framed" data-voile-framed="1" transform="translate(18.000 38.890) scale(1.233898) translate(-70.000 -66.000)"><g class="voile-part">
+    <rect x="70" y="80" width="150" height="300" fill="#0A0A0A" stroke="#FFFFFF" stroke-width="1.15" />
+    <line x1="76" y1="112" x2="76" y2="350" stroke="#1E1E1E" stroke-width="0.4" /><line x1="83" y1="112" x2="83" y2="350" stroke="#1E1E1E" stroke-width="0.4" /><line x1="90" y1="112" x2="90" y2="350" stroke="#1E1E1E" stroke-width="0.4" /><line x1="97" y1="112" x2="97" y2="350" stroke="#1E1E1E" stroke-width="0.4" /><line x1="104" y1="112" x2="104" y2="350" stroke="#1E1E1E" stroke-width="0.4" /><line x1="111" y1="112" x2="111" y2="350" stroke="#1E1E1E" stroke-width="0.4" /><line x1="118" y1="112" x2="118" y2="350" stroke="#1E1E1E" stroke-width="0.4" /><line x1="125" y1="112" x2="125" y2="350" stroke="#1E1E1E" stroke-width="0.4" /><line x1="132" y1="112" x2="132" y2="350" stroke="#1E1E1E" stroke-width="0.4" /><line x1="139" y1="112" x2="139" y2="350" stroke="#1E1E1E" stroke-width="0.4" /><line x1="146" y1="112" x2="146" y2="350" stroke="#1E1E1E" stroke-width="0.4" /><line x1="153" y1="112" x2="153" y2="350" stroke="#1E1E1E" stroke-width="0.4" /><line x1="160" y1="112" x2="160" y2="350" stroke="#1E1E1E" stroke-width="0.4" /><line x1="167" y1="112" x2="167" y2="350" stroke="#1E1E1E" stroke-width="0.4" /><line x1="174" y1="112" x2="174" y2="350" stroke="#1E1E1E" stroke-width="0.4" /><line x1="181" y1="112" x2="181" y2="350" stroke="#1E1E1E" stroke-width="0.4" /><line x1="188" y1="112" x2="188" y2="350" stroke="#1E1E1E" stroke-width="0.4" /><line x1="195" y1="112" x2="195" y2="350" stroke="#1E1E1E" stroke-width="0.4" /><line x1="202" y1="112" x2="202" y2="350" stroke="#1E1E1E" stroke-width="0.4" /><line x1="209" y1="112" x2="209" y2="350" stroke="#1E1E1E" stroke-width="0.4" /><line x1="216" y1="112" x2="216" y2="350" stroke="#1E1E1E" stroke-width="0.4" />
+    <rect x="70" y="80" width="150" height="32" fill="#0E0E0E" stroke="#FFFFFF" stroke-width="1.15" />
+    <line x1="78" y1="96" x2="212" y2="96" stroke="#A0A8B0" stroke-width="0.85" stroke-dasharray="4 3" />
+    <line x1="78" y1="104" x2="212" y2="104" stroke="#A0A8B0" stroke-width="0.65" stroke-dasharray="2 2" />
+    <rect x="70" y="348" width="150" height="32" fill="#0E0E0E" stroke="#FFFFFF" stroke-width="1.15" />
+    <line x1="78" y1="364" x2="212" y2="364" stroke="#A0A8B0" stroke-width="0.85" stroke-dasharray="4 3" />
+    <g transform="translate(290,200)">
+      <rect x="-40" y="-50" width="115" height="105" fill="#000000" stroke="#FFFFFF" stroke-width="1.05" />
+      <text x="17" y="-58" font-family="Montserrat, Helvetica, Arial, sans-serif" font-size="7.5" font-weight="500" fill="#A0A8B0" text-anchor="middle">DETALLE VAINA</text>
+      <path d="M-26 -30 L52 -30 L52 12 L-26 12 Z" fill="none" stroke="#FFFFFF" stroke-width="1.15" />
+      <line x1="-26" y1="-18" x2="52" y2="-18" stroke="#A0A8B0" stroke-width="0.85" stroke-dasharray="4 3" />
+      <line x1="-26" y1="-8" x2="52" y2="-8" stroke="#A0A8B0" stroke-width="0.65" stroke-dasharray="2 2" />
+      <circle cx="12" cy="-18" r="6.5" fill="none" stroke="#D0D5DA" stroke-width="1.05" />
+      <text x="17" y="32" font-family="Montserrat, Helvetica, Arial, sans-serif" font-size="7.5" font-weight="400" fill="#A0A8B0" text-anchor="middle">tubo + costura</text>
+    </g>
+  </g>
+  <g class="voile-sheet-chrome">
+    <line x1="220" y1="96" x2="250" y2="80" stroke="#A0A8B0" stroke-width="0.85" />
+  <circle cx="220" cy="96" r="1.8" fill="#FFFFFF" />
+  <text x="254" y="76" font-family="Montserrat, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#FFFFFF">Vaina superior</text>
+  <text x="254" y="89" font-family="Montserrat, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="400" fill="#A0A8B0">barra V04</text>
+    <line x1="220" y1="230" x2="250" y2="230" stroke="#A0A8B0" stroke-width="0.85" />
+  <circle cx="220" cy="230" r="1.8" fill="#FFFFFF" />
+  <text x="254" y="226" font-family="Montserrat, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#FFFFFF">Paño PES</text>
+  <text x="254" y="239" font-family="Montserrat, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="400" fill="#A0A8B0">según proyecto</text>
+    <line x1="220" y1="364" x2="250" y2="380" stroke="#A0A8B0" stroke-width="0.85" />
+  <circle cx="220" cy="364" r="1.8" fill="#FFFFFF" />
+  <text x="254" y="376" font-family="Montserrat, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#FFFFFF">Vaina inferior</text>
+  <text x="254" y="389" font-family="Montserrat, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="400" fill="#A0A8B0">tubo V06</text>
+  </g>
+</g></svg>

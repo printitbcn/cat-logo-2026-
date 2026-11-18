@@ -164,34 +164,7 @@ body.is-home-page #page-home .home-cover-nav .nav-links a.active {
 
 body.is-home-page #page-home .home-cover-nav .nav-theme-toggle {
   margin-left: auto;
-  border: 1px solid var(--home-line);
-  background: transparent;
-  color: var(--home-ink);
-  border-radius: 0;
-}
-
-body.is-home-page #page-home .home-cover-nav .nav-theme-toggle-track {
-  min-width: 156px;
-  gap: 0;
-  padding: 0;
-}
-
-body.is-home-page #page-home .home-cover-nav .nav-theme-opt {
-  border-radius: 0;
-  padding: 7px 10px;
-  font-size: 9px;
-  letter-spacing: 0.12em;
-  color: var(--home-ink-muted);
-}
-
-body.is-home-page #page-home .home-cover-nav .nav-theme-toggle[data-theme-active="dark"] .nav-theme-opt--dark,
-body.is-home-page #page-home .home-cover-nav .nav-theme-toggle[data-theme-active="light"] .nav-theme-opt--light {
-  background: var(--home-ink);
-  color: var(--home-bg);
-}
-
-body.is-home-page #page-home .home-cover-nav .nav-theme-toggle:hover {
-  border-color: var(--home-accent);
+  flex-shrink: 0;
 }
 
 body.is-home-page #page-home .home-cover-nav .nav-theme-toggle:focus-visible,

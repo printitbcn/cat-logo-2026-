@@ -6,15 +6,28 @@ Thumbs.db
 .env.*
 !.env.example
 
+# Review pins SQLite DB (local team annotations)
+review/data/
+
 # Editor / IDE (opcional: quita la linea si quieres versionar .vscode)
 .idea/
 
 # Herramientas locales de Cursor
 .cursor-tools/
 
-# Backups locales de optimización de vídeo (no versionar)
+# Backups / cuarentena local (pesado; no versionar)
 _video-originals/
+revisar/
+.venv-optimize/
 scripts/video-optimization.log
+scripts/__pycache__/
+videos_1080p/
 
-# Archivos >100MB (GitHub limit); mantener locales
-LUXPANEL/luxpanel tecnico PRADA.mov
+# Pack local para compartir (histórico; ahora en revisar/origen)
+Print It — Luminarias (compartir)/
+LUMINARIAS/
+
+# Duplicados con nombre legacy (mismo binario que las rutas kebab-case usadas en el catálogo)
+media/aplicaciones/aereos/AEREO SIN LUZ OK DEF.mov
+media/aplicaciones/lightbox/LUXPANEL DEF PLACEMENTS.mov
+media/aplicaciones/lightbox/LIGHTBOXES DOBLE CARA CORREGIDO DEF .mov

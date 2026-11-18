@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480" width="400" height="480" overflow="hidden">
+  <title>V01 · Cable de suspensión</title>
+  <rect width="400" height="480" fill="#000000" />
+  <g class="voile-framed" data-voile-framed="1" transform="translate(63.967 18.000) scale(1.283330) translate(-136.000 -56.000)"><g class="voile-part">
+    <rect x="136" y="70" width="28" height="16" rx="1.5" fill="#0E0E0E" stroke="#FFFFFF" stroke-width="1.1" />
+    <line x1="150" y1="86" x2="150" y2="360" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" />
+    <line x1="147" y1="95" x2="147" y2="350" stroke="#A0A8B0" stroke-width="0.65" />
+    <line x1="153" y1="95" x2="153" y2="350" stroke="#A0A8B0" stroke-width="0.65" />
+    <path d="M146 110 Q150 116 154 110 M146 140 Q150 146 154 140 M146 170 Q150 176 154 170 M146 200 Q150 206 154 200 M146 230 Q150 236 154 230 M146 260 Q150 266 154 260 M146 290 Q150 296 154 290 M146 320 Q150 326 154 320" fill="none" stroke="#A0A8B0" stroke-width="0.65" />
+    <rect x="136" y="360" width="28" height="16" rx="1.5" fill="#0E0E0E" stroke="#FFFFFF" stroke-width="1.1" />
+    <circle cx="300" cy="220" r="48" fill="#000000" stroke="#FFFFFF" stroke-width="1.1" />
+    <circle cx="300" cy="220" r="12" fill="none" stroke="#FFFFFF" stroke-width="2.2" />
+    <circle cx="300" cy="220" r="6.5" fill="none" stroke="#D0D5DA" stroke-width="0.9" />
+    <text x="300" y="286" font-family="Montserrat, Helvetica, Arial, sans-serif" font-size="8" font-weight="500" fill="#A0A8B0" text-anchor="middle">SECCIÓN Ø</text>
+    <line x1="164" y1="220" x2="252" y2="220" stroke="#A0A8B0" stroke-width="0.85" stroke-dasharray="4 3" />
+  </g>
+  <g class="voile-sheet-chrome">
+    <line x1="150" y1="78" x2="210" y2="70" stroke="#A0A8B0" stroke-width="0.85" />
+  <circle cx="150" cy="78" r="1.8" fill="#FFFFFF" />
+  <text x="214" y="66" font-family="Montserrat, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#FFFFFF">Terminal superior</text>
+  <text x="214" y="79" font-family="Montserrat, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="400" fill="#A0A8B0">según proyecto</text>
+    <line x1="150" y1="220" x2="210" y2="250" stroke="#A0A8B0" stroke-width="0.85" />
+  <circle cx="150" cy="220" r="1.8" fill="#FFFFFF" />
+  <text x="214" y="246" font-family="Montserrat, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#FFFFFF">Tren de hilos</text>
+  <text x="214" y="259" font-family="Montserrat, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="400" fill="#A0A8B0">cable técnico</text>
+    <line x1="150" y1="368" x2="210" y2="390" stroke="#A0A8B0" stroke-width="0.85" />
+  <circle cx="150" cy="368" r="1.8" fill="#FFFFFF" />
+  <text x="214" y="386" font-family="Montserrat, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#FFFFFF">Terminal inferior</text>
+  <text x="214" y="399" font-family="Montserrat, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="400" fill="#A0A8B0">según proyecto</text>
+  </g>
+</g></svg>
