@@ -1,18 +1,45 @@
 /* ===== Print It — Catálogo Comercial JS (Dark Portfolio Style) ===== */
 
+/* file:// breaks catalogue navigation / media — force http local server */
+(function printitGuardFileProtocol() {
+  try {
+    if (typeof location === 'undefined' || location.protocol !== 'file:') return;
+    const msg =
+      'Abre el catálogo con el servidor local (http), no como archivo file://.\n\nhttp://127.0.0.1:8080/\nhttp://192.168.1.12:8080/';
+    try {
+      console.error('[Print It]', msg);
+    } catch (_) {}
+    const paint = () => {
+      try {
+        if (document.getElementById('printit-file-protocol-banner')) return;
+        const b = document.createElement('div');
+        b.id = 'printit-file-protocol-banner';
+        b.setAttribute('role', 'alert');
+        b.style.cssText =
+          'position:fixed;inset:0;z-index:999999;display:flex;align-items:center;justify-content:center;padding:24px;background:#0a0a0a;color:#fff;font:600 15px/1.45 system-ui,sans-serif;text-align:center';
+        b.innerHTML =
+          '<div><p style="margin:0 0 12px">No se puede navegar en <code>file://</code>.</p><p style="margin:0 0 16px;font-weight:500;opacity:.85">Abre:</p><p style="margin:0"><a href="http://127.0.0.1:8080/" style="color:#fff">http://127.0.0.1:8080/</a></p><p style="margin:10px 0 0"><a href="http://192.168.1.12:8080/" style="color:#fff">http://192.168.1.12:8080/</a></p></div>';
+        (document.body || document.documentElement).appendChild(b);
+      } catch (_) {}
+    };
+    if (document.body) paint();
+    else document.addEventListener('DOMContentLoaded', paint, { once: true });
+  } catch (_) {}
+})();
+
 // ===== IMAGE CAROUSEL =====
-const HOME_CAROUSEL_IMAGE = 'Material Inicial/PORTADA 3 PRINT IT.png';
+const HOME_CAROUSEL_IMAGE = 'media/brand/portada-3-print-it.png';
 let carouselImages = [HOME_CAROUSEL_IMAGE];
 const CATALOGUE_SHOWCASE_IMAGE =
-  'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png';
-const AERIS_SHOWCASE_IMAGE = 'assets/img/categories/cubos aereos .png';
-const PRODUCT_SHOWCASE_IMAGE = 'assets/img/products/luminaria-p100.png';
-const DALI_SHOWCASE_VIDEO = 'DALI : CASSAMBI /DALLI - CASSAMBI EFFECT.mp4';
-const CONTACT_SHOWCASE_IMAGE = 'assets/img/products/luminaria-showroom-2.jpeg';
+  'media/aplicaciones/totems/totems-backdrops-photocalls-con-luz.png';
+const AERIS_SHOWCASE_IMAGE = 'media/aplicaciones/aereos/exteirior-cubo.jpg';
+const PRODUCT_SHOWCASE_IMAGE = 'media/brand/products/luminaria-p100.png';
+const DALI_SHOWCASE_VIDEO = 'media/aplicaciones/luminarias/dimmer-def-def-def.mp4';
+const CONTACT_SHOWCASE_IMAGE = 'media/brand/products/showroom-indu-2.jpg';
 let currentImageIndex = 0;
 const FIXED_SHOWCASE_LABEL = 'MAKE AN IMPRESSION';
 /** Cache bust para imágenes/vídeos en móvil (Safari cachea agresivamente sin query). */
-const PRINTIT_MEDIA_CACHE = '20260722ad';
+const PRINTIT_MEDIA_CACHE = '20261103frame4';
 let catalogueCarouselTimer = null;
 const CATALOGUE_CAROUSEL_MS = 4500;
 
@@ -76,59 +103,93 @@ function bustPrintitGalleryMediaCache() {
  * para el carrusel del panel izquierdo en la página «Aplicaciones».
  */
 const PRINTIT_CATALOGUE_GALLERY_FIRST_PREVIEW = {
-  'product-banners-y-circulares.html': 'assets/img/categories/cubos aereos .png',
+  'product-banners-y-circulares.html': 'media/aplicaciones/aereos/exteirior-cubo.jpg',
+  'product-circulares-con-luz.html': 'media/aplicaciones/aereos/exteirior-cubo.jpg',
+  'product-circulares-sin-luz.html': 'media/aplicaciones/aereos/exteirior-cubo.jpg',
   'product-barniz-drop-gloss.html':
-    'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
+    'media/aplicaciones/totems/totems-backdrops-photocalls-con-luz.png',
   'product-barniz-semi-mate.html':
-    'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
-  'product-con-luz.html':
-    'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
-  'product-cubos.html': 'assets/img/categories/cubos%20aereos%20.png',
-  'product-custom.html': 'LUMINARIAS CUSTOM /special project led dynamic .mp4',
-  'product-dali-casambi.html': 'DALI : CASSAMBI /DALLI - CASSAMBI EFFECT.mp4',
-  'product-dynamic-white.html': 'DYNAMIC WHITE /dinamico tecnico completo def .mov',
-  'product-pixel-led.html': 'LUMINARIAS CUSTOM /special project led dynamic .mp4',
-  'product-forrado-columnas.html':
-    'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
+    'media/aplicaciones/totems/totems-backdrops-photocalls-con-luz.png',
+  'product-cubos.html': 'media/aplicaciones/aereos/exteirior-cubo.jpg',
+  'product-custom.html': 'media/aplicaciones/luminarias/special-project-led-dynamic.mp4',
+  'product-dali-casambi.html': 'media/aplicaciones/luminarias/dimmer-def-def-def.mp4',
+  'product-dynamic-white.html': 'media/aplicaciones/luminarias/dinamico-tecnico-completo-def-9x16.mp4',
+  'product-pixel-led.html': 'media/aplicaciones/luminarias/special-project-led-dynamic.mp4',
   'product-forrado-paredes.html':
-    'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
+    'media/aplicaciones/vestimos/voile-diferentes-placements-special.mp4',
+  'product-voile.html':
+    'media/aplicaciones/vestimos/voile-tecnico-def-def.mov',
   'product-frisos.html':
-    'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
+    'media/aplicaciones/totems/totems-backdrops-photocalls-con-luz.png',
   'product-impresion-uvi.html':
-    'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
-  'product-lightbox-doble-cara.html': 'LIGHTBOX /doble cara /lightbox completo def .jpg',
-  'product-lightbox-pared.html': 'LIGHTBOX /A PARED /exterior P50 A PARED .jpg',
-  'product-luxpanel.html': 'LUXPANEL/LUX EXTERIOR.png',
-  'product-on-off.html': 'ON-OFF/on off 4k action .mp4',
+    'media/aplicaciones/totems/totems-backdrops-photocalls-con-luz.png',
+  'product-lightbox-doble-cara.html': 'media/aplicaciones/lightbox/lightbox-completo-def.jpg',
+  'product-lightbox-pared.html': 'media/aplicaciones/lightbox/exterior-p50-a-pared.jpg',
+  'product-lightbox-pared-cortinas-led.html': 'media/aplicaciones/lightbox/lightbox-exterior.jpg',
+  'product-luxpanel.html': 'media/aplicaciones/lightbox/lux-exterior-def.png',
+  'product-on-off.html': 'media/aplicaciones/luminarias/on-off-4k-action.mp4',
   'product-relieve-braille.html':
-    'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
+    'media/aplicaciones/totems/totems-backdrops-photocalls-con-luz.png',
   'product-relieve-cmyk.html':
-    'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
-  'product-rigidos.html': 'RI%CC%81GIDOS%20/ri%CC%81gidos%202.png',
-  'product-sin-luz.html': 'totems :photocalls : backdrops /TOTEMS CON LUZ POLESTAR .png',
-  'product-tunable-white.html': 'TUNABLE WHITE /tunable white action .mp4'
+    'media/aplicaciones/totems/totems-backdrops-photocalls-con-luz.png',
+  'product-rigidos.html': 'media/aplicaciones/rigidos/rigidos-miniatura.jpg',
+  'product-sin-luz.html': 'media/aplicaciones/totems/2.jpg',
+  'product-tunable-white.html': 'media/aplicaciones/luminarias/tunable-action-def-916.mp4'
 };
 
 let showcaseLastCleanSrc = '';
 
-const ONOFF_CORRECTED_MOV_POSTER = 'ON-OFF/EXTERIOR ON OFF P100.png';
+const ONOFF_CORRECTED_MOV_POSTER = 'media/aplicaciones/luminarias/exterior-on-off-p100.png';
 const PROFILE_IMAGE_OVERRIDES = {
-  P120: 'PERFILERIA /P120.png',
-  P30: 'PERFILERIA /P30.png',
-  P35: 'PERFILERIA /P35.png',
-  P36: 'PERFILERIA /P36.png'
+  P120: 'media/perfiles/p120.png',
+  P30: 'media/perfiles/p30.png',
+  P35: 'media/perfiles/p35.png',
+  P36: 'media/perfiles/p36.png'
 };
+
+function clearShowcaseMediaKeepBox() {
+  const mediaEl = document.getElementById('showcase-img');
+  if (!mediaEl) return;
+  if (mediaEl.tagName === 'VIDEO') {
+    try { mediaEl.pause(); } catch (_) {}
+    mediaEl.removeAttribute('src');
+    mediaEl.querySelectorAll('source').forEach((s) => s.remove());
+    try { mediaEl.load(); } catch (_) {}
+  } else {
+    mediaEl.removeAttribute('src');
+  }
+  mediaEl.removeAttribute('poster');
+  mediaEl.style.opacity = '1';
+  mediaEl.style.transform = 'scale(1)';
+}
 
 function updateShowcaseImage(src, label) {
   const labelEl = document.getElementById('selected-label');
   if (src == null || String(src).trim() === '') return;
+  if (String(src).trim() === '__printit_empty__') {
+    clearShowcaseMediaKeepBox();
+    if (labelEl) labelEl.textContent = label || FIXED_SHOWCASE_LABEL;
+    showcaseLastCleanSrc = '';
+    return;
+  }
 
   const cleanSrc = String(src).split('?')[0];
   const isGif = /\.gif$/i.test(cleanSrc);
   const isVideoSrc = /\.(mp4|webm|mov)$/i.test(cleanSrc);
   const isShowcaseContainCenter =
     /vid1\.mp4$/i.test(cleanSrc) ||
-    /photocallls con luz\.mov$/i.test(cleanSrc);
+    /photocallls con luz\.mov$/i.test(cleanSrc) ||
+    /lightbox doble cara p120/i.test(cleanSrc) ||
+    /totem chanel placements magico/i.test(cleanSrc) ||
+    /360 TOTEM CHANEL/i.test(cleanSrc) ||
+    /TECNICO TOTEM LUZ/i.test(cleanSrc) ||
+    /DEF PLACEMENTS LIGHTBOX P120/i.test(cleanSrc) ||
+    /frisos placements/i.test(cleanSrc) ||
+    /CIRCULAR FERIA/i.test(cleanSrc) ||
+    /PLACEMENT TOTEM SIN LUZ/i.test(cleanSrc) ||
+    /luxpanel-placements-new/i.test(cleanSrc) ||
+    /luxpanel-def-placements/i.test(cleanSrc) ||
+    /LUXPANEL DEF PLACEMENTS/i.test(cleanSrc);
   const isShowcaseContainFit =
     /dinamico prueba 1\.mov$/i.test(cleanSrc) ||
     /dinamico tecnico completo def \.mov$/i.test(cleanSrc) ||
@@ -138,6 +199,9 @@ function updateShowcaseImage(src, label) {
     /dinamico \.mp4$/i.test(cleanSrc);
   const isOnOffCorrectedClip = /on off 4k action \.mp4$/i.test(cleanSrc);
   const isDalliCasambiEffectShowcase = /DALLI\s*-\s*CASSAMBI\s+EFFECT\.mp4$/i.test(cleanSrc);
+  const isRigidosShowroomPortrait =
+    /SHOWROOM\s+R[IÍ]GIDOS/i.test(cleanSrc) ||
+    /vestimos espacio 2\.mp4$/i.test(cleanSrc);
   const isSvgShowcase = /\.svg$/i.test(cleanSrc);
 
   let mediaEl = document.getElementById('showcase-img');
@@ -208,13 +272,16 @@ function updateShowcaseImage(src, label) {
     showcaseLastCleanSrc = cleanSrc;
     mediaEl.classList.toggle('showcase-video--contain-center', isShowcaseContainCenter);
     mediaEl.classList.toggle('showcase-video--contain-fit', isShowcaseContainFit);
-    mediaEl.classList.toggle('showcase-video--portrait-9-16', isDalliCasambiEffectShowcase);
+    mediaEl.classList.toggle(
+      'showcase-video--portrait-9-16',
+      isDalliCasambiEffectShowcase || isRigidosShowroomPortrait
+    );
     mediaEl.classList.toggle('showcase-img--svg', isSvgShowcase && mediaEl.tagName !== 'VIDEO');
     if (isVideoEl) {
       if (isVideoSrc) {
         mediaEl.querySelectorAll('source').forEach(s => s.remove());
         mediaEl.poster = isOnOffCorrectedClip ? withPrintitMediaCache(ONOFF_CORRECTED_MOV_POSTER) : '';
-        mediaEl.preload = isDalliCasambiEffectShowcase ? 'auto' : 'metadata';
+        mediaEl.preload = (isDalliCasambiEffectShowcase || /CIRCULAR FERIA/i.test(cleanSrc)) ? 'auto' : 'metadata';
         mediaEl.src = nextSrc;
         mediaEl.load();
         mediaEl.play().catch(() => { });
@@ -276,7 +343,17 @@ function goToImage(index) {
 let printitApplyingHashRoute = false;
 
 function isDedicatedProductPageUrl() {
-  return /product-[^/]+\.html$/i.test(window.location.pathname || '');
+  const path = window.location.pathname || '';
+  const leaf = path.split('/').filter(Boolean).pop() || '';
+  return /^product-[^/]+\.html$/i.test(leaf);
+}
+
+/** True when an <a href> can navigate without JS (not bare # / javascript:). */
+function isNavigableAnchorHref(href) {
+  const h = String(href || '').trim();
+  if (!h || h === '#') return false;
+  if (/^javascript:/i.test(h)) return false;
+  return true;
 }
 
 function replaceAppHashForPage(pageName) {
@@ -299,9 +376,17 @@ function replaceAppHashForPage(pageName) {
 function showPage(pageName, event) {
   if (event) event.preventDefault();
 
-  if (pageName === 'home' && isDedicatedProductPageUrl()) {
-    window.location.assign('index.html');
-    return;
+  /* Dedicated product HTML: Inicio / Contacto leave to index. Catalogue stays
+     in-page so filter pills keep working; Aplicaciones uses goToCatalogueAll(). */
+  if (isDedicatedProductPageUrl()) {
+    if (pageName === 'home') {
+      navigateToProductUrl(indexHomeUrl());
+      return;
+    }
+    if (pageName === 'contact') {
+      navigateToProductUrl(indexContactUrl());
+      return;
+    }
   }
 
   const target = document.getElementById(`page-${pageName}`);
@@ -345,20 +430,24 @@ function showPage(pageName, event) {
   } else if (pageName === 'product') {
     stopCatalogueCarouselAutoplay();
     syncProductGalleryToShowcase();
-    const productSources = getProductGallerySources();
-    if (productSources.length) {
-      const page = (window.location.pathname || '').split('/').pop() || '';
-      let startIndex = 0;
-      if (page === 'product-dynamic-white.html' && productSources.length > 1) {
-        startIndex = 1;
+    const fixedShowcase = String(window.PRINTIT_FIXED_SHOWCASE || '').trim();
+    /* Si hay escaparate fijo (p. ej. Rígidos showroom), no lo pisa la galería. */
+    if (!fixedShowcase) {
+      const productSources = getProductGallerySources();
+      if (productSources.length) {
+        const page = (window.location.pathname || '').split('/').pop() || '';
+        let startIndex = 0;
+        if (page === 'product-dynamic-white.html' && productSources.length > 1) {
+          startIndex = 1;
+        }
+        currentImageIndex = startIndex;
+        updateShowcaseImage(productSources[startIndex], FIXED_SHOWCASE_LABEL);
+        renderCarouselDots(productSources.length);
+        updateDots();
+      } else {
+        updateShowcaseImage(getProductFallbackShowcase(), 'Luminaria ON / OFF');
+        renderCarouselDots(1);
       }
-      currentImageIndex = startIndex;
-      updateShowcaseImage(productSources[startIndex], FIXED_SHOWCASE_LABEL);
-      renderCarouselDots(productSources.length);
-      updateDots();
-    } else {
-      updateShowcaseImage(getProductFallbackShowcase(), 'Luminaria ON / OFF');
-      renderCarouselDots(1);
     }
     applyProductContextFromPage();
     highlightProductFilterPill();
@@ -390,12 +479,16 @@ function showPage(pageName, event) {
 }
 
 function getProductFallbackShowcase() {
+  const fixed = String(window.PRINTIT_FIXED_SHOWCASE || '').trim();
+  if (fixed) return fixed;
   const page = (window.location.pathname || '').split('/').pop() || '';
   if (page === 'product-dali-casambi.html') return DALI_SHOWCASE_VIDEO;
   if (page === 'product-pixel-led.html')
-    return 'LUMINARIAS CUSTOM /special project led dynamic .mp4';
+    return 'media/aplicaciones/luminarias/special-project-led-dynamic.mp4';
   if (page === 'product-tunable-white.html')
-    return 'TUNABLE WHITE /tunable white action .mp4';
+    return 'media/aplicaciones/luminarias/tunable-action-def-916.mp4';
+  if (page === 'product-rigidos.html')
+    return 'media/aplicaciones/rigidos/showroom-rigidos-print-it.mov';
   return PRODUCT_SHOWCASE_IMAGE;
 }
 
@@ -481,6 +574,13 @@ function getProductGalleryItemNodes() {
   return document.querySelectorAll('#page-product .product-detail-card .product-gallery .gallery-item');
 }
 
+/** All product galleries (header + sheet) — clicks from either must drive the showcase. */
+function getAllProductGalleryItemNodes() {
+  return document.querySelectorAll(
+    '#page-product .product-detail-card .product-gallery .gallery-item, #page-product .sheet-media-gallery .product-gallery .gallery-item'
+  );
+}
+
 function getGalleryMediaSrcFromItem(item) {
   if (!item) return '';
   const video = item.querySelector('video');
@@ -516,9 +616,10 @@ function getProductGallerySources() {
 
 function syncProductGalleryToShowcase() {
   const galleryItems = getProductGalleryItemNodes();
-  if (!galleryItems.length) return;
+  const fixedShowcase = String(window.PRINTIT_FIXED_SHOWCASE || '').trim();
   const sources = getProductGallerySources();
-  if (!sources.length) return;
+  if (!galleryItems.length && !fixedShowcase) return;
+  if (!sources.length && !fixedShowcase) return;
 
   const page = (window.location.pathname || '').split('/').pop() || '';
   let startIndex = 0;
@@ -526,17 +627,24 @@ function syncProductGalleryToShowcase() {
     startIndex = 1;
   }
 
-  setCarouselImages(sources, startIndex);
+  /* Escaparate bloqueado (p. ej. Rígidos showroom): no lo sustituye la galería. */
+  const carouselSources = fixedShowcase ? [fixedShowcase] : sources;
+  const carouselStart = fixedShowcase ? 0 : startIndex;
+  setCarouselImages(carouselSources, carouselStart);
 
   const productPage = document.getElementById('page-product');
   if (productPage && (productPage.classList.contains('active') || isDedicatedProductPageUrl())) {
-    currentImageIndex = startIndex;
-    updateShowcaseImage(sources[startIndex], FIXED_SHOWCASE_LABEL);
-    renderCarouselDots(sources.length);
+    currentImageIndex = carouselStart;
+    updateShowcaseImage(carouselSources[carouselStart], FIXED_SHOWCASE_LABEL);
+    renderCarouselDots(carouselSources.length);
     updateDots();
   }
 
-  galleryItems.forEach((item, idx) => {
+  if (fixedShowcase) return;
+
+  const cleanKey = (src) => String(src || '').split('?')[0];
+
+  getAllProductGalleryItemNodes().forEach((item) => {
     if (item.dataset.previewBound === '1') return;
     item.dataset.previewBound = '1';
     item.style.cursor = 'pointer';
@@ -548,9 +656,10 @@ function syncProductGalleryToShowcase() {
     const activatePreview = (e) => {
       if (e.type === 'keydown' && e.key !== 'Enter' && e.key !== ' ') return;
       if (e.type === 'keydown') e.preventDefault();
-      e.preventDefault();
-      const targetSrc = sources[idx] || sources[0];
-      currentImageIndex = idx < sources.length ? idx : 0;
+      const targetSrc = getGalleryMediaSrcFromItem(item);
+      if (!targetSrc) return;
+      const idx = sources.findIndex((s) => cleanKey(s) === cleanKey(targetSrc));
+      currentImageIndex = idx >= 0 ? idx : 0;
       updateShowcaseImage(targetSrc, 'MAKE AN IMPRESSION');
       updateDots();
     };
@@ -566,27 +675,245 @@ function productHrefFromCatalogueRow(item) {
   return (link.getAttribute('href') || '').trim();
 }
 
+function isCatalogueStillSrc(src) {
+  return /\.(png|jpe?g|webp|gif|svg)$/i.test(String(src || '').split('?')[0]);
+}
+
+/** Left showcase in catalogue: product preview map first, then row data-img. */
+function catalogueShowcaseSrcForHref(href, item) {
+  const mapped = (PRINTIT_CATALOGUE_GALLERY_FIRST_PREVIEW[href] || '').trim();
+  const dataImg = ((item && item.dataset && item.dataset.img) || '').trim();
+  if (mapped) return mapped;
+  return dataImg;
+}
+
+/** Re-entrancy guard so synthetic nav anchors do not loop through click binders. */
+let printitNavigating = false;
+
+function navigateToProductUrl(url) {
+  let href = String(url || '').trim();
+  if (!href || href === '#') return false;
+  /* Ignore bare hash-only targets; allow path#hash (e.g. index.html#catalogue). */
+  if (
+    /^#/.test(href) &&
+    !/^#(?:catalogue|contact|product|all|luminarias|lightbox|totems|aereos|revestimientos|rigidos)$/i.test(
+      href
+    )
+  ) {
+    return false;
+  }
+  /*
+   * On a product ficha, bare hashes like #catalogue must leave to index.html —
+   * otherwise the browser stays on product-….html#catalogue and the brochure
+   * feels “stuck” during a presentation.
+   */
+  if (isDedicatedProductPageUrl()) {
+    const hashOnly = href.match(/^#([A-Za-z0-9_-]+)$/);
+    if (hashOnly) {
+      const h = hashOnly[1].toLowerCase();
+      if (h === 'catalogue' || h === 'all') href = indexCatalogueUrl();
+      else if (h === 'contact') href = indexContactUrl();
+      else if (h === 'home' || h === 'inicio') href = indexHomeUrl();
+      else if (
+        ['luminarias', 'lightbox', 'totems', 'aereos', 'revestimientos', 'rigidos'].includes(h)
+      ) {
+        href = indexCategoryUrl(h === 'aereos' ? 'aeris' : h === 'revestimientos' ? 'vesteix' : h === 'rigidos' ? 'rigids' : h === 'luminarias' ? 'lluminaries' : h);
+      }
+    }
+  }
+  try {
+    const abs = new URL(href, window.location.href);
+    /* Drop a trailing empty hash that some browsers keep on .href */
+    if (abs.hash === '#' || abs.hash === '') {
+      href = abs.pathname + abs.search;
+      if (!href || href === '/') href = abs.href.replace(/#$/, '');
+      else href = abs.origin + href;
+    } else {
+      href = abs.href;
+    }
+  } catch (_) {
+    /* keep href as-is */
+  }
+
+  /*
+   * Navigate in-frame, synchronously. Deferred location.replace after
+   * preventDefault was a no-op in Cursor’s preview and left catalogue
+   * clicks stuck on index. Native browsers accept assign() here.
+   */
+  try {
+    const curBase = String(window.location.href || '').split('#')[0];
+    const nextBase = String(href).split('#')[0];
+    if (curBase === nextBase) return true;
+  } catch (_) {}
+
+  if (printitNavigating) {
+    try {
+      window.location.href = href;
+    } catch (_) {}
+    return true;
+  }
+  printitNavigating = true;
+  try {
+    window.location.assign(href);
+  } catch (_) {
+    try {
+      window.location.href = href;
+    } catch (_) {
+      try {
+        window.open(href, '_self');
+      } catch (_) {}
+    }
+  } finally {
+    setTimeout(() => {
+      printitNavigating = false;
+    }, 200);
+  }
+  return true;
+}
+
+function indexCatalogueUrl() {
+  try {
+    return new URL('index.html#catalogue', window.location.href).href;
+  } catch (_) {
+    return 'index.html#catalogue';
+  }
+}
+
+function indexHomeUrl() {
+  try {
+    return new URL('index.html', window.location.href).href;
+  } catch (_) {
+    return 'index.html';
+  }
+}
+
+function indexContactUrl() {
+  try {
+    return new URL('index.html#contact', window.location.href).href;
+  } catch (_) {
+    return 'index.html#contact';
+  }
+}
+
+function hardenProductAnchors(root) {
+  const scope = root && root.querySelectorAll ? root : document;
+  scope.querySelectorAll('a[href^="product-"][href$=".html"]').forEach((a) => {
+    if (a.dataset.printitNavHardened === '1') return;
+    a.dataset.printitNavHardened = '1';
+    a.removeAttribute('target');
+  });
+}
+
+function setCatalogueHeaderPanelExpanded(category, expanded) {
+  const header = document.querySelector(
+    `.catalogue-section-header--toggle[data-category="${category}"]`
+  );
+  if (!header) return;
+  header.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+  header.classList.toggle('is-expanded', !!expanded);
+  document.querySelectorAll(`.catalogue-item[data-header-panel="${category}"]`).forEach((panel) => {
+    panel.classList.toggle('hidden', !expanded);
+  });
+}
+
+function bindCatalogueHeaderToggles() {
+  const list = document.getElementById('catalogue-list');
+  if (!list || list.dataset.headerToggleBound === '1') return;
+  list.dataset.headerToggleBound = '1';
+
+  const toggleHeader = (header) => {
+    if (!header || !header.classList.contains('catalogue-section-header--toggle')) return;
+    const category = header.dataset.category;
+    if (!category) return;
+    const open = header.getAttribute('aria-expanded') === 'true';
+    setCatalogueHeaderPanelExpanded(category, !open);
+    if (!open) {
+      const panel = document.querySelector(`.catalogue-item[data-header-panel="${category}"]`);
+      if (panel) selectCatalogueItem(panel);
+    }
+  };
+
+  list.addEventListener('click', (e) => {
+    const t = e.target instanceof Element ? e.target : null;
+    if (!t) return;
+    const header = t.closest('.catalogue-section-header--toggle');
+    if (!header || !list.contains(header)) return;
+    /* Never navigate from the section title — only expand / collapse. */
+    e.preventDefault();
+    e.stopPropagation();
+    toggleHeader(header);
+  });
+
+  list.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const t = e.target instanceof Element ? e.target : null;
+    if (!t) return;
+    const header = t.closest('.catalogue-section-header--toggle');
+    if (!header || !list.contains(header)) return;
+    e.preventDefault();
+    toggleHeader(header);
+  });
+}
+
 function bindCatalogueProductLinks() {
   const list = document.getElementById('catalogue-list');
   if (!list) return;
+  hardenProductAnchors(list);
+  bindCatalogueHeaderToggles();
+  if (list.dataset.catalogueNavBound === '1') return;
+  list.dataset.catalogueNavBound = '1';
 
-  list.querySelectorAll('a[href^="product-"][href$=".html"]').forEach((link) => {
-    if (link.dataset.catalogueNavBound === '1') return;
-    link.dataset.catalogueNavBound = '1';
+  /* Capture phase: before onclick=selectCatalogueItem / <summary> toggle.
+     Always force location.assign — stopPropagation in capture would otherwise
+     prevent the event from reaching the <a>, so native href never fires. */
+  const activateProductHref = (href, e) => {
+    if (!isNavigableAnchorHref(href)) return false;
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    navigateToProductUrl(href);
+    return true;
+  };
 
-    link.addEventListener(
-      'click',
-      (e) => {
-        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
-        const href = (link.getAttribute('href') || '').trim();
-        if (!href) return;
-        e.preventDefault();
-        e.stopPropagation();
-        window.location.assign(href);
-      },
-      true
-    );
-  });
+  const onActivate = (e) => {
+    if (printitNavigating) return;
+    if (e.type === 'click' && (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0))
+      return;
+    if (e.type === 'pointerup') return; /* avoid double-nav with click */
+    const t = e.target instanceof Element ? e.target : e.target && e.target.parentElement;
+    if (!t || typeof t.closest !== 'function') return;
+
+    const link = t.closest('a[href^="product-"][href$=".html"]');
+    if (link && list.contains(link) && !link.hasAttribute('data-printit-nav')) {
+      activateProductHref(link.getAttribute('href') || link.href, e);
+      return;
+    }
+
+    const nameEl = t.closest('summary.catalogue-item-name, .catalogue-item-name');
+    if (
+      nameEl &&
+      list.contains(nameEl) &&
+      !nameEl.classList.contains('catalogue-item-name--branch') &&
+      !nameEl.classList.contains('catalogue-item-name--accordion')
+    ) {
+      const nested = nameEl.querySelector('a[href^="product-"][href$=".html"]');
+      if (nested) {
+        activateProductHref(nested.getAttribute('href') || nested.href, e);
+        return;
+      }
+    }
+
+    const simple = t.closest('.catalogue-item-simple');
+    if (simple && list.contains(simple)) {
+      const rowLink = simple.querySelector('a[href^="product-"][href$=".html"]');
+      if (rowLink && !t.closest('a[href^="product-"][href$=".html"]')) {
+        activateProductHref(rowLink.getAttribute('href') || rowLink.href, e);
+      }
+    }
+  };
+
+  list.addEventListener('click', onActivate, true);
 }
 
 function collectCatalogueCarouselData() {
@@ -602,8 +929,8 @@ function collectCatalogueCarouselData() {
       const href = (link.getAttribute('href') || '').trim();
       if (!href || seenHref.has(href)) return;
       seenHref.add(href);
-      const mapped = PRINTIT_CATALOGUE_GALLERY_FIRST_PREVIEW[href];
-      const src = mapped || item.dataset.img || '';
+      const src = catalogueShowcaseSrcForHref(href, item);
+      /* Prefer stills for catalogue showcase; fall back to video if no still. */
       if (!src) return;
       sources.push(src);
       hrefs.push(href);
@@ -678,10 +1005,34 @@ function selectCatalogueItem(item) {
   const label = item.dataset.label;
   const href = productHrefFromCatalogueRow(item);
   let src = '';
-  if (href && PRINTIT_CATALOGUE_GALLERY_FIRST_PREVIEW[href]) {
-    src = PRINTIT_CATALOGUE_GALLERY_FIRST_PREVIEW[href];
+  if (href) {
+    src = catalogueShowcaseSrcForHref(href, item);
   } else {
     src = item.dataset.img || '';
+  }
+
+  /* Branch rows (Lightbox a pared): cycle the stills of their product links. */
+  if (item.classList.contains('catalogue-item--branch')) {
+    const branchSrcs = [];
+    item.querySelectorAll('a[href^="product-"][href$=".html"]').forEach((link) => {
+      const h = (link.getAttribute('href') || '').trim();
+      const s = catalogueShowcaseSrcForHref(h, item);
+      if (s && isCatalogueStillSrc(s) && !branchSrcs.includes(s)) branchSrcs.push(s);
+    });
+    if (branchSrcs.length) {
+      const pc = document.getElementById('page-catalogue');
+      if (pc && pc.classList.contains('active')) {
+        setCarouselImages(branchSrcs, 0);
+        window.PRINTIT_CATALOGUE_CAROUSEL_HREFS = [...item.querySelectorAll('a[href^="product-"][href$=".html"]')]
+          .map((l) => (l.getAttribute('href') || '').trim())
+          .filter(Boolean);
+        updateShowcaseImage(branchSrcs[0], label);
+        renderCarouselDots(branchSrcs.length);
+        updateDots();
+        startCatalogueCarouselAutoplay();
+        return;
+      }
+    }
   }
 
   const pc = document.getElementById('page-catalogue');
@@ -717,8 +1068,21 @@ function filterCategoryKeyToHashAnchor(category) {
   return map[category] || 'catalogue';
 }
 
+function indexCategoryUrl(category) {
+  const hash = !category || category === 'all' ? 'catalogue' : filterCategoryKeyToHashAnchor(category);
+  try {
+    return new URL(`index.html#${hash}`, window.location.href).href;
+  } catch (_) {
+    return `index.html#${hash}`;
+  }
+}
+
 function openCatalogueCategory(category, imgSrc, label, event) {
   if (event) event.preventDefault();
+  if (isDedicatedProductPageUrl()) {
+    navigateToProductUrl(indexCategoryUrl(category));
+    return;
+  }
   showPage('catalogue', null);
   const pill = document.querySelector(`.filter-pill[data-filter="${category}"]`);
   if (pill) filterCatalogue(category, pill);
@@ -764,19 +1128,21 @@ function openEmbeddedProduct(category, subcategory, event) {
 
 const PRODUCT_PAGE_CATALOGUE_FILTER = {
   'product-banners-y-circulares.html': 'aeris',
+  'product-circulares-con-luz.html': 'aeris',
+  'product-circulares-sin-luz.html': 'aeris',
   'product-barniz-drop-gloss.html': 'rigids',
   'product-barniz-semi-mate.html': 'rigids',
-  'product-con-luz.html': 'totems',
   'product-cubos.html': 'aeris',
   'product-custom.html': 'lluminaries',
   'product-dali-casambi.html': 'lluminaries',
   'product-dynamic-white.html': 'lluminaries',
-  'product-forrado-columnas.html': 'vesteix',
   'product-forrado-paredes.html': 'vesteix',
+  'product-voile.html': 'vesteix',
   'product-frisos.html': 'aeris',
   'product-impresion-uvi.html': 'rigids',
   'product-lightbox-doble-cara.html': 'lightbox',
   'product-lightbox-pared.html': 'lightbox',
+  'product-lightbox-pared-cortinas-led.html': 'lightbox',
   'product-luxpanel.html': 'lightbox',
   'product-on-off.html': 'lluminaries',
   'product-pixel-led.html': 'lluminaries',
@@ -798,6 +1164,10 @@ function highlightProductFilterPill() {
 
 function goToCatalogueAll(event) {
   if (event) event.preventDefault();
+  if (isDedicatedProductPageUrl()) {
+    navigateToProductUrl(indexCatalogueUrl());
+    return;
+  }
   showPage('catalogue', null);
   filterCatalogue('all', null);
 }
@@ -810,6 +1180,12 @@ function filterByTag(tag, event) {
 
 // ===== CATALOGUE FILTER =====
 function filterCatalogue(category, btn) {
+  /* From a product ficha, category pills leave to the main catalogue on index. */
+  if (isDedicatedProductPageUrl() && !printitApplyingHashRoute) {
+    navigateToProductUrl(indexCategoryUrl(category));
+    return;
+  }
+
   let pc = document.getElementById('page-catalogue');
   if (!pc || !pc.classList.contains('active')) {
     showPage('catalogue', null);
@@ -828,6 +1204,31 @@ function filterCatalogue(category, btn) {
     items.forEach(el => el.classList.remove('hidden'));
     detailedItems.forEach(el => el.classList.add('hidden'));
     simpleItems.forEach(el => el.classList.remove('hidden'));
+
+    // Lightbox: misma UI que en el filtro (Luxpanel detallado + branch a pared), no filas simples
+    [...detailedItems]
+      .filter((el) => el.dataset.category === 'lightbox')
+      .forEach((el) => el.classList.remove('hidden'));
+    [...simpleItems]
+      .filter((el) => el.dataset.category === 'lightbox')
+      .forEach((el) => el.classList.add('hidden'));
+
+    // Aéreos: mostrar branch Circulares (CON/SIN LUZ) también en vista «all»
+    [...detailedItems]
+      .filter(
+        (el) =>
+          el.dataset.category === 'aeris' && el.classList.contains('catalogue-item--branch')
+      )
+      .forEach((el) => el.classList.remove('hidden'));
+    [...simpleItems]
+      .filter((el) => {
+        if (el.dataset.category !== 'aeris') return false;
+        const href = (el.querySelector('a[href^="product-"]') || {}).getAttribute?.('href') || '';
+        return /product-circulares-(con|sin)-luz\.html|product-banners-y-circulares\.html/.test(
+          href
+        );
+      })
+      .forEach((el) => el.classList.add('hidden'));
   } else {
     items.forEach(el => {
       const elCategory = el.dataset.category;
@@ -851,6 +1252,7 @@ function filterCatalogue(category, btn) {
       detailedForCat.forEach(el => el.classList.add('hidden'));
       simpleForCat.forEach(el => el.classList.remove('hidden'));
     }
+
   }
 
   if (pc && pc.classList.contains('active')) {
@@ -899,21 +1301,28 @@ const FILTER_MINI_CARD_ORDER = [
 ];
 
 const FALLBACK_FILTER_THUMBS = {
-  lluminaries: 'ON-OFF/LUMINARIA INDICE.png',
-  lightbox: 'LIGHTBOX /doble cara /lightbox completo def .jpg',
-  totems: 'totems :photocalls : backdrops /totems : backdrops : photocalls con luz .png',
-  aeris: 'assets/img/categories/cubos aereos .png',
-  vesteix: 'assets/img/categories/vesteix.png',
-  rigids: 'RI%CC%81GIDOS%20/ri%CC%81gidos%202.png'
+  lluminaries: 'media/aplicaciones/luminarias/luminaria-indice.png',
+  lightbox: 'media/aplicaciones/lightbox/lightbox-miniatura.png',
+  totems: 'media/aplicaciones/totems/2.jpg',
+  aeris: 'media/aplicaciones/aereos/exteirior-cubo.jpg',
+  vesteix: 'media/aplicaciones/vestimos/voile-miniatura.png',
+  rigids: 'media/aplicaciones/rigidos/rigidos-miniatura.jpg'
 };
+
+/** Miniaturas de filtro que no deben variar entre páginas (ni por mini-cards). */
+const LOCKED_FILTER_THUMBS = new Set(['totems', 'vesteix', 'rigids', 'lightbox']);
 
 function buildFilterThumbMapFromMiniCards() {
   const miniCards = document.querySelectorAll('#page-home .mini-cards .mini-card');
   const map = { ...FALLBACK_FILTER_THUMBS };
   miniCards.forEach((card, index) => {
     const filter = FILTER_MINI_CARD_ORDER[index];
+    if (!filter || LOCKED_FILTER_THUMBS.has(filter)) return;
     const src = getMiniCardThumbSrc(card);
-    if (filter && src) map[filter] = src;
+    if (src) map[filter] = src;
+  });
+  LOCKED_FILTER_THUMBS.forEach((filter) => {
+    if (FALLBACK_FILTER_THUMBS[filter]) map[filter] = FALLBACK_FILTER_THUMBS[filter];
   });
   return { map, miniCards };
 }
@@ -1061,15 +1470,33 @@ function selectVariant(profile, _el) {
   if (schematicImg) {
     schematicImg.src =
       PROFILE_IMAGE_OVERRIDES[profile] ||
-      `Material Inicial/OPCIONES-DE-PERFILERIA/${profile}.png`;
+      `media/perfiles/${String(profile).toLowerCase()}.png`;
     schematicImg.alt = `Vista técnica — ${profile}`;
   }
 }
 
 // ===== TEMA CLARO / OSCURO =====
 const THEME_STORAGE_KEY = 'printit-theme';
-const NAV_LOGO_DARK_MODE_SRC = 'Material Inicial/logo-oficial.png';
-const NAV_LOGO_LIGHT_MODE_SRC = 'Material Inicial/Logo Dark.jpeg';
+const NAV_LOGO_DARK_MODE_SRC = 'media/brand/logo-oficial.png';
+const NAV_LOGO_LIGHT_MODE_SRC = 'media/brand/logo-dark.jpg';
+const THEME_TOGGLE_MARKUP = `
+  <span class="nav-theme-toggle-track" aria-hidden="true">
+    <span class="nav-theme-opt nav-theme-opt--dark">
+      <svg class="nav-theme-ico" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5z"/></svg>
+      <span class="nav-theme-opt-label">Oscuro</span>
+    </span>
+    <span class="nav-theme-opt nav-theme-opt--light">
+      <svg class="nav-theme-ico" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <span class="nav-theme-opt-label">Claro</span>
+    </span>
+  </span>
+`.trim();
+
+function ensureThemeToggleMarkup(btn) {
+  if (!(btn instanceof HTMLElement)) return;
+  if (btn.querySelector('.nav-theme-toggle-track')) return;
+  btn.innerHTML = THEME_TOGGLE_MARKUP;
+}
 
 function applyTheme(theme) {
   const isLight = theme === 'light';
@@ -1079,11 +1506,14 @@ function applyTheme(theme) {
     document.documentElement.removeAttribute('data-theme');
   }
   document.querySelectorAll('.nav-theme-toggle').forEach(btn => {
+    ensureThemeToggleMarkup(btn);
     btn.setAttribute('aria-pressed', isLight ? 'true' : 'false');
     btn.setAttribute(
       'aria-label',
-      isLight ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro'
+      isLight ? 'Modo claro activo. Cambiar a modo oscuro' : 'Modo oscuro activo. Cambiar a modo claro'
     );
+    btn.setAttribute('title', isLight ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro');
+    btn.dataset.themeActive = isLight ? 'light' : 'dark';
   });
 
   document.querySelectorAll('.nav-logo').forEach(img => {
@@ -1098,15 +1528,20 @@ function applyTheme(theme) {
   });
 }
 
+function setTheme(theme) {
+  const next = theme === 'light' ? 'light' : 'dark';
+  applyTheme(next);
+  try {
+    localStorage.setItem(THEME_STORAGE_KEY, next);
+  } catch (_) {}
+}
+
 function toggleTheme() {
   const next =
     document.documentElement.getAttribute('data-theme') === 'light'
       ? 'dark'
       : 'light';
-  applyTheme(next);
-  try {
-    localStorage.setItem(THEME_STORAGE_KEY, next);
-  } catch (_) {}
+  setTheme(next);
 }
 
 function initTheme() {
@@ -1133,6 +1568,88 @@ function initBeforeAfterComparators() {
     apply();
     range.addEventListener('input', apply);
     range.addEventListener('change', apply);
+  });
+}
+
+/** Comparador de 3 capas (delante / interior / abierto) con dos persianas. */
+function initTripleBeforeAfterComparators() {
+  const GAP = 8;
+
+  document.querySelectorAll('.ba-compare.ba-compare--triple').forEach((root) => {
+    if (root.dataset.baTripleBound === '1') return;
+    root.dataset.baTripleBound = '1';
+
+    let posA = Math.min(90, Math.max(8, parseInt(root.dataset.baInitialA || '34', 10)));
+    let posB = Math.min(92, Math.max(10, parseInt(root.dataset.baInitialB || '68', 10)));
+    if (posB < posA + GAP) posB = Math.min(92, posA + GAP);
+
+    const rangeA = root.querySelector('.ba-range--a');
+    const rangeB = root.querySelector('.ba-range--b');
+    const handleA = root.querySelector('[data-ba-handle="a"]');
+    const handleB = root.querySelector('[data-ba-handle="b"]');
+
+    const apply = () => {
+      root.style.setProperty('--ba-pos-a', `${posA}%`);
+      root.style.setProperty('--ba-pos-b', `${posB}%`);
+      if (rangeA) {
+        rangeA.value = String(Math.round(posA));
+        rangeA.setAttribute('aria-valuenow', String(Math.round(posA)));
+      }
+      if (rangeB) {
+        rangeB.value = String(Math.round(posB));
+        rangeB.setAttribute('aria-valuenow', String(Math.round(posB)));
+      }
+    };
+
+    const setFromClientX = (which, clientX) => {
+      const rect = root.getBoundingClientRect();
+      if (!rect.width) return;
+      const pct = ((clientX - rect.left) / rect.width) * 100;
+      if (which === 'a') {
+        posA = Math.min(posB - GAP, Math.max(8, pct));
+      } else {
+        posB = Math.max(posA + GAP, Math.min(92, pct));
+      }
+      apply();
+    };
+
+    const bindHandle = (el, which) => {
+      if (!el) return;
+      el.style.touchAction = 'none';
+      el.addEventListener('pointerdown', (e) => {
+        e.preventDefault();
+        el.setPointerCapture?.(e.pointerId);
+        setFromClientX(which, e.clientX);
+        const onMove = (ev) => setFromClientX(which, ev.clientX);
+        const onUp = () => {
+          el.releasePointerCapture?.(e.pointerId);
+          window.removeEventListener('pointermove', onMove);
+          window.removeEventListener('pointerup', onUp);
+          window.removeEventListener('pointercancel', onUp);
+        };
+        window.addEventListener('pointermove', onMove);
+        window.addEventListener('pointerup', onUp);
+        window.addEventListener('pointercancel', onUp);
+      });
+    };
+
+    bindHandle(handleA, 'a');
+    bindHandle(handleB, 'b');
+
+    if (rangeA) {
+      rangeA.addEventListener('input', () => {
+        posA = Math.min(posB - GAP, Math.max(8, Number(rangeA.value)));
+        apply();
+      });
+    }
+    if (rangeB) {
+      rangeB.addEventListener('input', () => {
+        posB = Math.max(posA + GAP, Math.min(92, Number(rangeB.value)));
+        apply();
+      });
+    }
+
+    apply();
   });
 }
 
@@ -1192,21 +1709,23 @@ function initSoftLoopVideos(scope = document) {
   });
 }
 
-/** Vídeos del catálogo: sin barra nativa (sin volumen/audio al hover). */
-function printitStripVideoUiControls(video) {
+/** Vídeos del catálogo: barra nativa play/pausa (muted; sin volumen ni fullscreen). */
+function printitEnsureVideoUiControls(video) {
   if (!video || video.tagName !== 'VIDEO') return;
   video.muted = true;
   video.defaultMuted = true;
-  video.controls = false;
-  video.removeAttribute('controls');
-  video.setAttribute('controlsList', 'nodownload nofullscreen noremoteplayback noplaybackrate');
+  video.volume = 0;
+  video.controls = true;
+  video.setAttribute('controls', '');
+  video.setAttribute('controlsList', 'nodownload nofullscreen noremoteplayback noplaybackrate novolume');
   video.disablePictureInPicture = true;
+  video.setAttribute('disablePictureInPicture', '');
 }
 
 function bindPrintitVideoHoverControls(video) {
   if (!video || video.tagName !== 'VIDEO' || video.dataset.printitHoverCtl === '1') return;
   video.dataset.printitHoverCtl = '1';
-  printitStripVideoUiControls(video);
+  printitEnsureVideoUiControls(video);
 }
 
 let printitVideoIo = null;
@@ -1216,7 +1735,7 @@ function observePrintitVideoAutoplayWhenVisible(video) {
   video.dataset.printitAutoIo = '1';
 
   if (!('IntersectionObserver' in window)) {
-    video.play().catch(() => {});
+    if (video.dataset.printitSeq !== '1') video.play().catch(() => {});
     return;
   }
 
@@ -1226,7 +1745,18 @@ function observePrintitVideoAutoplayWhenVisible(video) {
         entries.forEach(ent => {
           const v = ent.target;
           if (!(v instanceof HTMLVideoElement)) return;
+          /* Páginas con foco exclusivo (p. ej. Viste): no autoplay el clip idle. */
+          if (v.dataset.printitExclusiveOff === '1') {
+            if (!v.paused) v.pause();
+            return;
+          }
           const ratio = ent.intersectionRatio;
+          /* Secuencia de galería: solo pausa fuera de vista; el play lo lleva la secuencia. */
+          if (v.dataset.printitSeq === '1') {
+            if (!ent.isIntersecting || ratio < 0.05) v.pause();
+            else if (v.dataset.printitSeqActive === '1' && v.paused) v.play().catch(() => {});
+            return;
+          }
           if (ent.isIntersecting && ratio >= 0.12) {
             v.play().catch(() => {});
           } else if (!ent.isIntersecting || ratio < 0.05) {
@@ -1240,9 +1770,78 @@ function observePrintitVideoAutoplayWhenVisible(video) {
   printitVideoIo.observe(video);
 }
 
+/**
+ * En cada galería de ficha con 2+ vídeos: solo reproduce uno a la vez.
+ * Empieza siempre el de la izquierda; al acabar, el siguiente (ciclo).
+ */
+function initPrintitGalleryVideoSequences(scope = document) {
+  const galleries = scope.querySelectorAll(
+    '#page-product .sheet-media-gallery .product-gallery, #page-product .product-detail-header .product-gallery'
+  );
+
+  galleries.forEach((gallery) => {
+    if (gallery.dataset.printitSeqBound === '1') return;
+
+    const videos = [...gallery.querySelectorAll('video')].filter((v) => {
+      if (v.dataset.printitExclusiveOff === '1') return false;
+      if (v.hasAttribute('data-dual-clip')) return false;
+      return true;
+    });
+    if (videos.length < 2) return;
+
+    gallery.dataset.printitSeqBound = '1';
+    let active = 0;
+
+    const setActive = (idx) => {
+      active = ((idx % videos.length) + videos.length) % videos.length;
+      videos.forEach((v, i) => {
+        const isActive = i === active;
+        v.dataset.printitSeqActive = isActive ? '1' : '0';
+        if (isActive) {
+          v.play().catch(() => {});
+        } else {
+          v.pause();
+          try {
+            if (v.currentTime > 0.05) v.currentTime = 0;
+          } catch (_) {}
+        }
+      });
+    };
+
+    videos.forEach((v, i) => {
+      v.dataset.printitSeq = '1';
+      v.dataset.printitSeqIndex = String(i);
+      v.loop = false;
+      v.removeAttribute('loop');
+      v.autoplay = false;
+      v.removeAttribute('autoplay');
+      v.pause();
+      try {
+        v.currentTime = 0;
+      } catch (_) {}
+
+      v.addEventListener('ended', () => {
+        if (i !== active) return;
+        setActive(i + 1);
+      });
+
+      v.addEventListener('play', () => {
+        if (i === active) return;
+        active = i;
+        videos.forEach((other, j) => {
+          other.dataset.printitSeqActive = j === i ? '1' : '0';
+          if (j !== i && !other.paused) other.pause();
+        });
+      });
+    });
+
+    setActive(0);
+  });
+}
+
 function refreshPrintitVideoBindings(scope = document) {
   scope.querySelectorAll('video').forEach(v => {
-    printitStripVideoUiControls(v);
+    printitEnsureVideoUiControls(v);
     bindPrintitVideoHoverControls(v);
     observePrintitVideoAutoplayWhenVisible(v);
   });
@@ -1251,6 +1850,8 @@ function refreshPrintitVideoBindings(scope = document) {
 /** Tras cambiar de vista (p. ej. display de .page), forzar play en vídeos ya visibles. */
 function printitKickVisibleVideos() {
   document.querySelectorAll('video').forEach(v => {
+    if (v.dataset.printitExclusiveOff === '1') return;
+    if (v.dataset.printitSeq === '1' && v.dataset.printitSeqActive !== '1') return;
     const r = v.getBoundingClientRect();
     if (r.width < 2 || r.height < 2) return;
     const st = window.getComputedStyle(v);
@@ -1538,6 +2139,20 @@ function splitContactSocialLinkLabels(scope = document) {
   });
 }
 
+function initSiteFrameBrand() {
+  document.body.classList.add('has-site-frame');
+  if (document.querySelector('.site-frame-bottom')) return;
+
+  const el = document.createElement('div');
+  el.className = 'site-frame-bottom';
+  el.setAttribute('aria-label', 'Print It web');
+  el.innerHTML = `
+    <span class="site-frame-bottom-line" aria-hidden="true"></span>
+    <a class="site-frame-url" href="https://www.printitbcn.com" target="_blank" rel="noopener noreferrer">www.printitbcn.com</a>
+  `;
+  document.body.appendChild(el);
+}
+
 function initContactPageLayout() {
   const contactPage = document.getElementById('page-contact');
   if (!contactPage) return;
@@ -1548,6 +2163,14 @@ function initContactPageLayout() {
   const cards = [...contactPage.querySelectorAll('.profile-card.animate-in')];
   const footer = contactPage.querySelector('.footer-bar');
 
+  const brand = nav && nav.querySelector('.nav-brand');
+  if (brand && !contactPage.querySelector('.contact-page-logo')) {
+    const logoWrap = document.createElement('div');
+    logoWrap.className = 'contact-page-logo animate-in';
+    logoWrap.appendChild(brand);
+    nav.insertAdjacentElement('afterend', logoWrap);
+  }
+
   if (nav && !contactPage.querySelector('.contact-intro')) {
     const intro = document.createElement('header');
     intro.className = 'contact-intro animate-in';
@@ -1556,7 +2179,9 @@ function initContactPageLayout() {
       <h1 class="contact-intro-title">Contacto</h1>
       <p class="contact-intro-lead">Hablemos de tu proyecto.</p>
     `;
-    nav.insertAdjacentElement('afterend', intro);
+    const logoWrap = contactPage.querySelector('.contact-page-logo');
+    const anchor = logoWrap || nav;
+    anchor.insertAdjacentElement('afterend', intro);
   }
 
   if (cards.length && !contactPage.querySelector('.contact-team-grid')) {
@@ -1607,7 +2232,21 @@ function initWhatsAppLinks(scope = document) {
 
 function closeProfilePeekLightbox() {
   const lb = document.getElementById('sheet-profile-peek-lightbox');
-  if (lb) lb.hidden = true;
+  if (lb) {
+    lb.hidden = true;
+    lb.classList.remove(
+      'sheet-profile-peek-lightbox--voile-ficha',
+      'sheet-profile-peek-lightbox--voile-element'
+    );
+    lb.querySelectorAll('.sheet-profile-peek-lightbox__svg').forEach((n) => n.remove());
+    const img = lb.querySelector('.sheet-profile-peek-lightbox__img');
+    if (img) {
+      img.hidden = false;
+      img.removeAttribute('src');
+    }
+    const title = lb.querySelector('.sheet-profile-peek-lightbox__title');
+    if (title) title.hidden = false;
+  }
   document.body.classList.remove('sheet-profile-peek-lightbox-open');
   document.querySelectorAll('.sheet-profile-thumb--peek.is-enlarged').forEach((thumb) => {
     thumb.classList.remove('is-enlarged');
@@ -1650,12 +2289,59 @@ function openProfilePeekLightbox(thumb) {
   const lb = ensureProfilePeekLightbox();
   const img = lb.querySelector('.sheet-profile-peek-lightbox__img');
   const title = lb.querySelector('.sheet-profile-peek-lightbox__title');
+  const stage = lb.querySelector('.sheet-profile-peek-lightbox__stage');
   const card = thumb.closest('.sheet-profile-card');
   const profileName = card?.querySelector('.sheet-profile-name')?.textContent?.trim() || '';
 
-  img.src = frameImg.getAttribute('src') || frameImg.src;
-  img.alt = frameImg.alt || (profileName ? `Vista técnica sección ${profileName}` : 'Vista técnica ampliada');
-  title.textContent = profileName ? `Sección de perfil · ${profileName}` : 'Vista técnica ampliada';
+  // Prefer hi-res / vector source for lightbox (data-peek-src) so enlarged line art stays crisp
+  const peekSrc =
+    frameImg.getAttribute('data-peek-src') ||
+    thumb.getAttribute('data-peek-src') ||
+    frameImg.getAttribute('src') ||
+    frameImg.src;
+  const resolvedSrc = withPrintitMediaCache(peekSrc);
+  img.alt = frameImg.alt || (profileName ? `Vista técnica ${profileName}` : 'Vista técnica ampliada');
+  const isVoileFicha =
+    card?.getAttribute('data-peek-ficha') === 'voile' ||
+    /voile-suspension/i.test(peekSrc || '');
+
+  const peekTitle = card?.getAttribute('data-peek-title');
+  title.hidden = false;
+  if (peekTitle) {
+    title.textContent = peekTitle;
+  } else if (profileName && card?.hasAttribute('data-profile')) {
+    title.textContent = `Sección de perfil · ${profileName}`;
+  } else if (profileName) {
+    title.textContent = `Vista técnica · ${profileName}`;
+  } else {
+    title.textContent = 'Vista técnica ampliada';
+  }
+
+  lb.classList.toggle('sheet-profile-peek-lightbox--voile-ficha', isVoileFicha);
+  lb.classList.remove('sheet-profile-peek-lightbox--voile-element');
+
+  // Clear previous inline SVG (Voile ficha) so Montserrat from the page can apply
+  stage.querySelectorAll('.sheet-profile-peek-lightbox__svg').forEach((n) => n.remove());
+  img.hidden = false;
+  img.removeAttribute('src');
+  const isFrisoFicha =
+    frameImg.hasAttribute('data-peek-friso') ||
+    /FRISOS\s*\/svg\/friso-.*-ficha/i.test(peekSrc || '');
+
+  img.classList.toggle(
+    'sheet-profile-peek-lightbox__img--lineart',
+    /perfileria|PERFILERIA|voile-suspension|\.svg($|\?)/i.test(peekSrc)
+  );
+  img.classList.toggle('sheet-profile-peek-lightbox__img--friso-ficha', isFrisoFicha);
+  img.classList.toggle(
+    'profile-lineart--on-black',
+    frameImg.classList.contains('profile-lineart--on-black')
+  );
+
+  // Voile / Friso: misma imagen exacta que la miniatura (fondo negro, dibujo técnico)
+  img.hidden = false;
+  img.style.background = '#000';
+  img.src = resolvedSrc;
 
   document.querySelectorAll('.sheet-profile-thumb--peek.is-enlarged').forEach((t) => {
     if (t !== thumb) {
@@ -1680,7 +2366,9 @@ function initProfilePeekThumbs(scope = document) {
     thumb.dataset.peekBound = '1';
     thumb.setAttribute('role', 'button');
     thumb.setAttribute('tabindex', '0');
-    thumb.setAttribute('aria-label', 'Ampliar vista técnica del perfil');
+    if (!thumb.getAttribute('aria-label')) {
+      thumb.setAttribute('aria-label', 'Ampliar vista técnica');
+    }
 
     if (!thumb.querySelector('.sheet-profile-peek-loupe')) {
       const loupe = document.createElement('span');
@@ -1721,28 +2409,133 @@ function initProfilePeekThumbs(scope = document) {
   }
 }
 
+/** On product fichas, category pills become real links to index#category. */
+function convertProductPageFilterPillsToLinks() {
+  if (!isDedicatedProductPageUrl()) return;
+  document.querySelectorAll('button.filter-pill[data-filter]').forEach((pill) => {
+    const cat = (pill.dataset.filter || 'all').trim();
+    const hash = !cat || cat === 'all' ? 'catalogue' : filterCategoryKeyToHashAnchor(cat);
+    const a = document.createElement('a');
+    a.className = pill.className;
+    a.href = `index.html#${hash}`;
+    a.dataset.filter = cat;
+    if (pill.dataset.thumbSrc) a.dataset.thumbSrc = pill.dataset.thumbSrc;
+    if (pill.dataset.thumbReady) a.dataset.thumbReady = pill.dataset.thumbReady;
+    if (pill.dataset.iconReady) a.dataset.iconReady = pill.dataset.iconReady;
+    a.setAttribute('role', 'button');
+    a.innerHTML = pill.innerHTML;
+    if (pill.classList.contains('active')) a.classList.add('active');
+    pill.replaceWith(a);
+  });
+}
+
 function initProductPageLinkNavigation() {
+  hardenProductAnchors(document);
   if (document.body.dataset.productNavBound === '1') return;
   document.body.dataset.productNavBound = '1';
 
-  document.addEventListener(
-    'click',
-    (e) => {
-      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
-      const el = e.target instanceof Element ? e.target : e.target?.parentElement;
-      const productLink = el && el.closest('a[href^="product-"][href$=".html"]');
-      if (!productLink || productLink.closest('#catalogue-list')) return;
-      const href = (productLink.getAttribute('href') || '').trim();
-      if (!href) return;
-      e.preventDefault();
-      e.stopPropagation();
-      window.location.assign(href);
-    },
-    true
-  );
+  /* Always rewrite SPA chrome to real URLs when on a product ficha. */
+  if (isDedicatedProductPageUrl()) {
+    document.querySelectorAll('a[onclick*="showPage(\'home\'"]').forEach((a) => {
+      a.setAttribute('href', 'index.html');
+      a.removeAttribute('onclick');
+    });
+    document.querySelectorAll('a.nav-brand-link').forEach((a) => {
+      a.setAttribute('href', 'index.html');
+      a.removeAttribute('onclick');
+    });
+    document.querySelectorAll('a[onclick*="goToCatalogueAll"]').forEach((a) => {
+      a.setAttribute('href', 'index.html#catalogue');
+      a.removeAttribute('onclick');
+    });
+    document.querySelectorAll('a[onclick*="showPage(\'contact\'"]').forEach((a) => {
+      a.setAttribute('href', 'index.html#contact');
+      a.removeAttribute('onclick');
+    });
+    document.querySelectorAll('a[href="#catalogue"]').forEach((a) => {
+      a.setAttribute('href', 'index.html#catalogue');
+    });
+    document.querySelectorAll('a[href="#contact"]').forEach((a) => {
+      a.setAttribute('href', 'index.html#contact');
+    });
+    document.querySelectorAll('a[href="#"]').forEach((a) => {
+      const label = (a.textContent || '').trim();
+      if (label === 'Inicio' || a.classList.contains('nav-brand-link')) {
+        a.setAttribute('href', 'index.html');
+        a.removeAttribute('onclick');
+      } else if (label === 'Contacto') {
+        a.setAttribute('href', 'index.html#contact');
+        a.removeAttribute('onclick');
+      }
+    });
+    convertProductPageFilterPillsToLinks();
+
+    /* Capture: force leave-to-index for chrome / category pills (preview-safe). */
+    document.addEventListener(
+      'click',
+      (e) => {
+        if (printitNavigating) return;
+        if (!isDedicatedProductPageUrl()) return;
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+        const t = e.target instanceof Element ? e.target : e.target && e.target.parentElement;
+        if (!t || typeof t.closest !== 'function') return;
+        const a = t.closest('a[href]');
+        if (!a || a.hasAttribute('data-printit-nav')) return;
+        const raw = (a.getAttribute('href') || '').trim();
+        if (!raw || raw === '#' || /^javascript:/i.test(raw)) return;
+        let abs;
+        try {
+          abs = new URL(raw, window.location.href);
+        } catch (_) {
+          return;
+        }
+        const leaf = (abs.pathname || '').split('/').pop() || '';
+        const sameProductPage =
+          leaf.toLowerCase() ===
+          ((window.location.pathname || '').split('/').pop() || '').toLowerCase();
+        const hashOnlySpa =
+          /^#(?:catalogue|contact|home|inicio|all|luminarias|lightbox|totems|aereos|revestimientos|rigidos)$/i.test(
+            raw
+          );
+        const leavesToIndex =
+          leaf === 'index.html' ||
+          leaf === '' ||
+          abs.pathname.endsWith('/') ||
+          (sameProductPage && hashOnlySpa);
+        const isProductHop =
+          /^product-[^/]+\.html$/i.test(leaf) && !sameProductPage;
+        if (!leavesToIndex && !isProductHop) return;
+        e.preventDefault();
+        e.stopPropagation();
+        navigateToProductUrl(raw);
+      },
+      true
+    );
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  /* Load brand font without blocking styles.css parse. */
+  try {
+    if (!document.querySelector('link[data-printit-font]')) {
+      const pre = document.createElement('link');
+      pre.rel = 'preconnect';
+      pre.href = 'https://fonts.googleapis.com';
+      document.head.appendChild(pre);
+      const pre2 = document.createElement('link');
+      pre2.rel = 'preconnect';
+      pre2.href = 'https://fonts.gstatic.com';
+      pre2.crossOrigin = 'anonymous';
+      document.head.appendChild(pre2);
+      const font = document.createElement('link');
+      font.rel = 'stylesheet';
+      font.href =
+        'https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&display=swap';
+      font.dataset.printitFont = '1';
+      document.head.appendChild(font);
+    }
+  } catch (_) {}
+
   const showcaseImg = document.getElementById('showcase-img');
   if (showcaseImg) {
     let initial = showcaseImg.getAttribute('src') || '';
@@ -1756,20 +2549,39 @@ document.addEventListener('DOMContentLoaded', () => {
     showcaseLastCleanSrc = initial.split('?')[0];
   }
   initTheme();
+  initSiteFrameBrand();
   initGlobalCatalogueFilterNav();
   initFilterPillIcons();
   initBeforeAfterComparators();
+  initTripleBeforeAfterComparators();
   initLayerStairs();
   initSoftLoopVideos();
   refreshPrintitVideoBindings();
+  initPrintitGalleryVideoSequences();
   requestAnimationFrame(() => printitKickVisibleVideos());
   bustPrintitGalleryMediaCache();
   initBeforeAfterComparators();
+  initTripleBeforeAfterComparators();
   initLayerStairs();
   syncProductGalleryToShowcase();
   document.querySelectorAll('.nav-theme-toggle').forEach(btn => {
     btn.type = 'button';
-    btn.addEventListener('click', toggleTheme);
+    if (btn.dataset.themeBound === '1') return;
+    btn.dataset.themeBound = '1';
+    btn.addEventListener('click', (event) => {
+      const opt = event.target instanceof Element
+        ? event.target.closest('.nav-theme-opt')
+        : null;
+      if (opt?.classList.contains('nav-theme-opt--light')) {
+        setTheme('light');
+        return;
+      }
+      if (opt?.classList.contains('nav-theme-opt--dark')) {
+        setTheme('dark');
+        return;
+      }
+      toggleTheme();
+    });
   });
 
   const initialHash = (window.location.hash || '').replace('#', '');
@@ -1785,6 +2597,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     bindCatalogueProductLinks();
+    bindCatalogueHeaderToggles();
   }
 
   if (!initialHash && !dedicatedProduct && document.getElementById('page-home')) {
@@ -1803,17 +2616,33 @@ document.addEventListener('DOMContentLoaded', () => {
   initProductSheetDownloadCtaRow();
 
   initPrintitDiagnostics();
+
+  // Review sticky pins: only when session exists (see review/login.html). Removable later.
+  try {
+    if (sessionStorage.getItem('printit-review')) {
+      import('./review/review-app.js')
+        .then((m) => m.initPrintitReview && m.initPrintitReview())
+        .catch((err) => console.warn('[printit-review] failed to load', err));
+    }
+  } catch (_) {}
 });
 
 Object.assign(window, {
   selectCatalogueItem,
   bindCatalogueProductLinks,
+  bindCatalogueHeaderToggles,
+  setCatalogueHeaderPanelExpanded,
   filterCatalogue,
   showPage,
   goToCatalogueAll,
   openCatalogueCategory,
   showProductDetail,
-  openEmbeddedProduct
+  openEmbeddedProduct,
+  prevImage,
+  nextImage,
+  goToImage,
+  toggleTheme,
+  navigateToProductUrl
 });
 
 function applyHashRoute() {
@@ -1822,14 +2651,14 @@ function applyHashRoute() {
     const hash = (window.location.hash || '').replace('#', '');
     if ((hash === 'catalogue' || hash === 'all') && document.getElementById('page-catalogue')) {
       goToCatalogueAll(null);
-    } else if (
-      (hash === 'product' || isDedicatedProductPageUrl()) &&
-      document.getElementById('page-product')
-    ) {
+    } else if (isDedicatedProductPageUrl() && document.getElementById('page-product')) {
+      /* Real product-*.html fichas only — never trap index.html on #product. */
       if (!window.PRINTIT_PRODUCT_CONTEXT) {
         window.PRINTIT_PRODUCT_CONTEXT = { ...DEFAULT_PRODUCT_CONTEXT };
       }
       showPage('product', null);
+    } else if (hash === 'product' && document.getElementById('page-catalogue')) {
+      goToCatalogueAll(null);
     } else if (hash === 'contact' && document.getElementById('page-contact')) {
       showPage('contact', null);
     } else if (document.getElementById('page-catalogue')) {
