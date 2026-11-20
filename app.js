@@ -198,6 +198,7 @@ function updateShowcaseImage(src, label) {
     /DINAMIC TECNICO COMPLETO?\.mov$/i.test(cleanSrc) ||
     /DINAMIC TECNICO COMPLETE\.mov$/i.test(cleanSrc) ||
     /dinamic white placements\. ?\.mp4$/i.test(cleanSrc) ||
+    /Dynamic placements \.mov$/i.test(cleanSrc) ||
     /dinamico \.mp4$/i.test(cleanSrc);
   const isOnOffCorrectedClip = /on off 4k action \.mp4$/i.test(cleanSrc);
   const isDalliCasambiEffectShowcase = /DALLI\s*-\s*CASSAMBI\s+EFFECT\.mp4$/i.test(cleanSrc);
